@@ -2,7 +2,7 @@ import styles from "./Dropdown.module.scss";
 import { useState } from "react";
 
 interface Dropdown {
-  expandDirection?: boolean;
+  expandDirection?: "left" | "right";
   children: React.ReactNode;
   dropdownContent: React.ReactNode;
   height?: string;
@@ -11,7 +11,7 @@ interface Dropdown {
 
 export default function Dropdown(props: Dropdown) {
   const { expandDirection, dropdownContent, height, width, children } = props;
-  const [showDropdown, setShowDropdown] = useState(true);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = (): void => {
     setShowDropdown(!showDropdown);
@@ -25,7 +25,16 @@ export default function Dropdown(props: Dropdown) {
     >
       {children}
       {showDropdown ? (
-        <div className={styles.dropdownContainer} style={{ height: height, width: width }}>{dropdownContent}</div>
+        <div
+          className={
+            expandDirection === "left"
+              ? styles.dropdownContainerLeft
+              : styles.dropdownContainerRight
+          }
+          style={{ height: height, width: width }}
+        >
+          {dropdownContent}
+        </div>
       ) : null}
     </div>
   );

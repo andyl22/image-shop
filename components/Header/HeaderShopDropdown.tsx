@@ -10,7 +10,12 @@ export default function HeaderShopDropdown(props: Props) {
   const dropdownContent = <p>Cookies</p>;
 
   return (
-    <Dropdown expandDirection={true} dropdownContent={dropdownContent} height= "fit-content" width="fit-content">
+    <Dropdown
+      expandDirection={"right"}
+      dropdownContent={dropdownContent}
+      height="300px"
+      width="400px"
+    >
       {children}
     </Dropdown>
   );
