@@ -1,0 +1,25 @@
+@use "../../styles/variables.scss" as s;
+
+.header {
+  flex: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: s.$primary-background-color;
+  border-bottom: 2px solid s.$border-color;
+  box-shadow: 0 -1rem 1.5rem s.$box-shadow;
+  padding: 0.8rem 2rem;
+}
+
+#headerContentContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+  color: s.$light-font-color;
+  gap: 1rem;
+  font-weight: 700;
+  h1 {
+    font-size: 1.5rem;
+  }
+}

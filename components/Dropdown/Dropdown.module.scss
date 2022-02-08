@@ -1,0 +1,26 @@
+$margin-top: 0.5rem;
+
+.container {
+  position: relative;
+  &::before {
+    height: $margin-top;
+    content: "";
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+.dropdownContainer {
+  position: absolute;
+  min-height: fit-content;
+  min-width: fit-content;
+  margin: $margin-top 0;
+  border-radius: 0.2rem;
+  border: 2px solid #c7c5c3;
+  background: rgb(220, 220, 220);
+  left: 0;
+  padding: 1rem;
+  color: black;
+}

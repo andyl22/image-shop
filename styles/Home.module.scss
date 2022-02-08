@@ -1,0 +1,19 @@
+@use "variables.scss" as s;
+
+.header,
+.footer,
+.main {
+  text-align: center;
+}
+
+.main {
+  flex: 1;
+  padding: 1rem;
+  background: s.$secondary-background-color;
+}
+
+.footer {
+  flex: 0;
+  padding: 0.5rem;
+  background: s.$secondary-background-color;
+}
