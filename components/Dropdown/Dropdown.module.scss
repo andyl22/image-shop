@@ -1,10 +1,10 @@
-$margin-top: .8rem;
+$margin-top: 0.8rem;
 
 .container {
   position: relative;
   &::before {
-    height: $margin-top;
     content: "";
+    height: $margin-top;
     width: 100%;
     position: absolute;
     top: 100%;
@@ -18,8 +18,7 @@ $margin-top: .8rem;
     margin: $margin-top 0;
     border-radius: 0.2rem;
     border: 2px solid #c7c5c3;
-    background: rgb(220, 220, 220);
-    padding: 1rem;
+    background: white;
     color: black;
   }
   .dropdownContainerRight {

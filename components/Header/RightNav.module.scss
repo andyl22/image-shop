@@ -1,8 +1,6 @@
 .headerLinkContainer {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   gap: 1rem;
-}
-
-.headerLink {
-  list-style: none;
 }

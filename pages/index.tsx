@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <Header />
 
       <main className={styles.main}>
-        
+        Welcome to the website!
       </main>
 
     </>

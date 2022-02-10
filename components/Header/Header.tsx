@@ -1,14 +1,14 @@
 import styles from "./Header.module.scss";
-import HeaderLeftNav from "./HeaderLeftNav";
-import HeaderRightNav from "./HeaderRightNav";
+import LeftNav from "./LeftNav";
+import RightNav from "./RightNav";
 
 export default function Header() {
   return (
     <header className={styles.header}>
       <div id={styles.headerContentContainer}>
-        <HeaderLeftNav />
+        <LeftNav />
         <h1>The Image Shop</h1>
-        <HeaderRightNav />
+        <RightNav />
       </div>
     </header>
   );

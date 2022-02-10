@@ -5,12 +5,10 @@ interface Dropdown {
   expandDirection?: "left" | "right";
   children: React.ReactNode;
   dropdownContent: React.ReactNode;
-  height?: string;
-  width?: string;
 }
 
 export default function Dropdown(props: Dropdown) {
-  const { expandDirection, dropdownContent, height, width, children } = props;
+  const { expandDirection, dropdownContent, children } = props;
   const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = (): void => {
@@ -31,7 +29,6 @@ export default function Dropdown(props: Dropdown) {
               ? styles.dropdownContainerLeft
               : styles.dropdownContainerRight
           }
-          style={{ height: height, width: width }}
         >
           {dropdownContent}
         </div>
