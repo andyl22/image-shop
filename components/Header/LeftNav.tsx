@@ -6,14 +6,14 @@ export default function LeftNav() {
   return (
     <nav className={styles.headerLinkContainer}>
       <ShopDropdown>
-        <Link href="/Shop">
+        <Link href="/shop">
           <a>Shop</a>
         </Link>
       </ShopDropdown>
-      <Link href="/About">
+      <Link href="/about">
         <a>About</a>
       </Link>
-      <Link href="/Blog">
+      <Link href="/blog">
         <a>Blog</a>
       </Link>
     </nav>

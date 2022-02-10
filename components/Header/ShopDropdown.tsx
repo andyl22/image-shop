@@ -11,10 +11,13 @@ export default function ShopDropdown(props: Props) {
   const dropdownContent = (
     <div className={styles.shopDropdownContainer}>
       <nav>
-        <Link href="test">
+        <Link href="about">
           <a>About</a>
         </Link>
       </nav>
+      <div>
+        Test
+      </div>
     </div>
   );
 
