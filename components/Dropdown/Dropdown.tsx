@@ -9,7 +9,7 @@ interface Dropdown {
 
 export default function Dropdown(props: Dropdown) {
   const { expandDirection, dropdownContent, children } = props;
-  const [showDropdown, setShowDropdown] = useState(true);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = (): void => {
     setShowDropdown(!showDropdown);

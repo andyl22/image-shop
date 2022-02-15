@@ -5,9 +5,9 @@ import RightNav from "./RightNav";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div id={styles.headerContentContainer}>
+      <div className={styles.headerContentContainer}>
         <LeftNav />
-        <h1>The Image Shop</h1>
+        <h1>Parks</h1>
         <RightNav />
       </div>
     </header>

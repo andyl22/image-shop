@@ -1,0 +1,17 @@
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  input[type="button"] {
+    margin-top: 0.5rem;
+    &:hover {
+      cursor: pointer;
+      background: #dfdddd;
+      transform: scale(1.01);
+    }
+  }
+}

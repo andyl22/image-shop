@@ -1,0 +1,12 @@
+.formStyle {
+  input {
+    border: 1px solid #cccccc;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+    min-width: 30%;
+    &:focus {
+      border-color: white;
+      outline: 2px solid #1970fd;
+    }
+  }
+}

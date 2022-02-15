@@ -12,11 +12,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <span className={styles.background}></span>
       <Header />
-
-      <main className={styles.main}>
-        Welcome to the website!
-      </main>
+      <main className={styles.main}>Welcome to the website!</main>
 
     </>
   );

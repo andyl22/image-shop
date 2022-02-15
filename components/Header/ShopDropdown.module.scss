@@ -1,8 +1,14 @@
 .shopDropdownContainer {
   display: grid;
+  justify-content: center;
   grid-template: 1fr / fit-content(100%) fit-content(100%);
   gap: 1rem;
-  width: 250px;
-  height: 150px;
+  width: 100vw;
+  height: fit-content;
   padding: 1em;
+}
+
+.links {
+  padding-right: 1rem;
+  border-right: 1px solid #edeae7;
 }
