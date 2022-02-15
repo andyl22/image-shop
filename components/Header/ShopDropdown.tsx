@@ -11,7 +11,7 @@ export default function ShopDropdown(props: Props) {
   const dropdownContent = (
     <div className={styles.shopDropdownContainer}>
       <nav className={styles.links}>
-        <Link href="about">
+        <Link href="/about">
           <a>About</a>
         </Link>
       </nav>

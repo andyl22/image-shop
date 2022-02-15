@@ -3,12 +3,15 @@ import styles from "./Form.module.scss";
 
 interface Prop {
   children: ReactNode;
-  parentStyles: string;
+  title: string;
 }
 
 export default function Form(props: Prop) {
-  const { children, parentStyles } = props;
+  const { children, title } = props;
   return (
-    <form className={`${parentStyles} ${styles.formStyle}`}>{children}</form>
+    <form className={styles.formStyle}>
+      <span className={styles.formHeader}>{title || "Form Title"}</span>
+      <div className={styles.formContent}>{children}</div>
+    </form>
   );
 }

@@ -1,5 +1,5 @@
 import styles from "./Dropdown.module.scss";
-import { useState } from "react";
+import { KeyboardEvent, MouseEvent, useState } from "react";
 
 interface Dropdown {
   expandDirection?: "left" | "right";
@@ -11,15 +11,33 @@ export default function Dropdown(props: Dropdown) {
   const { expandDirection, dropdownContent, children } = props;
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const toggleDropdown = (): void => {
+  const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+  };
+
+  const handleKeyPress = (e: KeyboardEvent): void => {
+    const target = e.target as HTMLElement;
+
+    if ((e.target as HTMLElement).tagName === "A" && e.key === "Enter") return;
+
+    if (e.key === "Enter" && target.parentNode) {
+      if (target.parentNode.className.match(/.*Dropdown.*/)) toggleDropdown();
+    }
+
+    if (e.key === "Escape") setShowDropdown(!showDropdown);
+  };
+
+  const handleMouseOver = (e: MouseEvent): void => {
+    toggleDropdown();
   };
 
   return (
     <div
+      aria-expanded={showDropdown}
       className={styles.container}
-      onMouseEnter={toggleDropdown}
-      onMouseLeave={toggleDropdown}
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseOver}
+      onKeyDown={handleKeyPress}
     >
       {children}
       {showDropdown ? (

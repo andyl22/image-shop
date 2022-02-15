@@ -2,6 +2,7 @@
 
 .header {
   flex: 0;
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -16,7 +17,7 @@
   }
 }
 
-#headerContentContainer {
+.headerContentContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,5 +26,9 @@
   font-weight: 700;
   h1 {
     font-size: 1.5rem;
+  }
+  @include s.mobile-view {
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }

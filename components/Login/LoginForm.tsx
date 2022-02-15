@@ -22,7 +22,7 @@ export default function LoginForm() {
   };
 
   return (
-    <Form parentStyles={styles.loginForm}>
+    <Form title="Login">
       <input
         type="text"
         id="login-username"

@@ -1,12 +1,52 @@
+@use "../../styles/variables" as s;
+
 .formStyle {
-  input {
-    border: 1px solid #cccccc;
-    padding: 0.3rem;
-    border-radius: 0.2rem;
-    min-width: 30%;
-    &:focus {
-      border-color: white;
-      outline: 2px solid #1970fd;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 600px;
+  background: white;
+  border: 2px solid #e9e8e8;
+  border-radius: 1em;
+  overflow: hidden;
+  .formHeader {
+    flex: 0;
+    text-align: center;
+    color: s.$light-font-color;
+    font-size: 1.4rem;
+    width: 100%;
+    background: rgb(17, 109, 230);
+    padding: 0.2rem 1rem 0.4rem 1rem;
+  }
+  .formContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    input {
+      border: 1px solid #cccccc;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+      min-width: 30%;
+      gap: 2rem;
+      &:focus {
+        border-color: white;
+        outline: 2px solid #5194ff;
+      }
+    }
+    input[type="button"] {
+      margin-top: 0.2rem;
+      min-width: 20%;
+      &:hover {
+        cursor: pointer;
+        background: #dfdddd;
+        transform: scale(1.01);
+      }
+      &:focus {
+        border: none;
+      }
     }
   }
 }

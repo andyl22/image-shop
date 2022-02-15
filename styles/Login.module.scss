@@ -1,0 +1,9 @@
+@use "variables.scss" as s;
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #edebe7;
+}

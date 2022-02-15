@@ -10,21 +10,4 @@
   top: 0;
   height: 100%;
   width: 100%;
-  .modalContainer {
-    display: flex;
-    flex-direction: column;
-    height: 500px;
-    width: 600px;
-    background: white;
-    border-radius: 0.5em;
-    overflow: hidden;
-    .modalHeader {
-      text-align: center;
-      color: s.$light-font-color;
-      font-size: 1.4rem;
-      width: 100%;
-      background: rgb(17, 109, 230);
-      padding: 0.2rem 1rem;
-    }
-  }
 }

@@ -2,4 +2,22 @@
   flex: 1;
   display: flex;
   gap: 2rem;
+  .shopLink {
+    border: none;
+    background: none;
+    font-weight: 700;
+    font-size: 1rem;
+    position: relative;
+    &:hover,
+    &:focus {
+      &::before {
+        position: absolute;
+        top: 100%;
+        right: -50%;
+        height: 150%;
+        content: "";
+        width: 200%;
+      }
+    }
+  }
 }

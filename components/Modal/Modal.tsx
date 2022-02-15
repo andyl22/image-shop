@@ -1,18 +1,16 @@
 import styles from "./Modal.module.scss";
-import LoginForm from "../LoginForm/LoginForm";
+import LoginForm from "../Login/LoginForm";
 
 interface Prop {
   title: string;
+  children: React.ReactNode;
 }
 
 export default function Modal(props: Prop) {
-  const { title } = props;
+  const { title, children } = props;
   return (
     <div className={styles.modalOverlay}>
-      <div className={styles.modalContainer}>
-        <span className={styles.modalHeader}>{title || "Modal Header"}</span>
-        <LoginForm />
-      </div>
+      {children}
     </div>
   );
 }

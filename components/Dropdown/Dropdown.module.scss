@@ -1,23 +1,8 @@
-$margin-top: 1.2rem;
-
 .container {
-  position: relative;
-  &::before {
-    content: "";
-    height: $margin-top;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
   .dropdownContainerRight,
   .dropdownContainerLeft {
-    position: fixed;
     min-height: fit-content;
     min-width: fit-content;
-    margin: $margin-top 0;
-    background: white;
-    color: black;
   }
   .dropdownContainerRight {
     left: 0;
