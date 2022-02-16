@@ -14,7 +14,9 @@ const About: NextPage = () => {
 
       <Header />
 
-      <main className={styles.main}>About!</main>
+      <main className={styles.main}>
+        <p>The one stop shop for ordering artwork of National Parks!</p>
+      </main>
     </>
   );
 };

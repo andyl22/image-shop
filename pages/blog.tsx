@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header/Header";
-import styles from "../styles/Home.module.scss";
+import styles from "../styles/Blog.module.scss";
+import BlogCard from "../components/BlogCards/BlogCard";
 
 const Blog: NextPage = () => {
   return (
@@ -14,7 +15,14 @@ const Blog: NextPage = () => {
 
       <Header />
 
-      <main className={styles.main}>Blog!</main>
+      <main className={styles.main}>
+        <BlogCard
+          title="New Blog Post"
+          author="Andy"
+          publishDate={new Date()}
+          content="Blog Content"
+        />
+      </main>
     </>
   );
 };

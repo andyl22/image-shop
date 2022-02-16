@@ -12,7 +12,8 @@ $margin-top: 1.2rem;
   position: absolute;
   left: 0;
   top: 100%;
-  background: white;
+  background: rgb(252, 252, 252);
+  box-shadow: 0 0 1px black;
   @include s.mobile-view {
     width: 100%;
     height: 100%;

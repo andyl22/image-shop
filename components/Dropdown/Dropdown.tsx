@@ -21,7 +21,8 @@ export default function Dropdown(props: Dropdown) {
     if ((e.target as HTMLElement).tagName === "A" && e.key === "Enter") return;
 
     if (e.key === "Enter" && target.parentNode) {
-      if (target.parentNode.className.match(/.*Dropdown.*/)) toggleDropdown();
+      if ((target.parentNode as HTMLElement).className.match(/.*Dropdown.*/))
+        toggleDropdown();
     }
 
     if (e.key === "Escape") setShowDropdown(!showDropdown);

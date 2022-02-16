@@ -1,12 +1,14 @@
 import styles from "./LoginForm.module.scss";
 import Form from "../Form/Form";
-import { SyntheticEvent, useEffect, useRef } from "react";
+import { ReactElement, SyntheticEvent, useEffect, useRef } from "react";
 
 export default function LoginForm() {
-  const formRef = useRef();
+  const formRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    formRef.current.focus();
+    if (formRef.current) {
+      formRef.current.focus();
+    }
   });
 
   const handleFocus = (e: SyntheticEvent) => {
