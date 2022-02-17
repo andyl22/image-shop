@@ -2,15 +2,15 @@
 
 .header {
   flex: 0;
-  position: relative;
+  position: sticky;
   display: flex;
   justify-content: center;
   width: 100%;
-  background: none;
-  border-bottom: 2px solid s.$border-color;
+  background: white;
   box-shadow: 0 -1rem 1.5rem s.$box-shadow;
   padding: 0.8rem 2rem;
   transition-duration: 1s;
+  z-index: 1;
   &:hover {
     background: s.$secondary-background-color;
     transition-duration: 1s;

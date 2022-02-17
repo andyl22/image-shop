@@ -1,3 +1,5 @@
+$contentMargin: 1rem;
+
 .headerLinkContainer {
   flex: 1;
   display: flex;
@@ -10,17 +12,18 @@
     position: relative;
     &:hover,
     &:focus {
+      cursor: pointer;
       &::before {
+        cursor: default;
         position: absolute;
         top: 100%;
-        right: -50%;
-        height: 150%;
+        right: -$contentMargin;
+        height: 1000%;
+        text-align: center;
         content: "";
-        width: 200%;
+        width: 100%;
+        padding: 0.5rem $contentMargin;
       }
     }
-  }
-  button {
-    cursor: pointer;
   }
 }
