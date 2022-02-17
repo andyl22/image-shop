@@ -1,24 +1,23 @@
 import styles from "./BlogCard.module.scss";
+import testImage from "../../public/images/home-background.jpg";
+import Image from "next/image";
 
 interface Prop {
   title: string;
   author: string;
   content: string;
-  publishDate: Date;
 }
 
 export default function BlogCard(props: Prop) {
-  const { title, author, content, publishDate } = props;
+  const { title, content } = props;
   return (
     <div className={styles.blogCardContainer}>
-      <span className={styles.blogCardHeader}>
-        <h1>{title}</h1>
-        <h2>{author}</h2>
-        <p>{`${publishDate}`}</p>
-      </span>
-      <div className={styles.blogCardContent}>
-        <p>{content}</p>
+      <div className={styles.blogImage}>
+        <Image src={testImage} alt={`blog-${title}`} />
       </div>
+
+      <h1>{title}</h1>
+      <p>{content}</p>
     </div>
   );
 }

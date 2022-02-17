@@ -10,6 +10,7 @@ interface Dropdown {
 export default function Dropdown(props: Dropdown) {
   const { expandDirection, dropdownContent, children } = props;
   const [showDropdown, setShowDropdown] = useState(false);
+  const [disableMouseOver, setDisableMouseOver] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -32,12 +33,17 @@ export default function Dropdown(props: Dropdown) {
     toggleDropdown();
   };
 
+  const disableHover = (e: MouseEvent): void => {
+    setDisableMouseOver(!disableMouseOver);
+  };
+
   return (
     <div
       aria-expanded={showDropdown}
       className={styles.container}
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseOver}
+      onMouseEnter={disableMouseOver ? undefined : handleMouseOver}
+      onMouseLeave={disableMouseOver ? undefined : handleMouseOver}
+      onPointerDown={disableHover}
       onKeyDown={handleKeyPress}
     >
       {children}
