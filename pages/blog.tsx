@@ -16,12 +16,10 @@ const Blog: NextPage = () => {
       <Header />
 
       <main className={styles.main}>
-        <BlogCard
-          title="New Blog Post"
-          author="Andy"
-          publishDate={new Date()}
-          content="Blog Content"
-        />
+        <BlogCard title="New Blog Post" author="Andy" content="Blog Content" />
+        <BlogCard title="New Blog Post" author="Andy" content="Blog Content" />
+        <BlogCard title="New Blog Post" author="Andy" content="Blog Content" />
+        <BlogCard title="New Blog Post" author="Andy" content="Blog Content" />
       </main>
     </>
   );

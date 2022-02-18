@@ -1,18 +1,26 @@
+@use "../../styles/variables" as s;
+
 .blogCardContainer {
   position: relative;
   z-index: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: fit-content;
+  height: 600px;
   max-width: 350px;
   border-radius: 1em;
   text-align: center;
   box-shadow: 0 0 8px -4px rgb(109, 109, 109);
   background: white;
+  &:hover {
+    background: s.$secondary-background-color;
+    img {
+      opacity: 90%;
+    }
+  }
   .blogImage {
-    width: 105%;
+    width: 102%;
     img {
       border-radius: 1rem;
     }
