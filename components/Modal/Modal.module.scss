@@ -4,10 +4,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  background: rgb(208, 204, 204, 30%);
+  position: fixed;
+  background: rgba(112, 110, 110, 0.8);
   left: 0;
   top: 0;
   height: 100%;
   width: 100%;
+  z-index: 99;
 }

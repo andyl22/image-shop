@@ -1,6 +1,8 @@
 .main {
   display: flex;
-  gap: 5rem;
+  justify-content: center;
+  flex-wrap: wrap;
   background: #eaecff;
-  padding: 3rem 5rem;
+  gap: 3rem;
+  padding: 3rem;
 }

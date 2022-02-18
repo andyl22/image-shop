@@ -1,0 +1,42 @@
+.modalBlogContent {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 90%;
+    height: 100%;
+    background: white;
+    padding: 3rem;
+    overflow-y: auto;
+    .closeButton {
+        position: absolute;
+        top: .5rem;
+        right: .5rem;
+        &:hover {
+          cursor: pointer;
+          color: gray;
+        }
+    }
+    .articleHeader {
+        flex: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h1 {
+            font-size: 1.2rem;
+            padding-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    }
+    .articleContent {
+        padding: 1rem;
+        flex: 1;
+        p {
+            text-align: start;
+            line-height: 1.5rem;
+        }
+    }
+}

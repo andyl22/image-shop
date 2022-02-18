@@ -3,6 +3,8 @@ import Head from "next/head";
 import Header from "../components/Header/Header";
 import styles from "../styles/Blog.module.scss";
 import BlogCard from "../components/BlogCards/BlogCard";
+import TestImage from "../public/images/home-background.jpg";
+
 
 const Blog: NextPage = () => {
   return (
@@ -16,10 +18,10 @@ const Blog: NextPage = () => {
       <Header />
 
       <main className={styles.main}>
-        <BlogCard title="New Blog Post" author="Andy" content="Blog Content" />
-        <BlogCard title="New Blog Post" author="Andy" content="Blog Content" />
-        <BlogCard title="New Blog Post" author="Andy" content="Blog Content" />
-        <BlogCard title="New Blog Post" author="Andy" content="Blog Content" />
+        <BlogCard title="New Blog Post" subtitle="Test Article" author="Andy" content="Blog Content" image={TestImage}/>
+        <BlogCard title="New Blog Post" subtitle="Test Article" author="Andy" content="Blog Content" image={TestImage}/>
+        <BlogCard title="New Blog Post" subtitle="Test Article" author="Andy" content="Blog Content" image={TestImage}/>
+        <BlogCard title="New Blog Post" subtitle="Test Article" author="Andy" content="Blog Content" image={TestImage}/>
       </main>
     </>
   );

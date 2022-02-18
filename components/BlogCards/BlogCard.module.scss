@@ -9,18 +9,20 @@
   align-items: center;
   height: 600px;
   max-width: 350px;
+  min-width: 250px;
   border-radius: 1em;
   text-align: center;
   box-shadow: 0 0 8px -4px rgb(109, 109, 109);
   background: white;
   &:hover {
+    cursor: pointer;
     background: s.$secondary-background-color;
     img {
       opacity: 90%;
     }
   }
-  .blogImage {
-    width: 102%;
+  .blogCardImage {
+    width: 103%;
     img {
       border-radius: 1rem;
     }
@@ -33,4 +35,9 @@
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
+}
+
+.blogImage {
+  max-width: 600px;
+  padding-bottom: 2rem;
 }
