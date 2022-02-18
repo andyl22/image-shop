@@ -5,7 +5,6 @@ import styles from "../styles/Blog.module.scss";
 import BlogCard from "../components/BlogCards/BlogCard";
 import TestImage from "../public/images/home-background.jpg";
 
-
 const Blog: NextPage = () => {
   return (
     <>
@@ -18,10 +17,42 @@ const Blog: NextPage = () => {
       <Header />
 
       <main className={styles.main}>
-        <BlogCard title="New Blog Post" subtitle="Test Article" author="Andy" content="Blog Content" image={TestImage}/>
-        <BlogCard title="New Blog Post" subtitle="Test Article" author="Andy" content="Blog Content" image={TestImage}/>
-        <BlogCard title="New Blog Post" subtitle="Test Article" author="Andy" content="Blog Content" image={TestImage}/>
-        <BlogCard title="New Blog Post" subtitle="Test Article" author="Andy" content="Blog Content" image={TestImage}/>
+        <BlogCard
+          title="New Blog Post"
+          subtitle="Random Test Article"
+          author="Andy"
+          content="Blog Content"
+          image={TestImage}
+        >
+          <p>Hello there. My name is Andy Lau.</p>
+        </BlogCard>
+        <BlogCard
+          title="New Blog Post"
+          subtitle="Random Test Article"
+          author="Andy"
+          content="Blog Content"
+          image={TestImage}
+        >
+          <p>Hello there. My name is Andy Lau.</p>
+        </BlogCard>
+        <BlogCard
+          title="New Blog Post"
+          subtitle="Random Test Article"
+          author="Andy"
+          content="Blog Content"
+          image={TestImage}
+        >
+          <p>Hello there. My name is Andy Lau.</p>
+        </BlogCard>
+        <BlogCard
+          title="New Blog Post"
+          subtitle="Random Test Article"
+          author="Andy"
+          content="Blog Content"
+          image={TestImage}
+        >
+          <p>Hello there. My name is Andy Lau.</p>
+        </BlogCard>
       </main>
     </>
   );

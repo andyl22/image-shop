@@ -2,14 +2,12 @@
 
 .blogCardContainer {
   position: relative;
-  z-index: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 600px;
-  max-width: 350px;
-  min-width: 250px;
+  height: 400px;
+  width: 300px;
   border-radius: 1em;
   text-align: center;
   box-shadow: 0 0 8px -4px rgb(109, 109, 109);
@@ -38,6 +36,6 @@
 }
 
 .blogImage {
-  max-width: 600px;
-  padding-bottom: 2rem;
+  width: 100%;
+  padding: 0 1.5rem;
 }

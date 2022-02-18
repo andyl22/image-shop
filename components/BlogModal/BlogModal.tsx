@@ -1,6 +1,7 @@
 import styles from "./BlogModal.module.scss";
 import Modal from "../Modal/Modal";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
+import { MouseEventHandler } from "react";
 
 interface Props {
   title: string;
@@ -8,30 +9,27 @@ interface Props {
   author: string;
   children: JSX.Element | JSX.Element[];
   headerImage: JSX.Element;
-  toggleModal: Function;
+  toggleModal: MouseEventHandler;
 }
 
 export default function BlogModal(props: Props) {
-
-  const closeModal = () => {
-
-  }
-
   const { title, subtitle, author, children, headerImage, toggleModal } = props;
   return (
     <Modal toggleModal={toggleModal}>
       <div className={styles.modalBlogContent}>
-        <CloseIcon fontSize="small" className={styles.closeButton} onClick={toggleModal} />
+        <span onClick={toggleModal}>
+          <CloseIcon fontSize="small" className={styles.closeButton} />
+        </span>
         <header className={styles.articleHeader}>
-          {headerImage}
           <h1>{title}</h1>
-          <h2>{subtitle}</h2>
-          <h2>By: {author}</h2>
+          {headerImage}
+          <span>
+            <h2>{subtitle}</h2>
+            <h2>By: {author}</h2>
+          </span>
         </header>
-        <article className={styles.articleContent}>
-          {children}
-        </article>
+        <article className={styles.articleContent}>{children}</article>
       </div>
     </Modal>
-  )
+  );
 }

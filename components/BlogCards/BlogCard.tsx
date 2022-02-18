@@ -1,7 +1,7 @@
 import styles from "./BlogCard.module.scss";
 import Image from "next/image";
 import BlogModal from "../BlogModal/BlogModal";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 
 interface Prop {
   title: string;
@@ -9,21 +9,22 @@ interface Prop {
   author: string;
   content: string;
   image: StaticImageData;
+  children: ReactElement;
 }
 
 export default function BlogCard(props: Prop) {
-  const { title, subtitle, author, content, image } = props;
+  const { title, subtitle, author, content, image, children } = props;
   const [openModal, setOpenModal] = useState(false);
 
   const toggleModal = () => {
     setOpenModal(!openModal);
-  }
+  };
 
   const headerImage = (
     <div className={styles.blogImage}>
-      <Image src={image} alt={`blog-${title}`} />
+      <Image layout="responsive" src={image} alt={`blog-${title}`} />
     </div>
-  )
+  );
 
   const blogContent = (
     <BlogModal
@@ -33,11 +34,9 @@ export default function BlogCard(props: Prop) {
       headerImage={headerImage}
       toggleModal={toggleModal}
     >
-      <p>Test</p>
-      <p>Test</p>
-      <p>Test</p>
+      {children}
     </BlogModal>
-  )
+  );
 
   return (
     <>

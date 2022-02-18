@@ -10,7 +10,6 @@ export default function Modal(props: Prop) {
   const { children, toggleModal } = props;
 
   useEffect(() => {
-    console.log(document.body.style.position)
     document.body.style.position = 'fixed';
 
     return () => {

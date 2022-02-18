@@ -1,39 +1,51 @@
 import styles from "./LoginForm.module.scss";
-import Form from "../Form/Form";
-import { ReactElement, SyntheticEvent, useEffect, useRef } from "react";
+import FormContainer from "../Form/FormContainer";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
 
 export default function LoginForm() {
   const formRef = useRef<HTMLInputElement>(null);
+  const [formState, setFormState] = useState({ username: "", password: "" });
 
   useEffect(() => {
     if (formRef.current) {
       formRef.current.focus();
     }
-  });
+  }, []);
 
-  const handleFocus = (e: SyntheticEvent) => {
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    console.log(formState);
+  };
+
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
-    if (["text", "password"].includes(target.type)) {
-      if (target.value !== null) {
-        const label = document.createElement("label");
-        label.setAttribute("for", target.id);
-        label.textContent = target.placeholder;
-        target.appendChild(label);
-      }
-    }
+    setFormState({ ...formState, [target.id]: target.value });
   };
 
   return (
-    <Form title="Login">
-      <input
-        type="text"
-        id="login-username"
-        placeholder="Username"
-        ref={formRef}
-        onFocus={handleFocus}
-      />
-      <input type="password" id="login-password" placeholder="Password" />
-      <input type="button" value="Login" />
-    </Form>
+    <FormContainer title="Login" handleSubmit={handleSubmit}>
+      <div className={styles.inputContainer}>
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Username"
+          ref={formRef}
+          onChange={handleChange}
+          value={formState.username}
+        />
+      </div>
+      <div className={styles.inputContainer}>
+        <label htmlFor="username">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          onChange={handleChange}
+          value={formState.password}
+        />
+      </div>
+      <input type="submit" value="Login" />
+    </FormContainer>
   );
 }

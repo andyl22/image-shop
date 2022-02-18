@@ -6,9 +6,7 @@ export default function LeftNav() {
   return (
     <nav className={styles.headerLinkContainer}>
       <ShopDropdown>
-        <button className={styles.shopLink}>
-          Shop
-        </button>
+        <button className={styles.shopLink}>Shop</button>
       </ShopDropdown>
       <Link href="/about">
         <a>About</a>

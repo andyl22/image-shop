@@ -13,7 +13,6 @@ export default function Header() {
             <h1>Parks</h1>
           </a>
         </Link>
-
         <RightNav />
       </div>
     </header>
