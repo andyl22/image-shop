@@ -1,0 +1,68 @@
+{
+    "National Parks": [
+        {
+            "linkName": "Yosemite",
+            "linkURL": "/national-parks/yosemite"
+        },
+        {
+            "linkName": "Redwood",
+            "linkURL": "/national-parks/redwood"
+        },
+        {
+            "linkName": "Yellowstone",
+            "linkURL": "/national-parks/yellowstone"
+        },
+        {
+            "linkName": "Zion",
+            "linkURL": "/national-parks/zion"
+        },
+        {
+            "linkName": "Mount Rainer",
+            "linkURL": "/national-parks/mount-rainer"
+        }
+    ],
+    "Flowers": [
+        {
+            "linkName": "Yosemite",
+            "linkURL": "/national-parks/yosemite"
+        },
+        {
+            "linkName": "Redwood",
+            "linkURL": "/national-parks/redwood"
+        },
+        {
+            "linkName": "Yellowstone",
+            "linkURL": "/national-parks/yellowstone"
+        },
+        {
+            "linkName": "Zion",
+            "linkURL": "/national-parks/zion"
+        },
+        {
+            "linkName": "Mount Rainer",
+            "linkURL": "/national-parks/mount-rainer"
+        }
+    ],
+    "Trees": [
+        {
+            "linkName": "Yosemite",
+            "linkURL": "/national-parks/yosemite"
+        },
+        {
+            "linkName": "Redwood",
+            "linkURL": "/national-parks/redwood"
+        },
+        {
+            "linkName": "Yellowstone",
+            "linkURL": "/national-parks/yellowstone"
+        },
+        {
+            "linkName": "Zion",
+            "linkURL": "/national-parks/zion"
+        },
+        {
+            "linkName": "Mount Rainer",
+            "linkURL": "/national-parks/mount-rainer"
+        }
+    ]
+}

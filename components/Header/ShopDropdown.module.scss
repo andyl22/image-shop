@@ -15,13 +15,34 @@ $margin-top: 1.2rem;
   border: 2px solid s.$border-color;
   box-shadow: -1px 8px 12px -4px s.$box-shadow;
   @include s.mobile-view {
-    width: 100%;
-    height: 100%;
     color: black !important;
   }
-}
-
-.links {
-  padding-right: 1rem;
-  border-right: 1px solid #edeae7;
+  .shopNav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    figure {
+      padding-right: 2rem;
+      border-right: 1px solid black;
+      &:last-of-type {
+        border-right: none;
+        padding-right: 0;
+      }
+    }
+    @include s.mobile-view {
+      figure {
+        figcaption {
+          text-align: center;
+        }
+        ul {
+          text-align: center;
+        }
+        width: 100%;
+        padding-right: 0;
+        border-right: none;
+      }
+    }
+  }
 }

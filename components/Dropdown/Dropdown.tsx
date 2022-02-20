@@ -30,20 +30,27 @@ export default function Dropdown(props: Dropdown) {
   };
 
   const handleMouseOver = (e: MouseEvent): void => {
+    if (disableMouseOver) return;
     toggleDropdown();
   };
 
   const disableHover = (e: MouseEvent): void => {
-    setDisableMouseOver(!disableMouseOver);
+    e.preventDefault();
+    if (disableMouseOver && e.target.tagName === "BUTTON") {
+      toggleDropdown();
+    }
+    if (e.target.tagName === "BUTTON") {
+      setDisableMouseOver(!disableMouseOver);
+    }
   };
 
   return (
     <div
       aria-expanded={showDropdown}
       className={styles.container}
-      onMouseEnter={disableMouseOver ? undefined : handleMouseOver}
-      onMouseLeave={disableMouseOver ? undefined : handleMouseOver}
-      onPointerDown={disableHover}
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseOver}
+      onMouseDown={disableHover}
       onKeyDown={handleKeyPress}
     >
       {children}

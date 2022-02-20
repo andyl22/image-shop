@@ -18,11 +18,12 @@ $contentMargin: 1rem;
         position: absolute;
         top: 100%;
         right: -$contentMargin;
-        height: 1000%;
+        height: 50%;
         text-align: center;
         content: "";
         width: 100%;
         padding: 0.5rem $contentMargin;
+        background: red;
       }
     }
   }
