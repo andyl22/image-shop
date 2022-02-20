@@ -25,7 +25,10 @@ $margin-top: 1.2rem;
     gap: 2rem;
     figure {
       padding-right: 2rem;
-      border-right: 1px solid black;
+      border-right: 1px solid rgb(205, 203, 203);
+      figcaption {
+        border-right: none;
+      }
       &:last-of-type {
         border-right: none;
         padding-right: 0;
