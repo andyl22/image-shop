@@ -9,19 +9,7 @@
   background: white;
   text-align: center;
   padding-top: 2rem;
-  &::-webkit-scrollbar {
-    background: none;
-  }
-  &::-webkit-scrollbar-corner {
-    background-color: rgba(0, 0, 0, 0);
-  }
-  &::-webkit-scrollbar-thumb {
-    background: rgb(179, 109, 136);
-    border: 4px solid white;
-    padding: 0 2em;
-    background-clip: content-box;
-    border-radius: 0.5em;
-  }
+  overflow-y: auto;
   .closeButton {
     position: absolute;
     top: 2rem;

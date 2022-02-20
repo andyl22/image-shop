@@ -8,7 +8,7 @@ interface Prop {
   subtitle: string;
   author: string;
   content: string;
-  image: StaticImageData;
+  image: string;
   children: ReactElement;
 }
 
@@ -22,7 +22,7 @@ export default function BlogCard(props: Prop) {
 
   const headerImage = (
     <div className={styles.blogImage}>
-      <Image layout="responsive" src={image} alt={`blog-${title}`} />
+      <Image layout="responsive" placeholder="empty" height="100%" width="100%" src={image} alt={`blog-${title}`} />
     </div>
   );
 
@@ -43,10 +43,14 @@ export default function BlogCard(props: Prop) {
       {openModal ? blogContent : null}
       <div className={styles.blogCardContainer} onPointerDown={toggleModal}>
         <div className={styles.blogCardImage}>
-          <Image src={image} alt={`blog-${title}`} />
+          <Image src={image} layout="responsive" placeholder="empty" height="100%" width="100%" alt={`blog-${title}`} />
         </div>
         <h1>{title}</h1>
-        <p>{content}</p>
+        <div className={styles.content}>
+          <p>
+            {content}
+          </p>
+        </div>
       </div>
     </>
   );
