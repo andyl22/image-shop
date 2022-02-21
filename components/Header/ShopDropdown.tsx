@@ -1,7 +1,7 @@
 import styles from "./ShopDropdown.module.scss";
 import Dropdown from "../Dropdown/Dropdown";
 import LinksList from "../LinksList/Linkslist";
-import data from "../../TestData/HeaderLinks.json";
+import data from "../../TestData/Sections.json";
 
 interface Props {
   children: React.ReactNode;

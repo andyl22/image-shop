@@ -1,6 +1,8 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import Header from "../../../components/Header/Header";
+import styles from "../../../styles/ShopSection.module.scss";
 import { getAllHeaderLinkParams, getShopSectionData } from "../../../TestData/HeaderLinks";
 
 export async function getStaticPaths() {
@@ -20,8 +22,23 @@ export async function getStaticProps({ params }) {
   }
 }
 
-const Shop: NextPage = (props) => {
+interface Props {
+  sectionData: { itemList: [{ linkName: string, linkURL: string }], sectionName: string }
+}
+
+const Section = (props: Props) => {
   const { sectionData } = props;
+
+  const mappedItems = sectionData.itemList.map(item => {
+    return (
+      <Link href={item.linkURL} key={item.linkURL}>
+        <a>{item.linkName}</a>
+      </Link>
+    )
+  });
+
+  const formattedName = sectionData.sectionName.split(/(?=[A-Z])/g).join(" ").toUpperCase();
+
   return (
     <>
       <Head>
@@ -32,9 +49,12 @@ const Shop: NextPage = (props) => {
 
       <Header />
 
-      <main>Second Level!</main>
+      <main className={styles.main}>
+        <h1>{formattedName}</h1>
+        {mappedItems}
+      </main>
     </>
   );
 };
 
-export default Shop;
+export default Section;

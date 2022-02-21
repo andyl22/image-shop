@@ -1,4 +1,4 @@
-import data from "./HeaderLinks.json"
+import data from "./Sections.json"
 
 export function getAllHeaderLinkParams() {
   return Object.keys(data).map(key => {
@@ -12,7 +12,7 @@ export function getAllHeaderLinkParams() {
 
 
 export function getShopSectionData(shopSection) {
-  const formattedKey = shopSection.shopSection.split("-").map((item, index) => {
+  const formattedKey = shopSection.shopSection.split("-").map((item: string, index: number) => {
     if(index === 0 ) {
       return item;
     } else {
@@ -20,7 +20,6 @@ export function getShopSectionData(shopSection) {
     }
   }).join("");
   const sectionData = data[formattedKey];
-  console.log(sectionData)
   return {
     sectionName: formattedKey,
     itemList: [...sectionData]
