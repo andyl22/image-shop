@@ -1,68 +1,68 @@
 {
-    "National Parks": [
+    "nationalParks": [
         {
             "linkName": "Yosemite",
-            "linkURL": "/national-parks/yosemite"
+            "linkURL": "/shop/yosemite"
         },
         {
             "linkName": "Redwood",
-            "linkURL": "/national-parks/redwood"
+            "linkURL": "/shop/redwood"
         },
         {
             "linkName": "Yellowstone",
-            "linkURL": "/national-parks/yellowstone"
+            "linkURL": "/shop/yellowstone"
         },
         {
             "linkName": "Zion",
-            "linkURL": "/national-parks/zion"
+            "linkURL": "/shop/zion"
         },
         {
             "linkName": "Mount Rainer",
-            "linkURL": "/national-parks/mount-rainer"
+            "linkURL": "/shop/mount-rainer"
         }
     ],
-    "Flowers": [
+    "flowers": [
         {
             "linkName": "Yosemite",
-            "linkURL": "/national-parks/yosemite"
+            "linkURL": "/shop/yosemite"
         },
         {
             "linkName": "Redwood",
-            "linkURL": "/national-parks/redwood"
+            "linkURL": "/shop/redwood"
         },
         {
             "linkName": "Yellowstone",
-            "linkURL": "/national-parks/yellowstone"
+            "linkURL": "/shop/yellowstone"
         },
         {
             "linkName": "Zion",
-            "linkURL": "/national-parks/zion"
+            "linkURL": "/shop/zion"
         },
         {
             "linkName": "Mount Rainer",
-            "linkURL": "/national-parks/mount-rainer"
+            "linkURL": "/shop/mount-rainer"
         }
     ],
-    "Trees": [
+    "trees": [
         {
             "linkName": "Yosemite",
-            "linkURL": "/national-parks/yosemite"
+            "linkURL": "/shop/yosemite"
         },
         {
             "linkName": "Redwood",
-            "linkURL": "/national-parks/redwood"
+            "linkURL": "/shop/redwood"
         },
         {
             "linkName": "Yellowstone",
-            "linkURL": "/national-parks/yellowstone"
+            "linkURL": "/shop/yellowstone"
         },
         {
             "linkName": "Zion",
-            "linkURL": "/national-parks/zion"
+            "linkURL": "/shop/zion"
         },
         {
             "linkName": "Mount Rainer",
-            "linkURL": "/national-parks/mount-rainer"
+            "linkURL": "/shop/mount-rainer"
         }
     ]
 }

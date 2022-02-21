@@ -9,10 +9,11 @@ interface Props {
 
 export default function ShopDropdown(props: Props) {
   const { children } = props;
-  const mappedLinks = Object.keys(data).map(linkGroupName =>
-    <LinksList linkGroupName={linkGroupName} key={linkGroupName} linkGroupLinks={data[linkGroupName]} />
+  const mappedLinks = Object.keys(data).map(linkGroupName => {
+    const formattedLink = linkGroupName.split(/(?=[A-Z])/g).join(" ").toUpperCase();
+    return <LinksList linkGroupName={formattedLink} key={linkGroupName} linkGroupLinks={data[linkGroupName]} />
+  }
   )
-  console.log(mappedLinks)
   const dropdownContent = (
     <div className={styles.shopDropdownContainer}>
       <nav className={styles.shopNav}>

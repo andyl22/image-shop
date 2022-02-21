@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Header from "../components/Header/Header";
-import styles from "../styles/Home.module.scss";
+import Header from "../../../components/Header/Header";
+import styles from "../../../styles/ShopItems.module.scss";
 
-const Shop: NextPage = () => {
+const ShopItem: NextPage = () => {
   return (
     <>
       <Head>
@@ -14,9 +14,11 @@ const Shop: NextPage = () => {
 
       <Header />
 
-      <main className={styles.main}>Shop!</main>
+      <main className={styles.main}>
+          Second Level Item
+      </main>
     </>
   );
 };
 
-export default Shop;
+export default ShopItem;
