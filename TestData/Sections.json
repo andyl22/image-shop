@@ -29,54 +29,54 @@
   "flowers": [
     {
       "linkName": "Yosemite",
-      "linkURL": "/shop/national-parks/yosemite",
+      "linkURL": "/shop/flowers/yosemite",
       "id": 1
     },
     {
       "linkName": "Redwood",
-      "linkURL": "/shop/national-parks/redwood",
+      "linkURL": "/shop/flowers/redwood",
       "id": 2
     },
     {
       "linkName": "Yellowstone",
-      "linkURL": "/shop/national-parks/yellowstone",
+      "linkURL": "/shop/flowers/yellowstone",
       "id": 3
     },
     {
       "linkName": "Zion",
-      "linkURL": "/shop/national-parks/zion",
+      "linkURL": "/shop/flowers/zion",
       "id": 4
     },
     {
       "linkName": "Mount Rainer",
-      "linkURL": "/shop/national-parks/mount-rainer",
+      "linkURL": "/shop/flowers/mount-rainer",
       "id": 5
     }
   ],
   "trees": [
     {
       "linkName": "Yosemite",
-      "linkURL": "/shop/national-parks/yosemite",
+      "linkURL": "/shop/trees/yosemite",
       "id": 1
     },
     {
       "linkName": "Redwood",
-      "linkURL": "/shop/national-parks/redwood",
+      "linkURL": "/shop/trees/redwood",
       "id": 2
     },
     {
       "linkName": "Yellowstone",
-      "linkURL": "/shop/national-parks/yellowstone",
+      "linkURL": "/shop/trees/yellowstone",
       "id": 3
     },
     {
       "linkName": "Zion",
-      "linkURL": "/shop/national-parks/zion",
+      "linkURL": "/shop/trees/zion",
       "id": 4
     },
     {
       "linkName": "Mount Rainer",
-      "linkURL": "/shop/national-parks/mount-rainer",
+      "linkURL": "/shop/trees/mount-rainer",
       "id": 5
     }
   ]
