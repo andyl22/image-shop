@@ -7,17 +7,15 @@ Next.JS practice project for an ecommerce website.
     - Dropdown menus for shop nav (Screen reader and keyboard accesible dropdown)
     - Nav menu for website
     - Basic form styling template
+    - Dynamic Routing for Subsection Items (current test data is not json, but rather an object that is really an array of objects. To be fixed as part of setting up the mongodb database schema)
 
 
 -- TODO
-    - Lazy Loading of subsection items
+    - Plan out and create mongodb scehams based on test data (current test data is not json, but rather an object that is really an array of objects. This should be fine for testing, but will need to be considered as part of the schema planning for the database)
+    - Clean up Dyanmic Routing for Sections and Subsections as part of the above
     - Auth for login
-    - Set up apis and mongodb database
-    - Transition test data json to mongodb schemas
-    - Host static images on S3 or Buckets
+    - Add content management (add shop sections => respective subsection => respective items). Locked under user auth
     - Cart system for user or localstorage
     - Checkout menu and forms
+    - Lazy Loading of subsection items
     - Registration form
-    - Dynamic Routing for Subsection Items
-    - Clean up Dyanmic Routing for Sections and Subsections
-

@@ -13,7 +13,7 @@ export function getAllHeaderLinkParams() {
 
 export function getShopSectionData(shopSection) {
   const formattedKey = shopSection.shopSection.split("-").map((item: string, index: number) => {
-    if(index === 0 ) {
+    if (index === 0) {
       return item;
     } else {
       return item.replace(item.charAt(0), item.charAt(0).toUpperCase());
@@ -23,5 +23,5 @@ export function getShopSectionData(shopSection) {
   return {
     sectionName: formattedKey,
     itemList: [...sectionData]
-}
+  }
 }
