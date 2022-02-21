@@ -3,7 +3,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Header from "../../../components/Header/Header";
 import styles from "../../../styles/ShopSection.module.scss";
-import { getAllHeaderLinkParams, getShopSectionData } from "../../../TestData/HeaderLinks";
+import { getAllHeaderLinkParams, getShopSectionData } from "../../../TestData/Sections";
 
 export async function getStaticPaths() {
   const paths = getAllHeaderLinkParams();

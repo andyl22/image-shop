@@ -38,7 +38,7 @@ interface Props {
   sectionData: SectionData;
 }
 
-const ShopItems = (props: Props) => {
+const SubSection = (props: Props) => {
   const { sectionData } = props;
 
   const mappedSectionData = sectionData.subSectionContent.map(item => {
@@ -70,4 +70,4 @@ const ShopItems = (props: Props) => {
   );
 };
 
-export default ShopItems;
+export default SubSection;
