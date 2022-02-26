@@ -8,11 +8,9 @@ export default function Header() {
   const [showHeader, setShowHeader] = useState(true);
 
   let lastScroll = useRef(0);
-  let throttle = useRef(false);
 
   const handleScroll = (e: Event) => {
-    if (throttle.current) return;
-    if(lastScroll.current <= 0 ) {
+    if(window.scrollY <= 0 ) {
       setShowHeader(true);
     } else if (window.scrollY > lastScroll.current) {
       console.log(window.scrollY, lastScroll.current)
@@ -21,8 +19,6 @@ export default function Header() {
       setShowHeader(true);
     }
     lastScroll.current = window.scrollY;
-    throttle.current = true;
-    setTimeout(() => throttle.current = false, 150)
   }
 
   useEffect(() => {
