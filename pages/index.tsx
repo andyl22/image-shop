@@ -15,7 +15,20 @@ const Home: NextPage = () => {
       <span className={styles.background} />
       <Header />
       <main className={styles.main}>
-        <h1>We love National Parks!</h1>
+        <div className={styles.introText}>
+          <span className={styles.scrollableText}>
+            Welcome to our website!
+          </span>
+          <span className={styles.scrollableText}>
+            Here, you will find a tremendous amount of high quality photos.
+          </span>
+          <span className={styles.scrollableText}>
+            We guarantee each image we sell is unique, and we'll return a unique product ID we will store in our non-fungible database.
+          </span>
+        </div>
+        <div className={styles.otherContent}>
+          <p>Test</p>
+        </div>
       </main>
 
     </>

@@ -3,6 +3,7 @@
 .header {
   flex: 0;
   position: sticky;
+  width: 100vw;
   display: flex;
   justify-content: center;
   background: white;
@@ -32,9 +33,4 @@
     flex-direction: column;
     flex-wrap: wrap;
   }
-}
-
-.hide {
-  display: none;
-  transition: 1s;
 }

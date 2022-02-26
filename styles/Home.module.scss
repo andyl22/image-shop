@@ -8,19 +8,40 @@
 
 .background {
   opacity: 0.7;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100vw;
   z-index: -1;
   background: url("../public/images/home-background.jpg");
   background-size: cover;
+  background-attachment: local;
 }
 
 .main {
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  .introText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    .scrollableText {
+      padding: 5rem 5rem 0 5rem;
+      height: 90vh;
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 2rem;
+    }
+  }
+  .otherContent {
+    width: 100%;
+    background: white;
+    padding: 1rem;
+  }
 }
 
 .footer {
   flex: 0;
   padding: 0.5rem;
 }
+
+

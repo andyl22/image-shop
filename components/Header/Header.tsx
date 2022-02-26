@@ -19,7 +19,7 @@ export default function Header() {
     }
     lastScroll.current = window.scrollY;
     throttle.current = true;
-    setTimeout(() => throttle.current = false, 150)
+    setTimeout(() => throttle.current = false, 50)
   }
 
   useEffect(() => {

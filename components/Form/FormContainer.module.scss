@@ -1,22 +1,24 @@
 @use "../../styles/variables" as s;
 
+$border-color: rgb(239, 231, 231);
+
 .formStyle {
   display: flex;
   flex-direction: column;
   height: fit-content;
   width: fit-content;
   background: white;
-  border: 2px solid #e9e8e8;
+  border: 2px solid $border-color;
   border-radius: 1em;
   overflow: hidden;
   .formHeader {
     flex: 0;
     text-align: center;
-    color: s.$light-font-color;
-    font-size: 1.4rem;
     width: 100%;
-    background: rgb(17, 109, 230);
-    padding: 0.2rem 1rem 0.4rem 1rem;
+    padding: 0.4rem 1rem 0.6rem 1rem;
+    h1 {
+      font-size: 1.2rem;
+    }
   }
   .formContent {
     flex: 1;

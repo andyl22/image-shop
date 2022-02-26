@@ -1,3 +1,17 @@
+@use "../../styles/variables" as s;
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: .5rem;
+  padding: 5rem 2rem;
+  @include s.mobile-view {
+    padding: 0;
+  }
+}
+
 .inputContainer {
   display: grid;
   grid-template: auto / 100px auto;
