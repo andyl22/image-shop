@@ -14,7 +14,9 @@ const Home: NextPage = () => {
 
       <span className={styles.background} />
       <Header />
-      <main className={styles.main}>Welcome to the website!</main>
+      <main className={styles.main}>
+        <h1>We love National Parks!</h1>
+      </main>
 
     </>
   );
