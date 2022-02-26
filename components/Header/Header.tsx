@@ -12,14 +12,17 @@ export default function Header() {
 
   const handleScroll = (e: Event) => {
     if (throttle.current) return;
-    if (window.scrollY > lastScroll.current) {
+    if(lastScroll.current <= 0 ) {
+      setShowHeader(true);
+    } else if (window.scrollY > lastScroll.current) {
+      console.log(window.scrollY, lastScroll.current)
       setShowHeader(false);
     } else {
       setShowHeader(true);
     }
     lastScroll.current = window.scrollY;
     throttle.current = true;
-    setTimeout(() => throttle.current = false, 50)
+    setTimeout(() => throttle.current = false, 150)
   }
 
   useEffect(() => {
