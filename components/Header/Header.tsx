@@ -10,10 +10,10 @@ export default function Header() {
   let lastScroll = useRef(0);
 
   const handleScroll = (e: Event) => {
+    // need the negative check for Safari over scroll
     if(window.scrollY <= 0 ) {
       setShowHeader(true);
     } else if (window.scrollY > lastScroll.current) {
-      console.log(window.scrollY, lastScroll.current)
       setShowHeader(false);
     } else {
       setShowHeader(true);
