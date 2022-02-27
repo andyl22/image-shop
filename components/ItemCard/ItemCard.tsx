@@ -15,7 +15,7 @@ export default function ItemCard(props: Props) {
       <Link href={link}>
         <a>
           <h2>{name}</h2>
-          <Image src={imageURL} alt={name} height="300" width="400" layout="responsive"/>
+          <Image src={imageURL} alt={name} height="100%" width="100%" layout="responsive" />
         </a>
       </Link>
     </div>

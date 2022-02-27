@@ -31,12 +31,12 @@ const Home: NextPage = () => {
         <div className={styles.otherContent}>
           <h2>Tests</h2>
           <ItemSlider>
-            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test0" />
-            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test1" />
-            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test2" />
-            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test3" />
-            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test4" />
-            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test5" />
+            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test0" />
+            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test1" />
+            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test2" />
+            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test3" />
+            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test4" />
+            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test5" />
           </ItemSlider>
         </div>
       </main>
