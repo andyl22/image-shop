@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header/Header";
+import ItemSlider from "../components/ItemSlider/ItemSlider";
 import ItemCard from "../components/ItemCard/ItemCard";
 import styles from "../styles/Home.module.scss";
 
@@ -28,8 +29,15 @@ const Home: NextPage = () => {
           </span>
         </div>
         <div className={styles.otherContent}>
-          <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test" />
-          <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test" />
+          <h2>Tests</h2>
+          <ItemSlider>
+            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test0" />
+            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test1" />
+            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test2" />
+            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test3" />
+            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test4" />
+            <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test5" />
+          </ItemSlider>
         </div>
       </main>
 

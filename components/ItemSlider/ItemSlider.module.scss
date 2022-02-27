@@ -1,0 +1,12 @@
+.sliderContainer {
+  display: flex;
+  gap: 2rem;
+  height: fit-content;
+  align-items: center;
+  .flipIcon {
+    transform: rotate(180deg);
+  }
+  .arrowIcons {
+    cursor: pointer;
+  }
+}

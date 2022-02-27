@@ -34,11 +34,18 @@
   }
   .otherContent {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    padding: 2rem;
+    flex-direction: column;
     background: white;
+    padding: 2rem;
+    .itemCards {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      h2 {
+        padding: 0 0 1rem 0;
+      }
+    }
   }
 }
 
