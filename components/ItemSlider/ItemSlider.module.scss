@@ -6,7 +6,11 @@
   .flipIcon {
     transform: rotate(180deg);
   }
-  .arrowIcons {
-    cursor: pointer;
+  button {
+    background: none;
+    border: none;
+    .arrowIcons {
+      cursor: pointer;
+    }
   }
 }

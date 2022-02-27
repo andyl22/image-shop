@@ -18,15 +18,15 @@ const Home: NextPage = () => {
       <Header />
       <main className={styles.main}>
         <div className={styles.introText}>
-          <span className={styles.scrollableText}>
-            Welcome to our website!
-          </span>
-          <span className={styles.scrollableText}>
-            Here, you will find a tremendous amount of high quality photos.
-          </span>
-          <span className={styles.scrollableText}>
-            We guarantee each image we sell is unique, and we'll return a unique product ID we will store in our non-fungible database.
-          </span>
+          <p className={styles.scrollableText}>
+            “I went to the woods because I wished to live deliberately,
+             to front only the essential facts of life,
+              and see if I could not learn what it had to teach, and not,
+               when I came to die, discover that I had not lived.” - David Thoreau
+          </p>
+          <p className={styles.scrollableText}>
+            Leave it better than you found it.
+          </p>
         </div>
         <div className={styles.otherContent}>
           <h2>Tests</h2>

@@ -14,7 +14,6 @@ export default function LoginForm() {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    console.log(formState);
   };
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {

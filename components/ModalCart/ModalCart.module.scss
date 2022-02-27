@@ -1,0 +1,35 @@
+@use '../../styles/variables' as s;
+
+.cartContainer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  min-width: 300px;
+  width: fit-content;
+  background: white;
+  text-align: center;
+  padding: 1rem;
+  @include s.mobile-view {
+    width: 100%;
+  }
+  .modalHeader {
+    padding-bottom: 1rem;
+    border-bottom: 2px double gray;
+    h1 {
+      font-size: 1.3rem;
+    }
+    button {
+      background: none;
+      border: none;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      &:hover {
+        cursor: pointer;
+        color: gray;
+      }
+    }
+  }
+
+}

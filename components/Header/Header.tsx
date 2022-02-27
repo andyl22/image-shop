@@ -1,7 +1,6 @@
 import styles from "./Header.module.scss";
-import LeftNav from "./LeftNav";
-import RightNav from "./RightNav";
-import Link from "next/link";
+import LeftHeader from "./LeftHeader";
+import RightHeader from "./RightHeader";
 import React, { useEffect, useState, useRef } from "react";
 
 export default function Header() {
@@ -11,9 +10,7 @@ export default function Header() {
 
   const handleScroll = (e: Event) => {
     // need the negative check for Safari over scroll
-    if(window.scrollY <= 0 ) {
-      setShowHeader(true);
-    } else if (window.scrollY > lastScroll.current) {
+    if (window.scrollY > lastScroll.current && window.scrollY > 0) {
       setShowHeader(false);
     } else {
       setShowHeader(true);
@@ -31,13 +28,8 @@ export default function Header() {
   return (
     <header className={`${styles.header} ${showHeader ? null : styles.hide}`}>
       <div className={styles.headerContentContainer}>
-        <LeftNav />
-        <Link href="/">
-          <a>
-            <h1>Parks</h1>
-          </a>
-        </Link>
-        <RightNav />
+        <LeftHeader />
+        <RightHeader />
       </div>
     </header>
   );

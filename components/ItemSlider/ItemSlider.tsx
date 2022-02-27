@@ -36,10 +36,14 @@ export default function ItemSlider(props: Props) {
 
   return (childrenLength > 2) ?
     (
-      <div className={styles.sliderContainer}>
-        <ArrowBackIosNewIcon fontSize="small" className={styles.arrowIcons} onMouseDown={decrementPointer} />
+      <div className={styles.sliderContainer} onClick={decrementPointer}>
+        <button aria-label="previous image">
+          <ArrowBackIosNewIcon fontSize="small" className={styles.arrowIcons} />
+        </button>
         {childrenToRender}
-        <ArrowBackIosNewIcon fontSize="small" className={`${styles.flipIcon} ${styles.arrowIcons}`} onMouseDown={incrementPointer} />
+        <button aria-label="next image" onClick={incrementPointer}>
+          <ArrowBackIosNewIcon fontSize="small" className={`${styles.flipIcon} ${styles.arrowIcons}`} />
+        </button>
       </div>
     ) : (
       <div className={styles.sliderContainer}>

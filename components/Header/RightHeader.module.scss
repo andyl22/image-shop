@@ -1,0 +1,26 @@
+.rightHeader {
+  display: flex;
+  gap: 2rem;
+  button {
+    border: none;
+    background: none;
+    position: relative;
+    cursor: pointer;
+    p {
+      position: absolute;
+      left: 10px;
+      bottom: 15px;
+      background: orange;
+      padding: .1rem .3rem;
+      border-radius: 2rem;
+      font-weight: 600;
+    }
+  }
+  .headerLinkContainer {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+}
+

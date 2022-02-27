@@ -10,10 +10,10 @@ export default function Modal(props: Prop) {
   const { children, toggleModal } = props;
 
   useEffect(() => {
-    document.body.style.position = 'fixed';
+    document.body.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.position = '';
+      document.body.style.overflow = 'auto';
     }
   })
 

@@ -26,9 +26,6 @@
   width: 800px;
   gap: 1rem;
   font-weight: 700;
-  h1 {
-    font-size: 1.5rem;
-  }
   @include s.mobile-view {
     flex-direction: column;
     flex-wrap: wrap;
@@ -38,5 +35,5 @@
 .hide {
   top: -10px;
   opacity: 0;
-  transition: .5s;
+  transition: .2s;
 }
