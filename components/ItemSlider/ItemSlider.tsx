@@ -20,6 +20,7 @@ export default function ItemSlider(props: Props) {
   }
 
   const incrementPointer = () => {
+    console.log(pointer, pointer+1, childrenLength)
     if (pointer < childrenLength - 1) {
       setPointer(pointer + 1);
     } else {
@@ -36,8 +37,8 @@ export default function ItemSlider(props: Props) {
 
   return (childrenLength > 2) ?
     (
-      <div className={styles.sliderContainer} onClick={decrementPointer}>
-        <button aria-label="previous image">
+      <div className={styles.sliderContainer}>
+        <button aria-label="previous image" onClick={decrementPointer}>
           <ArrowBackIosNewIcon fontSize="small" className={styles.arrowIcons} />
         </button>
         {childrenToRender}
