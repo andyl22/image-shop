@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header/Header";
+import ItemCard from "../components/ItemCard/ItemCard";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -27,7 +28,8 @@ const Home: NextPage = () => {
           </span>
         </div>
         <div className={styles.otherContent}>
-          <p>Test</p>
+          <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test" />
+          <ItemCard imageURL="/../public/images/home-background.jpg" link="/shop/national-parks/yosemite/test" name="Test" />
         </div>
       </main>
 
