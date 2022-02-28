@@ -34,13 +34,19 @@ export default function Dropdown(props: Dropdown) {
     toggleDropdown();
   };
 
-  const disableHover = (e: MouseEvent): void => {
+  const handleMouseDown = (e: MouseEvent): void => {
     e.preventDefault();
-    if (disableMouseOver && e.target.tagName === "BUTTON") {
+
+    const target = e.target as HTMLElement;
+
+    if (disableMouseOver && target.tagName === "BUTTON") {
       toggleDropdown();
-    }
-    if (e.target.tagName === "BUTTON") {
       setDisableMouseOver(!disableMouseOver);
+    } else if (target.tagName === "BUTTON") {
+      setDisableMouseOver(!disableMouseOver);
+    } else if (target.tagName === "A") {
+      setDisableMouseOver(false);
+      toggleDropdown();
     }
   };
 
@@ -50,7 +56,7 @@ export default function Dropdown(props: Dropdown) {
       className={styles.container}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOver}
-      onMouseDown={disableHover}
+      onClick={handleMouseDown}
       onKeyDown={handleKeyPress}
     >
       {children}

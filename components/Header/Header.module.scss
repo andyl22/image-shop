@@ -13,6 +13,7 @@
   padding: 0.8rem 2rem;
   transition-duration: 1s;
   z-index: 1;
+  transition: .1s;
   &:hover {
     background: s.$secondary-background-color;
     transition-duration: .5s;
@@ -35,5 +36,6 @@
 .hide {
   top: -10px;
   opacity: 0;
-  transition: .2s;
+  z-index: -1;
+  transition: .1s;
 }

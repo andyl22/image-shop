@@ -4,4 +4,9 @@
   justify-content: center;
   height: 400px;
   width: 100%;
+  &:hover {
+    cursor: pointer;
+    filter: brightness(95%);
+    transform: scaleY(1.01);
+  }
 }

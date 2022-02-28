@@ -16,14 +16,14 @@ export default function Header() {
       setShowHeader(true);
     }
     lastScroll.current = window.scrollY;
-  }
+  };
 
   useEffect(() => {
     document.addEventListener("scroll", handleScroll);
     return () => {
-      document.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <header className={`${styles.header} ${showHeader ? null : styles.hide}`}>
