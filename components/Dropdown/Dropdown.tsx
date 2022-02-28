@@ -19,7 +19,7 @@ export default function Dropdown(props: Dropdown) {
   const handleKeyPress = (e: KeyboardEvent): void => {
     const target = e.target as HTMLElement;
 
-    if ((e.target as HTMLElement).tagName === "A" && e.key === "Enter") return;
+    if (target.tagName === "A" && e.key === "Enter") return;
 
     if (e.key === "Enter" && target.parentNode) {
       if ((target.parentNode as HTMLElement).className.match(/.*Dropdown.*/))

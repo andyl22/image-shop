@@ -19,10 +19,10 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <div className={styles.introText}>
           <p className={styles.scrollableText}>
-            “I went to the woods because I wished to live deliberately,
-             to front only the essential facts of life,
-              and see if I could not learn what it had to teach, and not,
-               when I came to die, discover that I had not lived.” - David Thoreau
+            “I went to the woods because I wished to live deliberately, to front
+            only the essential facts of life, and see if I could not learn what
+            it had to teach, and not, when I came to die, discover that I had
+            not lived.” - David Thoreau
           </p>
           <p className={styles.scrollableText}>
             Leave it better than you found it.
@@ -31,16 +31,39 @@ const Home: NextPage = () => {
         <div className={styles.otherContent}>
           <h2>Tests</h2>
           <ItemSlider>
-            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test0" />
-            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test1" />
-            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test2" />
-            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test3" />
-            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test4" />
-            <ItemCard imageURL="/../public/images/items.jpg" link="/shop/national-parks/yosemite/test" name="Test5" />
+            <ItemCard
+              imageURL="/../public/images/items.jpg"
+              link="/shop/national-parks/yosemite/test"
+              name="Test0"
+            />
+            <ItemCard
+              imageURL="/../public/images/items.jpg"
+              link="/shop/national-parks/yosemite/test"
+              name="Test1"
+            />
+            <ItemCard
+              imageURL="/../public/images/items.jpg"
+              link="/shop/national-parks/yosemite/test"
+              name="Test2"
+            />
+            <ItemCard
+              imageURL="/../public/images/items.jpg"
+              link="/shop/national-parks/yosemite/test"
+              name="Test3"
+            />
+            <ItemCard
+              imageURL="/../public/images/items.jpg"
+              link="/shop/national-parks/yosemite/test"
+              name="Test4"
+            />
+            <ItemCard
+              imageURL="/../public/images/items.jpg"
+              link="/shop/national-parks/yosemite/test"
+              name="Test5"
+            />
           </ItemSlider>
         </div>
       </main>
-
     </>
   );
 };

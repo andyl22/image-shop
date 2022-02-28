@@ -25,12 +25,14 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     .scrollableText {
       color: white;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 0 3rem;
+      max-width: 800px;
       height: 90vh;
       font-size: 1.5rem;
       font-weight: 700;

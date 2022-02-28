@@ -5,9 +5,8 @@ import styles from "../styles/Blog.module.scss";
 import BlogCard from "../components/BlogCards/BlogCard";
 import blogData from "../TestData/BlogCard.json";
 
-
 const Blog: NextPage = () => {
-  const mappedBlogData = blogData.map(item =>
+  const mappedBlogData = blogData.map((item) => (
     <BlogCard
       title={item.title}
       subtitle={item.subtitle}
@@ -18,7 +17,7 @@ const Blog: NextPage = () => {
     >
       <p>{item?.previewText}</p>
     </BlogCard>
-  )
+  ));
 
   return (
     <>
@@ -28,11 +27,9 @@ const Blog: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <span className={styles.background}></span>
       <Header />
-
-      <main className={styles.main}>
-        {mappedBlogData}
-      </main>
+      <main className={styles.main}>{mappedBlogData}</main>
     </>
   );
 };
