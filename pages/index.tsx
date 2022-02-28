@@ -3,6 +3,8 @@ import Head from "next/head";
 import Header from "../components/Header/Header";
 import ItemSlider from "../components/ItemSlider/ItemSlider";
 import ItemCard from "../components/ItemCard/ItemCard";
+import Sheet from "../components/Sheet/Sheet";
+import Footer from "../components/Footer/Footer";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
@@ -16,6 +18,7 @@ const Home: NextPage = () => {
 
       <span className={styles.background} />
       <Header />
+      
       <main className={styles.main}>
         <div className={styles.introText}>
           <p className={styles.scrollableText}>
@@ -28,8 +31,8 @@ const Home: NextPage = () => {
             Leave it better than you found it.
           </p>
         </div>
-        <div className={styles.otherContent}>
-          <h2>Tests</h2>
+        <div className={styles.mainContent}>
+          <h2>Explore</h2>
           <ItemSlider>
             <ItemCard
               imageURL="/../public/images/items.jpg"
@@ -62,8 +65,27 @@ const Home: NextPage = () => {
               name="Test5"
             />
           </ItemSlider>
+          <Sheet background="#548a25">
+            <h1>Welcome</h1>
+          </Sheet>
+          <div className={styles.gridSheets}>
+            <Sheet background="#548a25" border={true}>
+              <p>Test</p>
+            </Sheet>
+            <Sheet background="#548a25" border={true}>
+              <p>Test</p>
+            </Sheet>
+            <Sheet background="#548a25" border={true}>
+              <p>Test</p>
+            </Sheet>
+            <Sheet background="#548a25" border={true}>
+              <p>Test</p>
+            </Sheet>
+          </div>
         </div>
       </main>
+
+      <Footer />
     </>
   );
 };

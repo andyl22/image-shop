@@ -1,13 +1,11 @@
 @use "variables.scss" as s;
 
-.header,
-.footer,
 .main {
   text-align: center;
 }
 
 .background {
-  opacity: .8;
+  opacity: 0.8;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -39,11 +37,13 @@
       line-height: 2rem;
     }
   }
-  .otherContent {
+  .mainContent {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background: white;
-    padding: 2rem;
+    padding: 4rem 0;
+    gap: 4rem;
     .itemCards {
       display: flex;
       justify-content: center;
@@ -53,6 +53,13 @@
         padding: 0 0 1rem 0;
       }
     }
+    .gridSheets {
+      display: grid;
+      width: 100%;
+      padding: 2rem;
+      gap: 1rem;
+      grid-template: 1fr 1fr / 1fr 1fr;
+    }
   }
 }
 
@@ -60,5 +67,3 @@
   flex: 0;
   padding: 0.5rem;
 }
-
-
