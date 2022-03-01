@@ -1,24 +1,22 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header/Header";
-import styles from "../styles/About.module.scss";
+import styles from "../styles/Privacy.module.scss";
 
-const About: NextPage = () => {
+const Contact: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Image Board</title>
-        <meta name="description" content="The Image Shop" />
+        <title>Contact Us</title>
+        <meta name="description" content="Contact Info For The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
-
       <main className={styles.main}>
-        <p>The one stop shop for ordering artwork of National Parks!</p>
+        <p>Contact Info To Be Added!</p>
       </main>
     </>
   );
 };
 
-export default About;
+export default Contact;

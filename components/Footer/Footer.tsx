@@ -12,10 +12,10 @@ export default function Footer() {
         <a>Privacy Info</a>
       </Link>
       <Link href="/track">
-        <a>Track Your Shipment</a>
+        <a>Track</a>
       </Link>
       <Link href="/credits">
-        <a>Credits</a>
+        <a>Accreditation</a>
       </Link>
     </footer>
   );

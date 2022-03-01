@@ -78,7 +78,7 @@ const Home: NextPage = () => {
               <h2>Grid1</h2>
             </SheetLink>
             <SheetLink
-              background='url("/images/bell-rock.jpg")'
+              background='url("/images/tent-view.jpg")'
               border={true}
               href="/test"
             >
@@ -101,7 +101,6 @@ const Home: NextPage = () => {
           </div>
         </div>
       </main>
-
       <Footer />
     </>
   );
