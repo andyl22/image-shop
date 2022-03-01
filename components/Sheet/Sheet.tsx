@@ -12,8 +12,9 @@ export default function Sheet(props: Props) {
 
   const optionalStyles = {
     background: `${background}`,
-    "border-radius": `${border ? "1rem" : 0}`,
-
+    backgroundSize: "cover",
+    backgroundPosition: "center center",
+    borderRadius: `${border ? "1rem" : 0}`,
   };
 
   return (

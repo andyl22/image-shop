@@ -19,6 +19,7 @@
 .main {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
   .introText {
     flex: 1;
     display: flex;
@@ -57,8 +58,12 @@
       display: grid;
       width: 100%;
       padding: 2rem;
-      gap: 1rem;
+      gap: 3rem;
       grid-template: 1fr 1fr / 1fr 1fr;
+      @include s.mobile-view {
+        padding: 1rem;
+        gap: 1rem;
+      }
     }
   }
 }

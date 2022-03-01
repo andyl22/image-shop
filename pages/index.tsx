@@ -18,7 +18,7 @@ const Home: NextPage = () => {
 
       <span className={styles.background} />
       <Header />
-      
+
       <main className={styles.main}>
         <div className={styles.introText}>
           <p className={styles.scrollableText}>
@@ -35,51 +35,51 @@ const Home: NextPage = () => {
           <h2>Explore</h2>
           <ItemSlider>
             <ItemCard
-              imageURL="/../public/images/items.jpg"
+              imageURL="/images/items.jpg"
               link="/shop/national-parks/yosemite/test"
               name="Test0"
             />
             <ItemCard
-              imageURL="/../public/images/items.jpg"
+              imageURL="/images/items.jpg"
               link="/shop/national-parks/yosemite/test"
               name="Test1"
             />
             <ItemCard
-              imageURL="/../public/images/items.jpg"
+              imageURL="/images/items.jpg"
               link="/shop/national-parks/yosemite/test"
               name="Test2"
             />
             <ItemCard
-              imageURL="/../public/images/items.jpg"
+              imageURL="/images/items.jpg"
               link="/shop/national-parks/yosemite/test"
               name="Test3"
             />
             <ItemCard
-              imageURL="/../public/images/items.jpg"
+              imageURL="/images/items.jpg"
               link="/shop/national-parks/yosemite/test"
               name="Test4"
             />
             <ItemCard
-              imageURL="/../public/images/items.jpg"
+              imageURL="/images/items.jpg"
               link="/shop/national-parks/yosemite/test"
               name="Test5"
             />
           </ItemSlider>
-          <Sheet background="#548a25">
-            <h1>Welcome</h1>
+          <Sheet background='url("/images/wide.jpg")'>
+            <h2>Welcome</h2>
           </Sheet>
           <div className={styles.gridSheets}>
-            <Sheet background="#548a25" border={true}>
-              <p>Test</p>
+            <Sheet background='url("/images/stream.jpg")' border={true}>
+              <h2>Grid1</h2>
             </Sheet>
-            <Sheet background="#548a25" border={true}>
-              <p>Test</p>
+            <Sheet background='url("/images/bell-rock.jpg")' border={true}>
+              <h2>Grid2</h2>
             </Sheet>
-            <Sheet background="#548a25" border={true}>
-              <p>Test</p>
+            <Sheet background='url("/images/water.jpg")' border={true}>
+              <h2>Grid3</h2>
             </Sheet>
-            <Sheet background="#548a25" border={true}>
-              <p>Test</p>
+            <Sheet background='url("/images/path.jpg")' border={true}>
+              <h2>Grid4</h2>
             </Sheet>
           </div>
         </div>

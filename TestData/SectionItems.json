@@ -6,7 +6,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "redwood": [
@@ -15,7 +15,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "yellowstone": [
@@ -24,7 +24,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "zion": [
@@ -33,7 +33,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "mountRainer": [
@@ -42,28 +42,28 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 2,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 3,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 4,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ]
   },
@@ -74,7 +74,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "redwood": [
@@ -83,7 +83,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "yellowstone": [
@@ -92,7 +92,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "zion": [
@@ -101,7 +101,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "mountRainer": [
@@ -110,28 +110,28 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 2,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 3,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 4,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ]
   },
@@ -142,7 +142,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "redwood": [
@@ -151,7 +151,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "yellowstone": [
@@ -160,7 +160,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "zion": [
@@ -169,7 +169,7 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ],
     "mountRainer": [
@@ -178,28 +178,28 @@
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 2,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 3,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       },
       {
         "id": 4,
         "name": "Test Item",
         "description": "test",
         "price": "$10.00",
-        "image": "/../public/images/home-background.jpg"
+        "image": "/images/home-background.jpg"
       }
     ]
   }
