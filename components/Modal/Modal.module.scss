@@ -1,5 +1,15 @@
 @use "../../styles/variables" as s;
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .modalOverlay {
   display: flex;
   justify-content: center;
@@ -11,4 +21,5 @@
   height: 100%;
   width: 100%;
   z-index: 99;
+  animation: .2s ease fadeIn;
 }

@@ -27,10 +27,8 @@ export default function Header() {
 
   return (
     <header className={`${styles.header} ${showHeader ? null : styles.hide}`}>
-      <div className={styles.headerContentContainer}>
-        <LeftHeader />
-        <RightHeader />
-      </div>
+      <LeftHeader />
+      <RightHeader />
     </header>
   );
 }

@@ -1,5 +1,23 @@
 @use '../../styles/variables' as s;
 
+@keyframes sideIn {
+  0% {
+    transform: translateX(300px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes dropIn {
+  0% {
+    transform: translateY(-300px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 .cartContainer {
   position: absolute;
   right: 0;
@@ -10,8 +28,10 @@
   background: white;
   text-align: center;
   padding: 1rem;
+  animation: .2s ease sideIn;
   @include s.mobile-view {
     width: 100%;
+    animation: .2s ease dropIn;
   }
   .modalHeader {
     padding-bottom: 1rem;
