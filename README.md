@@ -12,6 +12,11 @@ Next.JS practice project for an ecommerce website.
     - Image slider for home page navigation
     - Created footer with placeholder pages
 
+-- IN PROGRESS
+    - Use route with modal for blog posts
+        - Changed the logic for rendering the Blog Modal
+        - Need to implement getStaticPaths and getStaticProps. These are hardcoded at the moment.
+
 -- TODO
     - Plan out and create mongodb schemas based on test data (current test data is not json, but rather an object that is really an array of objects. This should be fine for testing, but will need to be considered as part of the schema planning for the database)
     - Clean up Dyanmic Routing for Sections and Subsections as part of the above
