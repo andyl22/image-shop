@@ -1,14 +1,16 @@
+import Link from "next/link";
 import { ReactNode } from "react";
-import styles from "./Sheet.module.scss";
+import styles from "./SheetLink.module.scss";
 
 interface Props {
   background: string;
   children: ReactNode | Array<ReactNode>;
   border?: boolean;
+  href: string;
 }
 
-export default function Sheet(props: Props) {
-  const { background, border, children } = props;
+export default function SheetLink(props: Props) {
+  const { background, border, children, href } = props;
 
   const optionalStyles = {
     background: `${background}`,
@@ -19,7 +21,9 @@ export default function Sheet(props: Props) {
 
   return (
     <div className={styles.sheetContainer} style={optionalStyles} tabIndex={0}>
-      {children}
+      <Link href={href}>
+        <a>{children}</a>
+      </Link>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-@use '../../styles/variables' as s;
+@use "../../styles/variables" as s;
 
 @keyframes sideIn {
   0% {
@@ -28,14 +28,14 @@
   background: white;
   text-align: center;
   padding: 1rem;
-  animation: .2s ease sideIn;
+  animation: 0.2s ease sideIn;
   @include s.mobile-view {
     width: 100%;
-    animation: .2s ease dropIn;
+    animation: 0.2s ease dropIn;
   }
   .modalHeader {
     padding-bottom: 1rem;
-    border-bottom: 2px double gray;
+    border-bottom: 4px double gray;
     h1 {
       font-size: 1.3rem;
     }
@@ -51,5 +51,4 @@
       }
     }
   }
-
 }

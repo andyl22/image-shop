@@ -5,14 +5,21 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-end;
-  gap: .5rem;
-  padding: 5rem 2rem;
+  gap: 0.5rem;
+  padding: 2rem 5rem 3rem 5rem;
   @include s.mobile-view {
-    padding: 0;
+    .inputContainer {
+      grid-template: auto / 1fr !important;
+      text-align: start !important;
+      gap: 0.1rem !important;
+    }
   }
-}
-
-.inputContainer {
-  display: grid;
-  grid-template: auto / 100px auto;
+  .inputContainer {
+    display: grid;
+    grid-template: auto / 70px auto;
+    gap: 0.5rem;
+    text-align: end;
+    align-items: center;
+    font-size: 0.8rem;
+  }
 }

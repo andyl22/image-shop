@@ -1,6 +1,11 @@
 .footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 300px;
   background: black;
-  color: gray;
+  color: white;
+  padding: 2rem;
+  gap: 2rem;
+  font-size: .8rem;
 }

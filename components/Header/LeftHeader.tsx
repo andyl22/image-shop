@@ -6,18 +6,18 @@ export default function LeftHeader() {
   return (
     <nav className={styles.headerLinkContainer}>
       <Link href="/">
-        <a>
+        <a className={styles.visualHighlight}>
           <h1>Parks</h1>
         </a>
       </Link>
       <ShopDropdown>
-        <button className={styles.shopLink}>Shop</button>
+        <button className={`${styles.shopLink} ${styles.visualHighlight}`}>Shop</button>
       </ShopDropdown>
       <Link href="/about">
-        <a>About</a>
+        <a className={styles.visualHighlight}>About</a>
       </Link>
       <Link href="/blog">
-        <a>Blog</a>
+        <a className={styles.visualHighlight}>Blog</a>
       </Link>
     </nav>
   );

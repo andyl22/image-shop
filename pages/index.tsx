@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import ItemSlider from "../components/ItemSlider/ItemSlider";
 import ItemCard from "../components/ItemCard/ItemCard";
 import Sheet from "../components/Sheet/Sheet";
+import SheetLink from "../components/Sheet/SheetLink";
 import Footer from "../components/Footer/Footer";
 import styles from "../styles/Home.module.scss";
 
@@ -69,18 +70,34 @@ const Home: NextPage = () => {
             <h2>Welcome</h2>
           </Sheet>
           <div className={styles.gridSheets}>
-            <Sheet background='url("/images/stream.jpg")' border={true}>
+            <SheetLink
+              background='url("/images/stream.jpg")'
+              border={true}
+              href="/test"
+            >
               <h2>Grid1</h2>
-            </Sheet>
-            <Sheet background='url("/images/bell-rock.jpg")' border={true}>
+            </SheetLink>
+            <SheetLink
+              background='url("/images/bell-rock.jpg")'
+              border={true}
+              href="/test"
+            >
               <h2>Grid2</h2>
-            </Sheet>
-            <Sheet background='url("/images/water.jpg")' border={true}>
+            </SheetLink>
+            <SheetLink
+              background='url("/images/water.jpg")'
+              border={true}
+              href="/test"
+            >
               <h2>Grid3</h2>
-            </Sheet>
-            <Sheet background='url("/images/path.jpg")' border={true}>
+            </SheetLink>
+            <SheetLink
+              background='url("/images/path.jpg")'
+              border={true}
+              href="/test"
+            >
               <h2>Grid4</h2>
-            </Sheet>
+            </SheetLink>
           </div>
         </div>
       </main>

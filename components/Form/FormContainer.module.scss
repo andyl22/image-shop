@@ -15,19 +15,12 @@ $border-color: rgb(239, 231, 231);
     flex: 0;
     text-align: center;
     width: 100%;
-    padding: 0.4rem 1rem 0.6rem 1rem;
+    padding: 1rem;
     h1 {
       font-size: 1.2rem;
     }
   }
   .formContent {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 0.4rem;
-    padding: 3rem;
     input {
       border: 1px solid #cccccc;
       padding: 0.3rem;
@@ -35,8 +28,12 @@ $border-color: rgb(239, 231, 231);
       min-width: 30%;
       gap: 2rem;
       &:focus {
-        border-color: #f2f2f2;
-        outline: 2px solid #5194ff;
+        border: 1px solid white;
+        outline: 2px solid #2684ff;
+        &::placeholder {
+          font-size: .6rem;
+
+        }
       }
     }
     input[type="button"] {
@@ -53,7 +50,6 @@ $border-color: rgb(239, 231, 231);
       }
     }
     input[type="submit"] {
-      background: white;
       &:hover {
         background: #e4e4e4;
         cursor: pointer;

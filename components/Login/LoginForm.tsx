@@ -29,7 +29,6 @@ export default function LoginForm() {
           <input
             type="text"
             id="username"
-            placeholder="Username"
             ref={formRef}
             onChange={handleChange}
             value={formState.username}
@@ -40,12 +39,11 @@ export default function LoginForm() {
           <input
             type="password"
             id="password"
-            placeholder="Password"
             onChange={handleChange}
             value={formState.password}
           />
         </div>
-        <input type="submit" value="Login" />
+        <input type="submit" value="Login" id="login"/>
       </div>
     </FormContainer>
   );
