@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
+import ItemCardWithPrice from "../../../../components/ItemCard/ItemCardWithPrice";
 import Header from "../../../../components/Header/Header";
-import styles from "../../../../styles/ShopItems.module.scss";
+import styles from "../../../../styles/SubSection.module.scss";
 import {
   getAllSections,
   setSectionItems,
@@ -45,21 +45,16 @@ const SubSection = (props: Props) => {
   const { sectionData } = props;
 
   const mappedSectionData = sectionData.subSectionContent.map((item) => {
+    const { name, image, id, description, price } = item;
     return (
-      <div key={item.id} className={styles.itemContainer}>
-        <h2>{item.name}</h2>
-        <Image
-          src={item.image}
-          alt={item.name}
-          layout="responsive"
-          height={300}
-          width={300}
-        />
-        <div className={styles.itemInfo}>
-          <p>{item.description}</p>
-          <p>{item.price}</p>
-        </div>
-      </div>
+      <ItemCardWithPrice
+        imageURL={image}
+        name={name}
+        link={id.toString()}
+        description={description}
+        price={price}
+        key={id}
+      />
     );
   });
 

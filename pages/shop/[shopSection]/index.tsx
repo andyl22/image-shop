@@ -3,39 +3,48 @@ import Head from "next/head";
 import Link from "next/link";
 import Header from "../../../components/Header/Header";
 import styles from "../../../styles/ShopSection.module.scss";
-import { getAllHeaderLinkParams, getShopSectionData } from "../../../TestData/Sections";
+import {
+  getAllHeaderLinkParams,
+  getShopSectionData,
+} from "../../../TestData/Sections";
 
 export async function getStaticPaths() {
   const paths = getAllHeaderLinkParams();
   return {
     paths,
-    fallback: false
-  }
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params }) {
   const sectionData = getShopSectionData(params);
   return {
     props: {
-      sectionData
-    }
-  }
+      sectionData,
+    },
+  };
 }
 
 interface Props {
-  sectionData: { itemList: [{ linkName: string, linkURL: string }], sectionName: string }
+  sectionData: {
+    itemList: [{ linkName: string; linkURL: string }];
+    sectionName: string;
+  };
 }
 
 const Section = (props: Props) => {
   const { sectionData } = props;
-  const formattedName = sectionData.sectionName.split(/(?=[A-Z])/g).join(" ").toUpperCase();
-  
-  const mappedItems = sectionData.itemList.map(item => {
+  const formattedName = sectionData.sectionName
+    .split(/(?=[A-Z])/g)
+    .join(" ")
+    .toUpperCase();
+
+  const mappedItems = sectionData.itemList.map((item) => {
     return (
       <Link href={item.linkURL} key={item.linkURL}>
         <a>{item.linkName}</a>
       </Link>
-    )
+    );
   });
 
   return (

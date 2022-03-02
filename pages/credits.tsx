@@ -19,6 +19,19 @@ const Privacy: NextPage = () => {
             imgURL="/favicon.ico"
             itemSource="Freepik - Flaticon"
             itemDescription="Page Icon"
+            sourceLink="https://www.flaticon.com/free-icons/mountain"
+          />
+          <AccreditationItem
+            imgURL="/images/nationalParks/yosemite/bailey-zindel.jpg"
+            itemSource="Bailey Zindel"
+            itemDescription="Smoky Yosemite Picture"
+            sourceLink="https://unsplash.com/photos/zOXUvQ3Xo3s?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+          />
+          <AccreditationItem
+            imgURL="/images/nationalParks/yosemite/trent-erwin.jpg"
+            itemSource="Trent Erwin"
+            itemDescription="Half Dome"
+            sourceLink="https://unsplash.com/photos/U7NLcNo9NGA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
           />
         </ul>
       </main>

@@ -26,37 +26,10 @@
       "id": 5
     }
   ],
-  "flowers": [
-    {
-      "linkName": "Yosemite",
-      "linkURL": "/shop/flowers/yosemite",
-      "id": 1
-    },
-    {
-      "linkName": "Redwood",
-      "linkURL": "/shop/flowers/redwood",
-      "id": 2
-    },
-    {
-      "linkName": "Yellowstone",
-      "linkURL": "/shop/flowers/yellowstone",
-      "id": 3
-    },
-    {
-      "linkName": "Zion",
-      "linkURL": "/shop/flowers/zion",
-      "id": 4
-    },
-    {
-      "linkName": "Mount Rainer",
-      "linkURL": "/shop/flowers/mount-rainer",
-      "id": 5
-    }
-  ],
   "trees": [
     {
-      "linkName": "Yosemite",
-      "linkURL": "/shop/trees/yosemite",
+      "linkName": "White Oak",
+      "linkURL": "/shop/trees/white-oak",
       "id": 1
     },
     {
@@ -65,18 +38,45 @@
       "id": 2
     },
     {
-      "linkName": "Yellowstone",
-      "linkURL": "/shop/trees/yellowstone",
+      "linkName": "Sequoia",
+      "linkURL": "/shop/trees/sequoia",
       "id": 3
     },
     {
-      "linkName": "Zion",
-      "linkURL": "/shop/trees/zion",
+      "linkName": "Cherry Blosson",
+      "linkURL": "/shop/trees/cherry-blossom",
       "id": 4
     },
     {
-      "linkName": "Mount Rainer",
-      "linkURL": "/shop/trees/mount-rainer",
+      "linkName": "Quaking Aspen",
+      "linkURL": "/shop/trees/quaking-aspen",
+      "id": 5
+    }
+  ],
+  "birds": [
+    {
+      "linkName": "Hummingbird",
+      "linkURL": "/shop/birds/hummingbird",
+      "id": 1
+    },
+    {
+      "linkName": "Kingfisher",
+      "linkURL": "/shop/birds/kingfisher",
+      "id": 2
+    },
+    {
+      "linkName": "Great Eagle",
+      "linkURL": "/shop/birds/great-eagle",
+      "id": 3
+    },
+    {
+      "linkName": "Blue Jay",
+      "linkURL": "/shop/birds/blue-jay",
+      "id": 4
+    },
+    {
+      "linkName": "Gold Finch",
+      "linkURL": "/shop/birds/gold-finch",
       "id": 5
     }
   ]

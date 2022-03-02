@@ -3,10 +3,17 @@
     "yosemite": [
       {
         "id": 1,
-        "name": "Test Item",
-        "description": "test",
-        "price": "$10.00",
-        "image": "/images/home-background.jpg"
+        "name": "Smoky Morning",
+        "description": "Smoky Morning in Yosemite",
+        "price": "FREE",
+        "image": "/images/nationalParks/yosemite/bailey-zindel.jpg"
+      },
+      {
+        "id": 1,
+        "name": "Half Dome ",
+        "description": "Half Dome",
+        "price": "FREE",
+        "image": "/images/nationalParks/yosemite/trent-erwin.jpg"
       }
     ],
     "redwood": [
@@ -68,7 +75,7 @@
     ]
   },
   "trees": {
-    "yosemite": [
+    "whiteOak": [
       {
         "id": 1,
         "name": "Test Item",
@@ -86,7 +93,7 @@
         "image": "/images/home-background.jpg"
       }
     ],
-    "yellowstone": [
+    "sequoia": [
       {
         "id": 1,
         "name": "Test Item",
@@ -95,7 +102,7 @@
         "image": "/images/home-background.jpg"
       }
     ],
-    "zion": [
+    "cherryBlossom": [
       {
         "id": 1,
         "name": "Test Item",
@@ -104,7 +111,7 @@
         "image": "/images/home-background.jpg"
       }
     ],
-    "mountRainer": [
+    "quakingAspen": [
       {
         "id": 1,
         "name": "Test Item",
@@ -135,8 +142,8 @@
       }
     ]
   },
-  "flowers": {
-    "yosemite": [
+  "bird": {
+    "hummmingbird": [
       {
         "id": 1,
         "name": "Test Item",
@@ -145,7 +152,7 @@
         "image": "/images/home-background.jpg"
       }
     ],
-    "redwood": [
+    "kingfisher": [
       {
         "id": 1,
         "name": "Test Item",
@@ -154,7 +161,7 @@
         "image": "/images/home-background.jpg"
       }
     ],
-    "yellowstone": [
+    "greatEagle": [
       {
         "id": 1,
         "name": "Test Item",
@@ -163,7 +170,7 @@
         "image": "/images/home-background.jpg"
       }
     ],
-    "zion": [
+    "blueJay": [
       {
         "id": 1,
         "name": "Test Item",
@@ -172,7 +179,7 @@
         "image": "/images/home-background.jpg"
       }
     ],
-    "mountRainer": [
+    "goldFinch": [
       {
         "id": 1,
         "name": "Test Item",

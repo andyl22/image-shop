@@ -4,14 +4,15 @@ interface Props {
   imgURL?: string;
   itemSource: string;
   itemDescription: string;
+  sourceLink: string;
 }
 
 export default function AccreddidationItem(props: Props) {
-  const { imgURL, itemSource, itemDescription } = props;
+  const { imgURL, itemSource, itemDescription, sourceLink } = props;
 
   return (
     <li>
-      <a href="https://www.flaticon.com/free-icons/mountain">
+      <a href={sourceLink}>
         {imgURL ? (
           <Image
             src={imgURL}
@@ -21,7 +22,7 @@ export default function AccreddidationItem(props: Props) {
             className="listImage"
           />
         ) : null}
-        &ensp; {itemDescription} {itemSource}
+        &ensp; {itemDescription} ==== {itemSource}
       </a>
     </li>
   );

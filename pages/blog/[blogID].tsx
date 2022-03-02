@@ -19,11 +19,6 @@ export default function Item(props: Props) {
 
   const toggleModal = () => router.back();
 
-  useEffect(() => {
-    router.prefetch("/");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <div className={styles.blogModalPage}>
       <Head>
