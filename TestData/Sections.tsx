@@ -10,8 +10,11 @@ export function getAllHeaderLinkParams() {
   })
 }
 
+interface ShopSection {
+  shopSection: string
+}
 
-export function getShopSectionData(shopSection) {
+export function getShopSectionData(shopSection: ShopSection) {
   const formattedKey = shopSection.shopSection.split("-").map((item: string, index: number) => {
     if (index === 0) {
       return item;
@@ -19,7 +22,7 @@ export function getShopSectionData(shopSection) {
       return item.replace(item.charAt(0), item.charAt(0).toUpperCase());
     }
   }).join("");
-  const sectionData = data[formattedKey];
+  const sectionData = data[formattedKey as keyof typeof data];
   return {
     sectionName: formattedKey,
     itemList: [...sectionData]

@@ -16,7 +16,14 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+interface Params {
+  params : {
+    shopSection: string
+  }
+}
+
+export async function getStaticProps({ params }: Params) {
+  console.log(params)
   const sectionData = getShopSectionData(params);
   return {
     props: {

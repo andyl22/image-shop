@@ -19,7 +19,7 @@ export default function ShopDropdown(props: Props) {
       <LinksList
         linkGroupName={formattedLink}
         key={linkGroupName}
-        linkGroupLinks={data[linkGroupName]}
+        linkGroupLinks={data[linkGroupName as keyof typeof data]}
       />
     );
   });

@@ -12,23 +12,10 @@ interface StaticProps {
   subSection: string
 }
 
-interface SubSectionContent {
-  id: number;
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-}
-
-interface ReturnedStaticProps {
-  subSectionName: string,
-  subSectionContent: SubSectionContent
-}
-
 export function getAllSections() {
   const staticPaths: StaticPaths[] = []
   Object.keys(data).forEach(subsection => {
-    Object.keys(data[subsection]).forEach(item => {
+    Object.keys(data[subsection as keyof typeof data]).forEach(item => {
       staticPaths.push({
         params: {
           shopSection: formatToKebabCase(subsection),
@@ -41,14 +28,15 @@ export function getAllSections() {
 }
 
 
-export function setSectionItems(props: StaticProps): ReturnedStaticProps {
+export function setSectionItems(props: StaticProps) {
   const { shopSection, subSection } = props;
   const formattedShopSection = formatToCamelCase(shopSection);
   const formattedSubScetion = formatToCamelCase(subSection)
+  const subSectionContent = data[formattedShopSection as keyof typeof data]
 
   return {
     subSectionName: formattedSubScetion,
-    subSectionContent: data[formattedShopSection][formattedSubScetion]
+    subSectionContent: subSectionContent[formattedSubScetion as keyof typeof subSectionContent]
   }
 }
 

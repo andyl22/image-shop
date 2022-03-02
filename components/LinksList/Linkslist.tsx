@@ -3,7 +3,7 @@ import styles from "./LinksList.module.scss";
 
 interface Props {
   linkGroupName: string;
-  linkGroupLinks: [{ linkName: string; linkURL: string }];
+  linkGroupLinks: { linkName: string; linkURL: string }[];
 }
 
 export default function LinksList(props: Props) {
