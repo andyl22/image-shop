@@ -6,23 +6,31 @@ import {
   getAllSections,
   setSectionItems,
 } from "../../../../TestData/SectionItems";
+import { GetStaticProps, GetStaticPaths } from "next";
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const paths = getAllSections();
   return {
     paths,
     fallback: false,
   };
+};
+
+interface Params {
+  params: {
+    shopSection: string;
+    subSection: string;
+  };
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps = async ({ params }: Params) => {
   const sectionData = setSectionItems(params);
   return {
     props: {
       sectionData,
     },
   };
-}
+};
 
 interface SubSectionContent {
   id: number;

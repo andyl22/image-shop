@@ -15,7 +15,6 @@ export default function ItemCard(props: Props) {
   const { name, description, imageURL, link, children } = props;
   const router = useRouter();
   const pathName = router.asPath;
-  console.log(pathName);
 
   return (
     <div className={styles.itemCardContainer}>
@@ -23,15 +22,17 @@ export default function ItemCard(props: Props) {
         <a>
           <div className={styles.anchorContent}>
             <h2>{name}</h2>
-            <Image
-              src={imageURL}
-              alt={name}
-              height="100%"
-              width="100%"
-              layout="responsive"
-              placeholder="blur"
-              blurDataURL={imageURL}
-            />
+            <div className={styles.imageWrapper}>
+              <Image
+                src={imageURL}
+                alt={name}
+                height="100%"
+                width="100%"
+                layout="responsive"
+                placeholder="blur"
+                blurDataURL={imageURL}
+              />
+            </div>
             <p>{description}</p>
           </div>
           {children}
