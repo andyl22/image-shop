@@ -6,8 +6,8 @@ const Shop: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Image Board</title>
-        <meta name="description" content="The Image Shop" />
+        <title>Shop</title>
+        <meta name="description" content="Buy Pictures of Parks" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

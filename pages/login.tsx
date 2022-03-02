@@ -8,7 +8,7 @@ const Login: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Image Board</title>
+        <title>Sign In</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

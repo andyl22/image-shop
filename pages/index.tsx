@@ -24,13 +24,11 @@ const Home: NextPage = () => {
     );
   });
 
-  console.log(mappedBlogSheets);
-
   return (
     <>
       <Head>
-        <title>Image Board</title>
-        <meta name="description" content="The Image Shop" />
+        <title>Parks</title>
+        <meta name="description" content="We love Nature!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

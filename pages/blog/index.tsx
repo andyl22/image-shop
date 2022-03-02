@@ -21,7 +21,7 @@ const Blog: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Image Board</title>
+        <title>Blog</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

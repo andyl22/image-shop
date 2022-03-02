@@ -28,7 +28,8 @@ interface Props {
 
 const Section = (props: Props) => {
   const { sectionData } = props;
-
+  const formattedName = sectionData.sectionName.split(/(?=[A-Z])/g).join(" ").toUpperCase();
+  
   const mappedItems = sectionData.itemList.map(item => {
     return (
       <Link href={item.linkURL} key={item.linkURL}>
@@ -37,12 +38,10 @@ const Section = (props: Props) => {
     )
   });
 
-  const formattedName = sectionData.sectionName.split(/(?=[A-Z])/g).join(" ").toUpperCase();
-
   return (
     <>
       <Head>
-        <title>{sectionData.sectionName}</title>
+        <title>{formattedName}</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

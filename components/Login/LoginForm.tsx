@@ -22,7 +22,7 @@ export default function LoginForm() {
   };
 
   return (
-    <FormContainer title="Login" handleSubmit={handleSubmit}>
+    <FormContainer title="Sign In" handleSubmit={handleSubmit}>
       <div className={styles.formWrapper}>
         <div className={styles.inputContainer}>
           <label htmlFor="username">Username</label>

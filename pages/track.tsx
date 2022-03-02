@@ -7,7 +7,7 @@ const Privacy: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Image Board</title>
+        <title>Track</title>
         <meta name="description" content="Privacy Policy" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

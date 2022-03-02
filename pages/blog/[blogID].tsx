@@ -5,6 +5,7 @@ import BlogModal from "../../components/BlogModal/BlogModal";
 import { getBlogIDs } from "../../TestData/BlogData";
 import Header from "../../components/Header/Header";
 import styles from "../../styles/BlogModal.module.scss";
+import Head from "next/head";
 
 interface Props {
   blogID: string;
@@ -25,8 +26,13 @@ export default function Item(props: Props) {
 
   return (
     <div className={styles.blogModalPage}>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={subtitle} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
-      <div className={styles.modalContainer}>
+      <main className={styles.modalContainer}>
         <BlogModal
           title={title}
           subtitle={subtitle}
@@ -36,7 +42,7 @@ export default function Item(props: Props) {
         >
           <p>{previewText}</p>
         </BlogModal>
-      </div>
+      </main>
     </div>
   );
 }
