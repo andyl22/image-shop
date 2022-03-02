@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import BlogData from "../../TestData/BlogData.json";
 import BlogModal from "../../components/BlogModal/BlogModal";
 import { getBlogIDs } from "../../TestData/BlogData";
