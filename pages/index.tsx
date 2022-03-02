@@ -7,8 +7,25 @@ import Sheet from "../components/Sheet/Sheet";
 import SheetLink from "../components/Sheet/SheetLink";
 import Footer from "../components/Footer/Footer";
 import styles from "../styles/Home.module.scss";
+import { getBlogData } from "../TestData/BlogData";
 
 const Home: NextPage = () => {
+  const blogData = getBlogData();
+  const mappedBlogSheets = blogData.slice(0, 4).map((item) => {
+    return (
+      <SheetLink
+        background={`url(${item.image})`}
+        border={true}
+        href={`/blog/${item.id}`}
+        key={item.id}
+      >
+        <h2>{item.title}</h2>
+      </SheetLink>
+    );
+  });
+
+  console.log(mappedBlogSheets);
+
   return (
     <>
       <Head>
@@ -69,36 +86,7 @@ const Home: NextPage = () => {
           <Sheet background='url("/images/wide.jpg")'>
             <h2>Welcome</h2>
           </Sheet>
-          <div className={styles.gridSheets}>
-            <SheetLink
-              background='url("/images/stream.jpg")'
-              border={true}
-              href="/test"
-            >
-              <h2>Grid1</h2>
-            </SheetLink>
-            <SheetLink
-              background='url("/images/tent-view.jpg")'
-              border={true}
-              href="/test"
-            >
-              <h2>Grid2</h2>
-            </SheetLink>
-            <SheetLink
-              background='url("/images/water.jpg")'
-              border={true}
-              href="/test"
-            >
-              <h2>Grid3</h2>
-            </SheetLink>
-            <SheetLink
-              background='url("/images/path.jpg")'
-              border={true}
-              href="/test"
-            >
-              <h2>Grid4</h2>
-            </SheetLink>
-          </div>
+          <div className={styles.gridSheets}>{mappedBlogSheets}</div>
         </div>
       </main>
       <Footer />

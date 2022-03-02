@@ -1,6 +1,7 @@
 import styles from "./BlogModal.module.scss";
 import Modal from "../Modal/Modal";
 import CloseIcon from "@mui/icons-material/Close";
+import Image from "next/image";
 import { MouseEventHandler } from "react";
 
 interface Props {
@@ -8,12 +9,13 @@ interface Props {
   subtitle: string;
   author: string;
   children: JSX.Element | JSX.Element[];
-  headerImage: JSX.Element;
+  headerImage: string;
   toggleModal: MouseEventHandler;
 }
 
 export default function BlogModal(props: Props) {
   const { title, subtitle, author, children, headerImage, toggleModal } = props;
+
   return (
     <Modal toggleModal={toggleModal}>
       <div className={styles.modalBlogContent}>
@@ -22,7 +24,17 @@ export default function BlogModal(props: Props) {
         </span>
         <header className={styles.articleHeader}>
           <h1>{title}</h1>
-          {headerImage}
+          <div className={styles.imageContainer}>
+            <Image
+              layout="responsive"
+              src={headerImage}
+              placeholder="blur"
+              blurDataURL={headerImage}
+              height="70%"
+              width="100%"
+              alt={`blog-${title}`}
+            />
+          </div>
           <span>
             <h2>{subtitle}</h2>
             <h2>By: {author}</h2>
