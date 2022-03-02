@@ -14,7 +14,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
   background: rgba(84, 83, 83, 0.4);
   left: 0;
   top: 0;
@@ -22,4 +21,12 @@
   width: 100%;
   z-index: 99;
   animation: .2s ease fadeIn;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
 }

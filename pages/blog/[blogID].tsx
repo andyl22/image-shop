@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import BlogData from "../../TestData/BlogData.json";
 import BlogModal from "../../components/BlogModal/BlogModal";
 import { getBlogIDs } from "../../TestData/BlogData";
-import styles from "../../styles/BlogItem.module.scss";
-import Image from "next/image";
+import Header from "../../components/Header/Header";
+import styles from "../../styles/BlogModal.module.scss";
 
 interface Props {
   blogID: string;
@@ -24,16 +24,19 @@ export default function Item(props: Props) {
   }, []);
 
   return (
-    <div>
-      <BlogModal
-        title={title}
-        subtitle={subtitle}
-        author={author}
-        headerImage={image}
-        toggleModal={toggleModal}
-      >
-        <p>{previewText}</p>
-      </BlogModal>
+    <div className={styles.blogModalPage}>
+      <Header />
+      <div className={styles.modalContainer}>
+        <BlogModal
+          title={title}
+          subtitle={subtitle}
+          author={author}
+          headerImage={image}
+          toggleModal={toggleModal}
+        >
+          <p>{previewText}</p>
+        </BlogModal>
+      </div>
     </div>
   );
 }

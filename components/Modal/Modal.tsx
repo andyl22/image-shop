@@ -4,10 +4,11 @@ import styles from "./Modal.module.scss";
 interface Prop {
   children: React.ReactNode;
   toggleModal: Function;
+  absolute?: boolean;
 }
 
 export default function Modal(props: Prop) {
-  const { children, toggleModal } = props;
+  const { children, toggleModal, absolute } = props;
   const [disabled, setDisabled] = useState(true);
 
   const closeModal = (e: MouseEvent) => {
@@ -32,7 +33,9 @@ export default function Modal(props: Prop) {
 
   return (
     <div
-      className={styles.modalOverlay}
+      className={`${styles.modalOverlay} ${
+        absolute ? styles.absolute : styles.fixed
+      }`}
       id="modal-overlay"
       onPointerDown={closeModal}
     >
