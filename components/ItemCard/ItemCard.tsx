@@ -33,8 +33,8 @@ export default function ItemCard(props: Props) {
               blurDataURL={imageURL}
             />
             <p>{description}</p>
-            {children}
           </div>
+          {children}
         </a>
       </Link>
     </div>

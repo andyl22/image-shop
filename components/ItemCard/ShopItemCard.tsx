@@ -1,4 +1,4 @@
-import styles from "./ItemCardWithPrice.module.scss";
+import styles from "./ShopItemCard.module.scss";
 import ItemCard from "./ItemCard";
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   price: string;
 }
 
-export default function ItemCardWithPrice(props: Props) {
+export default function ShopItemCard(props: Props) {
   const { name, description, imageURL, link, price } = props;
   return (
     <ItemCard name={name} imageURL={imageURL} link={link}>

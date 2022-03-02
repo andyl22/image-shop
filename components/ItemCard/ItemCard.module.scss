@@ -1,8 +1,11 @@
 .itemCardContainer {
   width: 300px;
+  text-align: center;
   &:hover {
-    opacity: 0.8;
-    cursor: pointer;
+    img {
+      opacity: 0.8;
+      cursor: pointer;
+    }
   }
   .anchorContent {
     display: flex;

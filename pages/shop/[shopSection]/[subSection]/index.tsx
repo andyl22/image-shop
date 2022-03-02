@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ItemCardWithPrice from "../../../../components/ItemCard/ItemCardWithPrice";
+import ShopItemCard from "../../../../components/ItemCard/ShopItemCard";
 import Header from "../../../../components/Header/Header";
 import styles from "../../../../styles/SubSection.module.scss";
 import {
@@ -47,7 +47,7 @@ const SubSection = (props: Props) => {
   const mappedSectionData = sectionData.subSectionContent.map((item) => {
     const { name, image, id, description, price } = item;
     return (
-      <ItemCardWithPrice
+      <ShopItemCard
         imageURL={image}
         name={name}
         link={id.toString()}
