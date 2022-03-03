@@ -2,8 +2,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./LeftHeader.module.scss";
 import ShopDropdown from "./ShopDropdown";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 import LeftNavMenu from "./LeftNavMenu";
+import BlogDropdown from "./BlogDropdown";
 
 export default function LeftHeader() {
   const [innerWidth, setInnerWidth] = useState(0);
@@ -11,23 +12,23 @@ export default function LeftHeader() {
 
   const handleResize = () => {
     setInnerWidth(window.innerWidth);
-  }
+  };
 
   useEffect(() => {
     setInnerWidth(window.innerWidth);
-  }, [])
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-    }
-  })
+    };
+  });
 
   const toggleModal = () => {
     setShowModal(!showModal);
-  }
+  };
 
   const fullLeftNav = (
     <>
@@ -37,32 +38,36 @@ export default function LeftHeader() {
         </a>
       </Link>
       <ShopDropdown>
-        <button className={`${styles.shopLink} ${styles.visualHighlight}`}>Shop</button>
+        <button className={`${styles.shopLink} ${styles.visualHighlight}`}>
+          Shop
+        </button>
       </ShopDropdown>
-      <Link href="/blog">
-        <a className={styles.visualHighlight}>Blog</a>
-      </Link>
+      <BlogDropdown>
+        <button className={`${styles.shopLink} ${styles.visualHighlight}`}>
+          Blog
+        </button>
+      </BlogDropdown>
       <Link href="/about">
         <a className={styles.visualHighlight}>About</a>
       </Link>
     </>
-  )
+  );
 
   const partialLeftNav = (
     <>
       {showModal ? <LeftNavMenu toggleModal={toggleModal} /> : null}
-      <MenuIcon onClick={() => toggleModal()} className={styles.hamburger}/>
+      <MenuIcon onClick={() => toggleModal()} className={styles.hamburger} />
       <Link href="/">
         <a className={styles.visualHighlight}>
           <h1>Parks</h1>
         </a>
       </Link>
     </>
-  )
+  );
 
   return (
     <nav className={styles.headerLinkContainer}>
-      {(innerWidth > 600) ? fullLeftNav : partialLeftNav}
+      {innerWidth > 600 ? fullLeftNav : partialLeftNav}
     </nav>
   );
 }

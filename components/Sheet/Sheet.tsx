@@ -5,20 +5,30 @@ interface Props {
   background: string;
   children: ReactNode | Array<ReactNode>;
   border?: boolean;
+  allowHover?: boolean;
+  height?: string;
+  width?: string;
 }
 
 export default function Sheet(props: Props) {
-  const { background, border, children } = props;
+  const { background, border, children, allowHover, height, width } = props;
 
   const optionalStyles = {
     background: `${background}`,
     backgroundSize: "cover",
     backgroundPosition: "center center",
     borderRadius: `${border ? "1rem" : 0}`,
+    height: `${height}`,
+    width: `${width}`,
   };
 
   return (
-    <div className={styles.sheetContainer} style={optionalStyles} tabIndex={0}>
+    <div
+      style={optionalStyles}
+      tabIndex={0}
+      className={`${styles.sheetContainer} 
+        ${allowHover ? styles.sheetHover : null}`}
+    >
       {children}
     </div>
   );

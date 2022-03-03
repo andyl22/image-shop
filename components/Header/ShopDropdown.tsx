@@ -2,6 +2,7 @@ import styles from "./ShopDropdown.module.scss";
 import Dropdown from "../Dropdown/Dropdown";
 import LinksList from "../LinksList/Linkslist";
 import data from "../../TestData/Sections.json";
+import DropdownContainer from "./DropdownContainer";
 
 interface Props {
   children: React.ReactNode;
@@ -25,9 +26,9 @@ export default function ShopDropdown(props: Props) {
   });
 
   const dropdownContent = (
-    <div className={styles.shopDropdownContainer}>
+    <DropdownContainer>
       <nav className={styles.shopNav}>{mappedLinks}</nav>
-    </div>
+    </DropdownContainer>
   );
 
   return (

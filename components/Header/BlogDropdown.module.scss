@@ -1,0 +1,15 @@
+.blogDropdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  h2 {
+    background: rgb(243, 247, 250);
+    padding: 1rem 0.5rem;
+    border-radius: 1rem;
+    opacity: 0.95;
+    font-size: 1rem;
+  }
+}

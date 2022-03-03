@@ -1,51 +1,32 @@
 @use "../../styles/variables" as s;
-$margin-top: 1.2rem;
 
-.shopDropdownContainer {
+.shopNav {
   display: grid;
   justify-content: center;
-  grid-template: 1fr / fit-content(100%) fit-content(100%);
-  gap: 1rem;
-  width: 100%;
-  padding: 1em;
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background: s.$secondary-background-color;
-  border: 2px solid s.$border-color;
-  box-shadow: -1px 8px 12px -4px s.$box-shadow;
-  @include s.mobile-view {
-    color: black !important;
-  }
-  .shopNav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    figure {
-      padding-right: 2rem;
-      border-right: 1px solid rgb(205, 203, 203);
-      figcaption {
-        border-right: none;
-      }
-      &:last-of-type {
-        border-right: none;
-        padding-right: 0;
-      }
+  grid-template: 1fr / repeat(3, fit-content(100%));
+  gap: 2rem;
+  figure {
+    padding-right: 2rem;
+    border-right: 1px solid rgb(205, 203, 203);
+    figcaption {
+      border-right: none;
     }
-    @include s.mobile-view {
-      figure {
-        figcaption {
-          text-align: center;
-        }
-        ul {
-          text-align: center;
-        }
-        width: 100%;
-        padding-right: 0;
-        border-right: none;
+    &:last-of-type {
+      border-right: none;
+      padding-right: 0;
+    }
+  }
+  @include s.mobile-view {
+    figure {
+      figcaption {
+        text-align: center;
       }
+      ul {
+        text-align: center;
+      }
+      width: 100%;
+      padding-right: 0;
+      border-right: none;
     }
   }
 }

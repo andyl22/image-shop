@@ -1,16 +1,21 @@
-@use '../../styles/variables' as s;
+@use "../../styles/variables" as s;
 
 .sheetContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 500px;
+  min-height: 200px;
+  min-width: 200px;
   width: 100%;
-  color: white;
-  h2 {
-    font-size: 2.5rem;
-  }
   @include s.mobile-view {
-    height: 400px;
+    min-height: 400px;
+  }
+}
+
+.sheetHover {
+  &:hover {
+    cursor: pointer;
+    filter: brightness(95%);
+    transform: scale(1.02);
   }
 }

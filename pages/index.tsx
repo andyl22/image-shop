@@ -21,8 +21,10 @@ const Home: NextPage = () => {
         border={true}
         href={`/blog/${item.id}`}
         key={item.id}
+        height="500px"
+        width="100%"
       >
-        <h2>{item.title}</h2>
+        <h2 className={styles.sheetText}>{item.title}</h2>
       </SheetLink>
     );
   });
