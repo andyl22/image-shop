@@ -27,7 +27,7 @@ export function getAllSections() {
   return staticPaths;
 }
 
-interface items {
+export interface Item {
   id: number;
   name: string;
   description: string;
@@ -35,9 +35,7 @@ interface items {
   image: string;
 }
 
-type Results = Array<items>;
-
-export function getAllItems(jsonTree: any = data, results: Results = []) {
+export function getAllItems(jsonTree: any = data, results: any = []) {
   if (jsonTree.price) return results.push(jsonTree);
 
   for (const key of Object.keys(jsonTree)) {

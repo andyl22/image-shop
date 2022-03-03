@@ -8,7 +8,7 @@ import SheetLink from "../components/Sheet/SheetLink";
 import Footer from "../components/Footer/Footer";
 import styles from "../styles/Home.module.scss";
 import { getBlogData } from "../TestData/BlogData";
-import { getAllItems } from "../TestData/SectionItems";
+import { Item, getAllItems } from "../TestData/SectionItems";
 
 const Home: NextPage = () => {
   const blogData = getBlogData();
@@ -27,7 +27,7 @@ const Home: NextPage = () => {
     );
   });
 
-  const mappedItemData = itemData.slice(0, 8).map((item) => {
+  const mappedItemData = itemData.slice(0, 8).map((item: Item) => {
     return (
       <ItemCard
         imageURL={item.image}
