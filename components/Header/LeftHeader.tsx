@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "./LeftHeader.module.scss";
 import ShopDropdown from "./ShopDropdown";
 import MenuIcon from "@mui/icons-material/Menu";
 import LeftNavMenu from "./LeftNavMenu";
 import BlogDropdown from "./BlogDropdown";
+import Link from "next/link";
 
 export default function LeftHeader() {
   const [innerWidth, setInnerWidth] = useState(0);
@@ -38,14 +38,18 @@ export default function LeftHeader() {
         </a>
       </Link>
       <ShopDropdown>
-        <button className={`${styles.shopLink} ${styles.visualHighlight}`}>
-          Shop
-        </button>
+        <Link href="/shop">
+          <a className={`${styles.dropdownLink} ${styles.visualHighlight}`}>
+            Shop
+          </a>
+        </Link>
       </ShopDropdown>
       <BlogDropdown>
-        <button className={`${styles.shopLink} ${styles.visualHighlight}`}>
-          Blog
-        </button>
+        <Link href="/blog">
+          <a className={`${styles.dropdownLink} ${styles.visualHighlight}`}>
+            Blog
+          </a>
+        </Link>
       </BlogDropdown>
       <Link href="/about">
         <a className={styles.visualHighlight}>About</a>

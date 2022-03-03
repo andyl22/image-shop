@@ -1,5 +1,6 @@
 import styles from "./Dropdown.module.scss";
 import { KeyboardEvent, MouseEvent, useState } from "react";
+import { useRouter } from "next/router";
 
 interface Dropdown {
   expandDirection?: "left" | "right";
@@ -10,7 +11,6 @@ interface Dropdown {
 export default function Dropdown(props: Dropdown) {
   const { expandDirection, dropdownContent, children } = props;
   const [showDropdown, setShowDropdown] = useState(false);
-  const [disableMouseOver, setDisableMouseOver] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -19,7 +19,10 @@ export default function Dropdown(props: Dropdown) {
   const handleKeyPress = (e: KeyboardEvent): void => {
     const target = e.target as HTMLElement;
 
-    if (target.tagName === "A" && e.key === "Enter") return;
+    if (target.tagName === "A" && e.key === "Enter") {
+      e.preventDefault();
+      toggleDropdown();
+    }
 
     if (e.key === "Enter" && target.parentNode) {
       if ((target.parentNode as HTMLElement).className.match(/.*Dropdown.*/))
@@ -34,23 +37,7 @@ export default function Dropdown(props: Dropdown) {
   };
 
   const handleMouseLeave = (e: MouseEvent): void => {
-    if (showDropdown && !disableMouseOver) toggleDropdown();
-  }
-
-  const handleMouseDown = (e: MouseEvent): void => {
-    e.preventDefault();
-
-    const target = e.target as HTMLElement;
-
-    if (disableMouseOver && target.tagName === "BUTTON") {
-      toggleDropdown();
-      setDisableMouseOver(!disableMouseOver);
-    } else if (target.tagName === "BUTTON") {
-      setDisableMouseOver(!disableMouseOver);
-    } else if (target.tagName === "A") {
-      setDisableMouseOver(!showDropdown);
-      toggleDropdown();
-    }
+    if (showDropdown) toggleDropdown();
   };
 
   return (
@@ -59,7 +46,6 @@ export default function Dropdown(props: Dropdown) {
       className={styles.container}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleMouseDown}
       onKeyDown={handleKeyPress}
     >
       {children}
