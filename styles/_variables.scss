@@ -7,7 +7,7 @@ $light-font-color: white;
 
 // mq
 @mixin mobile-view {
-  @media (max-width: 700px) {
+  @media (max-width: 600px) {
     @content;
   }
 }

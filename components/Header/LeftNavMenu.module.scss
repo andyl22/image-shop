@@ -1,0 +1,23 @@
+.leftNavMenu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: white;
+  padding: 1.5rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  h1 {
+    margin-bottom: 1rem;
+  }
+  .backIcon {
+    position: absolute;
+    top: 1.3rem;
+    right: 1.5rem;
+    &:hover {
+      cursor: pointer;
+      color: gray;
+      transform: scale(1.2);
+    }
+  }
+}

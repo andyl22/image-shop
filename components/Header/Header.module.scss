@@ -5,13 +5,14 @@
   position: sticky;
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 3rem;
   background: white;
   top: 0;
   left: 0;
   box-shadow: 0 -1rem 1.5rem s.$box-shadow;
-  padding: 1rem 3rem;
+  padding: 1rem 1rem;
   transition-duration: 1s;
   z-index: 1;
   transition: .1s;

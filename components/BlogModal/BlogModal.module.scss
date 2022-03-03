@@ -13,11 +13,12 @@
   padding-top: 2rem;
   overflow-y: auto;
   border: 1px solid rgb(213, 213, 213);
+  @include s.mobile-view {
+
+  }
   .imageContainer {
-    width: 800px;
-    @include s.mobile-view {
-      width: 500px;
-    }
+    width: 100%;
+    max-width: 700px;
   }
   .closeButton {
     position: absolute;

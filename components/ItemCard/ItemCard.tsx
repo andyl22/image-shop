@@ -14,7 +14,7 @@ interface Props {
 export default function ItemCard(props: Props) {
   const { name, description, imageURL, link, children } = props;
   const router = useRouter();
-  const pathName = router.asPath;
+  const pathName = router.asPath === "/" ? "" : router.asPath;
 
   return (
     <div className={styles.itemCardContainer}>

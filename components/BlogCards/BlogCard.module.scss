@@ -8,15 +8,16 @@
   align-items: center;
   height: fit-content;
   width: 300px;
-  border-radius: 1em;
+  border-radius: 1rem;
   text-align: center;
   box-shadow: 0 0 8px -4px rgb(109, 109, 109);
   background: white;
   &:hover {
     cursor: pointer;
     background: s.$secondary-background-color;
+    transform: scale(1.02);
     img {
-      opacity: 90%;
+      filter: brightness(90%);
     }
   }
   .blogCardImage {
