@@ -20,6 +20,7 @@ export default function AccreddidationItem(props: Props) {
             height={32}
             width={32}
             className="listImage"
+            quality="1"
             priority
           />
         ) : null}

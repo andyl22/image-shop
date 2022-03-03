@@ -8,9 +8,12 @@ import SheetLink from "../components/Sheet/SheetLink";
 import Footer from "../components/Footer/Footer";
 import styles from "../styles/Home.module.scss";
 import { getBlogData } from "../TestData/BlogData";
+import { getAllItems } from "../TestData/SectionItems";
 
 const Home: NextPage = () => {
   const blogData = getBlogData();
+  const itemData = getAllItems();
+
   const mappedBlogSheets = blogData.slice(0, 4).map((item) => {
     return (
       <SheetLink
@@ -21,6 +24,17 @@ const Home: NextPage = () => {
       >
         <h2>{item.title}</h2>
       </SheetLink>
+    );
+  });
+
+  const mappedItemData = itemData.slice(0, 8).map((item) => {
+    return (
+      <ItemCard
+        imageURL={item.image}
+        link={`/shop/national-parks/yosemite/${item.id}`}
+        name={item.name}
+        key={item.id}
+      />
     );
   });
 
@@ -49,38 +63,7 @@ const Home: NextPage = () => {
         </div>
         <div className={styles.mainContent}>
           <h2>Explore</h2>
-          <ItemSlider>
-            <ItemCard
-              imageURL="/images/items.jpg"
-              link="/shop/national-parks/yosemite/test"
-              name="Test0"
-            />
-            <ItemCard
-              imageURL="/images/items.jpg"
-              link="/shop/national-parks/yosemite/test"
-              name="Test1"
-            />
-            <ItemCard
-              imageURL="/images/items.jpg"
-              link="/shop/national-parks/yosemite/test"
-              name="Test2"
-            />
-            <ItemCard
-              imageURL="/images/items.jpg"
-              link="/shop/national-parks/yosemite/test"
-              name="Test3"
-            />
-            <ItemCard
-              imageURL="/images/items.jpg"
-              link="/shop/national-parks/yosemite/test"
-              name="Test4"
-            />
-            <ItemCard
-              imageURL="/images/items.jpg"
-              link="/shop/national-parks/yosemite/test"
-              name="Test5"
-            />
-          </ItemSlider>
+          <ItemSlider>{mappedItemData}</ItemSlider>
           <Sheet background='url("/images/wide.jpg")'>
             <h2>Welcome</h2>
           </Sheet>
