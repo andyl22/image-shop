@@ -20,6 +20,7 @@
   height: 100%;
   width: 100%;
   animation: 0.2s ease fadeIn;
+  z-index: 99;
 }
 
 .fixed {
@@ -28,4 +29,8 @@
 
 .absolute {
   position: absolute;
+}
+
+.allowOverlay {
+  z-index: 0;
 }

@@ -17,7 +17,7 @@ export default function BlogModal(props: Props) {
   const { title, subtitle, author, children, headerImage, toggleModal } = props;
 
   return (
-    <Modal toggleModal={toggleModal} absolute={true}>
+    <Modal toggleModal={toggleModal} absolute={true} allowOverlay={true}>
       <div className={styles.modalBlogContent}>
         <span onClick={toggleModal}>
           <CloseIcon fontSize="small" className={styles.closeButton} />

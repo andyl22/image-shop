@@ -41,9 +41,11 @@ $contentMargin: 1rem;
     }
   }
   .hamburger {
+    position: relative;
+    top: -.15rem;
     cursor: pointer;
     &:hover {
-      transform: scale(1.02);
+      transform: scale(1.1);
     }
   }
 }
