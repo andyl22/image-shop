@@ -1,3 +1,4 @@
+@use '../../styles/variables' as s;
 $contentMargin: 1rem;
 
 .headerLinkContainer {
@@ -5,6 +6,9 @@ $contentMargin: 1rem;
   display: flex;
   align-items: center;
   gap: 2rem;
+  @include s.mobile-view {
+    gap: 1rem;
+  }
   h1 {
     font-size: 1.5rem;
   }
@@ -23,18 +27,23 @@ $contentMargin: 1rem;
     position: relative;
     &:hover,
     &:focus {
-      cursor: pointer;
       &::after {
-        cursor: default;
+        cursor: pointer;
         position: absolute;
-        top: 100%;
+        top: -100%;
         right: -$contentMargin;
-        height: 50%;
+        height: 150%;
         text-align: center;
         content: "";
         width: 100%;
-        padding: 0.5rem $contentMargin;
+        padding: 1rem $contentMargin;
       }
+    }
+  }
+  .hamburger {
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.02);
     }
   }
 }

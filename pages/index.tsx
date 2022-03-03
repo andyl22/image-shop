@@ -31,7 +31,7 @@ const Home: NextPage = () => {
     return (
       <ItemCard
         imageURL={item.image}
-        link={`/shop/national-parks/yosemite/${item.id}`}
+        link={`shop/national-parks/yosemite/${item.id}`}
         name={item.name}
         key={item.id}
       />

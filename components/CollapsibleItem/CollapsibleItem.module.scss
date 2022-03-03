@@ -1,0 +1,19 @@
+.collapsibleContainer {
+  display: flex;
+  flex-direction: column;
+  .controllerNode {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+      color: gray;
+    }
+  }
+  ul {
+    list-style: none;
+    margin-top: .5rem;
+    li {
+      margin-left: 1rem;
+    }
+  }
+}

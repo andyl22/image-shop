@@ -29,10 +29,13 @@ export default function Dropdown(props: Dropdown) {
     if (e.key === "Escape") setShowDropdown(!showDropdown);
   };
 
-  const handleMouseOver = (e: MouseEvent): void => {
-    if (disableMouseOver) return;
-    toggleDropdown();
+  const handleMouseEnter = (e: MouseEvent): void => {
+    if (!showDropdown) toggleDropdown();
   };
+
+  const handleMouseLeave = (e: MouseEvent): void => {
+    if (showDropdown && !disableMouseOver) toggleDropdown();
+  }
 
   const handleMouseDown = (e: MouseEvent): void => {
     e.preventDefault();
@@ -45,7 +48,7 @@ export default function Dropdown(props: Dropdown) {
     } else if (target.tagName === "BUTTON") {
       setDisableMouseOver(!disableMouseOver);
     } else if (target.tagName === "A") {
-      setDisableMouseOver(false);
+      setDisableMouseOver(!showDropdown);
       toggleDropdown();
     }
   };
@@ -54,8 +57,8 @@ export default function Dropdown(props: Dropdown) {
     <div
       aria-expanded={showDropdown}
       className={styles.container}
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseOver}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onClick={handleMouseDown}
       onKeyDown={handleKeyPress}
     >

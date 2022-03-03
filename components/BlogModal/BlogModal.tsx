@@ -22,7 +22,7 @@ export default function BlogModal(props: Props) {
         <span onClick={toggleModal}>
           <CloseIcon fontSize="small" className={styles.closeButton} />
         </span>
-        <header className={styles.articleHeader}>
+        <div className={styles.articleHeader}>
           <h1>{title}</h1>
           <div className={styles.imageContainer}>
             <Image
@@ -41,7 +41,7 @@ export default function BlogModal(props: Props) {
             <h2>{subtitle}</h2>
             <h2>By: {author}</h2>
           </span>
-        </header>
+        </div>
         <article className={styles.articleContent}>{children}</article>
       </div>
     </Modal>
