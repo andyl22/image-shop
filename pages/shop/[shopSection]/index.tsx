@@ -1,12 +1,13 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../../../components/Header/Header";
 import styles from "../../../styles/ShopSection.module.scss";
+import Footer from "../../../components/Footer/Footer";
 import {
   getAllHeaderLinkParams,
   getShopSectionData,
 } from "../../../TestData/Sections";
+
 
 export async function getStaticPaths() {
   const paths = getAllHeaderLinkParams();
@@ -68,6 +69,7 @@ const Section = (props: Props) => {
         <h1>{formattedName}</h1>
         {mappedItems}
       </main>
+      <Footer />
     </>
   );
 };

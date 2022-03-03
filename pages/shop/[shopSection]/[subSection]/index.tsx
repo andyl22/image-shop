@@ -6,7 +6,7 @@ import {
   getAllSections,
   setSectionItems,
 } from "../../../../TestData/SectionItems";
-import { GetStaticProps, GetStaticPaths } from "next";
+import Footer from "../../../../components/Footer/Footer";
 
 export const getStaticPaths = async () => {
   const paths = getAllSections();
@@ -77,6 +77,7 @@ const SubSection = (props: Props) => {
       <Header />
 
       <main className={styles.main}>{mappedSectionData}</main>
+      <Footer />
     </>
   );
 };

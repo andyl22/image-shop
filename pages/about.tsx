@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import styles from "../styles/About.module.scss";
 
 const About: NextPage = () => {
@@ -17,6 +18,7 @@ const About: NextPage = () => {
       <main className={styles.main}>
         <p>The one stop shop for ordering artwork of National Parks!</p>
       </main>
+      <Footer />
     </>
   );
 };
