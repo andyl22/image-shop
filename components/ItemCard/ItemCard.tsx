@@ -31,7 +31,7 @@ export default function ItemCard(props: Props) {
                 layout="responsive"
                 placeholder="blur"
                 blurDataURL={imageURL}
-                quality="25"
+                quality="50"
               />
             </div>
             <p>{description}</p>
