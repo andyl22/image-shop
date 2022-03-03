@@ -33,6 +33,8 @@ export default function BlogModal(props: Props) {
               height="70%"
               width="100%"
               alt={`blog-${title}`}
+              quality="100"
+              priority
             />
           </div>
           <span>

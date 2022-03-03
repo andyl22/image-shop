@@ -26,7 +26,7 @@ export default function BlogCard(props: Prop) {
       <a>
         <div className={styles.blogCardContainer} onPointerDown={toggleModal}>
           <div className={styles.blogCardImage}>
-            <Image src={image} layout="responsive" placeholder="blur" blurDataURL={image} height="100%" width="100%" alt={`blog-${title}`} quality="1" />
+            <Image src={image} layout="responsive" placeholder="blur" blurDataURL={image} height="100%" width="100%" alt={`blog-${title}`} quality="1" priority/>
           </div>
           <h1>{title}</h1>
           <div className={styles.content}>
