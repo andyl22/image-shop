@@ -43,7 +43,7 @@ export default function LoginForm() {
             value={formState.password}
           />
         </div>
-        <input type="submit" value="Login" id="login"/>
+        <input type="submit" value="Login" id="login" />
       </div>
     </FormContainer>
   );

@@ -64,10 +64,10 @@ const Home: NextPage = () => {
           </p>
         </div>
         <div className={styles.mainContent}>
-          <h2>Explore</h2>
+          <h2>New Arrivals</h2>
           <ItemSlider>{mappedItemData}</ItemSlider>
           <Sheet background='url("/images/wide.jpg")'>
-            <h2>Welcome</h2>
+            <h2 className={styles.sheetText}>Welcome</h2>
           </Sheet>
           <div className={styles.gridSheets}>{mappedBlogSheets}</div>
         </div>

@@ -44,6 +44,11 @@
     background: white;
     padding: 4rem 0;
     gap: 4rem;
+    .sheetText {
+      color: white;
+      font-size: 2rem;
+      font-weight: bolder;
+    }
     .itemCards {
       display: flex;
       justify-content: center;
@@ -62,12 +67,6 @@
       @include s.mobile-view {
         padding: 1rem;
         gap: 1rem;
-      }
-      .sheetText {
-        border-radius: 1rem;
-        padding: 1rem 0.5rem;
-        opacity: 0.9;
-        background: white;
       }
     }
   }

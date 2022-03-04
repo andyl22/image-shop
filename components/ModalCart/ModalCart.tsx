@@ -1,6 +1,6 @@
 import Modal from "../Modal/Modal";
 import styles from "./ModalCart.module.scss";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import { MouseEventHandler } from "react";
 
 interface Props {
@@ -23,5 +23,5 @@ export default function ModalCart(props: Props) {
         </div>
       </div>
     </Modal>
-  )
+  );
 }
