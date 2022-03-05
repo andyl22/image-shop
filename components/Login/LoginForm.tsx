@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 export default function LoginForm() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({ username: "", password: "" });
+  const [errMessage, setErrorMessage] = useState();
   const router = useRouter();
 
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function LoginForm() {
 
   return (
     <FormContainer title="Sign In" handleSubmit={handleSubmit}>
+      <p>{errMessage}</p>
       <div className={styles.formWrapper}>
         <div className={styles.inputContainer}>
           <label htmlFor="username">Username</label>
@@ -36,16 +38,24 @@ export default function LoginForm() {
             ref={formRef}
             onChange={handleChange}
             value={formState.username}
+            required
+            aria-invalid={true}
+            aria-describedby="username-error"
           />
+          <span id="username-error">Test</span>
         </div>
         <div className={styles.inputContainer}>
-          <label htmlFor="username">Password</label>
+          <label htmlFor="username">Invalid Username</label>
           <input
             type="password"
             id="password"
             onChange={handleChange}
             value={formState.password}
+            required
+            aria-invalid={true}
+            aria-describedby="password-error"
           />
+          <span id="password-error">Invalid Password</span>
         </div>
         <input type="submit" value="Login" id="login" />
       </div>

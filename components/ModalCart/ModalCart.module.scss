@@ -9,29 +9,21 @@
   }
 }
 
-@keyframes dropIn {
-  0% {
-    transform: translateY(-300px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
 .cartContainer {
   position: absolute;
   right: 0;
   top: 0;
   height: 100%;
-  min-width: 500px;
+  min-width: 300px;
   width: fit-content;
   background: white;
   text-align: center;
   padding: 1rem;
   animation: 0.2s ease sideIn;
   @include s.mobile-view {
+    min-width: 100px;
     width: 100%;
-    animation: 0.2s ease dropIn;
+    animation: 0.2s ease sideIn;
   }
   .modalHeader {
     padding-bottom: 1rem;
