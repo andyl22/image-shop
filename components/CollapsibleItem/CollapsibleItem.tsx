@@ -17,8 +17,8 @@ export default function CollapsibleItem(props: Props) {
 
   const mappedChildrenToList =
     Children.count(children) > 1 ? (
-      React.Children.map(children, (item, index) => {
-        <li key={index}>{item}</li>;
+      React.Children.map(children, (child, i) => {
+        return <li key={i}>{child}</li>
       })
     ) : (
       <li>{children}</li>
@@ -28,7 +28,7 @@ export default function CollapsibleItem(props: Props) {
     <div className={styles.collapsibleContainer}>
       <div className={styles.controllerNode} onClick={toggleCollapsibleSection}>
         {parentNode}
-        <KeyboardArrowDownIcon />
+        <KeyboardArrowDownIcon className={showCollapsible ? styles.reverseIcon : ""} />
       </div>
       {showCollapsible ? (
         <ul className={styles.collapsedNodes}>{mappedChildrenToList}</ul>

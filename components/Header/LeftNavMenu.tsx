@@ -21,6 +21,7 @@ export default function LeftNavMenu(props: Props) {
         </CollapsibleItem>
         <CollapsibleItem parentNode={<p>Test</p>}>
           <p>Test</p>
+          <p>Test</p>
         </CollapsibleItem>
       </div>
     </Modal>

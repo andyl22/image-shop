@@ -4,6 +4,8 @@
   width: 100%;
   padding: 1em;
   position: absolute;
+  overflow-y: scroll;
+  max-height: 92vh;
   left: 0;
   top: 100%;
   background: s.$secondary-background-color;
@@ -12,5 +14,4 @@
   @include s.mobile-view {
     color: black !important;
   }
-
 }
