@@ -25,7 +25,6 @@ export default function Sheet(props: Props) {
   return (
     <div
       style={optionalStyles}
-      tabIndex={0}
       className={`${styles.sheetContainer} 
         ${allowHover ? styles.sheetHover : null}`}
     >
