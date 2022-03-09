@@ -9,6 +9,7 @@ import Footer from "../components/Footer/Footer";
 import styles from "../styles/Home.module.scss";
 import { getBlogData } from "../TestData/BlogData";
 import { Item, getAllItems } from "../TestData/SectionItems";
+import { PageProvider } from "../context/PageContext";
 
 const Home: NextPage = () => {
   const blogData = getBlogData();
@@ -69,7 +70,9 @@ const Home: NextPage = () => {
           <Sheet background='url("/images/wide.jpg")'>
             <h2 className={styles.sheetText}>Welcome</h2>
           </Sheet>
-          <div className={styles.gridSheets}>{mappedBlogSheets}</div>
+          <PageProvider url="/">
+            <div className={styles.gridSheets}>{mappedBlogSheets}</div>
+          </PageProvider>
         </div>
       </main>
       <Footer />

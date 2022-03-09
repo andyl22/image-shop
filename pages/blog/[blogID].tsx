@@ -1,10 +1,10 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import BlogData from "../../TestData/BlogData.json";
 import BlogModal from "../../components/BlogModal/BlogModal";
 import { getBlogIDs } from "../../TestData/BlogData";
 import Header from "../../components/Header/Header";
 import styles from "../../styles/BlogModal.module.scss";
-import Head from "next/head";
 
 interface Props {
   blogID: string;
@@ -16,7 +16,9 @@ export default function Item(props: Props) {
   const { title, subtitle, author, image, previewText } = blogInfo;
   const router = useRouter();
 
-  const toggleModal = () => router.back();
+  const toggleModal = () => {
+    router.push('/blog');
+  }
 
   return (
     <div className={styles.blogModalPage}>
@@ -56,3 +58,4 @@ export function getStaticPaths() {
     fallback: false,
   };
 }
+

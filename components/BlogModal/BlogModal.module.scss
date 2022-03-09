@@ -1,4 +1,4 @@
-@use '../../styles/variables' as s;
+@use "../../styles/variables" as s;
 
 .modalBlogContent {
   display: flex;
@@ -14,7 +14,6 @@
   overflow-y: auto;
   border: 1px solid rgb(213, 213, 213);
   @include s.mobile-view {
-
   }
   .imageContainer {
     width: 100%;
