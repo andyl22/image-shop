@@ -19,7 +19,7 @@
     "redwood": [
       {
         "id": 3,
-        "name": "Test Item",
+        "name": "Test Image Name Overflow Of Container And Tooltip",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"

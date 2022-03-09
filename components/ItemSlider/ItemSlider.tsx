@@ -42,8 +42,7 @@ export default function ItemSlider(props: Props) {
   })();
 
   const handleResize = (e: UIEvent) => {
-    const target = e.target as Window;
-    setItemsToRender(Math.max(1, Math.floor(target.innerWidth / 300)));
+    setItemsToRender(Math.max(1, Math.floor(window.innerWidth / 350)));
   };
 
   useEffect(() => {
@@ -55,7 +54,7 @@ export default function ItemSlider(props: Props) {
   });
 
   useEffect(() => {
-    setItemsToRender(Math.max(2, Math.floor(window.innerWidth / 350)));
+    setItemsToRender(Math.max(1, Math.floor(window.innerWidth / 350)));
   }, []);
 
   const childrenWithArrowNav = (

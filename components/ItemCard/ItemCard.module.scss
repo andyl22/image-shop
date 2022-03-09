@@ -1,9 +1,10 @@
 .itemCardContainer {
   width: 300px;
   text-align: center;
+  position: relative;
   &:hover {
     img {
-      opacity: 0.8;
+      filter: brightness(.8);
       cursor: pointer;
     }
   }

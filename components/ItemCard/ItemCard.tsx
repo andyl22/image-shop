@@ -2,6 +2,7 @@ import styles from "./ItemCard.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import OverflowToolTip from "../Tooltip/OverflowTooltip";
 
 interface Props {
   name: string;
@@ -21,7 +22,9 @@ export default function ItemCard(props: Props) {
       <Link href={`${pathName}/${link}`}>
         <a>
           <div className={styles.anchorContent}>
-            <h2>{name}</h2>
+            <OverflowToolTip tooltipContent={name}>
+              <h2>{name}</h2>
+            </OverflowToolTip>
             <div className={styles.imageWrapper}>
               <Image
                 src={imageURL}

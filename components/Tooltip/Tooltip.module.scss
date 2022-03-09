@@ -1,0 +1,12 @@
+.tooltipContainer {
+  position: relative;
+  .tooltip {
+    position: absolute;
+    background: rgb(227, 224, 224);
+    border-radius: .5rem;
+    padding: 1rem;
+    left: 30%;
+    top: 2rem;
+    z-index: 1;
+  }
+}
