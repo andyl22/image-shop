@@ -146,7 +146,7 @@
     "hummingbird": [
       {
         "id": 18,
-        "name": "Test Item",
+        "name": "Hummingbird",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"
@@ -155,7 +155,7 @@
     "kingfisher": [
       {
         "id": 19,
-        "name": "Test Item",
+        "name": "Kingfisher",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"
@@ -164,7 +164,7 @@
     "greatEagle": [
       {
         "id": 20,
-        "name": "Test Item",
+        "name": "Great Eagle",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"
@@ -173,7 +173,7 @@
     "blueJay": [
       {
         "id": 21,
-        "name": "Test Item",
+        "name": "Blue Jay",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"
@@ -182,28 +182,28 @@
     "goldFinch": [
       {
         "id": 22,
-        "name": "Test Item",
+        "name": "Gold Finch",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 23,
-        "name": "Test Item",
+        "name": "Gold Finch",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 24,
-        "name": "Test Item",
+        "name": "Gold Finch",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 25,
-        "name": "Test Item",
+        "name": "Gold Finch",
         "description": "test",
         "price": "$10.00",
         "image": "/images/calm.jpg"

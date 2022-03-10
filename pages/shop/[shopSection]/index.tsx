@@ -24,7 +24,6 @@ interface Params {
 }
 
 export async function getStaticProps({ params }: Params) {
-  console.log(params)
   const sectionData = getShopSectionData(params);
   return {
     props: {
