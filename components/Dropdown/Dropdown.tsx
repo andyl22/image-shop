@@ -1,6 +1,5 @@
 import styles from "./Dropdown.module.scss";
 import { KeyboardEvent, MouseEvent, useState } from "react";
-import { useRouter } from "next/router";
 
 interface Dropdown {
   expandDirection?: "left" | "right";
@@ -15,6 +14,14 @@ export default function Dropdown(props: Dropdown) {
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
+
+  const handleClick = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+
+    if(target.tagName === "A") {
+      toggleDropdown();
+    }
+  }
 
   const handleKeyPress = (e: KeyboardEvent): void => {
     const target = e.target as HTMLElement;
@@ -47,6 +54,7 @@ export default function Dropdown(props: Dropdown) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onKeyDown={handleKeyPress}
+      onClick={handleClick}
     >
       {children}
       {showDropdown ? (

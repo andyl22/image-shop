@@ -25,7 +25,7 @@ export default function Tooltip(props: Props) {
       className={styles.tooltipContainer}
       aria-describedby="tooltip"
     >
-      {showTooltip ? <p className={styles.tooltip} role="tooltip" id="tooltip">{tooltipContent}</p> : null}
+      {showTooltip ? <span className={styles.tooltip} role="tooltip" id="tooltip">{tooltipContent}</span> : null}
       {children}
     </div>
   )

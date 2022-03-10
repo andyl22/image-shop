@@ -1,4 +1,6 @@
 import data from "./Sections.json"
+import { formatTitle } from "../utilities/StringFormat";
+
 
 export function getAllHeaderLinkParams() {
   return Object.keys(data).map(key => {
@@ -27,4 +29,8 @@ export function getShopSectionData(shopSection: ShopSection) {
     sectionName: formattedKey,
     itemList: [...sectionData]
   }
+}
+
+export function getShopSectionNames() {
+  return Object.keys(data).map(item => formatTitle(item))
 }
