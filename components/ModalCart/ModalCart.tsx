@@ -35,7 +35,7 @@ export default function ModalCart(props: Props) {
         </div>
         <div className={styles.cartSummary}>
           <p>Total: $58</p>
-          <button>Checkout</button>
+          <button className={styles.checkoutButton}>Checkout</button>
         </div>
       </div>
     </Drawer>

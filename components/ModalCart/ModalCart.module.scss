@@ -15,10 +15,27 @@
     }
   }
   .cartSummary {
-    padding-top: 1rem;
+    padding: 1rem .5rem;
+    margin: 0 .5rem;
     border-top: 2px solid black;
     flex: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    .checkoutButton {
+      border: none;
+      border-radius: .2rem;
+      color: white;
+      padding: .8rem .5rem .5rem .5rem;
+      background: rgb(46, 57, 255);
+      &:hover {
+        cursor: pointer;
+        background: rgb(24, 35, 249);
+      }
+      &:active {
+        transform: scale(1.01);
+        background: rgb(24, 35, 249);
+      }
+    }
   }
 }
