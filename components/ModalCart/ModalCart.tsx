@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import Drawer from "../Drawer/Drawer";
+import Link from "next/link";
 import styles from "./ModalCart.module.scss";
 
 interface Props {
@@ -35,7 +36,11 @@ export default function ModalCart(props: Props) {
         </div>
         <div className={styles.cartSummary}>
           <p>Total: $58</p>
-          <button className={styles.checkoutButton}>Checkout</button>
+          <Link href="/shop/checkout">
+            <a className={styles.checkoutButton} onClick={toggleModal}>
+              Checkout
+            </a>
+          </Link>
         </div>
       </div>
     </Drawer>
