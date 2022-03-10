@@ -33,26 +33,26 @@ export default function LeftHeader() {
   const fullLeftNav = (
     <>
       <Link href="/">
-        <a className={styles.visualHighlight}>
+        <a>
           <h1>Parks</h1>
         </a>
       </Link>
       <ShopDropdown>
         <Link href="/shop">
-          <a className={`${styles.dropdownLink} ${styles.visualHighlight}`}>
+          <a className={styles.dropdownLink}>
             Shop
           </a>
         </Link>
       </ShopDropdown>
       <BlogDropdown>
         <Link href="/blog">
-          <a className={`${styles.dropdownLink} ${styles.visualHighlight}`}>
+          <a className={styles.dropdownLink}>
             Blog
           </a>
         </Link>
       </BlogDropdown>
       <Link href="/about">
-        <a className={styles.visualHighlight}>About</a>
+        <a>About</a>
       </Link>
     </>
   );

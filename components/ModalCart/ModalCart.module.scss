@@ -1,46 +1,24 @@
-@use "../../styles/variables" as s;
-
-@keyframes sideIn {
-  0% {
-    transform: translateX(300px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.cartContainer {
-  position: absolute;
-  right: 0;
-  top: 0;
+.cartContentContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
   height: 100%;
-  min-width: 300px;
-  width: fit-content;
-  background: white;
-  text-align: center;
-  padding: 1rem;
-  animation: 0.2s ease sideIn;
-  @include s.mobile-view {
-    min-width: 100px;
-    width: 100%;
-    animation: 0.2s ease sideIn;
+  overflow: auto;
+  .cartMain {
+    flex: 1;
   }
-  .modalHeader {
-    padding-bottom: 1rem;
-    border-bottom: 4px double gray;
-    h1 {
-      font-size: 1.3rem;
+  li {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    &:last-of-type {
+      margin-bottom: 3rem;
     }
-    button {
-      background: none;
-      border: none;
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      &:hover {
-        cursor: pointer;
-        color: gray;
-      }
-    }
+  }
+  .cartSummary {
+    padding-top: 1rem;
+    border-top: 2px solid black;
+    flex: 0;
+    display: flex;
+    justify-content: space-between;
   }
 }

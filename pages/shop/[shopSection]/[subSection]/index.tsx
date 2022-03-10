@@ -76,7 +76,9 @@ const SubSection = (props: Props) => {
 
       <Header />
 
-      <main className={styles.main}>{mappedSectionData}</main>
+      <main className={styles.main}>
+        {mappedSectionData}
+      </main>
       <Footer />
     </>
   );

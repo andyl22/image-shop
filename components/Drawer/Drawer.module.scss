@@ -1,0 +1,48 @@
+@use "../../styles/variables" as s;
+
+@keyframes sideIn {
+  0% {
+    transform: translateX(300px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.drawer {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  min-width: 300px;
+  width: fit-content;
+  background: white;
+  text-align: center;
+  padding: 1rem;
+  animation: 0.2s ease sideIn;
+  @include s.mobile-view {
+    min-width: 100px;
+    width: 100%;
+    animation: 0.2s ease sideIn;
+  }
+  .drawerHeader {
+    padding-bottom: 1rem;
+    border-bottom: 4px double gray;
+    h1 {
+      font-size: 1.2rem;
+    }
+    .closeButton {
+      background: none;
+      border: none;
+      position: absolute;
+      top: .7rem;
+      right: 1rem;
+      &:hover {
+        cursor: pointer;
+        color: gray;
+      }
+    }
+  }
+}

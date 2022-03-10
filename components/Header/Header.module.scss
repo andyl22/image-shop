@@ -21,6 +21,15 @@
     background: s.$secondary-background-color;
     transition-duration: .5s;
   }
+  a, button {
+      position: relative;
+      &:hover,
+      &:focus,
+      &:active {
+        color: green;
+        font-weight: 900;
+      }
+    }
 }
 
 .hide {

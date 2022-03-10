@@ -2,21 +2,6 @@
   display: flex;
   gap: 2rem;
   width: fit-content;
-  button {
-    border: none;
-    background: none;
-    position: relative;
-    cursor: pointer;
-    p {
-      position: absolute;
-      left: 10px;
-      bottom: 15px;
-      background: orange;
-      padding: 0.2rem 0.25rem 0 .3rem;
-      border-radius: 2rem;
-      font-weight: 600;
-    }
-  }
   .headerLinkContainer {
     flex: 1;
     display: flex;
