@@ -1,0 +1,11 @@
+.main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  text-align: center;
+  .imageContainer {
+    width: 800px;
+  }
+}
