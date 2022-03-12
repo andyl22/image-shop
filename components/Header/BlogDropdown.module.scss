@@ -1,10 +1,10 @@
 .blogDropdown {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 1rem;
+  padding: 0;
   h2 {
     background: rgb(243, 247, 250);
     padding: 1rem 0.5rem;
