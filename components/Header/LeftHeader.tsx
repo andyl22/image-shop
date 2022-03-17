@@ -7,7 +7,7 @@ import BlogDropdown from "./BlogDropdown";
 import Link from "next/link";
 
 export default function LeftHeader() {
-  const [innerWidth, setInnerWidth] = useState(0);
+  const [innerWidth, setInnerWidth] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
 
   const handleResize = () => {
@@ -24,7 +24,7 @@ export default function LeftHeader() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  });
+  }, []);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -39,16 +39,12 @@ export default function LeftHeader() {
       </Link>
       <ShopDropdown>
         <Link href="/shop">
-          <a className={styles.dropdownLink}>
-            Shop
-          </a>
+          <a className={styles.dropdownLink}>Shop</a>
         </Link>
       </ShopDropdown>
       <BlogDropdown>
         <Link href="/blog">
-          <a className={styles.dropdownLink}>
-            Blog
-          </a>
+          <a className={styles.dropdownLink}>Blog</a>
         </Link>
       </BlogDropdown>
       <Link href="/about">
@@ -71,7 +67,7 @@ export default function LeftHeader() {
 
   return (
     <nav className={styles.headerLinkContainer}>
-      {innerWidth > 600 ? fullLeftNav : partialLeftNav}
+      {innerWidth && innerWidth < 600 ? partialLeftNav : fullLeftNav}
     </nav>
   );
 }

@@ -10,7 +10,11 @@ import { getShopSectionNames } from "../../TestData/Sections";
 const Shop: NextPage = () => {
   const sectionNames = getShopSectionNames();
 
-  const mappedNames = sectionNames.map(item => <Link key={item} href={`shop/${formatToKebabCase(item)}`}><a>{item}</a></Link>)
+  const mappedNames = sectionNames.map((item) => (
+    <Link key={item} href={`/shop/${formatToKebabCase(item)}`}>
+      <a>{item}</a>
+    </Link>
+  ));
   return (
     <>
       <Head>
@@ -21,9 +25,7 @@ const Shop: NextPage = () => {
 
       <Header />
 
-      <main className={styles.main}>
-        {mappedNames}
-      </main>
+      <main className={styles.main}>{mappedNames}</main>
     </>
   );
 };
