@@ -5,6 +5,8 @@ import {
 } from "../../../../TestData/SectionItems";
 import styles from "../../../../styles/Item.module.scss";
 import Image from "next/image";
+import AddShoppingCartOutlined from "@mui/icons-material/AddShoppingCartOutlined";
+import { useRef } from "react";
 
 export const getStaticPaths = async () => {
   const paths = getAllItemPaths();
@@ -44,7 +46,24 @@ interface Props {
 }
 
 const Item = (props: Props) => {
+  const animateRef = useRef(null);
   const { details } = props;
+  let disabled: boolean = false;
+
+  const handleClick = () => {
+    if (disabled) return;
+    disabled = true;
+    if (animateRef.current) {
+      setTimeout(() => {
+        disabled = false;
+        if (animateRef.current) {
+          (animateRef.current as HTMLElement).classList.remove(styles.animate);
+        }
+      }, 1000);
+      (animateRef.current as HTMLElement).classList.add(styles.animate);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -57,10 +76,23 @@ const Item = (props: Props) => {
             layout="responsive"
             width="100%"
             height="100%"
+            placeholder="blur"
+            blurDataURL={details.image}
           />
         </div>
-        <p>{details.description}</p>
-        <p>{details.price}</p>
+        <div className={styles.itemContent}>
+          <div className={styles.itemText}>
+            <p>{details.description}</p>
+            <p>{details.price}</p>
+          </div>
+          <button
+            aria-label="add to cart"
+            onClick={handleClick}
+            ref={animateRef}
+          >
+            <AddShoppingCartOutlined />
+          </button>
+        </div>
       </main>
     </>
   );

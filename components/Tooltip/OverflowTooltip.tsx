@@ -15,21 +15,25 @@ export default function OverflowToolTip(props: Props) {
 
   const mappedChildren = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      const props = { ...child.props, className: styles.overFlowContainer, ref: containerRef }
-      return React.cloneElement(child, props)
+      const props = {
+        ...child.props,
+        className: styles.overFlowContainer,
+        ref: containerRef,
+      };
+      return React.cloneElement(child, props);
     }
-  })
+  });
 
   useEffect(() => {
     if (containerRef.current) {
       const container = containerRef.current as HTMLDivElement;
-      setOverflowed(container.scrollWidth > container.clientWidth)
+      setOverflowed(container.scrollWidth > container.clientWidth);
     }
-  }, [])
+  }, []);
 
   return (
     <Tooltip tooltipContent={tooltipContent} enableTooltip={isOverflowed}>
       {mappedChildren}
     </Tooltip>
-  )
+  );
 }
