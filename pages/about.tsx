@@ -16,7 +16,7 @@ const About: NextPage = () => {
       <Header />
 
       <main className={styles.main}>
-        <p>The one stop shop for ordering artwork of National Parks!</p>
+        <p>This was built using Next.js to get some experience with building an e-commerce website.</p>
       </main>
       <Footer />
     </>
@@ -24,3 +24,5 @@ const About: NextPage = () => {
 };
 
 export default About;
+
+
