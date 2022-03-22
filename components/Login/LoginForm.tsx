@@ -44,8 +44,10 @@ export default function LoginForm() {
               aria-invalid={true}
               aria-describedby="username-error"
             />
-            <span id="username-error">Invalid Username</span>
           </div>
+          <span id="username-error" className={styles.errorMessage}>
+            Invalid Username
+          </span>
           <div className={styles.inputContainer}>
             <label htmlFor="password">Password</label>
             <input
@@ -57,8 +59,10 @@ export default function LoginForm() {
               aria-invalid={true}
               aria-describedby="password-error"
             />
-            <span id="password-error">Invalid Password</span>
           </div>
+          <span id="password-error" className={styles.errorMessage}>
+            Invalid Password
+          </span>
           <input type="submit" value="Login" id="login" />
         </div>
         <Link href="/user/register">

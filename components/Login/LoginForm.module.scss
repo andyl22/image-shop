@@ -3,6 +3,10 @@
 .formContainer {
   text-align: center;
   padding: 1rem 5rem 1rem 5rem;
+  .errorMessage {
+    color: red;
+    font-size: 0.8rem;
+  }
   .inputsContainer {
     display: flex;
     flex-direction: column;

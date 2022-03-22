@@ -30,7 +30,7 @@ export default function RegisterForm() {
   return (
     <FormContainer title="Register" handleSubmit={handleSubmit}>
       <div className={styles.formContainer}>
-        <p>{errMessage}</p>
+        <p className={styles.errorMessage}>{errMessage}</p>
         <div className={styles.inputsContainer}>
           <div className={styles.inputContainer}>
             <label htmlFor="username">Username</label>
@@ -44,8 +44,10 @@ export default function RegisterForm() {
               aria-invalid={true}
               aria-describedby="username-error"
             />
-            <span id="username-error">Invalid Username</span>
           </div>
+          <span id="username-error" className={styles.errorMessage}>
+            Invalid Username
+          </span>
           <div className={styles.inputContainer}>
             <label htmlFor="password">Password</label>
             <input
@@ -57,8 +59,10 @@ export default function RegisterForm() {
               aria-invalid={true}
               aria-describedby="password-error"
             />
-            <span id="password-error">Invalid Password</span>
           </div>
+          <span id="password-error" className={styles.errorMessage}>
+            Invalid Password
+          </span>
           <div className={styles.inputContainer}>
             <label htmlFor="confirmPassword">Confirm Password</label>
             <input
@@ -70,8 +74,10 @@ export default function RegisterForm() {
               aria-invalid={true}
               aria-describedby="password-error"
             />
-            <span id="password-error">Passwords Do Not Match</span>
           </div>
+          <span id="password-error" className={styles.errorMessage}>
+            Passwords Do Not Match
+          </span>
           <input type="submit" value="Login" id="login" />
         </div>
         <Link href="/user/register">
