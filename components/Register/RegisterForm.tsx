@@ -1,10 +1,10 @@
-import styles from "./LoginForm.module.scss";
+import styles from "./RegisterForm.module.scss";
 import FormContainer from "../Form/FormContainer";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [errMessage, setErrorMessage] = useState();
@@ -28,7 +28,7 @@ export default function LoginForm() {
   };
 
   return (
-    <FormContainer title="Sign In" handleSubmit={handleSubmit}>
+    <FormContainer title="Register" handleSubmit={handleSubmit}>
       <div className={styles.formContainer}>
         <p>{errMessage}</p>
         <div className={styles.inputsContainer}>
@@ -58,6 +58,19 @@ export default function LoginForm() {
               aria-describedby="password-error"
             />
             <span id="password-error">Invalid Password</span>
+          </div>
+          <div className={styles.inputContainer}>
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              onChange={handleChange}
+              value={formState.password}
+              required
+              aria-invalid={true}
+              aria-describedby="password-error"
+            />
+            <span id="password-error">Passwords Do Not Match</span>
           </div>
           <input type="submit" value="Login" id="login" />
         </div>

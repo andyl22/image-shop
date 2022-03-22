@@ -7,7 +7,7 @@ export default function RightHeader() {
     <div className={styles.rightHeader}>
       <CartButton />
       <nav className={styles.headerLinkContainer}>
-        <Link href="/login">
+        <Link href="/user/login">
           <a>Sign In</a>
         </Link>
       </nav>
