@@ -3,13 +3,8 @@ import Head from "next/head";
 import Header from "../components/Header/Header";
 import LoginForm from "../components/Login/LoginForm";
 import styles from "../styles/Login.module.scss";
-import { useAppSelector, useAppDispatch } from "../redux/hooks";
-import { add, selectCart } from "../redux/slices/cartSlice";
 
 const Login: NextPage = () => {
-  const cart = useAppSelector((state) => selectCart(state));
-  const dispatch = useAppDispatch();
-
   return (
     <>
       <Head>
@@ -20,7 +15,6 @@ const Login: NextPage = () => {
       <Header />
       <main className={styles.main}>
         <LoginForm />
-        <button onClick={() => dispatch(add())}>Test</button>
       </main>
     </>
   );
