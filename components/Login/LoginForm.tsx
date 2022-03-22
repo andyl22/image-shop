@@ -16,8 +16,8 @@ export default function LoginForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const response = 200;
-    if(response === 200) {
-      router.push("/shop")
+    if (response === 200) {
+      router.push("/shop");
     }
   };
 
