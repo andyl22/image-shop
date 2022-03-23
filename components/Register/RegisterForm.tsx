@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import debounce from "../../utilities/debounce";
 import { postHTTP } from "../../utilities/fetchAPIs";
 
+
 export default function RegisterForm() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({

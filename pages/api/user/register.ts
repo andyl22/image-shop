@@ -1,7 +1,7 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../../lib/mongo";
+import dbConnect from "../../../utilities/mongo";
 import User from "../../../models/User";
+const bcrypt = require("bcryptjs");
 
 type Data = {
   success: boolean;
@@ -35,7 +35,9 @@ export default async function handler(
             .status(200)
             .json({ success: false, data: "The username is taken." });
         } else {
-          const user = await User.create(req.body);
+          const { username, password } = req.body;
+          const hashedPassword = bcrypt.hashSync(password, 10);
+          const user = await User.create({ username: username, password: hashedPassword });
           res.status(201).json({ success: true, data: user });
         }
       } catch (err) {

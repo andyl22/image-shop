@@ -3,22 +3,27 @@ import FormContainer from "../Form/FormContainer";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { postHTTP } from "../../utilities/fetchAPIs";
 
 export default function LoginForm() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({ username: "", password: "" });
-  const [errMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState();
   const router = useRouter();
 
   useEffect(() => {
     if (formRef.current) formRef.current.focus();
   }, []);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const response = 200;
-    if (response === 200) {
-      router.push("/shop");
+    const body = {username: formState.username, password: formState.password}
+    const response = await postHTTP("/user/login", body).catch(err => console.log(err));
+    if(!response.success) {
+      setErrorMessage(response.data)
+    } else {
+      console.log(response)
+      router.push("/");
     }
   };
 
@@ -30,7 +35,7 @@ export default function LoginForm() {
   return (
     <FormContainer title="Sign In" handleSubmit={handleSubmit}>
       <div className={styles.formContainer}>
-        <p>{errMessage}</p>
+        { errorMessage ? <p className={styles.bannerError}>{errorMessage}</p> : null }
         <div className={styles.inputsContainer}>
           <div className={styles.inputContainer}>
             <label htmlFor="username">Username</label>
@@ -45,9 +50,6 @@ export default function LoginForm() {
               aria-describedby="username-error"
             />
           </div>
-          <span id="username-error" className={styles.errorMessage}>
-            Invalid Username
-          </span>
           <div className={styles.inputContainer}>
             <label htmlFor="password">Password</label>
             <input
@@ -60,9 +62,6 @@ export default function LoginForm() {
               aria-describedby="password-error"
             />
           </div>
-          <span id="password-error" className={styles.errorMessage}>
-            Invalid Password
-          </span>
           <input type="submit" value="Login" id="login" />
         </div>
         <Link href="/user/register">
