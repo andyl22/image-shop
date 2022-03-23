@@ -74,8 +74,8 @@ const Item = (props: Props) => {
             src={details.image}
             alt={details.name}
             layout="responsive"
-            width="100%"
             height="100%"
+            width="100%"
             placeholder="blur"
             blurDataURL={details.image}
           />

@@ -6,6 +6,7 @@
   .errorMessage {
     color: red;
     font-size: 0.8rem;
+    max-width: 180px;
   }
   .inputsContainer {
     display: flex;
@@ -14,13 +15,6 @@
     align-items: flex-end;
     gap: 0.5rem;
     padding: 1rem 0;
-    @include s.mobile-view {
-      .inputContainer {
-        grid-template: auto / 1fr !important;
-        text-align: start !important;
-        gap: 0.1rem !important;
-      }
-    }
     .inputContainer {
       display: grid;
       grid-template: 1fr / auto auto;
@@ -28,6 +22,16 @@
       text-align: end;
       align-items: center;
       font-size: 0.8rem;
+    }
+  }
+  @include s.mobile-view {
+    padding: 1rem 2rem;
+    .inputsContainer {
+      align-items: center;
+      .inputContainer {
+        grid-template: auto / 1fr !important;
+        text-align: start !important;
+      }
     }
   }
 }

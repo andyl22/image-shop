@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../lib/mongo";
+import dbConnect from "../../../lib/mongo";
 
 type Data = {
   name: string;

@@ -1,4 +1,4 @@
-@keyframes moveToHeader {
+@keyframes addToCart {
   0% {
     transform: scale(1);
     color: black;
@@ -23,9 +23,10 @@
   margin: 0 auto;
   text-align: center;
   .imageContainer {
-    width: 800px;
+    width: 100%;
   }
   .itemContent {
+    max-width: 800px;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -46,5 +47,5 @@
 }
 
 .animate {
-  animation: moveToHeader 1s ease-in;
-}
+  animation: addToCart 1s ease-in;
+};
