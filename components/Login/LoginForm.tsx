@@ -8,7 +8,7 @@ import { postHTTP } from "../../utilities/fetchAPIs";
 export default function LoginForm() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({ username: "", password: "" });
-  const [errorMessage, setErrorMessage] = useState();
+  const [errorMessage, setErrorMessage] = useState<String | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -19,10 +19,11 @@ export default function LoginForm() {
     e.preventDefault();
     const body = {username: formState.username, password: formState.password}
     const response = await postHTTP("/user/login", body).catch(err => console.log(err));
-    if(!response.success) {
+    if(!response) {
+      setErrorMessage("Server Error");
+    } else if(!response.success) {
       setErrorMessage(response.data)
     } else {
-      console.log(response)
       router.push("/");
     }
   };
