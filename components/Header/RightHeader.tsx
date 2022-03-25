@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CartButton from "../CartButton/CartButton";
 import styles from "./RightHeader.module.scss";
 import { selectUser } from "../../redux/slices/userSlice";

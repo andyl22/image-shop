@@ -1,13 +1,36 @@
 .dropdownContent {
   position: absolute;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   top: 1rem;
-  right: 0;
-  min-width: 250px;
-  min-height: 200px;
+  right: -.5rem;
+  border-radius: .2rem;
   background: rgb(243, 242, 242);
-  color: black;
   border: 1px solid rgb(213, 209, 209);
+  color: rgb(40, 40, 40);
+  h3 {
+    width: 100%;
+    font-size: .9rem;
+    padding: .8rem .7rem .5rem .7rem;
+    border-bottom: 1px solid rgb(229, 229, 229);
+    color: gray;
+    pointer-events: none;
+  }
+  .linkItem {
+    min-width: 200px;
+    padding: 1rem 0;
+    border-radius: .2rem;
+    padding: .5rem 1rem;
+    font-size: .85rem;
+    &:hover {
+      background: rgb(82, 128, 255);
+      color: white;
+    }
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
 }
