@@ -32,7 +32,7 @@ export default function ShopDropdown(props: Props) {
   );
 
   return (
-    <Dropdown expandDirection={"right"} dropdownContent={dropdownContent}>
+    <Dropdown dropdownContent={dropdownContent}>
       {children}
     </Dropdown>
   );

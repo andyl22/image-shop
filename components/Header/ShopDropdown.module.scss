@@ -1,32 +1,6 @@
-@use "../../styles/variables" as s;
-
 .shopNav {
   display: grid;
   justify-content: center;
   grid-template: 1fr / repeat(3, fit-content(100%));
   gap: 2rem;
-  figure {
-    padding-right: 2rem;
-    border-right: 1px solid rgb(205, 203, 203);
-    figcaption {
-      border-right: none;
-    }
-    &:last-of-type {
-      border-right: none;
-      padding-right: 0;
-    }
-  }
-  @include s.mobile-view {
-    figure {
-      figcaption {
-        text-align: center;
-      }
-      ul {
-        text-align: center;
-      }
-      width: 100%;
-      padding-right: 0;
-      border-right: none;
-    }
-  }
 }

@@ -1,13 +1,5 @@
 .container {
-  .dropdownContainerRight,
-  .dropdownContainerLeft {
-    min-height: fit-content;
-    min-width: fit-content;
-  }
-  .dropdownContainerRight {
-    left: 0;
-  }
-  .dropdownContainerLeft {
-    right: 0;
+  .relative {
+    position: relative;
   }
 }

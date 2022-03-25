@@ -2,6 +2,11 @@
   display: flex;
   gap: 2rem;
   width: fit-content;
+  .userMenu {
+    &:hover {
+      cursor: pointer;
+    }
+  }
   .headerLinkContainer {
     flex: 1;
     display: flex;
