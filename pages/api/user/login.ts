@@ -21,7 +21,7 @@ export default async function handler(
     res.status(200).json({ success: false, data: "Invalid credentials." });
   } else if (bcrypt.compareSync(password, foundUser.password)) {
     generateAndSetAuthTokens({ username: username }, req, res);
-    res.status(200).json({ success: true });
+    res.status(200).json({ success: true, data: foundUser.id });
   } else {
     res.status(200).json({ success: false, data: "Invalid credentials." });
   }

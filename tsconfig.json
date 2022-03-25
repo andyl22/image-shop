@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "custom.d.ts", "environment.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "custom.d.ts", "environment.d.ts", "**/*.ts", "**/*.tsx", "utilities/generateAndSetAuthTokens.js", "utilities/fetchAPIs.js"],
   "exclude": ["node_modules"]
 }

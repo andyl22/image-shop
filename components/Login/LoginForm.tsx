@@ -4,11 +4,15 @@ import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { postHTTP } from "../../utilities/fetchAPIs";
+import { useAppDispatch } from "../../redux/hooks";
+import { login } from "../../redux/slices/userSlice";
+import Cookies from "js-cookie";
 
 export default function LoginForm() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [errorMessage, setErrorMessage] = useState<String | null>(null);
+  const dispatch = useAppDispatch();
   const router = useRouter();
 
   useEffect(() => {
@@ -17,13 +21,25 @@ export default function LoginForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const body = {username: formState.username, password: formState.password}
-    const response = await postHTTP("/user/login", body).catch(err => console.log(err));
-    if(!response) {
+
+    const body = { username: formState.username, password: formState.password };
+    const response = await postHTTP("/user/login", body).catch((err) =>
+      setErrorMessage("Server Error")
+    );
+
+    if (!response) {
       setErrorMessage("Server Error");
-    } else if(!response.success) {
-      setErrorMessage(response.data)
+    } else if (!response.success) {
+      setErrorMessage(response.data);
     } else {
+      Cookies.set(
+        "user",
+        JSON.stringify({
+          username: formState.username,
+          id: response.data,
+        })
+      );
+      dispatch(login());
       router.push("/");
     }
   };
@@ -36,7 +52,9 @@ export default function LoginForm() {
   return (
     <FormContainer title="Sign In" handleSubmit={handleSubmit}>
       <div className={styles.formContainer}>
-        { errorMessage ? <p className={styles.bannerError}>{errorMessage}</p> : null }
+        {errorMessage ? (
+          <p className={styles.bannerError}>{errorMessage}</p>
+        ) : null}
         <div className={styles.inputsContainer}>
           <div className={styles.inputContainer}>
             <label htmlFor="username">Username</label>
