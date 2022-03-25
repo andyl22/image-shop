@@ -26,10 +26,10 @@ export default function CollapsibleItem(props: Props) {
 
   return (
     <div className={styles.collapsibleContainer}>
-      <div className={styles.controllerNode} onClick={toggleCollapsibleSection}>
+      <button aria-label="Close Menu" className={styles.collapseController} onClick={toggleCollapsibleSection}>
         {parentNode}
-        <KeyboardArrowDownIcon className={showCollapsible ? styles.reverseIcon : ""} />
-      </div>
+        <KeyboardArrowDownIcon fontSize="small" className={showCollapsible ? styles.reverseIcon : ""} />
+      </button>
       {showCollapsible ? (
         <ul className={styles.collapsedNodes}>{mappedChildrenToList}</ul>
       ) : null}

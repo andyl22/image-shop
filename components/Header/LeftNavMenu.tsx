@@ -13,7 +13,9 @@ export default function LeftNavMenu(props: Props) {
   return (
     <Modal toggleModal={toggleModal}>
       <div className={styles.leftNavMenu}>
-        <KeyboardDoubleArrowLeftIcon fontSize="medium" className={styles.backIcon} onClick={toggleModal} />
+        <button aria-label="Close Menu" className={styles.backIcon} onClick={toggleModal}>
+          <KeyboardDoubleArrowLeftIcon fontSize="medium"/>
+        </button>
         <h1>Parks</h1>
         <CollapsibleItem parentNode={<p>Test</p>}>
           <p>Test1</p>

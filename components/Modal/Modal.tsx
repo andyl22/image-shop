@@ -33,15 +33,17 @@ export default function Modal(props: Prop) {
   }, []);
 
   return (
-    <div
+    <dialog
       className={`${styles.modalOverlay} 
       ${absolute ? styles.absolute : styles.fixed}
       ${allowOverlay ? styles.allowOverlay : null}
       `}
       id="modal-overlay"
       onPointerDown={closeModal}
+      role="dialog"
+      aria-modal="true"
     >
       {children}
-    </div>
+    </dialog>
   );
 }

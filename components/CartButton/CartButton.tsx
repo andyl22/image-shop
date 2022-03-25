@@ -13,7 +13,7 @@ export default function CartButton() {
     <>
       <ModalCart toggleModal={toggleModal} isOpen={showCartModal} />
       <button
-        aria-label="view cart"
+        aria-label="view cart modal"
         className={styles.cartButton}
         onClick={toggleModal}
       >

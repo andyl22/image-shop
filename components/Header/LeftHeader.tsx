@@ -56,7 +56,9 @@ export default function LeftHeader() {
   const partialLeftNav = (
     <>
       {showModal ? <LeftNavMenu toggleModal={toggleModal} /> : null}
-      <MenuIcon onClick={() => toggleModal()} className={styles.hamburger} />
+      <button onClick={toggleModal} className={styles.hamburger} >
+        <MenuIcon/>
+      </button>
       <Link href="/">
         <a className={styles.visualHighlight}>
           <h1>Parks</h1>

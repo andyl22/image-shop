@@ -17,20 +17,16 @@ export default function Dropdown(props: Dropdown) {
   };
 
   const handleClick = (e: MouseEvent) => {
+    e.preventDefault();
     toggleDropdown();
   };
 
   const handleKeyPress = (e: KeyboardEvent): void => {
     const target = e.target as HTMLElement;
 
-    if (target.tagName === "A" && e.key === "Enter") {
+    if (target.tagName === "A" && e.key === "Enter" && !showDropdown) {
       e.preventDefault();
       toggleDropdown();
-    }
-
-    if (e.key === "Enter" && target.parentNode) {
-      if ((target.parentNode as HTMLElement).className.match(/.*Dropdown.*/))
-        toggleDropdown();
     }
 
     if (e.key === "Escape") setShowDropdown(!showDropdown);
@@ -50,8 +46,8 @@ export default function Dropdown(props: Dropdown) {
       className={styles.container}
       onMouseEnter={useClick ? undefined : handleMouseEnter}
       onMouseLeave={useClick ? undefined : handleMouseLeave}
+      onClick={handleClick}
       onKeyDown={handleKeyPress}
-      onClick={useClick ? handleClick : undefined}
     >
       {children}
       {showDropdown ? (

@@ -1,15 +1,12 @@
 .collapsibleContainer {
   display: flex;
   flex-direction: column;
-  .controllerNode {
+  .collapseController {
     display: flex;
     align-items: center;
     cursor: pointer;
     .reverseIcon {
       transform: rotate(180deg);
-    }
-    &:hover {
-      color: gray;
     }
   }
   ul {

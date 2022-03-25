@@ -18,19 +18,30 @@
     color: gray;
     pointer-events: none;
   }
-  .linkItem {
-    min-width: 200px;
-    padding: 1rem 0;
-    border-radius: .2rem;
-    padding: .5rem 1rem;
-    font-size: .85rem;
-    &:hover {
-      background: rgb(82, 128, 255);
-      color: white;
-    }
-  }
   nav {
     display: flex;
     flex-direction: column;
+    .menuItem {
+      min-width: 200px;
+      padding: 1rem 0;
+      border-radius: .2rem;
+      padding: .5rem 1rem;
+      font-size: .85rem;
+      &:hover {
+        background: rgb(82, 128, 255);
+        color: white;
+      }
+    }
+  }
+  .logoutButton {
+    border-top: 1px solid rgb(229, 229, 229);
+    padding: .5rem 1rem;
+    width: 100%;
+    text-align: start;
+    &:hover {
+      cursor: pointer;
+      color: white;
+      background: rgb(221, 87, 9);
+    }
   }
 }
