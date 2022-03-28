@@ -54,7 +54,7 @@ export default function Dropdown(props: Dropdown) {
         <div className={useRelative ? styles.relative : ""}>
           {dropdownContent}
         </div>
-      ) : null}
+      ) : <></>}
     </div>
   );
 }

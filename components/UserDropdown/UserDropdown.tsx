@@ -23,19 +23,19 @@ export default function UserDropdown(props: Props) {
       <nav>
         <Link href="/user/account">
           <a className={styles.menuItem}>
-            <AdminPanelSettingsIcon fontSize = "small"/>
+            <AdminPanelSettingsIcon fontSize="small" />
             Manage
           </a>
         </Link>
         <Link href="/user/preferences">
           <a className={styles.menuItem}>
-            <SettingsIcon fontSize = "small"/>
+            <SettingsIcon fontSize="small" />
             User Settings
           </a>
         </Link>
         <Link href="/user/orders">
           <a className={styles.menuItem}>
-            <ManageSearchIcon fontSize = "small"/>
+            <ManageSearchIcon fontSize="small" />
             Order History
           </a>
         </Link>
