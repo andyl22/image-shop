@@ -4,6 +4,10 @@ import { useAppDispatch } from "../../redux/hooks";
 import { logout } from "../../redux/slices/userSlice";
 import Dropdown from "../Dropdown/Dropdown";
 import styles from "./UserDropdown.module.scss";
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import SettingsIcon from '@mui/icons-material/Settings';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+
 
 interface Props {
   children: ReactChild | ReactChild[];
@@ -19,23 +23,26 @@ export default function UserDropdown(props: Props) {
       <nav>
         <Link href="/user/account">
           <a className={styles.menuItem}>
+            <AdminPanelSettingsIcon fontSize = "small"/>
             Manage
           </a>
         </Link>
         <Link href="/user/preferences">
           <a className={styles.menuItem}>
+            <SettingsIcon fontSize = "small"/>
             User Settings
           </a>
         </Link>
         <Link href="/user/orders">
           <a className={styles.menuItem}>
+            <ManageSearchIcon fontSize = "small"/>
             Order History
           </a>
         </Link>
       </nav>
       <h3>Help</h3>
       <nav>
-        <Link href="mission">
+        <Link href="/about">
           <a className={styles.menuItem}>
             Our Mission
           </a>
