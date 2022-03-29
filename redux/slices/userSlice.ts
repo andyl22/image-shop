@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 import Cookie from "js-cookie";
+import { postHTTP } from "../../utilities/fetchAPIs";
 
 const checkForUser = () => {
   const user = Cookie.get("user");
@@ -21,6 +22,8 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
+      Cookie.remove("user");
+      postHTTP("/user/logout");
       state.user.username = null;
       state.user.id = null;
     },

@@ -1,21 +1,18 @@
 import Link from "next/link";
 import { ReactChild } from "react";
-import { useAppDispatch } from "../../redux/hooks";
-import { logout } from "../../redux/slices/userSlice";
 import Dropdown from "../Dropdown/Dropdown";
 import styles from "./UserDropdown.module.scss";
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
-import SettingsIcon from '@mui/icons-material/Settings';
-import ManageSearchIcon from '@mui/icons-material/ManageSearch';
-
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import SettingsIcon from "@mui/icons-material/Settings";
+import ManageSearchIcon from "@mui/icons-material/ManageSearch";
 
 interface Props {
   children: ReactChild | ReactChild[];
+  logout: () => void;
 }
 
 export default function UserDropdown(props: Props) {
-  const dispatch = useAppDispatch();
-  const { children } = props;
+  const { children, logout } = props;
 
   const dropdownContent = (
     <div className={styles.dropdownContent}>
@@ -43,30 +40,28 @@ export default function UserDropdown(props: Props) {
       <h3>Help</h3>
       <nav>
         <Link href="/about">
-          <a className={styles.menuItem}>
-            Our Mission
-          </a>
+          <a className={styles.menuItem}>Our Mission</a>
         </Link>
         <Link href="/contact">
-          <a className={styles.menuItem}>
-            Contact Us
-          </a>
+          <a className={styles.menuItem}>Contact Us</a>
         </Link>
         <Link href="/privacy">
-          <a className={styles.menuItem}>
-            Privacy
-          </a>
+          <a className={styles.menuItem}>Privacy</a>
         </Link>
       </nav>
-      <button className={styles.logoutButton} onClick={() => dispatch(logout())}>
+      <button className={styles.logoutButton} onClick={logout}>
         Log out
       </button>
     </div>
-  )
+  );
 
   return (
-    <Dropdown useRelative={true} useClick={true} dropdownContent={dropdownContent}>
+    <Dropdown
+      useRelative={true}
+      useClick={true}
+      dropdownContent={dropdownContent}
+    >
       {children}
     </Dropdown>
-  )
+  );
 }
