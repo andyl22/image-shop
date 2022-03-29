@@ -8,13 +8,14 @@ type Data = {
   userInfo?: { username: string, id: string };
 };
 
-function setLoginTokens(
+function setUserTokens(
   payload: { username: string, id: string },
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
   genAndSetAuthToken(payload, req, res);
   genAndSetRefreshToken(payload, req, res);
+  genUserCookies(payload.username, payload.id, req, res);
 }
 
 function refreshAuth(
@@ -22,14 +23,10 @@ function refreshAuth(
   res: NextApiResponse<Data>
 ) {
   const reqCookies = req.cookies;
-  if (reqCookies.refreshToken) {
-    const decodedToken = jwt.decode(reqCookies.refreshToken);
-    const userInfo = { username: decodedToken.username, id: decodedToken.id }
-    genAndSetAuthToken(userInfo, req, res);
-    return true;
-  } else {
-    return false;
-  }
+  const { username, id } = jwt.decode(reqCookies.refreshToken);
+  const userInfo = { username: username, id: id }
+  genAndSetAuthToken(userInfo, req, res);
+  genUserCookies(username, id, req, res);
 }
 
 function genAndSetAuthToken(
@@ -52,5 +49,15 @@ function genAndSetRefreshToken(
   cookies.set("refreshToken", refreshToken, { httpOnly: true, maxAge: 86400000 });
 }
 
-export { setLoginTokens, genAndSetAuthToken, refreshAuth };
+function genUserCookies(
+  username: string,
+  id: string,
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  const cookies = new Cookies(req, res);
+  cookies.set("user", JSON.stringify({ username: username, id: id }), { httpOnly: false, maxAge: 86400000 })
+}
+
+export { setUserTokens, genAndSetAuthToken, refreshAuth };
 export type { Data };

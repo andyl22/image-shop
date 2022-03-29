@@ -2,13 +2,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { refreshAuth } from "./auth";
 const jwt = require("jsonwebtoken");
 
-export default async function middleware(
+export default function middleware(
   fn: any,
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   // refresh if no auth token found
   if (req.cookies.refreshToken && !req.cookies.authToken) {
+    const isValid = verifyRefreshToken(req.cookies.refreshToken, req, res);
+    if(isValid) refreshAuth(req, res);
   } else if (req.cookies.authToken) {
     jwt.verify(
       req.cookies.authToken,
@@ -36,19 +38,12 @@ export default async function middleware(
 }
 
 function verifyRefreshToken(refreshToken: any, req: NextApiRequest, res: NextApiResponse) {
-  jwt.verify(
-    refreshToken,
-    process.env.SECRET,
-    function (err: any, decoded: any) {
-      if (err) throw "Invalid refresh token";
-      if (decoded) {
-        if (!req.cookies.authToken) {
-          refreshAuth(req, res);
-        }
-      }
-    }
-  );
-}
-function res(req: NextApiRequest, res: any) {
-  throw new Error("Function not implemented.");
+  try {
+    jwt.verify(
+      refreshToken,
+      process.env.SECRET)
+    return true;
+  } catch (e) {
+    return false;
+  }
 }

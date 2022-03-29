@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Data } from "../../../utilities/api/auth";
 import authMiddleware from "../../../utilities/api/middleware";
+import Cookies from "js-cookie";
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,8 +9,8 @@ export default async function handler(
 ) {
   try {
     authMiddleware(() => {console.log("test")}, req, res);
-  } catch (e) {
-    console.error(e);
-    res.status(200).json({success: e});
+    res.status(200).json({success: true})
+  } catch (e:any) {
+    res.status(200).json({success: false, data: e});
   }
 }

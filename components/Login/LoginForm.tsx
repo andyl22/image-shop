@@ -32,13 +32,6 @@ export default function LoginForm() {
     } else if (!response.success) {
       setErrorMessage(response.data);
     } else {
-      Cookies.set(
-        "user",
-        JSON.stringify({
-          username: formState.username,
-          id: response.data,
-        })
-      );
       dispatch(login());
       router.push("/");
     }
