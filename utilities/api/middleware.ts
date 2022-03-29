@@ -9,25 +9,11 @@ export default async function middleware(
 ) {
   // refresh if no auth token found
   if (req.cookies.refreshToken && !req.cookies.authToken) {
-    jwt.verify(
-      req.cookies.refreshToken,
-      process.env.SECRET,
-      function (err: any, decoded: any) {
-        if (err) throw "Invalid refresh token";
-        if (decoded) {
-          if (!req.cookies.authToken && req.cookies.refreshToken) {
-            refreshAuth(req, res);
-          }
-        }
-      }
-    );
-  } else 
-
-  if (req.cookies.authToken) {
+  } else if (req.cookies.authToken) {
     jwt.verify(
       req.cookies.authToken,
       process.env.SECRET,
-      function (err, decoded) {
+      function (err: any, decoded: any) {
         if (err) {
           res
             .status(200)
@@ -40,6 +26,29 @@ export default async function middleware(
       }
     );
   } else {
-    res.status(200).json({ success: false, data: "No auth/refresh token found. Try relogging."})
+    res
+      .status(200)
+      .json({
+        success: false,
+        data: "No auth/refresh token found. Try relogging.",
+      });
   }
+}
+
+function verifyRefreshToken(refreshToken: any, req: NextApiRequest, res: NextApiResponse) {
+  jwt.verify(
+    refreshToken,
+    process.env.SECRET,
+    function (err: any, decoded: any) {
+      if (err) throw "Invalid refresh token";
+      if (decoded) {
+        if (!req.cookies.authToken) {
+          refreshAuth(req, res);
+        }
+      }
+    }
+  );
+}
+function res(req: NextApiRequest, res: any) {
+  throw new Error("Function not implemented.");
 }
