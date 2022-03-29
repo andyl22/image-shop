@@ -33,7 +33,7 @@ export default function Modal(props: Prop) {
   }, []);
 
   return (
-    <dialog
+    <div
       className={`${styles.modalOverlay} 
       ${absolute ? styles.absolute : styles.fixed}
       ${allowOverlay ? styles.allowOverlay : null}
@@ -44,6 +44,6 @@ export default function Modal(props: Prop) {
       aria-modal="true"
     >
       {children}
-    </dialog>
+    </div>
   );
 }

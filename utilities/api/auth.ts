@@ -26,9 +26,9 @@ function refreshAuth(
     const decodedToken = jwt.decode(reqCookies.refreshToken);
     const userInfo = { username: decodedToken.username, id: decodedToken.id }
     genAndSetAuthToken(userInfo, req, res);
-    res.status(200).json({ success: true, data: "New Auth Token.", userInfo: userInfo });
+    return true;
   } else {
-    res.status(400).json({ success: false, data: "No refresh token provided." })
+    return false;
   }
 }
 
