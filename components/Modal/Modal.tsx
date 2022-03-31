@@ -39,7 +39,7 @@ export default function Modal(props: Prop) {
       ${allowOverlay ? styles.allowOverlay : null}
       `}
       id="modal-overlay"
-      onPointerDown={closeModal}
+      onClick={closeModal}
       role="dialog"
       aria-modal="true"
     >
