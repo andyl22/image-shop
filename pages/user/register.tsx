@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../../components/Header/Header";
-import RegisterForm from "../../components/Register/RegisterForm";
+import FormRegister from "../../components/FormRegister/FormRegister";
 import styles from "../../styles/Register.module.scss";
 
 const Register: NextPage = () => {
@@ -14,7 +14,7 @@ const Register: NextPage = () => {
       </Head>
       <Header />
       <main className={styles.main}>
-        <RegisterForm />
+        <FormRegister />
       </main>
     </>
   );

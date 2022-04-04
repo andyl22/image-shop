@@ -10,22 +10,17 @@ interface Props {
 
 export default function ActionDialog(props: any) {
   const { dialogTitle, confirmAction, toggleModal, children } = props;
+
   return (
     <Modal toggleModal={toggleModal}>
       <div className={styles.actionDialog}>
         <h1>{dialogTitle}</h1>
-        <div className={styles.dialogContent}>
-        {children}
-        </div>
+        <div className={styles.dialogContent}>{children}</div>
         <div className={styles.dialogButtonsContainer}>
-          <button onClick={confirmAction}>
-            Confirm
-          </button>
-          <button onClick={toggleModal}>
-            Cancel
-          </button>
+          <button onClick={confirmAction}>Confirm</button>
+          <button onClick={toggleModal}>Cancel</button>
         </div>
       </div>
     </Modal>
-  )
+  );
 }

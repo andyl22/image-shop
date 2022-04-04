@@ -1,4 +1,4 @@
-import styles from "./RegisterForm.module.scss";
+import styles from "./FormRegister.module.scss";
 import FormContainer from "../Form/FormContainer";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
@@ -6,7 +6,7 @@ import debounce from "../../utilities/debounce";
 import { postHTTP } from "../../utilities/fetchAPIs";
 
 
-export default function RegisterForm() {
+export default function FormRegister() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({
     username: "",
