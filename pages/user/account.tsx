@@ -9,6 +9,7 @@ import { useState } from "react";
 import ActionDialog from "../../components/ActionDialog/ActionDialog";
 
 const Account: NextPage = () => {
+  const [showChangePasswordForm, setShowChangePasswordForm] = useState(false);
   const [showDeactiveConfirmation, setShowDeactiveConfirmation] = useState(false);
   const user = useAppSelector(selectUser);
 
@@ -22,8 +23,24 @@ const Account: NextPage = () => {
 
   const deactivateDialogContent = (
     <ActionDialog confirmAction = {deactiveAccount} dialogTitle="Deactive Account?" toggleModal={toggleDeactiveConfirmation}>
-      <p>Are you sure you would like to deactive your account?</p>
+      <p>Are you sure you would like to deactivate your account?</p>
     </ActionDialog>
+  )
+
+  const toggleChangePasswordForm = () => {
+    setShowChangePasswordForm(!showChangePasswordForm);
+  }
+
+  const changePassword = () => {
+    console.log("Placeholder to change password.")
+  }
+
+  const changePasswordFormDialog = (
+    <form>
+      <input type="password" placeholder="New Password"/>
+      <input type="password" placeholder="Confirm Password"/>
+      <input type="password" placeholder="Current Password"/>
+    </form>
   )
 
   return (
@@ -36,11 +53,10 @@ const Account: NextPage = () => {
       <Header />
       <main className={styles.main}>
         <h1>Welcome, {user.user.username}</h1>
-        <Link href="/user/changePassword">
-          <a>
-            Change My Password
-          </a>
-        </Link>
+        <button onClick={toggleChangePasswordForm}>
+          Change Password
+        </button>
+        {showChangePasswordForm ? changePasswordFormDialog : null}
         <button onClick={toggleDeactiveConfirmation}>
           Deactive My Account
         </button>
