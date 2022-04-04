@@ -25,6 +25,10 @@ export default function RegisterForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if(formState.password !== formState.confirmPassword) {
+      setErrorMessage("Passwords do not match.");
+      return;
+    }
     const body = {
       username: formState.username,
       password: formState.password,
@@ -53,7 +57,8 @@ export default function RegisterForm() {
           setinvalidPassword(
             "Password Invalid. Can not be more than 20 characters or contain spaces."
           );
-        } else if (value !== formState.password && formState.confirmPassword) {
+        } else if (formState.confirmPassword && value !== formState.confirmPassword) {
+          setinvalidPassword("");
           setinvalidConfirmPassword("Passwords do not match.");
         } else {
           setinvalidConfirmPassword("");
@@ -86,7 +91,7 @@ export default function RegisterForm() {
   return (
     <FormContainer title="Register" handleSubmit={handleSubmit}>
       <div className={styles.formContainer}>
-        <p className={styles.errorMessage}>{errMessage}</p>
+        <p className={styles.bannerError}>{errMessage}</p>
         <div className={styles.inputsContainer}>
           <div className={styles.inputContainer}>
             <label htmlFor="username">Username</label>
@@ -102,7 +107,7 @@ export default function RegisterForm() {
             />
           </div>
           {invalidUsername ? (
-            <span id="username-error" className={styles.errorMessage}>
+            <span id="username-error" className={styles.inputError}>
               {invalidUsername}
             </span>
           ) : null}
@@ -119,7 +124,7 @@ export default function RegisterForm() {
             />
           </div>
           {invalidPassword ? (
-            <span id="password-error" className={styles.errorMessage}>
+            <span id="password-error" className={styles.inputError}>
               {invalidPassword}
             </span>
           ) : null}
@@ -136,7 +141,7 @@ export default function RegisterForm() {
             />
           </div>
           {invalidConfirmPassword ? (
-            <span id="password-error" className={styles.errorMessage}>
+            <span id="password-error" className={styles.inputError}>
               {invalidConfirmPassword}
             </span>
           ) : null}
