@@ -4,9 +4,9 @@ import Header from "../../components/Header/Header";
 import styles from "../../styles/Account.module.scss";
 import { selectUser } from "../../redux/slices/userSlice";
 import { useAppSelector } from "../../redux/hooks";
-import Link from "next/link";
 import { useState } from "react";
 import ActionDialog from "../../components/ActionDialog/ActionDialog";
+import CloseIcon from '@mui/icons-material/Close';
 
 const Account: NextPage = () => {
   const [showChangePasswordForm, setShowChangePasswordForm] = useState(false);
@@ -22,7 +22,7 @@ const Account: NextPage = () => {
   }
 
   const deactivateDialogContent = (
-    <ActionDialog confirmAction = {deactiveAccount} dialogTitle="Deactive Account?" toggleModal={toggleDeactiveConfirmation}>
+    <ActionDialog confirmAction={deactiveAccount} dialogTitle="Deactive Account?" toggleModal={toggleDeactiveConfirmation}>
       <p>Are you sure you would like to deactivate your account?</p>
     </ActionDialog>
   )
@@ -36,10 +36,11 @@ const Account: NextPage = () => {
   }
 
   const changePasswordFormDialog = (
-    <form>
-      <input type="password" placeholder="New Password"/>
-      <input type="password" placeholder="Confirm Password"/>
-      <input type="password" placeholder="Current Password"/>
+    <form className={styles.changePasswordForm}>
+      <input type="password" placeholder="New Password" />
+      <input type="password" placeholder="Confirm Password" />
+      <input type="password" placeholder="Current Password" />
+      <input type="submit" value="Change Password" />
     </form>
   )
 
@@ -53,8 +54,9 @@ const Account: NextPage = () => {
       <Header />
       <main className={styles.main}>
         <h1>Welcome, {user.user.username}</h1>
-        <button onClick={toggleChangePasswordForm}>
+        <button onClick={toggleChangePasswordForm} className={showChangePasswordForm ? styles.activeSelection : ""}>
           Change Password
+          { showChangePasswordForm ? <CloseIcon fontSize="small" className={styles.closeButton}/> : null}
         </button>
         {showChangePasswordForm ? changePasswordFormDialog : null}
         <button onClick={toggleDeactiveConfirmation}>
