@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../../components/Header/Header";
+import styles from "../../styles/Orders.module.scss";
 
 const Orders: NextPage = () => {
   return (
@@ -11,7 +12,8 @@ const Orders: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>
+      <main className={styles.main}>
+        <h1>Order History</h1>
       </main>
     </>
   );
