@@ -15,14 +15,14 @@ Next.JS practice project for an ecommerce website.
     - Changed the logic for rendering the Blog Modal
     - Need to implement getStaticPaths and getStaticProps. These are hardcoded at the moment.
     - Registration form
+     - Auth for login
+        * Automatic authentication if httpOnly token is available. Probably send an auth request to check.
 
 -- IN PROGRESS
-    - Auth for login
-        * Automatic authentication if httpOnly token is available. Probably send an auth request to check.
+    - Cart system for user or localstorage
+    - Checkout menu and forms
 
 -- TODO
     - Plan out and create mongodb schemas based on test data (current test data is not json, but rather an object that is really an array of objects. This should be fine for testing, but will need to be considered as part of the schema planning for the database)
     - Clean up Dyanmic Routing for Sections and Subsections as part of the above
     - Add content management (add shop sections => respective subsection => respective items). Locked under user auth
-    - Cart system for user or localstorage
-    - Checkout menu and forms
