@@ -37,5 +37,13 @@ a {
     font-family: inherit;
     background: none;
     border: none;
+    background: #3075ff;
+    border-radius: .3rem;
+    padding: .5rem .5rem .4rem .5rem;
+    color: white;
+    &:hover {
+      cursor: pointer;
+      background: #53a1ff;
+    }
   }
 }

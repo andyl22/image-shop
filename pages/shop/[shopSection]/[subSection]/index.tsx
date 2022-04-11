@@ -1,5 +1,5 @@
 import Head from "next/head";
-import ShopItemCard from "../../../../components/ItemCard/ShopItemCard";
+import ItemCardLink from "../../../../components/ItemCard/ItemCardLink";
 import Header from "../../../../components/Header/Header";
 import styles from "../../../../styles/SubSection.module.scss";
 import {
@@ -33,7 +33,7 @@ export const getStaticProps = async ({ params }: Params) => {
 };
 
 interface SubSectionContent {
-  id: number;
+  id: string;
   name: string;
   description: string;
   price: string;
@@ -55,10 +55,10 @@ const SubSection = (props: Props) => {
   const mappedSectionData = sectionData.subSectionContent.map((item) => {
     const { name, image, id, description, price } = item;
     return (
-      <ShopItemCard
+      <ItemCardLink
         imageURL={image}
         name={name}
-        link={id.toString()}
+        id={id}
         description={description}
         price={price}
         key={id}

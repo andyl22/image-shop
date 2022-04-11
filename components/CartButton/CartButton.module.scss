@@ -1,18 +1,19 @@
 .cartButton {
   border: none;
   background: none;
+  color: black;
   position: relative;
   cursor: pointer;
   p {
     position: absolute;
-    left: 10px;
-    bottom: 15px;
+    left: 18px;
+    bottom: 22px;
     background: orange;
     padding: 0.2rem 0.25rem 0 0.3rem;
     border-radius: 2rem;
     font-weight: 600;
   }
   &:hover, &:focus {
-    transform: scale(1.1);
+    background: none;
   }
 }

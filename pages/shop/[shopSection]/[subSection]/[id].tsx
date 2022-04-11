@@ -4,9 +4,7 @@ import {
   getAllItemPaths,
 } from "../../../../TestData/SectionItems";
 import styles from "../../../../styles/Item.module.scss";
-import Image from "next/image";
-import AddShoppingCartOutlined from "@mui/icons-material/AddShoppingCartOutlined";
-import { useRef } from "react";
+import ItemCard from "../../../../components/ItemCard/ItemCard";
 
 export const getStaticPaths = async () => {
   const paths = getAllItemPaths();
@@ -37,7 +35,7 @@ export const getStaticProps = async ({ params }: Params) => {
 
 interface Props {
   details: {
-    id: number;
+    id: string;
     name: string;
     description: string;
     price: string;
@@ -46,53 +44,20 @@ interface Props {
 }
 
 const Item = (props: Props) => {
-  const animateRef = useRef(null);
   const { details } = props;
-  let disabled: boolean = false;
-
-  const handleClick = () => {
-    if (disabled) return;
-    disabled = true;
-    if (animateRef.current) {
-      setTimeout(() => {
-        disabled = false;
-        if (animateRef.current) {
-          (animateRef.current as HTMLElement).classList.remove(styles.animate);
-        }
-      }, 1000);
-      (animateRef.current as HTMLElement).classList.add(styles.animate);
-    }
-  };
 
   return (
     <>
       <Header />
       <main className={styles.main}>
-        <h1>{details.name}</h1>
-        <div className={styles.imageContainer}>
-          <Image
-            src={details.image}
-            alt={details.name}
-            layout="responsive"
-            height="100%"
-            width="100%"
-            placeholder="blur"
-            blurDataURL={details.image}
-          />
-        </div>
-        <div className={styles.itemContent}>
-          <div className={styles.itemText}>
-            <p>{details.description}</p>
-            <p>{details.price}</p>
-          </div>
-          <button
-            aria-label="add to cart"
-            onClick={handleClick}
-            ref={animateRef}
-          >
-            <AddShoppingCartOutlined />
-          </button>
-        </div>
+        <ItemCard
+          imageURL={details.image}
+          name={details.name}
+          description={details.description}
+          price={details.price}
+          id={details.id}
+          enableCheckout={true}
+        />
       </main>
     </>
   );

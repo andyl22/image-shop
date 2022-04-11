@@ -5,14 +5,14 @@
         "id": 1,
         "name": "Smoky Morning",
         "description": "Smoky Morning in Yosemite",
-        "price": "FREE",
+        "price": "0.00",
         "image": "/images/nationalParks/yosemite/bailey-zindel.jpg"
       },
       {
         "id": 2,
         "name": "Half Dome ",
         "description": "Half Dome",
-        "price": "FREE",
+        "price": "0.00",
         "image": "/images/nationalParks/yosemite/trent-erwin.jpg"
       }
     ],
@@ -21,7 +21,7 @@
         "id": 3,
         "name": "Test Image Name Overflow Of Container And Tooltip",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -30,7 +30,7 @@
         "id": 4,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -39,7 +39,7 @@
         "id": 5,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -48,28 +48,28 @@
         "id": 6,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 7,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 8,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 9,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ]
@@ -80,7 +80,7 @@
         "id": 10,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -89,7 +89,7 @@
         "id": 11,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -98,7 +98,7 @@
         "id": 12,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -107,7 +107,7 @@
         "id": 13,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -116,28 +116,28 @@
         "id": 14,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 15,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 16,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 17,
         "name": "Test Item",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ]
@@ -148,7 +148,7 @@
         "id": 18,
         "name": "Hummingbird",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -157,7 +157,7 @@
         "id": 19,
         "name": "Kingfisher",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -166,7 +166,7 @@
         "id": 20,
         "name": "Great Eagle",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -175,7 +175,7 @@
         "id": 21,
         "name": "Blue Jay",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ],
@@ -184,28 +184,28 @@
         "id": 22,
         "name": "Gold Finch",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 23,
         "name": "Gold Finch",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 24,
         "name": "Gold Finch",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       },
       {
         "id": 25,
         "name": "Gold Finch",
         "description": "test",
-        "price": "$10.00",
+        "price": "10.00",
         "image": "/images/calm.jpg"
       }
     ]

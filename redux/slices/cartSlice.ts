@@ -3,8 +3,9 @@ import type { RootState } from "../store";
 
 interface Item {
   id: number;
-  quantity: number;
   name: String;
+  quantity: number;
+  price: number;
 }
 
 interface CartState {
@@ -20,11 +21,8 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    add: (state) => {
-      state.cart.items = [
-        ...state.cart.items,
-        { id: 1, quantity: 2, name: "test" },
-      ];
+    add: (state, payload) => {
+      state.cart.items = [...state.cart.items, payload.payload];
     },
   },
 });

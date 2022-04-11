@@ -9,16 +9,12 @@
     min-width: 200px;
     max-width: 200px;
   }
-  &:hover {
-    img {
-      filter: brightness(.8);
-      cursor: pointer;
-    }
-  }
-  .anchorContent {
+  .itemContent {
+    padding: 1rem .2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 0.5rem;
     width: 100%;
-  }
+  };
 }

@@ -1,0 +1,12 @@
+.itemCardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .linkWrapper {
+    &:hover {
+      img {
+        filter: brightness(0.8);
+      }
+    }
+  }
+}

@@ -1,47 +1,44 @@
 import styles from "./ItemCard.module.scss";
 import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import OverflowToolTip from "../Tooltip/OverflowTooltip";
+import AddToCart from "../AddToCart/AddToCart";
 
 interface Props {
+  id: string;
   name: string;
   description?: string;
   imageURL: string;
-  link: string;
-  children?: React.ReactNode | Array<React.ReactNode>;
+  price?: string;
+  enableCheckout?: boolean;
 }
 
 export default function ItemCard(props: Props) {
-  const { name, description, imageURL, link, children } = props;
-  const router = useRouter();
-  const pathName = router.asPath === "/" ? "" : router.asPath;
+  const { id, name, description, imageURL, price, enableCheckout } = props;
 
   return (
     <div className={styles.itemCardContainer}>
-      <Link href={`${pathName}/${link}`}>
-        <a>
-          <div className={styles.anchorContent}>
-            <OverflowToolTip tooltipContent={name}>
-              <h2>{name}</h2>
-            </OverflowToolTip>
-            <div className={styles.imageWrapper}>
-              <Image
-                src={imageURL}
-                alt={name}
-                height="100%"
-                width="100%"
-                layout="responsive"
-                placeholder="blur"
-                blurDataURL={imageURL}
-                quality="25"
-              />
-            </div>
-            <p>{description}</p>
-          </div>
-          {children}
-        </a>
-      </Link>
+      <OverflowToolTip tooltipContent={name}>
+        <h2>{name}</h2>
+      </OverflowToolTip>
+      <div className={styles.imageWrapper}>
+        <Image
+          src={imageURL}
+          alt={name}
+          height="100%"
+          width="100%"
+          layout="responsive"
+          placeholder="blur"
+          blurDataURL={imageURL}
+          quality="25"
+        />
+      </div>
+      <div className={styles.itemContent}>
+        {price === "0.00" ? <p>FREE</p> : price ? <p>${price}</p> : null}
+        <p>{description}</p>
+        {price && enableCheckout ? (
+          <AddToCart id={id} name={name} price={parseFloat(price)} />
+        ) : null}
+      </div>
     </div>
   );
 }

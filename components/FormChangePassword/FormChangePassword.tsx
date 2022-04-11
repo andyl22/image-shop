@@ -17,9 +17,15 @@ export default function FormChangePassword(props: Props) {
   const [formState, setFormState] = useState(initialFormState);
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const {newPassword, confirmPassword} = formState;
-    if (newPassword.length < 4 || newPassword.length >=20 || newPassword.match(" ")) {
-      setError("Password Invalid. Can not be more than 20 characters or contain spaces.");
+    const { newPassword, confirmPassword } = formState;
+    if (
+      newPassword.length < 4 ||
+      newPassword.length >= 20 ||
+      newPassword.match(" ")
+    ) {
+      setError(
+        "Password Invalid. Can not be more than 20 characters or contain spaces."
+      );
     } else if (newPassword !== confirmPassword) {
       setError("Passwords do not match.");
     } else {

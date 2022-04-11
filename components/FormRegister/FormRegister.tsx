@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import debounce from "../../utilities/debounce";
 import { postHTTP } from "../../utilities/fetchAPIs";
 
-
 export default function FormRegister() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({
@@ -25,7 +24,7 @@ export default function FormRegister() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if(formState.password !== formState.confirmPassword) {
+    if (formState.password !== formState.confirmPassword) {
       setErrorMessage("Passwords do not match.");
       return;
     }
@@ -47,7 +46,9 @@ export default function FormRegister() {
     switch (inputType) {
       case "username":
         if (value.includes(" ") || value.length > 20) {
-          setinvalidUsername("Invalid Username. Can not contain spaces or be more than 20 characters.");
+          setinvalidUsername(
+            "Invalid Username. Can not contain spaces or be more than 20 characters."
+          );
         } else {
           setinvalidUsername("");
         }
@@ -57,7 +58,10 @@ export default function FormRegister() {
           setinvalidPassword(
             "Password Invalid. Can not be more than 20 characters or contain spaces."
           );
-        } else if (formState.confirmPassword && value !== formState.confirmPassword) {
+        } else if (
+          formState.confirmPassword &&
+          value !== formState.confirmPassword
+        ) {
           setinvalidPassword("");
           setinvalidConfirmPassword("Passwords do not match.");
         } else {
