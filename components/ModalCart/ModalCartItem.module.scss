@@ -1,5 +1,14 @@
 .cartItem {
   padding: 1rem;
+  .itemHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
   .manageQuantities {
     display: flex;
     align-items: center;
@@ -11,6 +20,14 @@
       display: flex;
       padding: 0;
       color: white;
+      background: rgb(46, 57, 255);
+      &:hover {
+        background: rgb(24, 35, 249);
+      }
+    }
+    input[type=text] {
+      width: 2rem;
+      text-align: center;
     }
   }
 }

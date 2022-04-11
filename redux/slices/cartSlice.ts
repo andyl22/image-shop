@@ -26,10 +26,7 @@ export const cartSlice = createSlice({
         const itemsList = state.cart.items;
         itemsList[id].quantity += quantity;
       } else {
-        state.cart.items = {
-          ...state.cart.items,
-          [id]: { name: name, quantity: quantity, price: price },
-        };
+        state.cart.items[id] = {name: name, quantity: quantity, price: price};
       }
       state.cart.total += quantity * price;
     },
@@ -44,10 +41,14 @@ export const cartSlice = createSlice({
         state.cart.items[id].price * state.cart.items[id].quantity;
       delete state.cart.items[id];
     },
+    set: (state, payload) => {
+      const { id, name, quantity, price } = payload.payload;
+      state.cart.items[id] = {name: name, quantity: quantity, price: price};
+    }
   },
 });
 
-export const { add, decrease, remove } = cartSlice.actions;
+export const { add, decrease, remove, set } = cartSlice.actions;
 export const selectCart = (state: RootState) => state.cart.cart;
 
 export default cartSlice.reducer;
