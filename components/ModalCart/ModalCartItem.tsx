@@ -4,12 +4,14 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import CloseIcon from "@mui/icons-material/Close";
 import { useAppDispatch } from "../../redux/hooks";
 import { add, decrease, remove, set } from "../../redux/slices/cartSlice";
+import { getAllItems } from "../../TestData/SectionItems";
 import { useState } from "react";
+import Image from "next/image";
 
 interface Props {
   id: string;
   cartItemDetails: {
-    name: String;
+    name: string;
     quantity: number;
     price: number;
   };
@@ -45,6 +47,8 @@ export default function ModalCartItem(props: Props) {
     dispatch(set({ id: props.id, name: name, quantity: quantity, price: price }));
   };
 
+  const fullItemData = getAllItems().filter((item: { id: string; }) => item.id == props.id)[0];
+  console.log(fullItemData)
   return (
     <div className={styles.cartItem}>
       <div className={styles.itemHeader}>
@@ -53,6 +57,7 @@ export default function ModalCartItem(props: Props) {
           <CloseIcon fontSize="small" />
         </button>
       </div>
+      <Image src={fullItemData.image} alt={name} height="128px" width="128px" quality={30}/>
       <div className={styles.manageQuantities}>
         <button aria-label="Add to Cart" onClick={increment}>
           <AddIcon fontSize="small" />

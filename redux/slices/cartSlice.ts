@@ -3,7 +3,7 @@ import { loadState } from "../../utilities/localStorage";
 import type { RootState } from "../store";
 
 interface Item {
-  name: String;
+  name: string;
   quantity: number;
   price: number;
 }
