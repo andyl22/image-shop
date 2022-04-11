@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { loadState } from "../../utilities/localStorage";
 import type { RootState } from "../store";
 
 interface Item {
@@ -14,7 +15,9 @@ interface CartState {
   };
 }
 
-const initialState: CartState = { cart: { items: {}, total: 0 } };
+const lStorageCart = loadState();
+
+const initialState: CartState = lStorageCart ? lStorageCart : { cart: { items: {}, total: 0 } };
 
 export const cartSlice = createSlice({
   name: "cart",
@@ -45,7 +48,7 @@ export const cartSlice = createSlice({
       const { id, name, quantity, price } = payload.payload;
       state.cart.items[id] = {name: name, quantity: quantity, price: price};
     }
-  },
+  }
 });
 
 export const { add, decrease, remove, set } = cartSlice.actions;

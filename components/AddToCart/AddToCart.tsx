@@ -17,7 +17,6 @@ export default function AddToCart(props: Props) {
 
   const addToCart = () => {
     dispatch(add({ ...props, quantity: 1 }));
-    console.log(cart);
   };
 
   // throttle add to cart action
