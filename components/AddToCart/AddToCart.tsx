@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { add, selectCart } from "../../redux/slices/cartSlice";
+import { useAppDispatch } from "../../redux/hooks";
+import { add } from "../../redux/slices/cartSlice";
 import styles from "./AddToCart.module.scss";
 
 interface Props {
@@ -10,7 +10,6 @@ interface Props {
 }
 
 export default function AddToCart(props: Props) {
-  const cart = useAppSelector(selectCart);
   const dispatch = useAppDispatch();
   const animateRef = useRef(null);
   let disabled: boolean = false;

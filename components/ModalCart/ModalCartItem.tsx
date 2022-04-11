@@ -40,8 +40,9 @@ export default function ModalCartItem(props: Props) {
   };
 
   const handleInput = (e: any) => {
-    setQuantity(e.target.value);
-    dispatch(set({ id: props.id, name: name, quantity: parseInt(e.target.value), price: price }));
+    const quantity = parseInt(e.target.value.replace(/^0+/, "")) || 0
+    setQuantity(quantity); 
+    dispatch(set({ id: props.id, name: name, quantity: quantity, price: price }));
   };
 
   return (

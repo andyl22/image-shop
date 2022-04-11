@@ -45,8 +45,11 @@ export const cartSlice = createSlice({
       delete state.cart.items[id];
     },
     set: (state, payload) => {
+      let prevQuantity = 0;
       const { id, name, quantity, price } = payload.payload;
+      if(state.cart.items[id]) prevQuantity = state.cart.items[id].quantity;
       state.cart.items[id] = {name: name, quantity: quantity, price: price};
+      state.cart.total += (quantity - prevQuantity) * price;
     }
   }
 });
