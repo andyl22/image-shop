@@ -1,13 +1,15 @@
 @use "variables.scss" as s;
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Serif&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Roboto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Handlee&family=Roboto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Comfortaa:wght@500&family=Handlee&family=Roboto+Serif&display=swap');
 
 html,
 body {
   display: flex;
   width: 100%;
   min-height: 100%;
-  font-family: "Roboto Serif", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana,
-    sans-serif;
+  font-family: 'Comfortaa', cursive;
 }
 
 html {

@@ -10,7 +10,11 @@ $contentMargin: 1rem;
     gap: 1rem;
   }
   h1 {
-    font-size: 1.5rem;
+    align-self: flex-start;
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    position: relative;
+    bottom: .15rem;
   }
   .dropdownLink {
     border: none;

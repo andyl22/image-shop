@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Header from "../components/Header/Header";
 import ItemSlider from "../components/ItemSlider/ItemSlider";
-import ItemCard from "../components/ItemCard/ItemCard";
+import ItemCardLink from "../components/ItemCard/ItemCardLink";
 import Sheet from "../components/Sheet/Sheet";
 import SheetLink from "../components/Sheet/SheetLink";
 import Footer from "../components/Footer/Footer";
@@ -31,11 +31,14 @@ const Home: NextPage = () => {
 
   const mappedItemData = itemData.slice(0, 8).map((item: Item) => {
     return (
-      <ItemCard
+      <ItemCardLink
         imageURL={item.image}
         link={`shop/national-parks/yosemite/${item.id}`}
         name={item.name}
         key={item.id}
+        id={item.id.toString()}
+        description={item.description}
+        price={item.price}
       />
     );
   });

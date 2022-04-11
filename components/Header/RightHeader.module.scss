@@ -2,6 +2,10 @@
   display: flex;
   gap: 2rem;
   width: fit-content;
+  .cartButtonContainer {
+    position: relative;
+    top: 0.15rem;
+  }
   .userMenu {
     font-size: 1.1rem;
     &:hover {
@@ -15,4 +19,3 @@
     gap: 1rem;
   }
 }
-

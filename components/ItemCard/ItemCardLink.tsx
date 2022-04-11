@@ -11,10 +11,12 @@ interface Props {
   imageURL: string;
   link?: string;
   price: string;
+  enableCheckout?: boolean;
 }
 
 export default function ShopItemCard(props: Props) {
-  const { id, name, description, imageURL, link, price } = props;
+  const { id, name, description, imageURL, link, price, enableCheckout } =
+    props;
   const router = useRouter();
   // If this component is being used in the base path, we don't want to construct the link href with a leading /
   const pathName = router.asPath === "/" ? "" : router.asPath;
@@ -32,7 +34,9 @@ export default function ShopItemCard(props: Props) {
           />
         </a>
       </Link>
-      <AddToCart id={id} name={name} price={parseFloat(price)} />
+      {enableCheckout ? (
+        <AddToCart id={id} name={name} price={parseFloat(price)} />
+      ) : null}
     </div>
   );
 }

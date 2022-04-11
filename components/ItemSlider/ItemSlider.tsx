@@ -59,14 +59,14 @@ export default function ItemSlider(props: Props) {
 
   const childrenWithArrowNav = (
     <div className={styles.sliderContainer}>
-      <button aria-label="previous image" onClick={decrementPointer}>
-        <ArrowBackIosNewIcon fontSize="small" className={styles.arrowIcons} />
+      <button aria-label="previous image" onClick={decrementPointer} className={styles.arrowIcons}>
+        <ArrowBackIosNewIcon fontSize="large"/>
       </button>
       {childrenToRender}
-      <button aria-label="next image" onClick={incrementPointer}>
+      <button aria-label="next image" onClick={incrementPointer} className={styles.arrowIcons}>
         <ArrowBackIosNewIcon
-          fontSize="small"
-          className={`${styles.flipIcon} ${styles.arrowIcons}`}
+          fontSize="large"
+          className={styles.flipIcon}
         />
       </button>
     </div>

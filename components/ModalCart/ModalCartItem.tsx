@@ -25,16 +25,16 @@ export default function ModalCartItem(props: Props) {
 
   const increment = () => {
     dispatch(add({ id: props.id, name: name, quantity: 1, price: price }));
-    setQuantity(quantity+1);
+    setQuantity(quantity + 1);
   };
 
   const decrement = () => {
     quantity <= 1
       ? deleteItem()
       : dispatch(
-        decrease({ id: props.id, name: name, quantity: 1, price: price })
-      );
-    setQuantity(quantity-1);
+          decrease({ id: props.id, name: name, quantity: 1, price: price })
+        );
+    setQuantity(quantity - 1);
   };
 
   const deleteItem = () => {
@@ -42,22 +42,32 @@ export default function ModalCartItem(props: Props) {
   };
 
   const handleInput = (e: any) => {
-    const quantity = parseInt(e.target.value.replace(/^0+/, "")) || 0
-    setQuantity(quantity); 
-    dispatch(set({ id: props.id, name: name, quantity: quantity, price: price }));
+    const quantity = parseInt(e.target.value.replace(/^0+/, "")) || 0;
+    setQuantity(quantity);
+    dispatch(
+      set({ id: props.id, name: name, quantity: quantity, price: price })
+    );
   };
 
-  const fullItemData = getAllItems().filter((item: { id: string; }) => item.id == props.id)[0];
-  console.log(fullItemData)
+  const fullItemData = getAllItems().filter(
+    (item: { id: string }) => item.id == props.id
+  )[0];
+
   return (
     <div className={styles.cartItem}>
       <div className={styles.itemHeader}>
         <h2>{name}</h2>
-        <button aria-label="Remove All" onClick={deleteItem}>
+        <button aria-label="Remove All" onClick={deleteItem} className={styles.closeButton}>
           <CloseIcon fontSize="small" />
         </button>
       </div>
-      <Image src={fullItemData.image} alt={name} height="128px" width="128px" quality={30}/>
+      <Image
+        src={fullItemData.image}
+        alt={name}
+        height="128px"
+        width="128px"
+        quality={30}
+      />
       <div className={styles.manageQuantities}>
         <button aria-label="Add to Cart" onClick={increment}>
           <AddIcon fontSize="small" />

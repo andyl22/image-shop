@@ -37,7 +37,9 @@ export default function RightHeader() {
 
   return (
     <div className={styles.rightHeader}>
-      <CartButton />
+      <div className={styles.cartButtonContainer}>
+        <CartButton />
+      </div>
       {loginContent}
     </div>
   );

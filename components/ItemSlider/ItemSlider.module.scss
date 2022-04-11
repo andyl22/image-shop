@@ -8,11 +8,11 @@
   .flipIcon {
     transform: rotate(180deg);
   }
-  button {
+  .arrowIcons {
     background: none;
-    border: none;
-    .arrowIcons {
-      cursor: pointer;
+    color: black;
+    &:hover {
+      color: gray;
     }
   }
 }

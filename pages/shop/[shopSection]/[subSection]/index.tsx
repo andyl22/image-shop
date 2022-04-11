@@ -62,6 +62,7 @@ const SubSection = (props: Props) => {
         description={description}
         price={price}
         key={id}
+        enableCheckout={true}
       />
     );
   });
