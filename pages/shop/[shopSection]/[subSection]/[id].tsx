@@ -4,8 +4,9 @@ import {
   getAllItemPaths,
 } from "../../../../TestData/SectionItems";
 import styles from "../../../../styles/ShopItem.module.scss";
-import ItemCard from "../../../../components/ItemCard/ItemCard";
 import PathNav from "../../../../components/PathNav/PathNav";
+import Image from "next/image";
+import AddToCart from "../../../../components/AddToCart/AddToCart";
 
 export const getStaticPaths = async () => {
   const paths = getAllItemPaths();
@@ -52,13 +53,20 @@ const Item = (props: Props) => {
       <Header />
       <main className={styles.main}>
         <PathNav />
-        <ItemCard
-          imageURL={details.image}
-          name={details.name}
-          description={details.description}
-          price={details.price}
+        <h1>{details.name}</h1>
+        <Image
+          src={details.image}
+          alt={details.name}
+          width="1000px"
+          height="800px"
+          quality={100}
+        />
+        <p>{details.description}</p>
+        <p>{details.price === "0.00" ? "FREE" : details.price}</p>
+        <AddToCart
           id={details.id}
-          enableCheckout={true}
+          name={details.name}
+          price={parseFloat(details.price)}
         />
       </main>
     </>
