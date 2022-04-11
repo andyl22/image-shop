@@ -10,7 +10,7 @@
   gap: 3rem;
   top: 0;
   left: 0;
-  padding: 1rem 1rem;
+  padding: .5rem 1rem;
   transition-duration: 1s;
   z-index: 1;
   transition: .1s;
@@ -23,6 +23,8 @@
     transition-duration: .5s;
   }
   a, button {
+    background: none;
+    color: black;
       position: relative;
       &:hover,
       &:focus,

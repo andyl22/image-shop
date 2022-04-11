@@ -28,7 +28,7 @@
   }
   .drawerHeader {
     padding: 1rem;
-    margin: 0 .5rem;
+    margin: 0 0.5rem;
     border-bottom: 4px double gray;
     h1 {
       font-size: 1.2rem;
@@ -37,8 +37,9 @@
       background: none;
       border: none;
       position: absolute;
-      top: .7rem;
+      top: 0.2rem;
       right: 1rem;
+      color: black;
       &:hover {
         cursor: pointer;
         color: gray;
