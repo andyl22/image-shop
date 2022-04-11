@@ -6,18 +6,19 @@
   text-align: center;
   position: relative;
   h2 {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
   }
   @include s.mobile-view {
     min-width: 200px;
     max-width: 200px;
   }
   .itemContent {
-    padding: 1rem .2rem;
+    padding: 1rem 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
-  };
+  }
 }

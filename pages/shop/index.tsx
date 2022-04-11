@@ -19,7 +19,7 @@ const Shop: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Shop</title>
+        <title>SHOP</title>
         <meta name="description" content="Buy Pictures of Parks" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

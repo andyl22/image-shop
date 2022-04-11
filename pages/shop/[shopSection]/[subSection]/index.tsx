@@ -52,6 +52,10 @@ interface Props {
 
 const SubSection = (props: Props) => {
   const { sectionData } = props;
+  const formattedName = sectionData.subSectionName
+    .split(/(?=[A-Z])/g)
+    .join(" ")
+    .toUpperCase();
 
   const mappedSectionData = sectionData.subSectionContent.map((item) => {
     const { name, image, id, description, price } = item;
@@ -71,7 +75,7 @@ const SubSection = (props: Props) => {
   return (
     <>
       <Head>
-        <title>Shop</title>
+        <title>{formattedName}</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -79,8 +83,9 @@ const SubSection = (props: Props) => {
       <Header />
 
       <main className={styles.main}>
+        <h1>{formattedName}</h1>
         <PathNav />
-        {mappedSectionData}
+        <div className={styles.itemsContainer}>{mappedSectionData}</div>
       </main>
       <Footer />
     </>
