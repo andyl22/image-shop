@@ -3,8 +3,9 @@ import {
   getAllItems,
   getAllItemPaths,
 } from "../../../../TestData/SectionItems";
-import styles from "../../../../styles/Item.module.scss";
+import styles from "../../../../styles/ShopItem.module.scss";
 import ItemCard from "../../../../components/ItemCard/ItemCard";
+import PathNav from "../../../../components/PathNav/PathNav";
 
 export const getStaticPaths = async () => {
   const paths = getAllItemPaths();
@@ -50,6 +51,7 @@ const Item = (props: Props) => {
     <>
       <Header />
       <main className={styles.main}>
+        <PathNav />
         <ItemCard
           imageURL={details.image}
           name={details.name}

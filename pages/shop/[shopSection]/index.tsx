@@ -7,7 +7,7 @@ import {
   getAllHeaderLinkParams,
   getShopSectionData,
 } from "../../../TestData/Sections";
-
+import PathNav from "../../../components/PathNav/PathNav";
 
 export async function getStaticPaths() {
   const paths = getAllHeaderLinkParams();
@@ -18,9 +18,9 @@ export async function getStaticPaths() {
 }
 
 interface Params {
-  params : {
-    shopSection: string
-  }
+  params: {
+    shopSection: string;
+  };
 }
 
 export async function getStaticProps({ params }: Params) {
@@ -65,6 +65,7 @@ const Section = (props: Props) => {
       <Header />
 
       <main className={styles.main}>
+        <PathNav />
         <h1>{formattedName}</h1>
         {mappedItems}
       </main>

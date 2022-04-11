@@ -7,6 +7,7 @@ import {
   setSectionItems,
 } from "../../../../TestData/SectionItems";
 import Footer from "../../../../components/Footer/Footer";
+import PathNav from "../../../../components/PathNav/PathNav";
 
 export const getStaticPaths = async () => {
   const paths = getAllSections();
@@ -78,6 +79,7 @@ const SubSection = (props: Props) => {
       <Header />
 
       <main className={styles.main}>
+        <PathNav />
         {mappedSectionData}
       </main>
       <Footer />

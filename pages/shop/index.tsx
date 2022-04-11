@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../../components/Header/Header";
+import PathNav from "../../components/PathNav/PathNav";
 import styles from "../../styles/Shop.module.scss";
 import { formatToKebabCase } from "../../utilities/StringFormat";
 
@@ -25,7 +26,11 @@ const Shop: NextPage = () => {
 
       <Header />
 
-      <main className={styles.main}>{mappedNames}</main>
+      <main className={styles.main}>
+        <PathNav />
+        <h1>Shop By Category</h1>
+        {mappedNames}
+      </main>
     </>
   );
 };
