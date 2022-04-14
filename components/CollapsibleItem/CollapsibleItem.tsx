@@ -15,24 +15,13 @@ export default function CollapsibleItem(props: Props) {
     setShowCollapsible(!showCollapsible);
   };
 
-  const mappedChildrenToList =
-    Children.count(children) > 1 ? (
-      React.Children.map(children, (child, i) => {
-        return <li key={i}>{child}</li>
-      })
-    ) : (
-      <li>{children}</li>
-    );
-
   return (
     <div className={styles.collapsibleContainer}>
       <button aria-label="Close Menu" className={styles.collapseController} onClick={toggleCollapsibleSection}>
         {parentNode}
         <KeyboardArrowDownIcon fontSize="small" className={showCollapsible ? styles.reverseIcon : ""} />
       </button>
-      {showCollapsible ? (
-        <ul className={styles.collapsedNodes}>{mappedChildrenToList}</ul>
-      ) : null}
+      <div className={showCollapsible ? styles.visibleNodes : styles.collapsedNodes}>{children}</div>
     </div>
   );
 }

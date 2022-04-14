@@ -9,11 +9,9 @@
       transform: rotate(180deg);
     }
   }
-  ul {
-    list-style: none;
-    margin-top: .5rem;
-    li {
-      margin-left: 1rem;
-    }
+  .collapsedNodes {
+    display: none;
+  }
+  .visibleNodes {
   }
 }

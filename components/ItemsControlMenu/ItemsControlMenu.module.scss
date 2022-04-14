@@ -1,0 +1,25 @@
+.sortMenuContainer {
+  height: 100%;
+  padding: 2rem 1rem;
+  background: rgb(239, 235, 235);
+  button {
+    width: 150px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .singleSelect {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    padding: 1rem;
+    label {
+      margin-left: .5rem;
+    }
+  }
+}
+
+.menuOption {
+  background: none;
+  width: 250px;
+}
