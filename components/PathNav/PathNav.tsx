@@ -10,12 +10,12 @@ export default function PathNav() {
   const mappedPaths = splitPaths.map((path) => {
     buildPath += `/${path}`;
     return (
-      <>
+      <div className={styles.pathItem} key={path}>
         <p>/</p>
-        <Link key={path} href={buildPath}>
+        <Link href={buildPath}>
           <a>{path}</a>
         </Link>
-      </>
+      </div>
     );
   });
 
