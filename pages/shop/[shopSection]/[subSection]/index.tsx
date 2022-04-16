@@ -58,21 +58,6 @@ const SubSection = (props: Props) => {
     .join(" ")
     .toUpperCase();
 
-  const mappedSectionData = sectionData.subSectionContent.map((item) => {
-    const { name, image, id, description, price } = item;
-    return (
-      <ItemCardLink
-        imageURL={image}
-        name={name}
-        id={id}
-        description={description}
-        price={price}
-        key={id}
-        enableCheckout={true}
-      />
-    );
-  });
-
   return (
     <>
       <Head>
@@ -85,11 +70,8 @@ const SubSection = (props: Props) => {
 
       <main className={styles.main}>
         <PathNav />
-        <ItemsControlMenu />
-        <div className={styles.mainContent}>
-          <h1>{formattedName}</h1>
-          <div className={styles.itemsContainer}>{mappedSectionData}</div>
-        </div>
+        <h1>{formattedName}</h1>
+        <ItemsControlMenu itemData={sectionData.subSectionContent}/>
       </main>
       <Footer />
     </>

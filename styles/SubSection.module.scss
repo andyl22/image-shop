@@ -1,9 +1,10 @@
 .main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
-  padding: 2rem 0;
+  padding: 2rem 0 0 0;
   .itemsContainer {
     display: flex;
     justify-content: center;
