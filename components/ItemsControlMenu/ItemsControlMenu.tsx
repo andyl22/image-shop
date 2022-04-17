@@ -24,7 +24,8 @@ export default function SortMenu(props: Props) {
   const [singleSelected, setSingleSelected] = useState("popularity");
   const [mappedItems, setMappedItems] = useState<any>();
 
-  const singleCheck = (e: ChangeEvent<HTMLInputElement> | MouseEvent) => {
+  const handleCheck = (e: ChangeEvent<HTMLInputElement> | MouseEvent) => {
+    console.log('test')
     const target = e.target as HTMLElement;
     const checkedId = target.id;
     if (checkedId === singleSelected) return;
@@ -42,7 +43,7 @@ export default function SortMenu(props: Props) {
             name={option}
             id={option}
             checked={singleSelected === option}
-            onChange={singleCheck}
+            onChange={handleCheck}
           />
           <label
             htmlFor={option}
