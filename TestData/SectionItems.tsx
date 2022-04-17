@@ -1,5 +1,8 @@
 import data from "./SectionItems.json";
-import { formatToCamelCase, formatToKebabCase } from "../utilities/StringFormat";
+import {
+  formatToCamelCase,
+  formatToKebabCase,
+} from "../utilities/StringFormat";
 
 interface StaticPaths {
   params: {
@@ -35,6 +38,9 @@ export interface Item {
   description: string;
   price: string;
   image: string;
+  visits: number;
+  createDttm: number;
+  updateDttm: number;
 }
 
 export function getAllItems(jsonTree: any = data, results: any = []) {
@@ -66,15 +72,15 @@ export function getAllItemPaths() {
   Object.keys(data).forEach((subsection) => {
     Object.keys(data[subsection as keyof typeof data]).forEach((item) => {
       /* @ts-ignore */
-      data[subsection][item].forEach(subItem => {
+      data[subsection][item].forEach((subItem) => {
         staticPaths.push({
           params: {
             shopSection: formatToKebabCase(subsection),
             subSection: formatToKebabCase(item),
-            id: subItem.id.toString()
+            id: subItem.id.toString(),
           },
         });
-      })
+      });
     });
   });
   return staticPaths;

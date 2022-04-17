@@ -40,6 +40,9 @@ interface SubSectionContent {
   description: string;
   price: string;
   image: string;
+  visits: number;
+  createDttm: number;
+  updateDttm: number;
 }
 
 interface SectionData {
@@ -57,7 +60,6 @@ const SubSection = (props: Props) => {
     .split(/(?=[A-Z])/g)
     .join(" ")
     .toUpperCase();
-
   return (
     <>
       <Head>

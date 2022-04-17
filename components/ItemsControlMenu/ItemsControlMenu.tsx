@@ -10,6 +10,9 @@ interface Item {
   description: string;
   price: string;
   image: string;
+  visits: number;
+  createDttm: number;
+  updateDttm: number;
 }
 
 interface Props {
@@ -18,39 +21,18 @@ interface Props {
 
 export default function SortMenu(props: Props) {
   const { itemData } = props;
-  const [singleSelected, setSingleSelected] = useState<null | string>(
-    "popularity"
-  );
-
-  const mappedSectionData = itemData.map((item: Item) => {
-    const { name, image, id, description, price } = item;
-    return (
-      <ItemCardLink
-        imageURL={image}
-        name={name}
-        id={id}
-        description={description}
-        price={price}
-        key={id}
-        enableCheckout={true}
-      />
-    );
-  });
+  const [singleSelected, setSingleSelected] = useState("popularity");
+  const [mappedItems, setMappedItems] = useState<any>();
 
   const singleCheck = (e: ChangeEvent<HTMLInputElement> | MouseEvent) => {
     const target = e.target as HTMLElement;
     const checkedId = target.id;
+    if (checkedId === singleSelected) return;
     setSingleSelected(checkedId);
   };
 
   const mappedSortOptions = (() => {
-    const sortOptions = [
-      "popularity",
-      "recent",
-      "trending",
-      "highestPrice",
-      "lowestPrice",
-    ];
+    const sortOptions = ["popularity", "recent", "highestPrice", "lowestPrice"];
 
     return sortOptions.map((option: any) => {
       return (
@@ -74,8 +56,40 @@ export default function SortMenu(props: Props) {
   })();
 
   useEffect(() => {
-    setSingleSelected("popularity");
-  }, []);
+    switch (singleSelected) {
+      case "popularity":
+        itemData.sort((a, b) => a.visits - b.visits);
+        break;
+      case "recent":
+        itemData.sort((a, b) => b.createDttm - a.createDttm);
+        break;
+      case "highestPrice":
+        itemData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+        break;
+      case "lowestPrice":
+        itemData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        break;
+      default:
+        break;
+    }
+
+    const mappedSectionData = itemData.map((item: Item) => {
+      const { name, image, id, description, price } = item;
+      return (
+        <ItemCardLink
+          imageURL={image}
+          name={name}
+          id={id}
+          description={description}
+          price={price}
+          key={id}
+          enableCheckout={true}
+        />
+      );
+    });
+
+    setMappedItems(mappedSectionData);
+  }, [itemData, singleSelected]);
 
   return (
     <div className={styles.itemsControlContainer}>
@@ -87,7 +101,7 @@ export default function SortMenu(props: Props) {
           <form className={styles.singleSelect}>{mappedSortOptions}</form>
         </CollapsibleItem>
       </div>
-      <div className={styles.itemsContent}>{mappedSectionData}</div>
+      <div className={styles.itemsContent}>{mappedItems}</div>
     </div>
   );
 }

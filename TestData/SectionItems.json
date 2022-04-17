@@ -5,15 +5,21 @@
         "id": 1,
         "name": "Smoky Morning",
         "description": "Smoky Morning in Yosemite",
-        "price": "0.00",
-        "image": "/images/nationalParks/yosemite/bailey-zindel.jpg"
+        "price": "10.00",
+        "image": "/images/nationalParks/yosemite/bailey-zindel.jpg",
+        "visits": 123,
+        "createDttm": 1650160690,
+        "updateDttm": 1650160690
       },
       {
         "id": 2,
         "name": "Half Dome ",
         "description": "Half Dome",
         "price": "0.00",
-        "image": "/images/nationalParks/yosemite/trent-erwin.jpg"
+        "image": "/images/nationalParks/yosemite/trent-erwin.jpg",
+        "visits": 223,
+        "createDttm": 1650160691,
+        "updateDttm": 1650160691
       }
     ],
     "redwood": [
@@ -22,7 +28,10 @@
         "name": "Test Image Name Overflow Of Container And Tooltip",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "yellowstone": [
@@ -31,7 +40,10 @@
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "zion": [
@@ -40,7 +52,10 @@
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "mountRainer": [
@@ -49,28 +64,40 @@
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 7,
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 8,
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 9,
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ]
   },
@@ -81,7 +108,10 @@
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "redwood": [
@@ -90,7 +120,10 @@
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "sequoia": [
@@ -99,7 +132,10 @@
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "cherryBlossom": [
@@ -108,7 +144,11 @@
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
+
       }
     ],
     "quakingAspen": [
@@ -117,28 +157,40 @@
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 15,
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 16,
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 17,
         "name": "Test Item",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ]
   },
@@ -149,7 +201,10 @@
         "name": "Hummingbird",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "kingfisher": [
@@ -158,7 +213,10 @@
         "name": "Kingfisher",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "greatEagle": [
@@ -167,7 +225,10 @@
         "name": "Great Eagle",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "blueJay": [
@@ -176,7 +237,10 @@
         "name": "Blue Jay",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ],
     "goldFinch": [
@@ -185,28 +249,40 @@
         "name": "Gold Finch",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 23,
         "name": "Gold Finch",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 24,
         "name": "Gold Finch",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       },
       {
         "id": 25,
         "name": "Gold Finch",
         "description": "test",
         "price": "10.00",
-        "image": "/images/calm.jpg"
+        "image": "/images/calm.jpg",
+        "visits": 223,
+        "createDttm": 1650160695,
+        "updateDttm": 1650160695
       }
     ]
   }
