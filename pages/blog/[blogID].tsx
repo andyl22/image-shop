@@ -27,7 +27,6 @@ export default function Item(props: Props) {
         <meta name="description" content={subtitle} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className={styles.modalContainer}>
         <BlogModal
           title={title}

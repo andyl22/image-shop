@@ -12,8 +12,6 @@ const Success: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-
       <main className={styles.main}>
         <p>Success</p>
       </main>

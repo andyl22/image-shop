@@ -12,7 +12,6 @@ const Login: NextPage = () => {
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className={styles.main}>
         <LoginForm />
       </main>

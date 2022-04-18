@@ -4,7 +4,7 @@ import RightHeader from "./RightHeader";
 import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 
-export default function Header() {
+export default React.memo(function Header() {
   const router = useRouter();
   const [showHeader, setShowHeader] = useState(true);
   const [currentBasePath] = useState(router.asPath.split("/")[1]);
@@ -42,4 +42,4 @@ export default function Header() {
       <RightHeader />
     </header>
   );
-}
+})

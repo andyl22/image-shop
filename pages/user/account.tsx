@@ -43,7 +43,6 @@ const Account: NextPage = () => {
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className={styles.main}>
         <h1>Welcome, {user.user.username}</h1>
         <button onClick={toggleChangePasswordForm}>Change Password</button>

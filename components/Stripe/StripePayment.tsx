@@ -10,12 +10,13 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_API);
 export default function StripePayment() {
   const [clientSecret, setClientSecret] = useState();
   useEffect(() => {
-    postHTTP("/shop/checkout", { amount: 300 })
-      .then(data => setClientSecret(data.clientSecret));
+    postHTTP("/shop/checkout", { amount: 300 }).then((data) =>
+      setClientSecret(data.clientSecret)
+    );
   }, []);
 
   const options = {
-    clientSecret
+    clientSecret,
   };
 
   return (

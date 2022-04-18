@@ -20,8 +20,8 @@ export default function CartButton() {
         (count, key) => (count += cart.items[key].quantity),
         0
       )
-    )
-  }, [cart])
+    );
+  }, [cart]);
 
   return (
     <>
@@ -31,11 +31,9 @@ export default function CartButton() {
         className={styles.cartButton}
         onClick={toggleModal}
       >
-        <p>
-          {cartCount}
-        </p>
+        <p>{cartCount}</p>
         <ShoppingCartIcon fontSize="small" />
       </button>
     </>
   );
-}
+};

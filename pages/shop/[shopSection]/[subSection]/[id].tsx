@@ -50,7 +50,6 @@ const Item = (props: Props) => {
 
   return (
     <>
-      <Header />
       <main className={styles.main}>
         <PathNav />
         <h1>{details.name}</h1>

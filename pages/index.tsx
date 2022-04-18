@@ -52,7 +52,6 @@ const Home: NextPage = () => {
       </Head>
 
       <span className={styles.background} />
-      <Header />
 
       <main className={styles.main}>
         <div className={styles.introText}>

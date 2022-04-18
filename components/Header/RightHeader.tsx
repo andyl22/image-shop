@@ -12,28 +12,24 @@ export default function RightHeader() {
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const [username, setUsername] = useState(user.user.username);
-  const [loginContent, setLoginContent] = useState<ReactElement | null>(null);
 
-  useEffect(() => {
-    const test = () => {
-      dispatch(logout());
-      setUsername(null);
-      Router.push("/");
-    };
+  const test = () => {
+    dispatch(logout());
+    setUsername(null);
+    Router.push("/");
+  };
 
-    const loginContent = username ? (
-      <UserDropdown logout={test}>
-        <button className={styles.userMenu}>{username}</button>
-      </UserDropdown>
-    ) : (
-      <div className={styles.headerLinkContainer}>
-        <Link href="/user/login">
-          <a>Sign In</a>
-        </Link>
-      </div>
-    );
-    setLoginContent(loginContent);
-  }, [dispatch, username]);
+  const loginContent = username ? (
+    <UserDropdown logout={test}>
+      <button className={styles.userMenu}>{username}</button>
+    </UserDropdown>
+  ) : (
+    <div className={styles.headerLinkContainer}>
+      <Link href="/user/login">
+        <a>Sign In</a>
+      </Link>
+    </div>
+  );
 
   return (
     <div className={styles.rightHeader}>

@@ -1,17 +1,20 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import {
   PaymentElement,
   useStripe,
-  useElements
+  useElements,
 } from "@stripe/react-stripe-js";
+import RefreshIcon from "@mui/icons-material/Refresh";
 import styles from "./CheckoutForm.module.scss";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const router = useRouter();
 
-  const [message, setMessage] = useState<string | undefined>();
   const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState<string | undefined>();
 
   useEffect(() => {
     if (!stripe) {
@@ -30,7 +33,7 @@ export default function CheckoutForm() {
       if (paymentIntent) {
         switch (paymentIntent.status) {
           case "succeeded":
-            setMessage("Payment succeeded!");
+            router.push("/shop/checkout/success");
             break;
           case "processing":
             setMessage("Your payment is processing.");
@@ -44,16 +47,13 @@ export default function CheckoutForm() {
         }
       }
     });
-  }, [stripe]);
+  }, [router, stripe]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
-      return;
-    }
+    // disable button until stripe and elements have loaded
+    if (!stripe || !elements) return;
 
     setIsLoading(true);
 
@@ -61,7 +61,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/shop/checkout/success",
+        return_url: "http://localhost:3000/shop/checkout",
       },
     });
 
@@ -80,15 +80,21 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit} className={styles.paymentForm}>
+    <form
+      id="payment-form"
+      onSubmit={handleSubmit}
+      className={styles.paymentForm}
+    >
       <PaymentElement id="payment-element" />
       <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
+        <span id="button-text">{isLoading ? <RefreshIcon /> : "Pay now"}</span>
       </button>
       {/* Show any error or success messages */}
-      {message && <div id="payment-message" className={styles.paymentMessage}>{message}</div>}
+      {message && (
+        <div id="payment-message" className={styles.paymentMessage}>
+          {message}
+        </div>
+      )}
     </form>
   );
 }

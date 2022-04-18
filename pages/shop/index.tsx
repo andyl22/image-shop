@@ -24,8 +24,6 @@ const Shop: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-
       <main className={styles.main}>
         <PathNav />
         <h1>Shop By Category</h1>

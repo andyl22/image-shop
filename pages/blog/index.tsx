@@ -27,7 +27,6 @@ const Blog: NextPage = () => {
       </Head>
 
       <span className={styles.background}></span>
-      <Header />
       <main className={styles.main}>{mappedBlogData}</main>
     </>
   );

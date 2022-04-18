@@ -11,7 +11,6 @@ const Contact: NextPage = () => {
         <meta name="description" content="Contact Info For The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className={styles.main}>
         <p>Contact Info To Be Added!</p>
       </main>

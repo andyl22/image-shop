@@ -11,7 +11,6 @@ const Privacy: NextPage = () => {
         <meta name="description" content="Privacy Policy" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className={styles.main}>
         <p>We do not do anything with your data!</p>
       </main>

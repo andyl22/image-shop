@@ -12,7 +12,6 @@ const Privacy: NextPage = () => {
         <meta name="description" content="Privacy Policy" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className={styles.main}>
         <ul>
           <AccreditationItem

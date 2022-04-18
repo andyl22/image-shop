@@ -12,7 +12,6 @@ const Register: NextPage = () => {
         <meta name="description" content="Register for a new account" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className={styles.main}>
         <FormRegister />
       </main>

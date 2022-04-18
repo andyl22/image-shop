@@ -11,7 +11,6 @@ const Orders: NextPage = () => {
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <main className={styles.main}>
         <h1>Order History</h1>
       </main>

@@ -68,8 +68,6 @@ const SubSection = (props: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header />
-
       <main className={styles.main}>
         <PathNav />
         <h1>{formattedName}</h1>
