@@ -12,6 +12,7 @@
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.4.2",
     "@reduxjs/toolkit": "^1.8.0",
+    "@stripe/react-stripe-js": "^1.7.1",
     "@stripe/stripe-js": "^1.27.0",
     "bcryptjs": "^2.4.3",
     "cookies": "^0.8.0",
