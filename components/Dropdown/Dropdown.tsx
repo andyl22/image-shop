@@ -47,7 +47,7 @@ export default function Dropdown(props: Dropdown) {
       onKeyDown={handleKeyPress}
     >
       {children}
-      {showDropdown ? <>{dropdownContent}</> : <></>}
+      {showDropdown ? <div>{dropdownContent}</div> : <div></div>}
     </div>
   );
 }
