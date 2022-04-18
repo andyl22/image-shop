@@ -1,19 +1,30 @@
 .cartButton {
   border: none;
   background: none;
-  color: black;
   position: relative;
   cursor: pointer;
-  p {
+  span {
     position: absolute;
     left: 18px;
-    bottom: 22px;
+    bottom: 20px;
     background: orange;
-    padding: 0.2rem 0.25rem 0 0.3rem;
-    border-radius: 2rem;
+    padding: 0.2rem 0.2rem 0.1rem 0.2rem;
+    border-radius: 1rem;
     font-weight: 600;
+    font-size: 0.7rem;
   }
-  &:hover, &:focus {
-    background: none;
+  p {
+    display: none;
+  }
+  &:hover,
+  &:focus {
+    background: rgb(255, 255, 179);
+    border-radius: 2rem;
+    svg {
+      color: rgb(106, 47, 47);
+    }
+    span {
+      color: black;
+    }
   }
 }

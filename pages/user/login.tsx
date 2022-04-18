@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Header from "../../components/Header/Header";
 import LoginForm from "../../components/Login/LoginForm";
 import styles from "../../styles/Login.module.scss";
 

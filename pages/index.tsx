@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Header from "../components/Header/Header";
 import ItemSlider from "../components/ItemSlider/ItemSlider";
 import ItemCardLink from "../components/ItemCard/ItemCardLink";
 import Sheet from "../components/Sheet/Sheet";

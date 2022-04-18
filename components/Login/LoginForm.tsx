@@ -6,7 +6,6 @@ import Link from "next/link";
 import { postHTTP } from "../../utilities/fetchAPIs";
 import { useAppDispatch } from "../../redux/hooks";
 import { login } from "../../redux/slices/userSlice";
-import Cookies from "js-cookie";
 
 export default function LoginForm() {
   const formRef = useRef<HTMLInputElement>(null);
@@ -33,7 +32,7 @@ export default function LoginForm() {
       setErrorMessage(response.data);
     } else {
       dispatch(login());
-      router.push("/");
+      router.reload();
     }
   };
 

@@ -1,6 +1,8 @@
 .rightHeader {
   display: flex;
-  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   width: fit-content;
   position: relative;
   .cartButtonContainer {
@@ -17,7 +19,5 @@
   .headerLinkContainer {
     flex: 1;
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }

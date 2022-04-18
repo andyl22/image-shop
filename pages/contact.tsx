@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Header from "../components/Header/Header";
 import styles from "../styles/Privacy.module.scss";
 
 const Contact: NextPage = () => {

@@ -30,10 +30,12 @@ export default function CartButton() {
         aria-label="view cart modal"
         className={styles.cartButton}
         onClick={toggleModal}
+        aria-describedby="cart-count"
       >
-        <p>{cartCount}</p>
+        <span>{cartCount}</span>
         <ShoppingCartIcon fontSize="small" />
+        <p id="cart-count">{cartCount} items in cart</p>
       </button>
     </>
   );
-};
+}

@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import BlogData from "../../TestData/BlogData.json";
 import BlogModal from "../../components/BlogModal/BlogModal";
 import { getBlogIDs } from "../../TestData/BlogData";
-import Header from "../../components/Header/Header";
 import styles from "../../styles/BlogModal.module.scss";
 
 interface Props {

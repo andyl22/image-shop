@@ -1,6 +1,4 @@
 import Head from "next/head";
-import ItemCardLink from "../../../../components/ItemCard/ItemCardLink";
-import Header from "../../../../components/Header/Header";
 import styles from "../../../../styles/SubSection.module.scss";
 import {
   getAllSections,

@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Header from "../../../components/Header/Header";
 import StripePayment from "../../../components/Stripe/StripePayment";
 import styles from "../../../styles/Checkout.module.scss";
 

@@ -54,7 +54,7 @@ export default function LeftHeader() {
   const fullLeftNav = (
     <>
       <Link href="/">
-        <a>
+        <a aria-label="navigate to home page logo">
           <h1>Parks</h1>
         </a>
       </Link>
