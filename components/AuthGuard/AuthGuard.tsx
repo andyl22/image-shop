@@ -10,9 +10,9 @@ export default function AuthGuard(props: Props) {
   const router = useRouter();
   const user = useAppSelector(selectUser);
   const { children } = props;
+  const href = window.location.pathname;
 
   if (user.user.username) {
-    const href = window.location.pathname;
     const invalidURLs = ["/user/register", "/user/login"];
 
     if (invalidURLs.includes(href)) {
