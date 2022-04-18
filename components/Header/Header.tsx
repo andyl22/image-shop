@@ -2,17 +2,14 @@ import styles from "./Header.module.scss";
 import LeftHeader from "./LeftHeader";
 import RightHeader from "./RightHeader";
 import React, { useEffect, useState, useRef } from "react";
-import { useRouter } from "next/router";
 
-export default React.memo(function Header() {
-  const router = useRouter();
+export default function Header() {
   const [showHeader, setShowHeader] = useState(true);
-  const [currentBasePath] = useState(router.asPath.split("/")[1]);
 
+  // hide on scroll down, show on scroll up
   let lastScroll = useRef(0);
-
   const handleScroll = (e: Event) => {
-    // need the negative check for Safari over scroll
+    // negative check for Safari overscroll
     if (window.scrollY > lastScroll.current && window.scrollY > 0) {
       setShowHeader(false);
     } else {
@@ -20,13 +17,6 @@ export default React.memo(function Header() {
     }
     lastScroll.current = window.scrollY;
   };
-
-  useEffect(() => {
-    if (currentBasePath) {
-      const baseLink = document.querySelector(`a[href='/${currentBasePath}']`);
-      baseLink?.setAttribute("style", "font-weight: bolder; color: green;");
-    }
-  }, [currentBasePath]);
 
   useEffect(() => {
     document.addEventListener("scroll", handleScroll);
@@ -42,4 +32,4 @@ export default React.memo(function Header() {
       <RightHeader />
     </header>
   );
-})
+}

@@ -1,4 +1,4 @@
-@use '../../styles/variables' as s;
+@use "../../styles/variables" as s;
 $contentMargin: 1rem;
 
 .headerLinkContainer {
@@ -11,10 +11,10 @@ $contentMargin: 1rem;
   }
   h1 {
     align-self: flex-start;
-    font-family: 'Caveat', cursive;
+    font-family: "Caveat", cursive;
     font-size: 2rem;
     position: relative;
-    bottom: .15rem;
+    bottom: 0.15rem;
   }
   .dropdownLink {
     border: none;
@@ -38,8 +38,14 @@ $contentMargin: 1rem;
   }
   .hamburger {
     cursor: pointer;
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       transform: scale(1.1);
     }
+  }
+  .activeBasePath {
+    color: #01a232;
+    font-weight: 600;
+    font-size: 1.1rem;
   }
 }

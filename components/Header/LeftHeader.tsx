@@ -1,24 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "./LeftHeader.module.scss";
 import ShopDropdown from "./ShopDropdown";
 import MenuIcon from "@mui/icons-material/Menu";
 import LeftNavMenu from "./LeftNavMenu";
 import BlogDropdown from "./BlogDropdown";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function LeftHeader() {
+  const linksRef = useRef<HTMLDivElement>(null);
   const [innerWidth, setInnerWidth] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
+  const [currentBasePath, setCurrentBasePath] = useState("");
 
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
+
+  // handle window resizing
   const handleResize = () => {
     setInnerWidth(window.innerWidth);
   };
 
+  // handle window size setting on initial load
   useEffect(() => {
     setInnerWidth(window.innerWidth);
-  }, []);
-
-  useEffect(() => {
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -26,9 +33,23 @@ export default function LeftHeader() {
     };
   }, []);
 
-  const toggleModal = () => {
-    setShowModal(!showModal);
-  };
+  // modify path when navigating to trigger rehighlighting
+  useEffect(() => {
+    const basePath = router.asPath.split("/")[1];
+    setCurrentBasePath(basePath);
+  }, [router]);
+
+  //
+  useEffect(() => {
+    const curLink = linksRef.current?.querySelector(
+      `a[href='/${currentBasePath}']`
+    );
+    if (curLink) curLink.className = styles.activeBasePath;
+
+    return () => {
+      if (curLink) curLink.removeAttribute("class");
+    };
+  }, [currentBasePath]);
 
   const fullLeftNav = (
     <>
@@ -56,8 +77,8 @@ export default function LeftHeader() {
   const partialLeftNav = (
     <>
       {showModal ? <LeftNavMenu toggleModal={toggleModal} /> : null}
-      <button onClick={toggleModal} className={styles.hamburger} >
-        <MenuIcon/>
+      <button onClick={toggleModal} className={styles.hamburger}>
+        <MenuIcon />
       </button>
       <Link href="/">
         <a className={styles.visualHighlight}>
@@ -68,7 +89,7 @@ export default function LeftHeader() {
   );
 
   return (
-    <nav className={styles.headerLinkContainer}>
+    <nav className={styles.headerLinkContainer} ref={linksRef}>
       {innerWidth && innerWidth < 600 ? partialLeftNav : fullLeftNav}
     </nav>
   );

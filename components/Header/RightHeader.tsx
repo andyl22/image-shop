@@ -5,7 +5,7 @@ import styles from "./RightHeader.module.scss";
 import { logout } from "../../redux/slices/userSlice";
 import { selectUser } from "../../redux/slices/userSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import UserDropdown from "../UserDropdown/UserDropdown";
+import UserDropdown from "./UserDropdown";
 import Router from "next/router";
 
 export default function RightHeader() {
@@ -13,22 +13,20 @@ export default function RightHeader() {
   const dispatch = useAppDispatch();
   const [username, setUsername] = useState(user.user.username);
 
-  const test = () => {
+  const userLogout = () => {
     dispatch(logout());
     setUsername(null);
     Router.push("/");
   };
 
   const loginContent = username ? (
-    <UserDropdown logout={test}>
+    <UserDropdown logout={userLogout}>
       <button className={styles.userMenu}>{username}</button>
     </UserDropdown>
   ) : (
-    <div className={styles.headerLinkContainer}>
-      <Link href="/user/login">
-        <a>Sign In</a>
-      </Link>
-    </div>
+    <Link href="/user/login">
+      <a>Sign In</a>
+    </Link>
   );
 
   return (

@@ -56,11 +56,7 @@ export default function UserDropdown(props: Props) {
   );
 
   return (
-    <Dropdown
-      useRelative={true}
-      useClick={true}
-      dropdownContent={dropdownContent}
-    >
+    <Dropdown clickControlled={true} dropdownContent={dropdownContent}>
       {children}
     </Dropdown>
   );

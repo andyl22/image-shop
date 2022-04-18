@@ -27,11 +27,8 @@
     background: none;
     color: black;
     position: relative;
-    &:hover,
-    &:focus,
-    &:active {
-      color: green;
-      font-weight: 900;
+    &:hover {
+      color: #01a232;
     }
   }
 }
