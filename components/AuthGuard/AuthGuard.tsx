@@ -13,14 +13,17 @@ export default function AuthGuard(props: Props) {
 
   if (user.user.username) {
     const href = window.location.pathname;
+    const invalidURLs = ["/user/register", "/user/login"];
+
+    if (invalidURLs.includes(href)) {
+      router.push("/");
+    }
+  } else {
     const protectedURLs = [
-      "/user/register",
-      "/user/login",
       "/user/preferences",
       "/user/orders",
       "/user/account",
     ];
-
     if (protectedURLs.includes(href)) {
       router.push("/");
     }
