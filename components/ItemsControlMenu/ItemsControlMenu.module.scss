@@ -53,6 +53,13 @@
         }
       }
     }
+    .menuOption {
+      text-align: start;
+      background: none;
+      width: 250px;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
   }
   .contentContainer {
     display: flex;
@@ -68,9 +75,4 @@
       padding: 2rem;
     }
   }
-}
-
-.menuOption {
-  background: none;
-  width: 250px;
 }
