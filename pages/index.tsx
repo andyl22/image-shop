@@ -8,6 +8,7 @@ import Footer from "../components/Footer/Footer";
 import styles from "../styles/Home.module.scss";
 import { getBlogData } from "../TestData/BlogData";
 import { Item, getAllItems } from "../TestData/SectionItems";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
   const blogData = getBlogData();
@@ -42,6 +43,39 @@ const Home: NextPage = () => {
     );
   });
 
+  useEffect(() => {
+    let options = {
+      root: document.querySelector(styles.main),
+      rootMargin: "0px",
+      threshold: 0.1,
+    };
+
+    let callback = (entries, observer) => {
+      entries.forEach((entry) => {
+        // Each entry describes an intersection change for one observed
+        // target element:
+        //   entry.boundingClientRect
+        //   entry.intersectionRatio
+        //   entry.intersectionRect
+        //   entry.isIntersecting
+        //   entry.rootBounds
+        //   entry.target
+        //   entry.time
+        if (entry.isIntersecting) {
+          entry.target.classList.add(styles.animate);
+          entry.target.classList.remove("toBeObserved");
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(callback, options);
+    const observedElements = document.getElementsByClassName("toBeObserved");
+    Array.from(observedElements).forEach((el) => {
+      observer.observe(el);
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -54,23 +88,29 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div className={styles.introText}>
-          <p className={styles.scrollableText}>
+          <p className={`${styles.scrollableText} toBeObserved`}>
             “I went to the woods because I wished to live deliberately, to front
             only the essential facts of life, and see if I could not learn what
             it had to teach, and not, when I came to die, discover that I had
             not lived.” - David Thoreau
           </p>
-          <p className={styles.scrollableText}>
+          <p className={`${styles.scrollableText} toBeObserved`}>
             Leave it better than you found it.
           </p>
         </div>
         <div className={styles.mainContent}>
-          <h2>New Arrivals</h2>
-          <ItemSlider>{mappedItemData}</ItemSlider>
-          <Sheet background='url("/images/wide.jpg")'>
-            <h2 className={styles.sheetText}>Welcome</h2>
-          </Sheet>
-          <div className={styles.gridSheets}>{mappedBlogSheets}</div>
+          <div className={`${styles.itemSliderContainer} toBeObserved`}>
+            <h2>New Arrivals</h2>
+            <ItemSlider>{mappedItemData}</ItemSlider>
+          </div>
+          <div className={`${styles.sheetsContainer} toBeObserved`}>
+            <Sheet background='url("/images/wide.jpg")'>
+              <h2 className={styles.sheetText}>Welcome</h2>
+            </Sheet>
+          </div>
+          <div className={`${styles.gridSheetsContainer} toBeObserved`}>
+            {mappedBlogSheets}
+          </div>
         </div>
       </main>
       <Footer />

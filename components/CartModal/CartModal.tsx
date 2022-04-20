@@ -3,15 +3,15 @@ import Drawer from "../Drawer/Drawer";
 import Link from "next/link";
 import { useAppSelector } from "../../redux/hooks";
 import { selectCart } from "../../redux/slices/cartSlice";
-import styles from "./ModalCart.module.scss";
-import ModalCartItem from "./ModalCartItem";
+import styles from "./CartModal.module.scss";
+import CartItem from "../CartItem/CartItem";
 
 interface Props {
   toggleModal: MouseEventHandler;
   isOpen: boolean;
 }
 
-export default function ModalCart(props: Props) {
+export default function CartModal(props: Props) {
   const cart = useAppSelector(selectCart);
   const { toggleModal, isOpen } = props;
 
@@ -20,7 +20,7 @@ export default function ModalCart(props: Props) {
     const cartItemDetails = cart.items[key];
     return (
       <li key={key}>
-        <ModalCartItem id={key} cartItemDetails={cartItemDetails} />
+        <CartItem id={key} cartItemDetails={cartItemDetails} />
       </li>
     );
   });

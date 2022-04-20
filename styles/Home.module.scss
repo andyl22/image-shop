@@ -1,7 +1,18 @@
 @use "variables.scss" as s;
 
-.main {
-  text-align: center;
+@keyframes slideIn {
+  0% {
+    opacity: 0%;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: slideIn 0.5s ease-in;
 }
 
 .background {
@@ -24,6 +35,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 40rem 0;
+    gap: 40rem;
     .scrollableText {
       color: white;
       display: flex;
@@ -31,8 +44,7 @@
       justify-content: center;
       padding: 2rem;
       max-width: 800px;
-      min-height: 90vh;
-      font-family: 'Handlee', cursive;
+      font-family: "Handlee", cursive;
       font-size: 2rem;
       font-weight: bold;
       line-height: 3rem;
@@ -42,13 +54,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: white;
-    padding: 4rem 0;
-    gap: 4rem;
+    background: #ffffff;
+    padding: 3rem 0;
+    gap: 3rem;
     .sheetText {
       color: white;
       font-size: 2rem;
       font-weight: bolder;
+      text-align: center;
+      width: 100%;
     }
     .itemCards {
       display: flex;
@@ -59,7 +73,17 @@
         padding: 0 0 1rem 0;
       }
     }
-    .gridSheets {
+    .itemSliderContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      width: 100%;
+    }
+    .sheetsContainer {
+      width: 100%;
+    }
+    .gridSheetsContainer {
       display: grid;
       overflow-x: auto;
       width: 100%;

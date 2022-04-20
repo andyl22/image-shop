@@ -5,13 +5,13 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    background: none;
+    color: black;
     .reverseIcon {
       transform: rotate(180deg);
     }
   }
   .collapsedNodes {
     display: none;
-  }
-  .visibleNodes {
   }
 }

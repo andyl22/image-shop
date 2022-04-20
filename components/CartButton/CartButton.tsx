@@ -3,7 +3,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import styles from "./CartButton.module.scss";
 import { useAppSelector } from "../../redux/hooks";
 import { selectCart } from "../../redux/slices/cartSlice";
-import ModalCart from "../ModalCart/ModalCart";
+import CartModal from "../CartModal/CartModal";
 
 export default function CartButton() {
   const cart = useAppSelector(selectCart);
@@ -25,7 +25,7 @@ export default function CartButton() {
 
   return (
     <>
-      <ModalCart toggleModal={toggleModal} isOpen={showCartModal} />
+      <CartModal toggleModal={toggleModal} isOpen={showCartModal} />
       <button
         aria-label="view cart modal"
         className={styles.cartButton}

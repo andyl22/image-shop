@@ -1,4 +1,4 @@
-import styles from "./ModalCartItem.module.scss";
+import styles from "./CartItem.module.scss";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import CloseIcon from "@mui/icons-material/Close";
@@ -17,7 +17,7 @@ interface Props {
   };
 }
 
-export default function ModalCartItem(props: Props) {
+export default function CartItem(props: Props) {
   const { name, price } = props.cartItemDetails;
   const [quantity, setQuantity] = useState(props.cartItemDetails.quantity);
 
@@ -57,9 +57,6 @@ export default function ModalCartItem(props: Props) {
     <div className={styles.cartItem}>
       <div className={styles.itemHeader}>
         <h2>{name}</h2>
-        <button aria-label="Remove All" onClick={deleteItem} className={styles.closeButton}>
-          <CloseIcon fontSize="small" />
-        </button>
       </div>
       <Image
         src={fullItemData.image}
@@ -83,6 +80,13 @@ export default function ModalCartItem(props: Props) {
         </button>
       </div>
       <p>Subtotal: ${quantity * price}</p>
+      <button
+        aria-label="Remove All Items From Cart"
+        onClick={deleteItem}
+        className={styles.closeButton}
+      >
+        Remove
+      </button>
     </div>
   );
 }

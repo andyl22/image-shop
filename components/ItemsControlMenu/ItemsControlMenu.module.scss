@@ -54,14 +54,19 @@
       }
     }
   }
-  .itemsContent {
+  .contentContainer {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-    padding: 2rem;
+    text-align: center;
+    .itemsContent {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
   }
 }
 

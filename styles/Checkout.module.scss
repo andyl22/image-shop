@@ -1,7 +1,54 @@
+@use "variables.scss" as s;
+
 .main {
-  padding: 2rem;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  .checkoutContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: auto;
+    padding: 2rem 0;
+    gap: 2rem;
+    max-width: 600px;
+    width: 50%;
+    .sectionWrapper {
+      width: 100%;
+      .sectionTitle {
+        text-align: start;
+        width: 100%;
+        border-bottom: 1px solid black;
+        padding-bottom: 0.5rem;
+        margin: 0 1rem;
+        font-weight: 600;
+        font-size: 1.1rem;
+        &:hover {
+          color: #bdb1b3;
+        }
+      }
+      .checkoutForm {
+        padding-top: 2rem;
+      }
+    }
+    ul {
+      width: 100%;
+      li {
+        margin: 0 auto;
+        min-width: 300px;
+        width: fit-content;
+        list-style: none;
+        border-top: 1px solid black;
+        &:first-of-type {
+          border-top: none;
+        }
+      }
+    }
+  }
+  @include s.mobile-view {
+    .checkoutContent {
+      width: 100%;
+    }
+  }
 }

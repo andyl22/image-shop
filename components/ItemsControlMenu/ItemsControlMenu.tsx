@@ -17,15 +17,15 @@ interface Item {
 
 interface Props {
   itemData: Item[];
+  title: string;
 }
 
 export default function SortMenu(props: Props) {
-  const { itemData } = props;
+  const { itemData, title } = props;
   const [singleSelected, setSingleSelected] = useState("popularity");
   const [mappedItems, setMappedItems] = useState<any>();
 
   const handleCheck = (e: ChangeEvent<HTMLInputElement> | MouseEvent) => {
-    console.log('test')
     const target = e.target as HTMLElement;
     const checkedId = target.id;
     if (checkedId === singleSelected) return;
@@ -102,7 +102,10 @@ export default function SortMenu(props: Props) {
           <form className={styles.singleSelect}>{mappedSortOptions}</form>
         </CollapsibleItem>
       </div>
-      <div className={styles.itemsContent}>{mappedItems}</div>
+      <div className={styles.contentContainer}>
+        <h1>{title}</h1>
+        <div className={styles.itemsContent}>{mappedItems}</div>
+      </div>
     </div>
   );
 }

@@ -1,21 +1,21 @@
 .cartItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 1rem 2rem;
   .itemHeader {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0.5rem;
     h2 {
       font-size: 1.1rem;
       font-weight: 500;
       white-space: normal;
+      max-width: 200px;
     }
-    position: relative;
-    .closeButton {
-      position: absolute;
-      right: -1.5rem;
-      padding: 0;
-    }
-    margin-bottom: 0.5rem;
   }
   .manageQuantities {
     display: flex;
@@ -36,6 +36,15 @@
     input[type="text"] {
       width: 2rem;
       text-align: center;
+    }
+  }
+  .closeButton {
+    color: black;
+    font-size: 0.8rem;
+    background: none;
+    padding: 0;
+    &:hover {
+      color: gray;
     }
   }
 }

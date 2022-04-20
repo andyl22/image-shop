@@ -54,10 +54,12 @@ interface Props {
 
 const SubSection = (props: Props) => {
   const { sectionData } = props;
+
   const formattedName = sectionData.subSectionName
     .split(/(?=[A-Z])/g)
     .join(" ")
     .toUpperCase();
+
   return (
     <>
       <Head>
@@ -68,8 +70,7 @@ const SubSection = (props: Props) => {
 
       <main className={styles.main}>
         <PathNav />
-        <h1>{formattedName}</h1>
-        <ItemsControlMenu itemData={sectionData.subSectionContent}/>
+        <ItemsControlMenu itemData={sectionData.subSectionContent} title={formattedName}/>
       </main>
       <Footer />
     </>
