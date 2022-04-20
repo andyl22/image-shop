@@ -44,10 +44,10 @@ export default function LeftHeader() {
     const curLink = linksRef.current?.querySelector(
       `a[href='/${currentBasePath}']`
     );
-    if (curLink) curLink.className = styles.activeBasePath;
+    if (curLink) curLink.classList.add(styles.activeBasePath);
 
     return () => {
-      if (curLink) curLink.removeAttribute("class");
+      if (curLink) curLink.classList.remove(styles.activeBasePath);
     };
   }, [currentBasePath]);
 
