@@ -19,7 +19,7 @@ interface Props {
 export default function CartItem(props: Props) {
   const { name, price } = props.cartItemDetails;
   const [quantity, setQuantity] = useState(props.cartItemDetails.quantity);
-  const [showInput, setShowInput] = useState(quantity > 10);
+  const [showInput, setShowInput] = useState(quantity > 9);
 
   const dispatch = useAppDispatch();
 
