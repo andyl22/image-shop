@@ -19,7 +19,7 @@ export default function Header() {
       lastScroll.current = window.scrollY;
     };
 
-    setTimeout(() => document.addEventListener("scroll", handleScroll), 1000)
+    setTimeout(() => document.addEventListener("scroll", handleScroll), 1000);
 
     return () => {
       document.removeEventListener("scroll", handleScroll);

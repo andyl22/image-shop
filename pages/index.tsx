@@ -43,6 +43,8 @@ const Home: NextPage = () => {
     );
   });
 
+  // effect to add intersection observers to all elements which we want to observe
+  // used to animate the page while scrolling for visual feedback
   useEffect(() => {
     let options = {
       root: document.querySelector(styles.main),
@@ -50,8 +52,8 @@ const Home: NextPage = () => {
       threshold: 0.1,
     };
 
-    let callback = (entries, observer) => {
-      entries.forEach((entry) => {
+    let callback = (entries: any, observer: any) => {
+      entries.forEach((entry: any) => {
         // Each entry describes an intersection change for one observed
         // target element:
         //   entry.boundingClientRect
