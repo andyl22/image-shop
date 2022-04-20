@@ -55,15 +55,15 @@ export default function CartItem(props: Props) {
 
   // handling picklist change events
   const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const quantity = e.target.value;
-    if (quantity === "0 (Delete Item)") {
+    const selectedQuantity = e.target.value;
+    if (selectedQuantity === "0 (Delete Item)") {
       deleteItem();
       return;
-    } else if (quantity === "10+") {
+    } else if (selectedQuantity === "10+") {
       setShowInput(true);
       return;
     }
-    setQuantity(parseInt(quantity));
+    setQuantity(parseInt(selectedQuantity));
     dispatch(
       set({ id: props.id, name: name, quantity: quantity, price: price })
     );
