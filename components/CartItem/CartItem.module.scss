@@ -33,8 +33,11 @@
         background: rgb(24, 35, 249);
       }
     }
+    select,
     input[type="text"] {
       width: 2rem;
+    }
+    input[type="text"] {
       text-align: center;
     }
   }
