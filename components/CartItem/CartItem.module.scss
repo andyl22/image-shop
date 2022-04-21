@@ -28,9 +28,9 @@
       display: flex;
       padding: 0;
       color: white;
-      background: rgb(46, 57, 255);
+      background: #424bff;
       &:hover {
-        background: rgb(24, 35, 249);
+        background: #1823f9;
       }
     }
     select,
@@ -39,6 +39,23 @@
     }
     input[type="text"] {
       text-align: center;
+    }
+    .quantityForm {
+      position: relative;
+      input[type="submit"] {
+        position: absolute;
+        left: 2.5rem;
+        top: -0.2rem;
+        font-size: 1.1rem;
+        background: none;
+        border: none;
+        color: green;
+        font-weight: 800;
+        &:hover {
+          cursor: pointer;
+          color: yellowgreen;
+        }
+      }
     }
   }
   .closeButton {

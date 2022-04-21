@@ -4,7 +4,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { useAppDispatch } from "../../redux/hooks";
 import { add, decrease, remove, set } from "../../redux/slices/cartSlice";
 import { getAllItems } from "../../TestData/SectionItems";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, SetStateAction, useState } from "react";
 import Image from "next/image";
 
 interface Props {
@@ -33,10 +33,15 @@ export default function CartItem(props: Props) {
     );
   });
 
+  const updateQuantity = (quantity: SetStateAction<number>) => {
+    quantity > 9 ? setShowInput(true) : setShowInput(false);
+    setQuantity(quantity);
+  };
+
   // increment or decrement functions fired by button presses
   const increment = () => {
     dispatch(add({ id: props.id, name: name, quantity: 1, price: price }));
-    setQuantity(quantity + 1);
+    updateQuantity(quantity + 1);
   };
 
   const decrement = () => {
@@ -45,7 +50,7 @@ export default function CartItem(props: Props) {
       : dispatch(
           decrease({ id: props.id, name: name, quantity: 1, price: price })
         );
-    setQuantity(quantity - 1);
+    updateQuantity(quantity - 1);
   };
 
   // delete an item from cart. used by the below handlers
@@ -80,16 +85,12 @@ export default function CartItem(props: Props) {
     if (!quantity) {
       deleteItem();
     } else {
-      setQuantity(quantity);
+      if (quantity > 9)
+        ((e.target as HTMLElement).firstChild as HTMLElement).blur();
+      updateQuantity(quantity);
       dispatch(
         set({ id: props.id, name: name, quantity: quantity, price: price })
       );
-      // either switch to picklist or blur the input to indicate an update to quantity is done
-      if (quantity < 10) {
-        setShowInput(false);
-      } else {
-        ((e.target as HTMLElement).firstChild as HTMLElement).blur();
-      }
     }
   };
 
@@ -110,25 +111,30 @@ export default function CartItem(props: Props) {
         quality={30}
       />
       <div className={styles.manageQuantities}>
-        <button aria-label="Add to Cart" onClick={increment}>
-          <AddIcon fontSize="small" />
-        </button>
         {showInput ? (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className={styles.quantityForm}>
             <input type="text" value={quantity} onChange={handleInputChange} />
+            {props.cartItemDetails.quantity !== quantity ? (
+              <input type="submit" value="✓" />
+            ) : null}
           </form>
         ) : (
-          <select
-            value={quantity}
-            className={styles.pickList}
-            onChange={handleSelectChange}
-          >
-            {mappedPicklistValues}
-          </select>
+          <>
+            <button aria-label="Add to Cart" onClick={increment}>
+              <AddIcon fontSize="small" />
+            </button>
+            <select
+              value={quantity}
+              className={styles.pickList}
+              onChange={handleSelectChange}
+            >
+              {mappedPicklistValues}
+            </select>
+            <button aria-label="Remove From Cart" onClick={decrement}>
+              <RemoveIcon fontSize="small" />
+            </button>
+          </>
         )}
-        <button aria-label="Remove From Cart" onClick={decrement}>
-          <RemoveIcon fontSize="small" />
-        </button>
       </div>
       <p>Subtotal: ${quantity * price}</p>
       <button
