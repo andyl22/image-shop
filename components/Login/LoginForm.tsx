@@ -1,7 +1,6 @@
 import styles from "./LoginForm.module.scss";
 import FormContainer from "../Form/FormContainer";
 import React, { FormEvent, useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { postHTTP } from "../../utilities/fetchAPIs";
 import { useAppDispatch } from "../../redux/hooks";
@@ -12,7 +11,6 @@ export default function LoginForm() {
   const [formState, setFormState] = useState({ username: "", password: "" });
   const [errorMessage, setErrorMessage] = useState<String | null>(null);
   const dispatch = useAppDispatch();
-  const router = useRouter();
 
   useEffect(() => {
     if (formRef.current) formRef.current.focus();
@@ -32,7 +30,6 @@ export default function LoginForm() {
       setErrorMessage(response.data);
     } else {
       dispatch(login());
-      router.reload();
     }
   };
 

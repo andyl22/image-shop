@@ -24,18 +24,16 @@ export const userSlice = createSlice({
     logout: (state) => {
       Cookie.remove("user");
       postHTTP("/user/logout");
-      state.user.username = null;
-      state.user.id = null;
+      return { ...state, user: { username: null, id: null } };
     },
     login: (state) => {
       const user = checkForUser();
-      state.user.username = user.username;
-      state.user.id = user.id;
+      return { ...state, user: { username: user.username, id: user.id } };
     },
   },
 });
 
 export const { login, logout } = userSlice.actions;
-export const selectUser = (state: RootState) => state.user;
+export const selectUser = (state: RootState) => state.user.user;
 
 export default userSlice.reducer;

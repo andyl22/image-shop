@@ -14,7 +14,7 @@ export default function AuthGuard(props: Props) {
 
   useEffect(() => {
     const href = window.location.pathname;
-    if (user.user.username) {
+    if (user.username) {
       const invalidURLs = ["/user/register", "/user/login"];
 
       if (invalidURLs.includes(href)) {

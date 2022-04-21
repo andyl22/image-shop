@@ -11,7 +11,7 @@ import Router from "next/router";
 export default function RightHeader() {
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
-  const [username, setUsername] = useState(user.user.username);
+  const [username, setUsername] = useState(user.username);
   const [loginContent, setLoginContent] = useState<ReactElement>();
 
   useEffect(() => {
@@ -33,6 +33,10 @@ export default function RightHeader() {
       )
     );
   }, [dispatch, username]);
+
+  useEffect(() => {
+    setUsername(user.username);
+  }, [user]);
 
   return (
     <div className={styles.rightHeader}>
