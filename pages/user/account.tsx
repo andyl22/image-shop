@@ -43,7 +43,7 @@ const Account: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Welcome, {user.user.username}</h1>
+        <h1>Welcome, {user.username}</h1>
         <button onClick={toggleChangePasswordForm}>Change Password</button>
         {showChangePasswordForm ? <FormChangePassword postSubmitAction={toggleChangePasswordForm}/> : null}
         <button onClick={toggleDeactiveConfirmation}>
