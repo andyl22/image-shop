@@ -16,8 +16,8 @@ export default function Item(props: Props) {
   const router = useRouter();
 
   const toggleModal = () => {
-    router.push('/blog');
-  }
+    router.back();
+  };
 
   return (
     <div className={styles.blogModalPage}>
@@ -56,4 +56,3 @@ export function getStaticPaths() {
     fallback: false,
   };
 }
-

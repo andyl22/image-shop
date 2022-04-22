@@ -30,6 +30,7 @@ const Home: NextPage = () => {
   });
 
   const mappedItemData = itemData.slice(0, 8).map((item: Item) => {
+    console.log(item);
     return (
       <ItemCardLink
         imageURL={item.image}
@@ -49,7 +50,7 @@ const Home: NextPage = () => {
     let options = {
       root: document.querySelector(styles.main),
       rootMargin: "0px",
-      threshold: 0.1,
+      threshold: [],
     };
 
     let callback = (entries: any, observer: any) => {
@@ -90,7 +91,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <div className={styles.introText}>
-          <p className={`${styles.scrollableText} toBeObserved`}>
+          <p className={`${styles.scrollableText} ${styles.animate}`}>
             “I went to the woods because I wished to live deliberately, to front
             only the essential facts of life, and see if I could not learn what
             it had to teach, and not, when I came to die, discover that I had

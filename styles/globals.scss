@@ -1,13 +1,13 @@
 @use "variables.scss" as s;
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Comfortaa:wght@500&family=Handlee&family=Roboto+Serif&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Comfortaa:wght@500&family=Handlee&family=Roboto+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap");
 
 html,
 body {
   display: flex;
   width: 100%;
   min-height: 100%;
-  font-family: 'Montserrat', 'Comfortaa', cursive;
+  font-family: "Montserrat", "Comfortaa", cursive;
 }
 
 html {
@@ -38,8 +38,8 @@ a {
     background: none;
     border: none;
     background: #3075ff;
-    border-radius: .3rem;
-    padding: .5rem .5rem .4rem .5rem;
+    border-radius: 0.3rem;
+    padding: 0.5rem 0.5rem 0.4rem 0.5rem;
     color: white;
     &:hover {
       cursor: pointer;

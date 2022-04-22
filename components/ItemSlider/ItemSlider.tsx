@@ -42,7 +42,7 @@ export default function ItemSlider(props: Props) {
   })();
 
   const handleResize = (e: UIEvent) => {
-    setItemsToRender(Math.max(1, Math.floor(window.innerWidth / 350)));
+    setItemsToRender(Math.max(1, Math.floor(window.innerWidth / 380)));
   };
 
   useEffect(() => {
@@ -54,20 +54,25 @@ export default function ItemSlider(props: Props) {
   });
 
   useEffect(() => {
-    setItemsToRender(Math.max(1, Math.floor(window.innerWidth / 350)));
+    setItemsToRender(Math.max(1, Math.floor(window.innerWidth / 400)));
   }, []);
 
   const childrenWithArrowNav = (
     <div className={styles.sliderContainer}>
-      <button aria-label="previous image" onClick={decrementPointer} className={styles.arrowIcons}>
-        <ArrowBackIosNewIcon fontSize="large"/>
+      <button
+        aria-label="previous image"
+        onClick={decrementPointer}
+        className={styles.arrowIcons}
+      >
+        <ArrowBackIosNewIcon fontSize="large" />
       </button>
       {childrenToRender}
-      <button aria-label="next image" onClick={incrementPointer} className={styles.arrowIcons}>
-        <ArrowBackIosNewIcon
-          fontSize="large"
-          className={styles.flipIcon}
-        />
+      <button
+        aria-label="next image"
+        onClick={incrementPointer}
+        className={styles.arrowIcons}
+      >
+        <ArrowBackIosNewIcon fontSize="large" className={styles.flipIcon} />
       </button>
     </div>
   );

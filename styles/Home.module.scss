@@ -1,18 +1,17 @@
 @use "variables.scss" as s;
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Comfortaa:wght@500&family=Handlee&family=Roboto+Serif&display=swap");
 
-@keyframes slideIn {
+@keyframes fadeIn {
   0% {
     opacity: 0%;
-    transform: translateY(1rem);
   }
   100% {
     opacity: 100%;
-    transform: translateY(0);
   }
 }
 
 .animate {
-  animation: slideIn 0.5s ease-in;
+  animation: fadeIn 1s ease-out;
 }
 
 .background {
@@ -35,8 +34,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40rem 0;
-    gap: 40rem;
+    padding: 2rem 0 10rem 0;
+    gap: 15rem;
+    @media (min-height: 1000px) {
+      padding: 30rem 0 20rem 0;
+      gap: 40rem;
+    }
     .scrollableText {
       color: white;
       display: flex;
@@ -44,7 +47,7 @@
       justify-content: center;
       padding: 2rem;
       max-width: 800px;
-      font-family: "Handlee", cursive;
+      font-family: revert, sans-serif;
       font-size: 2rem;
       font-weight: bold;
       line-height: 3rem;
@@ -79,7 +82,6 @@
       flex-direction: column;
       align-items: center;
       gap: 2rem;
-      width: 100%;
     }
     .sheetsContainer {
       width: 100%;
