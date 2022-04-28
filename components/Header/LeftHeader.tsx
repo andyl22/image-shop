@@ -9,9 +9,9 @@ import { useRouter } from "next/router";
 
 export default function LeftHeader() {
   const linksRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   const [innerWidth, setInnerWidth] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
-  const router = useRouter();
   const [currentBasePath, setCurrentBasePath] = useState("");
 
   const toggleModal = () => {

@@ -1,31 +1,66 @@
 import styles from "./LeftNavMenu.module.scss";
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
 import Modal from "../Modal/Modal";
-import { MouseEventHandler } from "react";
 import CollapsibleItem from "../CollapsibleItem/CollapsibleItem";
+import Link from "next/link";
+import { MouseEvent } from "react";
+import data from "../../TestData/Sections.json";
+import LinksList from "../LinksList/Linkslist";
 
 interface Props {
-  toggleModal: MouseEventHandler;
+  toggleModal: any;
 }
 
 export default function LeftNavMenu(props: Props) {
   const { toggleModal } = props;
+
+  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
+    const el = e.target as HTMLElement;
+    const tagName = el.tagName;
+    if (tagName === "H1" || tagName === "A") toggleModal();
+  };
+
+  const mappedLinks = Object.keys(data).map((linkGroupName) => {
+    const formattedLink = linkGroupName
+      .split(/(?=[A-Z])/g)
+      .join(" ")
+      .toUpperCase();
+    return (
+      <LinksList
+        linkGroupName={formattedLink}
+        key={linkGroupName}
+        linkGroupLinks={data[linkGroupName as keyof typeof data]}
+      />
+    );
+  });
+
   return (
     <Modal toggleModal={toggleModal}>
-      <div className={styles.leftNavMenu}>
-        <button aria-label="Close Menu" className={styles.backIcon} onClick={toggleModal}>
-          <KeyboardDoubleArrowLeftIcon fontSize="medium"/>
-        </button>
-        <h1>Parks</h1>
-        <CollapsibleItem parentNode={<p>Test</p>}>
-          <p>Test1</p>
-          <p>Test</p>
-        </CollapsibleItem>
-        <CollapsibleItem parentNode={<p>Test</p>}>
-          <p>Test</p>
-          <p>Test</p>
-        </CollapsibleItem>
+      <div className={styles.leftNavMenuContainer} onClick={handleClick}>
+        <div className={styles.leftNavMenu}>
+          <button
+            aria-label="Close Menu"
+            className={styles.backIcon}
+            onClick={toggleModal}
+          >
+            <KeyboardDoubleArrowLeftIcon fontSize="medium" />
+          </button>
+          <Link href="/">
+            <a>
+              <h1>Parks</h1>
+            </a>
+          </Link>
+          <CollapsibleItem parentNode={<p>Shop</p>}>
+            <div className={styles.collapseContent}>{mappedLinks}</div>
+          </CollapsibleItem>
+          <Link href="/blog">
+            <a>Blogs</a>
+          </Link>
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+        </div>
       </div>
     </Modal>
-  )
+  );
 }

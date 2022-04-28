@@ -13,7 +13,10 @@ const About: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <p>This was built using Next.js to get some experience with building an e-commerce website.</p>
+        <p>
+          This was built using Next.js to get some experience with building an
+          e-commerce website.
+        </p>
       </main>
       <Footer />
     </>
@@ -21,5 +24,3 @@ const About: NextPage = () => {
 };
 
 export default About;
-
-

@@ -30,7 +30,6 @@ const Home: NextPage = () => {
   });
 
   const mappedItemData = itemData.slice(0, 8).map((item: Item) => {
-    console.log(item);
     return (
       <ItemCardLink
         imageURL={item.image}
