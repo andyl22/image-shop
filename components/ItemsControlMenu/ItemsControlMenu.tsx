@@ -1,6 +1,7 @@
 import CollapsibleItem from "../CollapsibleItem/CollapsibleItem";
 import styles from "./ItemsControlMenu.module.scss";
 import ItemCardLink from "../ItemCard/ItemCardLink";
+import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
 import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import { formatTitle } from "../../utilities/StringFormat";
 
@@ -24,6 +25,11 @@ export default function SortMenu(props: Props) {
   const { itemData, title } = props;
   const [singleSelected, setSingleSelected] = useState("popularity");
   const [mappedItems, setMappedItems] = useState<any>();
+  const [showFilters, setShowFilters] = useState(true);
+
+  const toggleShowFilters = () => {
+    setShowFilters(!showFilters);
+  };
 
   const handleCheck = (e: ChangeEvent<HTMLInputElement> | MouseEvent) => {
     const target = e.target as HTMLElement;
@@ -94,7 +100,11 @@ export default function SortMenu(props: Props) {
 
   return (
     <div className={styles.itemsControlContainer}>
-      <div className={styles.filtersContainer}>
+      <div
+        className={`${styles.filtersContainer} ${
+          showFilters ? styles.hideFilters : null
+        }`}
+      >
         <CollapsibleItem
           parentNode={<div className={styles.menuOption}>Sort By</div>}
           showCollapsedOnLoad={true}
@@ -103,6 +113,15 @@ export default function SortMenu(props: Props) {
         </CollapsibleItem>
       </div>
       <div className={styles.contentContainer}>
+        <button
+          className={`${styles.collapseFilters} ${
+            showFilters ? styles.rotateButton : null
+          }`}
+          aria-label="Close Filter Menu"
+          onClick={toggleShowFilters}
+        >
+          <ArrowLeftIcon />
+        </button>
         <h1>{title}</h1>
         <div className={styles.itemsContent}>{mappedItems}</div>
       </div>

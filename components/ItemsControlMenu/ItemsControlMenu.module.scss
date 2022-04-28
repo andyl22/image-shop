@@ -8,12 +8,7 @@
     min-width: 200px;
     background: #fcf7f7;
     border-top-right-radius: 0.3rem;
-    overflow: hidden;
     border-right: 1px solid #e9e9e9;
-    button {
-      width: 100%;
-      border-radius: 0;
-    }
     .singleSelect {
       display: flex;
       flex-direction: column;
@@ -56,16 +51,25 @@
     .menuOption {
       text-align: start;
       background: none;
-      width: 250px;
+      width: 95%;
       font-weight: 700;
       font-size: 1.2rem;
     }
+    @media (max-width: 500px) {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+    }
+  }
+  .hideFilters {
+    display: none;
   }
   .contentContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
     text-align: center;
+    position: relative;
     .itemsContent {
       display: flex;
       flex-wrap: wrap;
@@ -73,6 +77,31 @@
       align-items: center;
       gap: 2rem;
       padding: 2rem;
+    }
+    .collapseFilters {
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding: 0;
+      background: none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      color: black;
+      z-index: 1;
+      &:hover {
+        background: rgb(211, 208, 208);
+      }
+      @media (max-width: 500px) {
+        position: fixed;
+        left: 95%;
+        top: 3.2rem;
+      }
+    }
+    .rotateButton {
+      svg {
+        transform: rotate(-180deg);
+        transition: 0.1s ease-in;
+      }
     }
   }
 }
