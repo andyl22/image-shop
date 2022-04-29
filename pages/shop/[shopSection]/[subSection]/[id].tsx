@@ -51,21 +51,23 @@ const Item = (props: Props) => {
     <>
       <main className={styles.main}>
         <PathNav />
-        <h1>{details.name}</h1>
-        <Image
-          src={details.image}
-          alt={details.name}
-          width="1000px"
-          height="800px"
-          quality={100}
-        />
-        <p>{details.description}</p>
-        <p>{details.price === "0.00" ? "FREE" : details.price}</p>
-        <AddToCart
-          id={details.id}
-          name={details.name}
-          price={parseFloat(details.price)}
-        />
+        <div className={styles.itemWrapper}>
+          <h1>{details.name}</h1>
+          <Image
+            src={details.image}
+            alt={details.name}
+            width="1000px"
+            height="800px"
+            quality={100}
+          />
+          <p className={styles.itemDescription}>{details.description}</p>
+          <p>{details.price === "0.00" ? "FREE" : details.price}</p>
+          <AddToCart
+            id={details.id}
+            name={details.name}
+            price={parseFloat(details.price)}
+          />
+        </div>
       </main>
     </>
   );

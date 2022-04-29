@@ -6,7 +6,7 @@ import AddToCart from "../AddToCart/AddToCart";
 interface Props {
   id: string;
   name: string;
-  description?: string;
+  description: string;
   imageURL: string;
   price?: string;
   enableCheckout?: boolean;
@@ -34,7 +34,9 @@ export default function ItemCard(props: Props) {
       </div>
       <div className={styles.itemContent}>
         {price === "0.00" ? <p>FREE</p> : price ? <p>${price}</p> : null}
-        <p>{description}</p>
+        <OverflowToolTip tooltipContent={description}>
+          <p className={styles.description}>{description}</p>
+        </OverflowToolTip>
         {price && enableCheckout ? (
           <AddToCart id={id} name={name} price={parseFloat(price)} />
         ) : null}

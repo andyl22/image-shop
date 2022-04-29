@@ -20,9 +20,14 @@
     justify-content: center;
     gap: 0.5rem;
     width: 100%;
+    .description {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      height: 50px;
+    }
   }
   .imageWrapper {
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     overflow: hidden;
   }
 }
