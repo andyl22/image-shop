@@ -30,10 +30,13 @@ const Home: NextPage = () => {
   });
 
   const mappedItemData = itemData.slice(0, 8).map((item: Item) => {
+    const imgPath = item.image.split("/");
+    const category = imgPath[2],
+      subCategory = imgPath[3];
     return (
       <ItemCardLink
         imageURL={item.image}
-        link={`shop/national-parks/yosemite/${item.id}`}
+        link={`shop/${category}/${subCategory}/${item.id}`}
         name={item.name}
         key={item.id}
         id={item.id.toString()}

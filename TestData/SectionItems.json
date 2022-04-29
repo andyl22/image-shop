@@ -6,7 +6,7 @@
         "name": "Smoky Morning",
         "description": "Smoky Morning in Yosemite",
         "price": "10.00",
-        "image": "/images/nationalParks/yosemite/bailey-zindel.jpg",
+        "image": "/images/national-parks/yosemite/bailey-zindel.jpg",
         "visits": 123,
         "createDttm": 1650160690,
         "updateDttm": 1650160690
@@ -16,7 +16,7 @@
         "name": "Half Dome ",
         "description": "Half Dome",
         "price": "0.00",
-        "image": "/images/nationalParks/yosemite/trent-erwin.jpg",
+        "image": "/images/national-parks/yosemite/trent-erwin.jpg",
         "visits": 223,
         "createDttm": 1650160691,
         "updateDttm": 1650160691
@@ -25,37 +25,67 @@
     "redwood": [
       {
         "id": 3,
-        "name": "Test Image Name Overflow Of Container And Tooltip",
-        "description": "test",
+        "name": "Low Upward View of Trees",
+        "description": "Low angle photograph of green trees during daytime",
         "price": "10.00",
-        "image": "/images/calm.jpg",
+        "image": "/images/national-parks/redwood/emma-watson-redwood.jpg",
         "visits": 223,
         "createDttm": 1650160695,
         "updateDttm": 1650160695
+      },
+      {
+        "id": 4,
+        "name": "Redwood Flora",
+        "description": "Dense and lush flora",
+        "price": "8.00",
+        "image": "/images/national-parks/redwood/intricate-explorer-redwood.jpg",
+        "visits": 1100,
+        "createDttm": 1650160698,
+        "updateDttm": 1650160698
       }
     ],
     "yellowstone": [
       {
-        "id": 4,
-        "name": "Test Item",
-        "description": "test",
+        "id": 5,
+        "name": "Yellowstone Hot Springs",
+        "description": "Aerial view of hot springs",
         "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
+        "image": "/images/national-parks/yellowstone/denys-nevozhai-yellowstone.jpg",
+        "visits": 229,
         "createDttm": 1650160695,
         "updateDttm": 1650160695
       }
     ],
     "zion": [
       {
-        "id": 5,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
+        "id": 6,
+        "name": "Virgin River Narrows",
+        "description": "Zion Valley Ground Level",
+        "price": "6.00",
+        "image": "/images/national-parks/zion/sterling-lanier-zion.jpg",
         "visits": 223,
         "createDttm": 1650160695,
         "updateDttm": 1650160695
+      },
+      {
+        "id": 7,
+        "name": "Sign Post",
+        "description": "Zion Brown Concrete Wall Post",
+        "price": "3.00",
+        "image": "/images/national-parks/zion/danika-perkinson-zion.jpg",
+        "visits": 1223,
+        "createDttm": 1650160699,
+        "updateDttm": 1650160692
+      },
+      {
+        "id": 8,
+        "name": "Rocky Path",
+        "description": "Zion Rocky Tree Path",
+        "price": "7.00",
+        "image": "/images/national-parks/zion/hunter-james-zion.jpg",
+        "visits": 53,
+        "createDttm": 1650160199,
+        "updateDttm": 1650160792
       }
     ],
     "mountRainer": [
@@ -148,7 +178,6 @@
         "visits": 223,
         "createDttm": 1650160695,
         "updateDttm": 1650160695
-
       }
     ],
     "quakingAspen": [
