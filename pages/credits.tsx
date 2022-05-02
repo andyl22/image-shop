@@ -2,8 +2,35 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Credits.module.scss";
 import AccreditationItem from "../components/AccreditationItem/AccreditationItem";
+import { getAllItems, Item } from "../TestData/SectionItems";
 
-const Privacy: NextPage = () => {
+export const getStaticProps = async () => {
+  const item = getAllItems();
+  return {
+    props: {
+      items: item,
+    },
+  };
+};
+
+interface Props {
+  items: Item[];
+}
+
+const Privacy: NextPage<Props> = ({ items }) => {
+  
+  const mappedItems = items.map((item) => {
+    return (
+      <AccreditationItem
+        imgURL={item.image}
+        itemSource={item.sourceName}
+        itemDescription={item.description}
+        sourceLink={item.sourceLink}
+        key={item.id}
+      />
+    );
+  });
+
   return (
     <>
       <Head>
@@ -18,18 +45,6 @@ const Privacy: NextPage = () => {
             itemSource="Freepik - Flaticon"
             itemDescription="Page Icon"
             sourceLink="https://www.flaticon.com/free-icons/mountain"
-          />
-          <AccreditationItem
-            imgURL="/images/national-parks/yosemite/bailey-zindel.jpg"
-            itemSource="Bailey Zindel"
-            itemDescription="Smoky Yosemite Picture"
-            sourceLink="https://unsplash.com/photos/zOXUvQ3Xo3s?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
-          />
-          <AccreditationItem
-            imgURL="/images/national-parks/yosemite/trent-erwin.jpg"
-            itemSource="Trent Erwin"
-            itemDescription="Half Dome"
-            sourceLink="https://unsplash.com/photos/U7NLcNo9NGA?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
           />
           <AccreditationItem
             imgURL="/images/ales-krivec.jpg"
@@ -79,42 +94,7 @@ const Privacy: NextPage = () => {
             itemDescription="Calm"
             sourceLink="https://unsplash.com/photos/OG4mH9ljats?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
           />
-          <AccreditationItem
-            imgURL="/images/national-parks/redwood/emma-watson-redwood.jpg"
-            itemSource="Emma Watson"
-            itemDescription="Redwood Trees"
-            sourceLink="https://unsplash.com/photos/UDTQ0737wu0?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
-          />
-          <AccreditationItem
-            imgURL="/images/national-parks/redwood/intricate-explorer-redwood.jpg"
-            itemSource="Intricate Explorer"
-            itemDescription="Flora"
-            sourceLink="https://unsplash.com/photos/6SGV4QeloR8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
-          />
-          <AccreditationItem
-            imgURL="/images/national-parks/yellowstone/denys-nevozhai-yellowstone.jpg"
-            itemSource="Denys Nevozhai"
-            itemDescription="Yeelowstone - Aerial view hotsprings"
-            sourceLink="https://unsplash.com/photos/LMU2w-K4J7k?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
-          />
-          <AccreditationItem
-            imgURL="/images/national-parks/zion/sterling-lanier-zion.jpg"
-            itemSource="Sterling Lanier"
-            itemDescription="Zion - Virgin River Narrows"
-            sourceLink="https://unsplash.com/photos/osSAcBE_7DE?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
-          />
-          <AccreditationItem
-            imgURL="/images/national-parks/zion/danika-perkinson-zion.jpg"
-            itemSource="Danika Perkinson"
-            itemDescription="Zion - Entry Post"
-            sourceLink="https://unsplash.com/photos/Cg9Y39NW5NQ?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
-          />
-          <AccreditationItem
-            imgURL="/images/national-parks/zion/hunter-james-zion.jpg"
-            itemSource="Hunter James"
-            itemDescription="Zion - Rocky Path"
-            sourceLink="https://unsplash.com/photos/xes-2Nr8IDU?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
-          />
+          {mappedItems}
         </ul>
       </main>
     </>

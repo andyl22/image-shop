@@ -41,6 +41,8 @@ export interface Item {
   visits: number;
   createDttm: number;
   updateDttm: number;
+  sourceLink: string;
+  sourceName: string;
 }
 
 export function getAllItems(jsonTree: any = data, results: any = []) {
