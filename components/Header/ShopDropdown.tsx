@@ -17,11 +17,12 @@ export default function ShopDropdown(props: Props) {
       .join(" ")
       .toUpperCase();
     return (
-      <LinksList
-        linkGroupName={formattedLink}
-        key={linkGroupName}
-        linkGroupLinks={data[linkGroupName as keyof typeof data]}
-      />
+      <div className={styles.linksListWrapper} key={linkGroupName}>
+        <LinksList
+          linkGroupName={formattedLink}
+          linkGroupLinks={data[linkGroupName as keyof typeof data]}
+        />
+      </div>
     );
   });
 
@@ -31,9 +32,5 @@ export default function ShopDropdown(props: Props) {
     </DropdownContainer>
   );
 
-  return (
-    <Dropdown dropdownContent={dropdownContent}>
-      {children}
-    </Dropdown>
-  );
+  return <Dropdown dropdownContent={dropdownContent}>{children}</Dropdown>;
 }

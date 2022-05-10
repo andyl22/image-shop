@@ -2,14 +2,13 @@
 
 .dropdownContainer {
   width: 100%;
-  padding: 1em;
   position: absolute;
   overflow-y: auto;
   max-height: 92vh;
   left: 0;
   top: 100%;
   background: s.$secondary-background-color;
-  border: 2px solid s.$border-color;
+  border: 1px solid s.$border-color;
   box-shadow: -1px 8px 12px -4px s.$box-shadow;
   @include s.mobile-view {
     color: black !important;

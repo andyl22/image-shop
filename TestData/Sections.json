@@ -26,33 +26,6 @@
       "id": 5
     }
   ],
-  "trees": [
-    {
-      "linkName": "White Oak",
-      "linkURL": "/shop/trees/white-oak",
-      "id": 1
-    },
-    {
-      "linkName": "Redwood",
-      "linkURL": "/shop/trees/redwood",
-      "id": 2
-    },
-    {
-      "linkName": "Sequoia",
-      "linkURL": "/shop/trees/sequoia",
-      "id": 3
-    },
-    {
-      "linkName": "Cherry Blosson",
-      "linkURL": "/shop/trees/cherry-blossom",
-      "id": 4
-    },
-    {
-      "linkName": "Quaking Aspen",
-      "linkURL": "/shop/trees/quaking-aspen",
-      "id": 5
-    }
-  ],
   "birds": [
     {
       "linkName": "Hummingbird",
@@ -65,8 +38,8 @@
       "id": 2
     },
     {
-      "linkName": "Great Eagle",
-      "linkURL": "/shop/birds/great-eagle",
+      "linkName": "Bald Eagle",
+      "linkURL": "/shop/birds/bald-eagle",
       "id": 3
     },
     {

@@ -38,7 +38,7 @@ const Account: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Sign In</title>
+        <title>My Account</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

@@ -6,7 +6,7 @@ const Preferences: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Sign In</title>
+        <title>Preferences</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

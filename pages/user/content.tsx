@@ -2,19 +2,19 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../../styles/Orders.module.scss";
 
-const Orders: NextPage = () => {
+const Content: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Sign In</title>
+        <title>Manage Content</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <h1>Order History</h1>
+        <h1>Manage Content</h1>
       </main>
     </>
   );
 };
 
-export default Orders;
+export default Content;

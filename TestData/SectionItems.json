@@ -155,187 +155,75 @@
       }
     ]
   },
-  "trees": {
-    "whiteOak": [
-      {
-        "id": 10,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      }
-    ],
-    "redwood": [
-      {
-        "id": 11,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      }
-    ],
-    "sequoia": [
-      {
-        "id": 12,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      }
-    ],
-    "cherryBlossom": [
-      {
-        "id": 13,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      }
-    ],
-    "quakingAspen": [
-      {
-        "id": 14,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      },
-      {
-        "id": 15,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      },
-      {
-        "id": 16,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      },
-      {
-        "id": 17,
-        "name": "Test Item",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      }
-    ]
-  },
   "birds": {
     "hummingbird": [
       {
-        "id": 18,
+        "id": 13,
         "name": "Hummingbird",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
+        "description": "Portrait Photo",
+        "price": "6.00",
+        "image": "/images/birds/hummingbird/joshua-j-cotten-hummingbird.jpg",
+        "visits": 423,
+        "createDttm": 1650167695,
+        "updateDttm": 1650169695,
+        "sourceLink": "https://unsplash.com/photos/WCxIzg5U-QY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        "sourceName": "Joshua J. Cotten"
       }
     ],
     "kingfisher": [
       {
-        "id": 19,
+        "id": 14,
         "name": "Kingfisher",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
+        "description": "Kingfisher in Sri Lanka",
+        "price": "6.00",
+        "image": "/images/birds/kingfisher/thomas-maximilian-lener-kingfisher.jpg",
+        "visits": 423,
+        "createDttm": 1650167695,
+        "updateDttm": 1650169695,
+        "sourceLink": "https://unsplash.com/photos/ie9zNgph23Y?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        "sourceName": "Thomas Maximilian Lener"
       }
     ],
-    "greatEagle": [
+    "baldEagle": [
       {
-        "id": 20,
-        "name": "Great Eagle",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
+        "id": 15,
+        "name": "Bald Eagle - Portrait",
+        "description": "Close Shot",
+        "price": "6.00",
+        "image": "/images/birds/baldeagle/dirk-van-wolferen-baldeagle.jpg",
+        "visits": 423,
+        "createDttm": 1650167695,
+        "updateDttm": 1650169695,
+        "sourceLink": "https://unsplash.com/photos/ie9zNgph23Y?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        "sourceName": "Dirk Van Wolferen"
       }
     ],
     "blueJay": [
       {
-        "id": 21,
-        "name": "Blue Jay",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
+        "id": 16,
+        "name": "Bluejay In Flight",
+        "description": "In Flight",
+        "price": "6.00",
+        "image": "/images/birds/bluejay/gerhard-crous-bluejay.jpg",
+        "visits": 423,
+        "createDttm": 1650167695,
+        "updateDttm": 1650169695,
+        "sourceLink": "https://unsplash.com/photos/ie9zNgph23Y?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        "sourceName": "Gerhard Crous"
       }
     ],
     "goldFinch": [
       {
-        "id": 22,
-        "name": "Gold Finch",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      },
-      {
-        "id": 23,
-        "name": "Gold Finch",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      },
-      {
-        "id": 24,
-        "name": "Gold Finch",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
-      },
-      {
-        "id": 25,
-        "name": "Gold Finch",
-        "description": "test",
-        "price": "10.00",
-        "image": "/images/calm.jpg",
-        "visits": 223,
-        "createDttm": 1650160695,
-        "updateDttm": 1650160695
+        "id": 17,
+        "name": "Finch In Flight",
+        "description": "In Flight",
+        "price": "6.00",
+        "image": "/images/birds/finch/jacques-le-henaff-finch.jpg",
+        "visits": 423,
+        "createDttm": 1650167695,
+        "updateDttm": 1650169695,
+        "sourceLink": "https://unsplash.com/photos/ic-13C3QhAI?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink",
+        "sourceName": "Jacques Le Henaff"
       }
     ]
   }
