@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./Footer.module.scss";
+import Link from 'next/link';
+import styles from './Footer.module.scss';
 
 export default function Footer() {
   return (

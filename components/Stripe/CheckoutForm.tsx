@@ -1,12 +1,12 @@
-import React, { FormEvent, useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import React, { FormEvent, useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import {
   PaymentElement,
   useStripe,
   useElements,
-} from "@stripe/react-stripe-js";
-import RefreshIcon from "@mui/icons-material/Refresh";
-import styles from "./CheckoutForm.module.scss";
+} from '@stripe/react-stripe-js';
+import RefreshIcon from '@mui/icons-material/Refresh';
+import styles from './CheckoutForm.module.scss';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -21,32 +21,36 @@ export default function CheckoutForm() {
       return;
     }
 
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
+    const clientSecret = new URLSearchParams(
+      window.location.search,
+    ).get('payment_intent_client_secret');
 
     if (!clientSecret) {
       return;
     }
 
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      if (paymentIntent) {
-        switch (paymentIntent.status) {
-          case "succeeded":
-            router.push("/shop/checkout/success");
-            break;
-          case "processing":
-            setMessage("Your payment is processing.");
-            break;
-          case "requires_payment_method":
-            setMessage("Your payment was not successful, please try again.");
-            break;
-          default:
-            setMessage("Something went wrong.");
-            break;
+    stripe
+      .retrievePaymentIntent(clientSecret)
+      .then(({ paymentIntent }) => {
+        if (paymentIntent) {
+          switch (paymentIntent.status) {
+            case 'succeeded':
+              router.push('/shop/checkout/success');
+              break;
+            case 'processing':
+              setMessage('Your payment is processing.');
+              break;
+            case 'requires_payment_method':
+              setMessage(
+                'Your payment was not successful, please try again.',
+              );
+              break;
+            default:
+              setMessage('Something went wrong.');
+              break;
+          }
         }
-      }
-    });
+      });
   }, [router, stripe]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -62,9 +66,9 @@ export default function CheckoutForm() {
       confirmParams: {
         // Make sure to change this to your payment completion page
         return_url:
-          process.env.NODE_ENV === "development"
-            ? "http://localhost:3000/shop/checkout"
-            : "https://parks-shop.herokuapp.com/shop/checkout",
+          process.env.NODE_ENV === 'development'
+            ? 'http://localhost:3000/shop/checkout'
+            : 'https://parks-shop.herokuapp.com/shop/checkout',
       },
     });
 
@@ -73,10 +77,13 @@ export default function CheckoutForm() {
     // your `return_url`. For some payment methods like iDEAL, your customer will
     // be redirected to an intermediate site first to authorize the payment, then
     // redirected to the `return_url`.
-    if (error.type === "card_error" || error.type === "validation_error") {
+    if (
+      error.type === 'card_error' ||
+      error.type === 'validation_error'
+    ) {
       setMessage(error.message);
     } else {
-      setMessage("An unexpected error occured.");
+      setMessage('An unexpected error occured.');
     }
 
     setIsLoading(false);
@@ -89,8 +96,13 @@ export default function CheckoutForm() {
       className={styles.paymentForm}
     >
       <PaymentElement id="payment-element" />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">{isLoading ? <RefreshIcon /> : "Pay now"}</span>
+      <button
+        disabled={isLoading || !stripe || !elements}
+        id="submit"
+      >
+        <span id="button-text">
+          {isLoading ? <RefreshIcon /> : 'Pay now'}
+        </span>
       </button>
       {/* Show any error or success messages */}
       {message && (

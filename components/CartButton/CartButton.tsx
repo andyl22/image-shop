@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import styles from "./CartButton.module.scss";
-import { useAppSelector } from "../../redux/hooks";
-import { selectCart } from "../../redux/slices/cartSlice";
-import CartModal from "../CartModal/CartModal";
+import { useEffect, useState } from 'react';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import styles from './CartButton.module.scss';
+import { useAppSelector } from '../../redux/hooks';
+import { selectCart } from '../../redux/slices/cartSlice';
+import CartModal from '../CartModal/CartModal';
 
 export default function CartButton() {
   const cart = useAppSelector(selectCart);
@@ -17,9 +17,10 @@ export default function CartButton() {
   useEffect(() => {
     setCartCount(
       Object.keys(cart.items).reduce(
+        // eslint-disable-next-line
         (count, key) => (count += cart.items[key].quantity),
-        0
-      )
+        0,
+      ),
     );
   }, [cart]);
 
@@ -31,6 +32,7 @@ export default function CartButton() {
         className={styles.cartButton}
         onClick={toggleModal}
         aria-describedby="cart-count"
+        type="button"
       >
         <span>{cartCount}</span>
         <ShoppingCartIcon fontSize="small" />

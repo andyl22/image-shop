@@ -1,10 +1,10 @@
-import { MouseEventHandler } from "react";
-import Drawer from "../Drawer/Drawer";
-import Link from "next/link";
-import { useAppSelector } from "../../redux/hooks";
-import { selectCart } from "../../redux/slices/cartSlice";
-import styles from "./CartModal.module.scss";
-import CartItem from "../CartItem/CartItem";
+import { MouseEventHandler } from 'react';
+import Link from 'next/link';
+import Drawer from '../Drawer/Drawer';
+import { useAppSelector } from '../../redux/hooks';
+import { selectCart } from '../../redux/slices/cartSlice';
+import styles from './CartModal.module.scss';
+import CartItem from '../CartItem/CartItem';
 
 interface Props {
   toggleModal: MouseEventHandler;
@@ -27,7 +27,11 @@ export default function CartModal(props: Props) {
 
   if (!isOpen) return null;
   return (
-    <Drawer toggleModal={toggleModal} isOpen={isOpen} headerName="Cart">
+    <Drawer
+      toggleModal={toggleModal}
+      isOpen={isOpen}
+      headerName="Cart"
+    >
       <div className={styles.cartContentContainer}>
         <div className={styles.cartMain}>
           <ul>{mappedCartItems}</ul>
@@ -35,8 +39,14 @@ export default function CartModal(props: Props) {
         <div className={styles.cartSummary}>
           <p>Total: ${cart.total}</p>
           <Link href="/shop/checkout">
-            <a className={styles.checkoutButton} onClick={toggleModal}>
-              Checkout
+            <a>
+              <button
+                className={styles.checkoutButton}
+                onClick={toggleModal}
+                type="button"
+              >
+                Checkout
+              </button>
             </a>
           </Link>
         </div>

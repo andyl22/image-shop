@@ -1,12 +1,12 @@
-import Head from "next/head";
-import Link from "next/link";
-import styles from "../../../styles/ShopSection.module.scss";
-import Footer from "../../../components/Footer/Footer";
+import Head from 'next/head';
+import Link from 'next/link';
+import styles from '../../../styles/ShopSection.module.scss';
+import Footer from '../../../components/Footer/Footer';
 import {
   getAllHeaderLinkParams,
   getShopSectionData,
-} from "../../../TestData/Sections";
-import PathNav from "../../../components/PathNav/PathNav";
+} from '../../../TestData/Sections';
+import PathNav from '../../../components/PathNav/PathNav';
 
 export async function getStaticPaths() {
   const paths = getAllHeaderLinkParams();
@@ -38,20 +38,18 @@ interface Props {
   };
 }
 
-const Section = (props: Props) => {
+function Section(props: Props) {
   const { sectionData } = props;
   const formattedName = sectionData.sectionName
     .split(/(?=[A-Z])/g)
-    .join(" ")
+    .join(' ')
     .toUpperCase();
 
-  const mappedItems = sectionData.itemList.map((item) => {
-    return (
-      <Link href={item.linkURL} key={item.linkURL}>
-        <a>{item.linkName}</a>
-      </Link>
-    );
-  });
+  const mappedItems = sectionData.itemList.map((item) => (
+    <Link href={item.linkURL} key={item.linkURL}>
+      <a>{item.linkName}</a>
+    </Link>
+  ));
 
   return (
     <>
@@ -69,6 +67,6 @@ const Section = (props: Props) => {
       <Footer />
     </>
   );
-};
+}
 
 export default Section;

@@ -1,8 +1,9 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import styles from "../../styles/Blog.module.scss";
-import BlogCard from "../../components/BlogCards/BlogCard";
-import blogData from "../../TestData/BlogData.json";
+/* eslint-disable react/function-component-definition */
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import styles from '../../styles/Blog.module.scss';
+import BlogCard from '../../components/BlogCards/BlogCard';
+import blogData from '../../TestData/BlogData.json';
 
 const Blog: NextPage = () => {
   const mappedBlogData = blogData.map((item) => (
@@ -25,7 +26,7 @@ const Blog: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <span className={styles.background}></span>
+      <span className={styles.background} />
       <main className={styles.main}>{mappedBlogData}</main>
     </>
   );

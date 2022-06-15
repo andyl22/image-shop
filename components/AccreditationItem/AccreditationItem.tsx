@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 interface Props {
   imgURL?: string;
@@ -29,3 +29,7 @@ export default function AccreddidationItem(props: Props) {
     </li>
   );
 }
+
+AccreddidationItem.defaultProps = {
+  imgURL: '',
+};

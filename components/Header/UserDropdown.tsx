@@ -1,10 +1,10 @@
-import Link from "next/link";
-import { ReactChild } from "react";
-import Dropdown from "../Dropdown/Dropdown";
-import styles from "./UserDropdown.module.scss";
-import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
-import SettingsIcon from "@mui/icons-material/Settings";
-import ManageSearchIcon from "@mui/icons-material/ManageSearch";
+import Link from 'next/link';
+import { ReactChild } from 'react';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import SettingsIcon from '@mui/icons-material/Settings';
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import styles from './UserDropdown.module.scss';
+import Dropdown from '../Dropdown/Dropdown';
 
 interface Props {
   children: ReactChild | ReactChild[];
@@ -49,14 +49,18 @@ export default function UserDropdown(props: Props) {
           <a className={styles.menuItem}>Privacy</a>
         </Link>
       </nav>
-      <button className={styles.logoutButton} onClick={logout}>
+      <button
+        className={styles.logoutButton}
+        onClick={logout}
+        type="button"
+      >
         Log out
       </button>
     </div>
   );
 
   return (
-    <Dropdown clickControlled={true} dropdownContent={dropdownContent}>
+    <Dropdown clickControlled dropdownContent={dropdownContent}>
       {children}
     </Dropdown>
   );

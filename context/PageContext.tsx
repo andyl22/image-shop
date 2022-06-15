@@ -1,4 +1,4 @@
-import { createContext, ReactNode } from "react";
+import { createContext, ReactNode } from 'react';
 
 const PageContext = createContext([{}, () => {}]);
 
@@ -10,7 +10,10 @@ interface Props {
 function PageProvider(props: Props) {
   const { children, url } = props;
   return (
-    <PageContext.Provider value={[{ url }]}>{children}</PageContext.Provider>
+    // eslint-disable-next-line react/jsx-no-constructed-context-values
+    <PageContext.Provider value={[{ url }]}>
+      {children}
+    </PageContext.Provider>
   );
 }
 

@@ -1,19 +1,19 @@
-import { FormEvent, useState } from "react";
-import FormContainer from "../Form/FormContainer";
-import styles from "./FormChangePassword.module.scss";
+import { FormEvent, useState } from 'react';
+import FormContainer from '../Form/FormContainer';
+import styles from './FormChangePassword.module.scss';
 
 interface Props {
-  postSubmitAction?: any;
+  postSubmitAction: any;
 }
 
 export default function FormChangePassword(props: Props) {
   const { postSubmitAction } = props;
 
   const initialFormState = {
-    newPassword: "",
-    confirmPassword: "",
+    newPassword: '',
+    confirmPassword: '',
   };
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [formState, setFormState] = useState(initialFormState);
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -21,16 +21,14 @@ export default function FormChangePassword(props: Props) {
     if (
       newPassword.length < 4 ||
       newPassword.length >= 20 ||
-      newPassword.match(" ")
+      newPassword.match(' ')
     ) {
       setError(
-        "Password Invalid. Can not be more than 20 characters or contain spaces."
+        'Password Invalid. Can not be more than 20 characters or contain spaces.',
       );
     } else if (newPassword !== confirmPassword) {
-      setError("Passwords do not match.");
-    } else {
-      if (postSubmitAction) postSubmitAction();
-    }
+      setError('Passwords do not match.');
+    } else if (postSubmitAction) postSubmitAction();
   };
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
@@ -39,7 +37,10 @@ export default function FormChangePassword(props: Props) {
   };
 
   return (
-    <FormContainer title="Change Password" handleSubmit={handleSubmit}>
+    <FormContainer
+      title="Change Password"
+      handleSubmit={handleSubmit}
+    >
       <div className={styles.changePasswordFormContent}>
         {error ? <p className={styles.error}>{error}</p> : null}
         <input

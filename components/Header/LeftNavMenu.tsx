@@ -1,11 +1,11 @@
-import styles from "./LeftNavMenu.module.scss";
-import KeyboardDoubleArrowLeftIcon from "@mui/icons-material/KeyboardDoubleArrowLeft";
-import Modal from "../Modal/Modal";
-import CollapsibleItem from "../CollapsibleItem/CollapsibleItem";
-import Link from "next/link";
-import { MouseEvent } from "react";
-import data from "../../TestData/Sections.json";
-import LinksList from "../LinksList/Linkslist";
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import Link from 'next/link';
+import { MouseEvent } from 'react';
+import styles from './LeftNavMenu.module.scss';
+import Modal from '../Modal/Modal';
+import CollapsibleItem from '../CollapsibleItem/CollapsibleItem';
+import data from '../../TestData/Sections.json';
+import LinksList from '../LinksList/Linkslist';
 
 interface Props {
   toggleModal: any;
@@ -16,14 +16,14 @@ export default function LeftNavMenu(props: Props) {
 
   const handleClick = (e: MouseEvent<HTMLDivElement>) => {
     const el = e.target as HTMLElement;
-    const tagName = el.tagName;
-    if (tagName === "H1" || tagName === "A") toggleModal();
+    const { tagName } = el;
+    if (tagName === 'H1' || tagName === 'A') toggleModal();
   };
 
   const mappedLinks = Object.keys(data).map((linkGroupName) => {
     const formattedLink = linkGroupName
       .split(/(?=[A-Z])/g)
-      .join(" ")
+      .join(' ')
       .toUpperCase();
     return (
       <LinksList
@@ -36,30 +36,32 @@ export default function LeftNavMenu(props: Props) {
 
   return (
     <Modal toggleModal={toggleModal}>
-      <div className={styles.leftNavMenuContainer} onClick={handleClick}>
-        <div className={styles.leftNavMenu}>
-          <button
-            aria-label="Close Menu"
-            className={styles.backIcon}
-            onClick={toggleModal}
-          >
-            <KeyboardDoubleArrowLeftIcon fontSize="medium" />
-          </button>
-          <Link href="/">
-            <a>
-              <h1>Parks</h1>
-            </a>
-          </Link>
-          <CollapsibleItem parentNode={<p>Shop</p>}>
-            <div className={styles.collapseContent}>{mappedLinks}</div>
-          </CollapsibleItem>
-          <Link href="/blog">
-            <a>Blogs</a>
-          </Link>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-        </div>
+      <div className={styles.leftNavMenu}>
+        <button
+          aria-label="Close Menu"
+          className={styles.backIcon}
+          onClick={toggleModal}
+          type="button"
+        >
+          <KeyboardDoubleArrowLeftIcon fontSize="medium" />
+        </button>
+        <Link href="/">
+          <a>
+            <h1>Parks</h1>
+          </a>
+        </Link>
+        <CollapsibleItem
+          parentNode={<p>Shop</p>}
+          showCollapsedOnLoad={false}
+        >
+          <div className={styles.collapseContent}>{mappedLinks}</div>
+        </CollapsibleItem>
+        <Link href="/blog">
+          <a>Blogs</a>
+        </Link>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
       </div>
     </Modal>
   );

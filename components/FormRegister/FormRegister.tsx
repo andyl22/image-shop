@@ -1,20 +1,21 @@
-import styles from "./FormRegister.module.scss";
-import FormContainer from "../Form/FormContainer";
-import React, { FormEvent, useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
-import debounce from "../../utilities/debounce";
-import { postHTTP } from "../../utilities/fetchAPIs";
+import React, { FormEvent, useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import styles from './FormRegister.module.scss';
+import FormContainer from '../Form/FormContainer';
+import debounce from '../../utilities/debounce';
+import { postHTTP } from '../../utilities/fetchAPIs';
 
 export default function FormRegister() {
   const formRef = useRef<HTMLInputElement>(null);
   const [formState, setFormState] = useState({
-    username: "",
-    password: "",
-    confirmPassword: "",
+    username: '',
+    password: '',
+    confirmPassword: '',
   });
-  const [invalidUsername, setinvalidUsername] = useState("");
-  const [invalidPassword, setinvalidPassword] = useState("");
-  const [invalidConfirmPassword, setinvalidConfirmPassword] = useState("");
+  const [invalidUsername, setinvalidUsername] = useState('');
+  const [invalidPassword, setinvalidPassword] = useState('');
+  const [invalidConfirmPassword, setinvalidConfirmPassword] =
+    useState('');
   const [errMessage, setErrorMessage] = useState<String | null>();
   const router = useRouter();
 
@@ -25,63 +26,63 @@ export default function FormRegister() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (formState.password !== formState.confirmPassword) {
-      setErrorMessage("Passwords do not match.");
+      setErrorMessage('Passwords do not match.');
       return;
     }
     const body = {
       username: formState.username,
       password: formState.password,
     };
-    const response = await postHTTP("/user/register", body).catch((err) =>
-      console.log(err)
+    const response = await postHTTP('/user/register', body).catch(
+      (err) => console.log(err),
     );
     if (response.success === true) {
-      router.push("/shop");
-    } else {
-      if (response.data) setinvalidUsername(response.data);
-    }
+      router.push('/shop');
+    } else if (response.data) setinvalidUsername(response.data);
   };
 
   const validations = (value: String, inputType: String) => {
     switch (inputType) {
-      case "username":
-        if (value.includes(" ") || value.length > 20) {
+      case 'username':
+        if (value.includes(' ') || value.length > 20) {
           setinvalidUsername(
-            "Invalid Username. Can not contain spaces or be more than 20 characters."
+            'Invalid Username. Can not contain spaces or be more than 20 characters.',
           );
         } else {
-          setinvalidUsername("");
+          setinvalidUsername('');
         }
         break;
-      case "password":
-        if (value.includes(" ") || value.length > 20) {
+      case 'password':
+        if (value.includes(' ') || value.length > 20) {
           setinvalidPassword(
-            "Password Invalid. Can not be more than 20 characters or contain spaces."
+            'Password Invalid. Can not be more than 20 characters or contain spaces.',
           );
         } else if (
           formState.confirmPassword &&
           value !== formState.confirmPassword
         ) {
-          setinvalidPassword("");
-          setinvalidConfirmPassword("Passwords do not match.");
+          setinvalidPassword('');
+          setinvalidConfirmPassword('Passwords do not match.');
         } else {
-          setinvalidConfirmPassword("");
-          setinvalidPassword("");
+          setinvalidConfirmPassword('');
+          setinvalidPassword('');
         }
         break;
-      case "confirmPassword":
-        if (value.includes(" ") || value.length > 20) {
+      case 'confirmPassword':
+        if (value.includes(' ') || value.length > 20) {
           setinvalidConfirmPassword(
-            "Password Invalid. Can not be more than 20 characters or contain spaces."
+            'Password Invalid. Can not be more than 20 characters or contain spaces.',
           );
-        } else if (value !== formState.password && formState.confirmPassword) {
-          setinvalidConfirmPassword("Passwords do not match.");
+        } else if (
+          value !== formState.password &&
+          formState.confirmPassword
+        ) {
+          setinvalidConfirmPassword('Passwords do not match.');
         } else {
-          setinvalidConfirmPassword("");
+          setinvalidConfirmPassword('');
         }
         break;
       default:
-        return;
     }
   };
 
@@ -106,7 +107,7 @@ export default function FormRegister() {
               onChange={handleChange}
               value={formState.username}
               required
-              aria-invalid={invalidUsername ? false : true}
+              aria-invalid={!invalidUsername}
               aria-describedby="username-error"
             />
           </div>
@@ -123,7 +124,7 @@ export default function FormRegister() {
               onChange={handleChange}
               value={formState.password}
               required
-              aria-invalid={invalidPassword ? false : true}
+              aria-invalid={!invalidPassword}
               aria-describedby="password-error"
             />
           </div>
@@ -140,7 +141,7 @@ export default function FormRegister() {
               onChange={handleChange}
               value={formState.confirmPassword}
               required
-              aria-invalid={invalidConfirmPassword ? false : true}
+              aria-invalid={!invalidConfirmPassword}
               aria-describedby="password-error"
             />
           </div>

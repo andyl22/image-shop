@@ -1,6 +1,13 @@
-import { Children, useState, useMemo, ReactNode, useEffect } from "react";
-import styles from "./ItemSlider.module.scss";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+/* eslint-disable no-unused-expressions */
+import {
+  Children,
+  useState,
+  useMemo,
+  ReactNode,
+  useEffect,
+} from 'react';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import styles from './ItemSlider.module.scss';
 
 interface Props {
   children: Array<ReactNode>;
@@ -10,16 +17,23 @@ export default function ItemSlider(props: Props) {
   const { children } = props;
   const [pointer, setPointer] = useState(0);
   const [itemsToRender, setItemsToRender] = useState(0);
-  const childrenLength = useMemo(() => Children.count(children), [children]);
+  const childrenLength = useMemo(
+    () => Children.count(children),
+    [children],
+  );
 
   // If pointer is greater than 0, then allow normal decrement. Otherwise, set to the end of the array.
   const decrementPointer = () => {
-    pointer > 0 ? setPointer(pointer - 1) : setPointer(childrenLength - 1);
+    pointer > 0
+      ? setPointer(pointer - 1)
+      : setPointer(childrenLength - 1);
   };
 
   // If pointer does not exceed the max index, then allow normal increment. Otherwise, set the pointer to the start of the array.
   const incrementPointer = () => {
-    pointer < childrenLength - 1 ? setPointer(pointer + 1) : setPointer(0);
+    pointer < childrenLength - 1
+      ? setPointer(pointer + 1)
+      : setPointer(0);
   };
 
   // Determine how many children items we can display at once, based on the browser width
@@ -42,19 +56,23 @@ export default function ItemSlider(props: Props) {
   })();
 
   const handleResize = (e: UIEvent) => {
-    setItemsToRender(Math.max(1, Math.floor(window.innerWidth / 380)));
+    setItemsToRender(
+      Math.max(1, Math.floor(window.innerWidth / 380)),
+    );
   };
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   });
 
   useEffect(() => {
-    setItemsToRender(Math.max(1, Math.floor(window.innerWidth / 400)));
+    setItemsToRender(
+      Math.max(1, Math.floor(window.innerWidth / 400)),
+    );
   }, []);
 
   const childrenWithArrowNav = (
@@ -63,6 +81,7 @@ export default function ItemSlider(props: Props) {
         aria-label="previous image"
         onClick={decrementPointer}
         className={styles.arrowIcons}
+        type="button"
       >
         <ArrowBackIosNewIcon fontSize="large" />
       </button>
@@ -71,8 +90,12 @@ export default function ItemSlider(props: Props) {
         aria-label="next image"
         onClick={incrementPointer}
         className={styles.arrowIcons}
+        type="button"
       >
-        <ArrowBackIosNewIcon fontSize="large" className={styles.flipIcon} />
+        <ArrowBackIosNewIcon
+          fontSize="large"
+          className={styles.flipIcon}
+        />
       </button>
     </div>
   );

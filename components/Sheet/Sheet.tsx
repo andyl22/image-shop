@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import styles from "./Sheet.module.scss";
+import { ReactNode } from 'react';
+import styles from './Sheet.module.scss';
 
 interface Props {
   background: string;
@@ -11,13 +11,14 @@ interface Props {
 }
 
 export default function Sheet(props: Props) {
-  const { background, border, children, allowHover, height, width } = props;
+  const { background, border, children, allowHover, height, width } =
+    props;
 
   const optionalStyles = {
     background: `${background}`,
-    backgroundSize: "cover",
-    backgroundPosition: "center center",
-    borderRadius: `${border ? "1rem" : 0}`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    borderRadius: `${border ? '1rem' : 0}`,
     height: `${height}`,
     width: `${width}`,
   };

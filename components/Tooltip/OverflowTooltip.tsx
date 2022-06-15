@@ -1,6 +1,6 @@
-import React, { ReactNode, useEffect, useState, useRef } from "react";
-import styles from "./OverflowTooltip.module.scss";
-import Tooltip from "./Tooltip";
+import React, { ReactNode, useEffect, useState, useRef } from 'react';
+import styles from './OverflowTooltip.module.scss';
+import Tooltip from './Tooltip';
 
 interface Props {
   children: ReactNode | ReactNode[];
@@ -32,7 +32,10 @@ export default function OverflowToolTip(props: Props) {
   }, []);
 
   return (
-    <Tooltip tooltipContent={tooltipContent} enableTooltip={isOverflowed}>
+    <Tooltip
+      tooltipContent={tooltipContent}
+      enableTooltip={isOverflowed}
+    >
       {mappedChildren}
     </Tooltip>
   );

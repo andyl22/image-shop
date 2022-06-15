@@ -1,12 +1,12 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import styles from "./PathNav.module.scss";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import styles from './PathNav.module.scss';
 
 export default function PathNav() {
   const router = useRouter();
   const path = router.asPath;
-  const splitPaths = path.replace("/", "").split("/");
-  let buildPath = "";
+  const splitPaths = path.replace('/', '').split('/');
+  let buildPath = '';
   const mappedPaths = splitPaths.map((path) => {
     buildPath += `/${path}`;
     return (

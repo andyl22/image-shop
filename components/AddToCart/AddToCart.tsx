@@ -1,7 +1,7 @@
-import { useRef } from "react";
-import { useAppDispatch } from "../../redux/hooks";
-import { add } from "../../redux/slices/cartSlice";
-import styles from "./AddToCart.module.scss";
+import { useRef } from 'react';
+import { useAppDispatch } from '../../redux/hooks';
+import { add } from '../../redux/slices/cartSlice';
+import styles from './AddToCart.module.scss';
 
 interface Props {
   id: string;
@@ -10,12 +10,13 @@ interface Props {
 }
 
 export default function AddToCart(props: Props) {
+  const { id, name, price } = props;
   const dispatch = useAppDispatch();
   const animateRef = useRef(null);
   let disabled: boolean = false;
 
   const addToCart = () => {
-    dispatch(add({ ...props, quantity: 1 }));
+    dispatch(add({ id, name, price, quantity: 1 }));
   };
 
   // throttle add to cart action
@@ -26,10 +27,14 @@ export default function AddToCart(props: Props) {
       setTimeout(() => {
         disabled = false;
         if (animateRef.current) {
-          (animateRef.current as HTMLElement).classList.remove(styles.animate);
+          (animateRef.current as HTMLElement).classList.remove(
+            styles.animate,
+          );
         }
       }, 1000);
-      (animateRef.current as HTMLElement).classList.add(styles.animate);
+      (animateRef.current as HTMLElement).classList.add(
+        styles.animate,
+      );
     }
     addToCart();
   };

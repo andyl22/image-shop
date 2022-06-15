@@ -1,9 +1,9 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import BlogData from "../../TestData/BlogData.json";
-import BlogModal from "../../components/BlogModal/BlogModal";
-import { getBlogIDs } from "../../TestData/BlogData";
-import styles from "../../styles/BlogModal.module.scss";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import BlogData from '../../TestData/BlogData.json';
+import BlogModal from '../../components/BlogModal/BlogModal';
+import { getBlogIDs } from '../../TestData/BlogData';
+import styles from '../../styles/BlogModal.module.scss';
 
 interface Props {
   blogID: string;
@@ -11,7 +11,9 @@ interface Props {
 
 export default function Item(props: Props) {
   const { blogID } = props;
-  const blogInfo = BlogData.filter((item) => item.id === parseInt(blogID))[0];
+  const blogInfo = BlogData.filter(
+    (item) => item.id === parseInt(blogID),
+  )[0];
   const { title, subtitle, author, image, previewText } = blogInfo;
   const router = useRouter();
 
@@ -45,8 +47,10 @@ interface getStaticProps {
   params: { blogID: string };
 }
 
-export function getStaticProps({ params: { blogID } }: getStaticProps) {
-  return { props: { blogID: blogID } };
+export function getStaticProps({
+  params: { blogID },
+}: getStaticProps) {
+  return { props: { blogID } };
 }
 
 export function getStaticPaths() {

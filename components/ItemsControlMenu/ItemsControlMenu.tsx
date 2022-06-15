@@ -1,9 +1,9 @@
-import CollapsibleItem from "../CollapsibleItem/CollapsibleItem";
-import styles from "./ItemsControlMenu.module.scss";
-import ItemCardLink from "../ItemCard/ItemCardLink";
-import ArrowLeftIcon from "@mui/icons-material/ArrowLeft";
-import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
-import { formatTitle } from "../../utilities/StringFormat";
+import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
+import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
+import CollapsibleItem from '../CollapsibleItem/CollapsibleItem';
+import styles from './ItemsControlMenu.module.scss';
+import ItemCardLink from '../ItemCard/ItemCardLink';
+import { formatTitle } from '../../utilities/StringFormat';
 
 interface Item {
   id: string;
@@ -23,7 +23,7 @@ interface Props {
 
 export default function SortMenu(props: Props) {
   const { itemData, title } = props;
-  const [singleSelected, setSingleSelected] = useState("popularity");
+  const [singleSelected, setSingleSelected] = useState('popularity');
   const [mappedItems, setMappedItems] = useState<any>();
   const [showFilters, setShowFilters] = useState(true);
 
@@ -31,7 +31,9 @@ export default function SortMenu(props: Props) {
     setShowFilters(!showFilters);
   };
 
-  const handleCheck = (e: ChangeEvent<HTMLInputElement> | MouseEvent) => {
+  const handleCheck = (
+    e: ChangeEvent<HTMLInputElement> | MouseEvent,
+  ) => {
     const target = e.target as HTMLElement;
     const checkedId = target.id;
     if (checkedId === singleSelected) return;
@@ -39,42 +41,51 @@ export default function SortMenu(props: Props) {
   };
 
   const mappedSortOptions = (() => {
-    const sortOptions = ["popularity", "recent", "highestPrice", "lowestPrice"];
+    const sortOptions = [
+      'popularity',
+      'recent',
+      'highestPrice',
+      'lowestPrice',
+    ];
 
-    return sortOptions.map((option: any) => {
-      return (
-        <div className={styles.checkboxContainer} key={option}>
-          <input
-            type="checkbox"
-            name={option}
-            id={option}
-            checked={singleSelected === option}
-            onChange={handleCheck}
-          />
-          <label
-            htmlFor={option}
-            className={singleSelected === option ? styles.highlighted : ""}
-          >
-            {formatTitle(option)}
-          </label>
-        </div>
-      );
-    });
+    return sortOptions.map((option: any) => (
+      <div className={styles.checkboxContainer} key={option}>
+        <input
+          type="checkbox"
+          name={option}
+          id={option}
+          checked={singleSelected === option}
+          onChange={handleCheck}
+        />
+        <label
+          htmlFor={option}
+          className={
+            singleSelected === option ? styles.highlighted : ''
+          }
+        >
+          {formatTitle(option)}
+        </label>
+      </div>
+    ));
   })();
 
   useEffect(() => {
     switch (singleSelected) {
-      case "popularity":
+      case 'popularity':
         itemData.sort((a, b) => a.visits - b.visits);
         break;
-      case "recent":
+      case 'recent':
         itemData.sort((a, b) => b.createDttm - a.createDttm);
         break;
-      case "highestPrice":
-        itemData.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+      case 'highestPrice':
+        itemData.sort(
+          (a, b) => parseFloat(b.price) - parseFloat(a.price),
+        );
         break;
-      case "lowestPrice":
-        itemData.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+      case 'lowestPrice':
+        itemData.sort(
+          (a, b) => parseFloat(a.price) - parseFloat(b.price),
+        );
         break;
       default:
         break;
@@ -90,7 +101,7 @@ export default function SortMenu(props: Props) {
           description={description}
           price={price}
           key={id}
-          enableCheckout={true}
+          enableCheckout
         />
       );
     });
@@ -106,10 +117,14 @@ export default function SortMenu(props: Props) {
         }`}
       >
         <CollapsibleItem
-          parentNode={<div className={styles.menuOption}>Sort By</div>}
-          showCollapsedOnLoad={true}
+          parentNode={
+            <div className={styles.menuOption}>Sort By</div>
+          }
+          showCollapsedOnLoad
         >
-          <form className={styles.singleSelect}>{mappedSortOptions}</form>
+          <form className={styles.singleSelect}>
+            {mappedSortOptions}
+          </form>
         </CollapsibleItem>
       </div>
       <div className={styles.contentContainer}>
@@ -119,6 +134,7 @@ export default function SortMenu(props: Props) {
           }`}
           aria-label="Close Filter Menu"
           onClick={toggleShowFilters}
+          type="button"
         >
           <ArrowLeftIcon />
         </button>

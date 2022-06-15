@@ -1,7 +1,7 @@
-import styles from "./ItemCard.module.scss";
-import Image from "next/image";
-import OverflowToolTip from "../Tooltip/OverflowTooltip";
-import AddToCart from "../AddToCart/AddToCart";
+import Image from 'next/image';
+import styles from './ItemCard.module.scss';
+import OverflowToolTip from '../Tooltip/OverflowTooltip';
+import AddToCart from '../AddToCart/AddToCart';
 
 interface Props {
   id: string;
@@ -13,7 +13,8 @@ interface Props {
 }
 
 export default function ItemCard(props: Props) {
-  const { id, name, description, imageURL, price, enableCheckout } = props;
+  const { id, name, description, imageURL, price, enableCheckout } =
+    props;
 
   return (
     <div className={styles.itemCardContainer}>
@@ -33,7 +34,14 @@ export default function ItemCard(props: Props) {
         />
       </div>
       <div className={styles.itemContent}>
-        {price === "0.00" ? <p>FREE</p> : price ? <p>${price}</p> : null}
+        {
+          // eslint-disable-next-line no-nested-ternary
+          price === '0.00' ? (
+            <p>FREE</p>
+          ) : price ? (
+            <p>${price}</p>
+          ) : null
+        }
         <OverflowToolTip tooltipContent={description}>
           <p className={styles.description}>{description}</p>
         </OverflowToolTip>

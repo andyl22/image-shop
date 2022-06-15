@@ -1,11 +1,12 @@
-import styles from "./ShopDropdown.module.scss";
-import Dropdown from "../Dropdown/Dropdown";
-import LinksList from "../LinksList/Linkslist";
-import data from "../../TestData/Sections.json";
-import DropdownContainer from "./DropdownContainer";
+import { ReactNode } from 'react';
+import styles from './ShopDropdown.module.scss';
+import Dropdown from '../Dropdown/Dropdown';
+import LinksList from '../LinksList/Linkslist';
+import data from '../../TestData/Sections.json';
+import DropdownContainer from './DropdownContainer';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default function ShopDropdown(props: Props) {
@@ -14,7 +15,7 @@ export default function ShopDropdown(props: Props) {
   const mappedLinks = Object.keys(data).map((linkGroupName) => {
     const formattedLink = linkGroupName
       .split(/(?=[A-Z])/g)
-      .join(" ")
+      .join(' ')
       .toUpperCase();
     return (
       <div className={styles.linksListWrapper} key={linkGroupName}>
@@ -32,5 +33,7 @@ export default function ShopDropdown(props: Props) {
     </DropdownContainer>
   );
 
-  return <Dropdown dropdownContent={dropdownContent}>{children}</Dropdown>;
+  return (
+    <Dropdown dropdownContent={dropdownContent}>{children}</Dropdown>
+  );
 }

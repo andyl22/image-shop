@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import styles from "../../styles/Orders.module.scss";
+import styles from "../../styles/ManageContent.module.scss";
 
 const Content: NextPage = () => {
   return (
@@ -12,6 +12,7 @@ const Content: NextPage = () => {
       </Head>
       <main className={styles.main}>
         <h1>Manage Content</h1>
+        <p>Create, update, and delete items on the shop.</p>
       </main>
     </>
   );

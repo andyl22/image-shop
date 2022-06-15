@@ -1,49 +1,50 @@
-.leftNavMenuContainer {
+.leftNavMenu {
   display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 1rem;
+  gap: 1rem;
   height: 100%;
-  width: 100%;
-  .leftNavMenu {
-    display: flex;
-    flex-direction: column;
+  width: 40%;
+  min-width: 250px;
+  background: white;
+  position: absolute;
+  left: 0;
+  @media (max-width: 300px) {
+    width: 100%;
+    min-width: 0;
+  }
+  a,
+  button {
+    width: fit-content;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .backIcon {
+    position: absolute;
+    top: 1.5rem;
+    right: 0.5rem;
+    &:hover {
+      cursor: pointer;
+      color: gray;
+      transform: scale(1.2);
+    }
+  }
+  .collapseContent {
     position: relative;
-    padding: 1rem;
-    gap: 1rem;
-    height: 100%;
-    width: 40%;
-    min-width: 250px;
-    background: white;
-    a,
-    button {
-      width: fit-content;
+    left: 1rem;
+    figure {
       padding: 0.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    .backIcon {
-      position: absolute;
-      top: 1.5rem;
-      right: 0.5rem;
-      &:hover {
-        cursor: pointer;
-        color: gray;
-        transform: scale(1.2);
+      &:last-of-type {
+        padding-bottom: 0;
       }
-    }
-    .collapseContent {
-      position: relative;
-      left: 1rem;
-      figure {
-        padding: 0.5rem;
-        &:last-of-type {
-          padding-bottom: 0;
-        }
-        figcaption {
-          font-weight: 600;
-          color: rgb(192, 124, 7);
-        }
-        a {
-          font-weight: 500;
-        }
+      figcaption {
+        font-weight: 600;
+        color: rgb(192, 124, 7);
+      }
+      a {
+        font-weight: 500;
       }
     }
   }

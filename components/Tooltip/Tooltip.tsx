@@ -1,5 +1,5 @@
-import React, { ReactNode, useState } from "react";
-import styles from "./Tooltip.module.scss";
+import React, { ReactNode, useState } from 'react';
+import styles from './Tooltip.module.scss';
 
 interface Props {
   children: ReactNode | ReactNode[];
@@ -14,7 +14,7 @@ export default function Tooltip(props: Props) {
   const toggleTooltip = () => {
     if (!enableTooltip) return;
     setShowTooltip(!showTooltip);
-  }
+  };
 
   return (
     <div
@@ -25,8 +25,12 @@ export default function Tooltip(props: Props) {
       className={styles.tooltipContainer}
       aria-describedby="tooltip"
     >
-      {showTooltip ? <span className={styles.tooltip} role="tooltip" id="tooltip">{tooltipContent}</span> : null}
+      {showTooltip ? (
+        <span className={styles.tooltip} role="tooltip" id="tooltip">
+          {tooltipContent}
+        </span>
+      ) : null}
       {children}
     </div>
-  )
+  );
 }

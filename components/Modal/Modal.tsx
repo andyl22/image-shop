@@ -1,5 +1,7 @@
-import { MouseEvent, useState, useEffect } from "react";
-import styles from "./Modal.module.scss";
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { MouseEvent, useState, useEffect } from 'react';
+import styles from './Modal.module.scss';
 
 interface Prop {
   children: React.ReactNode;
@@ -15,16 +17,16 @@ export default function Modal(props: Prop) {
   const closeModal = (e: MouseEvent) => {
     if (disabled) return;
     const target = e.target as HTMLElement;
-    if (target.id === "modal-overlay") {
+    if (target.id === 'modal-overlay') {
       toggleModal();
     }
   };
 
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = 'hidden';
 
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     };
   });
 

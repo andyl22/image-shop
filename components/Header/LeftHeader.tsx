@@ -1,18 +1,18 @@
-import { useEffect, useState, useRef } from "react";
-import styles from "./LeftHeader.module.scss";
-import ShopDropdown from "./ShopDropdown";
-import MenuIcon from "@mui/icons-material/Menu";
-import LeftNavMenu from "./LeftNavMenu";
-import BlogDropdown from "./BlogDropdown";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import { useEffect, useState, useRef } from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import styles from './LeftHeader.module.scss';
+import ShopDropdown from './ShopDropdown';
+import LeftNavMenu from './LeftNavMenu';
+import BlogDropdown from './BlogDropdown';
 
 export default function LeftHeader() {
   const linksRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [innerWidth, setInnerWidth] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
-  const [currentBasePath, setCurrentBasePath] = useState("");
+  const [currentBasePath, setCurrentBasePath] = useState('');
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -26,23 +26,23 @@ export default function LeftHeader() {
   // handle window size setting on initial load
   useEffect(() => {
     setInnerWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   // modify path when navigating to trigger rehighlighting
   useEffect(() => {
-    const basePath = router.asPath.split("/")[1];
+    const basePath = router.asPath.split('/')[1];
     setCurrentBasePath(basePath);
   }, [router]);
 
   //
   useEffect(() => {
     const curLink = linksRef.current?.querySelector(
-      `a[href='/${currentBasePath}']`
+      `a[href='/${currentBasePath}']`,
     );
     if (curLink) curLink.classList.add(styles.activeBasePath);
 
@@ -77,7 +77,11 @@ export default function LeftHeader() {
   const partialLeftNav = (
     <>
       {showModal ? <LeftNavMenu toggleModal={toggleModal} /> : null}
-      <button onClick={toggleModal} className={styles.hamburger}>
+      <button
+        onClick={toggleModal}
+        className={styles.hamburger}
+        type="button"
+      >
         <MenuIcon />
       </button>
       <Link href="/">

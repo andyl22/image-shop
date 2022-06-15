@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import styles from "./DropdownContainer.module.scss";
+import { ReactNode } from 'react';
+import styles from './DropdownContainer.module.scss';
 
 interface Props {
   children: ReactNode | ReactNode[];

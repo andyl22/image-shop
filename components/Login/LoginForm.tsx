@@ -1,15 +1,20 @@
-import styles from "./LoginForm.module.scss";
-import FormContainer from "../Form/FormContainer";
-import React, { FormEvent, useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { postHTTP } from "../../utilities/fetchAPIs";
-import { useAppDispatch } from "../../redux/hooks";
-import { login } from "../../redux/slices/userSlice";
+import React, { FormEvent, useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import styles from './LoginForm.module.scss';
+import FormContainer from '../Form/FormContainer';
+import { postHTTP } from '../../utilities/fetchAPIs';
+import { useAppDispatch } from '../../redux/hooks';
+import { login } from '../../redux/slices/userSlice';
 
 export default function LoginForm() {
   const formRef = useRef<HTMLInputElement>(null);
-  const [formState, setFormState] = useState({ username: "", password: "" });
-  const [errorMessage, setErrorMessage] = useState<String | null>(null);
+  const [formState, setFormState] = useState({
+    username: '',
+    password: '',
+  });
+  const [errorMessage, setErrorMessage] = useState<String | null>(
+    null,
+  );
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -19,13 +24,16 @@ export default function LoginForm() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const body = { username: formState.username, password: formState.password };
-    const response = await postHTTP("/user/login", body).catch((err) =>
-      setErrorMessage("Server Error")
+    const body = {
+      username: formState.username,
+      password: formState.password,
+    };
+    const response = await postHTTP('/user/login', body).catch(() =>
+      setErrorMessage('Server Error'),
     );
 
     if (!response) {
-      setErrorMessage("Server Error");
+      setErrorMessage('Server Error');
     } else if (!response.success) {
       setErrorMessage(response.data);
     } else {
@@ -54,7 +62,7 @@ export default function LoginForm() {
               onChange={handleChange}
               value={formState.username}
               required
-              aria-invalid={true}
+              aria-invalid
               aria-describedby="username-error"
             />
           </div>
@@ -66,7 +74,7 @@ export default function LoginForm() {
               onChange={handleChange}
               value={formState.password}
               required
-              aria-invalid={true}
+              aria-invalid
               aria-describedby="password-error"
             />
           </div>

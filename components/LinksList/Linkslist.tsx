@@ -1,5 +1,5 @@
-import Link from "next/link";
-import styles from "./LinksList.module.scss";
+import Link from 'next/link';
+import styles from './LinksList.module.scss';
 
 interface Props {
   linkGroupName: string;

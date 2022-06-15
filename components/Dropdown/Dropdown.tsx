@@ -1,5 +1,5 @@
-import styles from "./Dropdown.module.scss";
-import { KeyboardEvent, MouseEvent, useState } from "react";
+import { KeyboardEvent, MouseEvent, useState } from 'react';
+import styles from './Dropdown.module.scss';
 
 interface Dropdown {
   children: React.ReactNode;
@@ -22,11 +22,15 @@ export default function Dropdown(props: Dropdown) {
 
   const handleKeyPress = (e: KeyboardEvent) => {
     const target = e.target as HTMLElement;
-    if (target.tagName === "A" && e.key === "Enter" && !showDropdown) {
+    if (
+      target.tagName === 'A' &&
+      e.key === 'Enter' &&
+      !showDropdown
+    ) {
       e.preventDefault();
       toggleDropdown();
     }
-    if (e.key === "Escape") setShowDropdown(!showDropdown);
+    if (e.key === 'Escape') setShowDropdown(!showDropdown);
   };
 
   const handleMouseEnter = () => {
@@ -38,7 +42,8 @@ export default function Dropdown(props: Dropdown) {
   };
 
   return (
-    <div
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+    <span
       aria-expanded={showDropdown}
       className={styles.container}
       onMouseEnter={clickControlled ? undefined : handleMouseEnter}
@@ -47,7 +52,7 @@ export default function Dropdown(props: Dropdown) {
       onKeyDown={handleKeyPress}
     >
       {children}
-      {showDropdown ? <div>{dropdownContent}</div> : <div></div>}
-    </div>
+      {showDropdown ? <div>{dropdownContent}</div> : <div />}
+    </span>
   );
 }

@@ -1,8 +1,8 @@
-import styles from "./BlogModal.module.scss";
-import Modal from "../Modal/Modal";
-import CloseIcon from "@mui/icons-material/Close";
-import Image from "next/image";
-import { MouseEventHandler } from "react";
+import CloseIcon from '@mui/icons-material/Close';
+import Image from 'next/image';
+import { MouseEventHandler } from 'react';
+import Modal from '../Modal/Modal';
+import styles from './BlogModal.module.scss';
 
 interface Props {
   title: string;
@@ -14,14 +14,24 @@ interface Props {
 }
 
 export default function BlogModal(props: Props) {
-  const { title, subtitle, author, children, headerImage, toggleModal } = props;
+  const {
+    title,
+    subtitle,
+    author,
+    children,
+    headerImage,
+    toggleModal,
+  } = props;
 
   return (
-    <Modal toggleModal={toggleModal} absolute={true} allowOverlay={true}>
+    <Modal toggleModal={toggleModal} absolute allowOverlay>
       <div className={styles.modalBlogContent}>
-        <span onClick={toggleModal}>
-          <CloseIcon fontSize="small" className={styles.closeButton} />
-        </span>
+        <button onClick={toggleModal} type="button">
+          <CloseIcon
+            fontSize="small"
+            className={styles.closeButton}
+          />
+        </button>
         <div className={styles.articleHeader}>
           <h1>{title}</h1>
           <div className={styles.imageContainer}>
@@ -42,7 +52,9 @@ export default function BlogModal(props: Props) {
             <h2>By: {author}</h2>
           </span>
         </div>
-        <article className={styles.articleContent}>{children}</article>
+        <article className={styles.articleContent}>
+          {children}
+        </article>
       </div>
     </Modal>
   );

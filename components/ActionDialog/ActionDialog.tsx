@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import Modal from "../Modal/Modal";
-import styles from "./ActionDialog.module.scss";
+import { ReactNode } from 'react';
+import Modal from '../Modal/Modal';
+import styles from './ActionDialog.module.scss';
 
 interface Props {
   dialogTitle: string;
@@ -17,8 +17,12 @@ export default function ActionDialog(props: any) {
         <h1>{dialogTitle}</h1>
         <div className={styles.dialogContent}>{children}</div>
         <div className={styles.dialogButtonsContainer}>
-          <button onClick={confirmAction}>Confirm</button>
-          <button onClick={toggleModal}>Cancel</button>
+          <button onClick={confirmAction} type="submit">
+            Confirm
+          </button>
+          <button onClick={toggleModal} type="button">
+            Cancel
+          </button>
         </div>
       </div>
     </Modal>
