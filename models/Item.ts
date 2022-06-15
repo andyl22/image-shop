@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 const Item = new mongoose.Schema({
   name: {
@@ -27,12 +27,15 @@ const Item = new mongoose.Schema({
   },
   visits: {
     type: Number,
+    default: 0,
   },
   createDttm: {
     type: Date,
+    default: Date.now(),
   },
   updateDttm: {
     type: Date,
+    default: Date.now(),
   },
   sourceLink: {
     type: String,
@@ -41,6 +44,11 @@ const Item = new mongoose.Schema({
   sourceName: {
     type: String,
     required: [true, 'Please provide the name of the item source.'],
+  },
+  subsection: {
+    type: Schema.Types.ObjectId,
+    required: [true, 'Must provide a subsection for this item'],
+    ref: 'Subsection',
   },
 });
 

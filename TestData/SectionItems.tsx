@@ -1,8 +1,8 @@
-import data from "./SectionItems.json";
+import data from './SectionItems.json';
 import {
   formatToCamelCase,
   formatToKebabCase,
-} from "../utilities/StringFormat";
+} from '../utilities/StringFormat';
 
 interface StaticPaths {
   params: {
@@ -20,14 +20,16 @@ interface StaticProps {
 export function getAllSections() {
   const staticPaths: StaticPaths[] = [];
   Object.keys(data).forEach((subsection) => {
-    Object.keys(data[subsection as keyof typeof data]).forEach((item) => {
-      staticPaths.push({
-        params: {
-          shopSection: formatToKebabCase(subsection),
-          subSection: formatToKebabCase(item),
-        },
-      });
-    });
+    Object.keys(data[subsection as keyof typeof data]).forEach(
+      (item) => {
+        staticPaths.push({
+          params: {
+            shopSection: formatToKebabCase(subsection),
+            subSection: formatToKebabCase(item),
+          },
+        });
+      },
+    );
   });
   return staticPaths;
 }
@@ -48,6 +50,7 @@ export interface Item {
 export function getAllItems(jsonTree: any = data, results: any = []) {
   if (jsonTree.price) return results.push(jsonTree);
 
+  // eslint-disable-next-line no-restricted-syntax
   for (const key of Object.keys(jsonTree)) {
     const newTree = jsonTree[key as keyof typeof jsonTree];
     getAllItems(newTree, results);
@@ -60,30 +63,35 @@ export function setSectionItems(props: StaticProps) {
   const { shopSection, subSection } = props;
   const formattedShopSection = formatToCamelCase(shopSection);
   const formattedSubScetion = formatToCamelCase(subSection);
-  const subSectionContent = data[formattedShopSection as keyof typeof data];
+  const subSectionContent =
+    data[formattedShopSection as keyof typeof data];
 
   return {
     subSectionName: formattedSubScetion,
     subSectionContent:
-      subSectionContent[formattedSubScetion as keyof typeof subSectionContent],
+      subSectionContent[
+        formattedSubScetion as keyof typeof subSectionContent
+      ],
   };
 }
 
 export function getAllItemPaths() {
   const staticPaths: StaticPaths[] = [];
   Object.keys(data).forEach((subsection) => {
-    Object.keys(data[subsection as keyof typeof data]).forEach((item) => {
-      /* @ts-ignore */
-      data[subsection][item].forEach((subItem) => {
-        staticPaths.push({
-          params: {
-            shopSection: formatToKebabCase(subsection),
-            subSection: formatToKebabCase(item),
-            id: subItem.id.toString(),
-          },
+    Object.keys(data[subsection as keyof typeof data]).forEach(
+      (item) => {
+        /* @ts-ignore */
+        data[subsection][item].forEach((subItem) => {
+          staticPaths.push({
+            params: {
+              shopSection: formatToKebabCase(subsection),
+              subSection: formatToKebabCase(item),
+              id: subItem.id.toString(),
+            },
+          });
         });
-      });
-    });
+      },
+    );
   });
   return staticPaths;
 }

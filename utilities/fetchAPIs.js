@@ -1,32 +1,29 @@
 export function postHTTP(url, body) {
   const options = {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(body),
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   };
 
-  return fetch(`/api${url}`, options).then(res => {
-    if(res.ok) {
+  return fetch(`/api${url}`, options).then((res) => {
+    if (res.ok) {
       return res.json();
-    } else {
-      throw Error(res.json().error);
     }
-  })
-  ;
+    throw Error(res.json().error);
+  });
 }
 
 export function getHTTP(url) {
   const options = {
-    method: "GET",
+    method: 'GET',
   };
 
-  return fetch(`/api${url}`, options).then(function (res) {
+  return fetch(`/api${url}`, options).then((res) => {
     if (res.ok) {
       return res.json();
-    } else {
-      throw Error(res.json().error);
     }
+    throw Error(res.json().error);
   });
 }

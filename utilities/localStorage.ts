@@ -1,6 +1,5 @@
-import { debounce } from "lodash";
+const KEY = 'cart';
 
-const KEY = "cart";
 export function loadState() {
   try {
     const serializedState = localStorage.getItem(KEY);

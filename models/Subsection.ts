@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 const Subsection = new mongoose.Schema({
   name: {
@@ -9,6 +9,10 @@ const Subsection = new mongoose.Schema({
       'Subsection name must be less than 50 characters',
     ],
     unique: true,
+  },
+  section: {
+    type: Schema.Types.ObjectId,
+    ref: 'Section',
   },
 });
 
