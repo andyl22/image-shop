@@ -1,25 +1,35 @@
 import Link from 'next/link';
 import styles from './LinksList.module.scss';
+import {
+  formatTitle,
+  formatToKebabCase,
+} from '../../utilities/StringFormat';
 
 interface Props {
-  linkGroupName: string;
-  linkGroupLinks: { linkName: string; linkURL: string }[];
+  linkGroupLinks: { name: string; section: string }[];
+  sectionName: string;
 }
 
 export default function LinksList(props: Props) {
-  const { linkGroupName, linkGroupLinks } = props;
+  const { linkGroupLinks, sectionName } = props;
 
-  const mappedLinks = linkGroupLinks.map((link) => (
-    <li key={link.linkName}>
-      <Link href={link.linkURL}>
-        <a>{link.linkName}</a>
-      </Link>
-    </li>
-  ));
+  const mappedLinks = linkGroupLinks.map((link) => {
+    const formattedPath = `/shop/${formatToKebabCase(
+      sectionName,
+    )}/${formatToKebabCase(link.name)}`;
+
+    return (
+      <li key={link.name}>
+        <Link href={formattedPath}>
+          <a>{formatTitle(link.name)}</a>
+        </Link>
+      </li>
+    );
+  });
 
   return (
     <figure className={styles.listFigure}>
-      <figcaption>{linkGroupName}</figcaption>
+      <figcaption>{formatTitle(sectionName)}</figcaption>
       <ul>{mappedLinks}</ul>
     </figure>
   );

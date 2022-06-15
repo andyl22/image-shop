@@ -6,6 +6,7 @@ import styles from './LeftHeader.module.scss';
 import ShopDropdown from './ShopDropdown';
 import LeftNavMenu from './LeftNavMenu';
 import BlogDropdown from './BlogDropdown';
+import { getHTTP } from '../../utilities/fetchAPIs';
 
 export default function LeftHeader() {
   const linksRef = useRef<HTMLDivElement>(null);
@@ -13,6 +14,7 @@ export default function LeftHeader() {
   const [innerWidth, setInnerWidth] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [currentBasePath, setCurrentBasePath] = useState('');
+  const [sections, setSections] = useState([]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -31,6 +33,13 @@ export default function LeftHeader() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
+  }, []);
+
+  // get list of sections passed to header dropdown
+  useEffect(() => {
+    getHTTP('/items/getAllSections')
+      .then((res) => setSections(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   // modify path when navigating to trigger rehighlighting
@@ -58,7 +67,7 @@ export default function LeftHeader() {
           <h1>Parks</h1>
         </a>
       </Link>
-      <ShopDropdown>
+      <ShopDropdown sections={sections}>
         <Link href="/shop">
           <a className={styles.dropdownLink}>Shop</a>
         </Link>
