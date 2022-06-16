@@ -44,7 +44,8 @@
     "jsx-a11y/label-has-associated-control": "off",
     "react/require-default-props": "off",
     "react/button-has-type": "off",
-    "react/function-component-definition": "off"
+    "react/function-component-definition": "off",
+    "no-underscore-dangle": "off"
   },
   "settings": {
     "import/resolver": {

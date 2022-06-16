@@ -2,14 +2,25 @@ import Head from 'next/head';
 import Link from 'next/link';
 import styles from '../../../styles/ShopSection.module.scss';
 import Footer from '../../../components/Footer/Footer';
+import { getShopSectionNames } from '../../../TestData/Sections';
 import {
-  getAllHeaderLinkParams,
-  getShopSectionData,
-} from '../../../TestData/Sections';
+  formatDash,
+  formatTitle,
+  formatToCamelCase,
+} from '../../../utilities/StringFormat';
 import PathNav from '../../../components/PathNav/PathNav';
+import { postNode } from '../../../utilities/fetchAPIs';
 
 export async function getStaticPaths() {
-  const paths = getAllHeaderLinkParams();
+  const data = await getShopSectionNames();
+  const paths = data.map((item: { name: string; _id: string }) => {
+    const { name } = item;
+    return {
+      params: {
+        shopSection: formatDash(name),
+      },
+    };
+  });
   return {
     paths,
     fallback: false,
@@ -23,45 +34,60 @@ interface Params {
 }
 
 export async function getStaticProps({ params }: Params) {
-  const sectionData = getShopSectionData(params);
+  const { shopSection } = params;
+  const sectionNameCamel = formatToCamelCase(shopSection);
+  const section = await postNode(`/items/getSectionByName`, {
+    name: sectionNameCamel,
+  })
+    .then((res) => res.data)
+    .then((res) => res._id);
+  const itemList = await postNode(
+    `/items/getSubsectionsBySectionID`,
+    {
+      section,
+    },
+  ).then((res) => res.data);
   return {
     props: {
-      sectionData,
+      sectionData: {
+        sectionName: shopSection,
+        itemList,
+      },
     },
   };
 }
 
 interface Props {
   sectionData: {
-    itemList: [{ linkName: string; linkURL: string }];
+    itemList: [{ name: string; _id: string; section: string }];
     sectionName: string;
   };
 }
 
 function Section(props: Props) {
   const { sectionData } = props;
-  const formattedName = sectionData.sectionName
-    .split(/(?=[A-Z])/g)
-    .join(' ')
-    .toUpperCase();
+  const { itemList, sectionName } = sectionData;
+  const sectionNameTitle = formatTitle(
+    formatToCamelCase(sectionName),
+  );
 
-  const mappedItems = sectionData.itemList.map((item) => (
-    <Link href={item.linkURL} key={item.linkURL}>
-      <a>{item.linkName}</a>
+  const mappedItems = itemList.map((item) => (
+    <Link href={`${sectionName}/${item.name}`} key={item.name}>
+      <a>{formatTitle(item.name)}</a>
     </Link>
   ));
 
   return (
     <>
       <Head>
-        <title>{formattedName}</title>
+        <title>{sectionNameTitle}</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <PathNav />
-        <h1>{formattedName}</h1>
+        <h1>{sectionNameTitle}</h1>
         {mappedItems}
       </main>
       <Footer />

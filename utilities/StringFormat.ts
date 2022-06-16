@@ -21,4 +21,15 @@ const formatTitle = (string: string): string =>
     .map((item) => item[0].toUpperCase() + item.slice(1, item.length))
     .join(' ');
 
-export { formatToCamelCase, formatToKebabCase, formatTitle };
+const formatDash = (string: string): string =>
+  string
+    .split(/(?=[A-Z])/g)
+    .join('-')
+    .toLowerCase();
+
+export {
+  formatToCamelCase,
+  formatToKebabCase,
+  formatTitle,
+  formatDash,
+};
