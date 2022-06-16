@@ -1,4 +1,4 @@
-@use "../../styles/variables" as s;
+@use '../../styles/variables' as s;
 
 .modalBlogContent {
   display: flex;
@@ -21,12 +21,13 @@
   }
   .closeButton {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
-    &:hover {
-      cursor: pointer;
-      color: gray;
-    }
+    top: 1rem;
+    right: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .articleHeader {
     flex: 0;

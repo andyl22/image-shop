@@ -1,6 +1,6 @@
 import CloseIcon from '@mui/icons-material/Close';
 import Image from 'next/image';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, ReactElement } from 'react';
 import Modal from '../Modal/Modal';
 import styles from './BlogModal.module.scss';
 
@@ -8,7 +8,7 @@ interface Props {
   title: string;
   subtitle: string;
   author: string;
-  children: JSX.Element | JSX.Element[];
+  children: ReactElement | ReactElement[];
   headerImage: string;
   toggleModal: MouseEventHandler;
 }
@@ -26,11 +26,12 @@ export default function BlogModal(props: Props) {
   return (
     <Modal toggleModal={toggleModal} absolute allowOverlay>
       <div className={styles.modalBlogContent}>
-        <button onClick={toggleModal} type="button">
-          <CloseIcon
-            fontSize="small"
-            className={styles.closeButton}
-          />
+        <button
+          onClick={toggleModal}
+          type="button"
+          className={styles.closeButton}
+        >
+          <CloseIcon fontSize="small" className={styles.closeIcon} />
         </button>
         <div className={styles.articleHeader}>
           <h1>{title}</h1>

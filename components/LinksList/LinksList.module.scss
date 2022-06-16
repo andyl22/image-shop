@@ -1,4 +1,5 @@
 .listFigure {
+  padding: 1rem 0;
   ul {
     font-weight: 500;
     padding: 0.5rem 0 0 0.5rem;
@@ -12,7 +13,7 @@
     }
   }
   figcaption {
-    text-align: center;
+    text-align: left;
     font-weight: 600;
   }
 }
