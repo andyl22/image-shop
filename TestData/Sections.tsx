@@ -1,5 +1,6 @@
 import data from './Sections.json';
 import { formatTitle } from '../utilities/StringFormat';
+import { getHTTP } from '../utilities/fetchAPIs';
 
 export function getAllHeaderLinkParams() {
   return Object.keys(data).map((key) => ({
@@ -36,6 +37,10 @@ export function getShopSectionData(shopSection: ShopSection) {
   };
 }
 
-export function getShopSectionNames() {
-  return Object.keys(data).map((item) => formatTitle(item));
-}
+const getShopSectionNames = async () =>
+  fetch(`${process.env.API_URI}/api/items/getAllSections`)
+    .then((res) => res.json())
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+
+export { getShopSectionNames };

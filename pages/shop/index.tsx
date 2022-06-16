@@ -1,21 +1,38 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import Header from "../../components/Header/Header";
-import PathNav from "../../components/PathNav/PathNav";
-import styles from "../../styles/Shop.module.scss";
-import { formatToKebabCase } from "../../utilities/StringFormat";
+import Head from 'next/head';
+import Link from 'next/link';
+import PathNav from '../../components/PathNav/PathNav';
+import styles from '../../styles/Shop.module.scss';
+import {
+  formatToKebabCase,
+  formatTitle,
+} from '../../utilities/StringFormat';
+import { getShopSectionNames } from '../../TestData/Sections';
 
-import { getShopSectionNames } from "../../TestData/Sections";
+export const getServerSideProps = async () => {
+  const data = await getShopSectionNames();
+  return {
+    props: {
+      data,
+    },
+  };
+};
 
-const Shop: NextPage = () => {
-  const sectionNames = getShopSectionNames();
+interface SectionData {
+  _id: string;
+  name: string;
+}
 
-  const mappedNames = sectionNames.map((item) => (
-    <Link key={item} href={`/shop/${formatToKebabCase(item)}`}>
-      <a>{item}</a>
-    </Link>
-  ));
+function Shop(props: any) {
+  const { data } = props;
+  const mappedNames = data.map((item: SectionData) => {
+    const { _id, name } = item;
+    return (
+      <Link key={_id} href={`/shop/${formatToKebabCase(name)}`}>
+        <a>{formatTitle(name)}</a>
+      </Link>
+    );
+  });
+
   return (
     <>
       <Head>
@@ -31,6 +48,6 @@ const Shop: NextPage = () => {
       </main>
     </>
   );
-};
+}
 
 export default Shop;
