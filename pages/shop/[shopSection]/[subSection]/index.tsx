@@ -1,15 +1,31 @@
-import Head from "next/head";
-import styles from "../../../../styles/SubSection.module.scss";
+import Head from 'next/head';
+import styles from '../../../../styles/SubSection.module.scss';
+import { setSectionItems } from '../../../../TestData/SectionItems';
+import Footer from '../../../../components/Footer/Footer';
+import PathNav from '../../../../components/PathNav/PathNav';
+import ItemsControlMenu from '../../../../components/ItemsControlMenu/ItemsControlMenu';
 import {
-  getAllSections,
-  setSectionItems,
-} from "../../../../TestData/SectionItems";
-import Footer from "../../../../components/Footer/Footer";
-import PathNav from "../../../../components/PathNav/PathNav";
-import ItemsControlMenu from "../../../../components/ItemsControlMenu/ItemsControlMenu";
+  getShopSectionNames,
+  getSubsectionNames,
+} from '../../../../TestData/Sections';
+import { formatDash } from '../../../../utilities/StringFormat';
 
 export const getStaticPaths = async () => {
-  const paths = getAllSections();
+  const sections = await getShopSectionNames();
+  const paths = [];
+  for (let i = 0; i < sections.length; i += 1) {
+    const sectionID = sections[i]._id;
+    // eslint-disable-next-line no-await-in-loop
+    const subsectionNames = await getSubsectionNames(sectionID);
+    for (let j = 0; j < subsectionNames.length; j += 1) {
+      paths.push({
+        params: {
+          shopSection: formatDash(sections[i].name),
+          subSection: subsectionNames[j].name,
+        },
+      });
+    }
+  }
   return {
     paths,
     fallback: false,
@@ -57,7 +73,7 @@ const SubSection = (props: Props) => {
 
   const formattedName = sectionData.subSectionName
     .split(/(?=[A-Z])/g)
-    .join(" ")
+    .join(' ')
     .toUpperCase();
 
   return (
@@ -70,7 +86,10 @@ const SubSection = (props: Props) => {
 
       <main className={styles.main}>
         <PathNav />
-        <ItemsControlMenu itemData={sectionData.subSectionContent} title={formattedName}/>
+        <ItemsControlMenu
+          itemData={sectionData.subSectionContent}
+          title={formattedName}
+        />
       </main>
       <Footer />
     </>

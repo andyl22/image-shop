@@ -72,7 +72,7 @@ function Section(props: Props) {
   );
 
   const mappedItems = itemList.map((item) => (
-    <Link href={`${sectionName}/${item.name}`} key={item.name}>
+    <Link href={`/shop/${sectionName}/${item.name}`} key={item.name}>
       <a>{formatTitle(item.name)}</a>
     </Link>
   ));
