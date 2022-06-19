@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactElement } from 'react';
 import Dropdown from '../Dropdown/Dropdown';
 import DropdownContainer from './DropdownContainer';
 import SheetLink from '../Sheet/SheetLink';
@@ -6,7 +6,7 @@ import { getBlogData } from '../../TestData/BlogData';
 import styles from './BlogDropdown.module.scss';
 
 interface Props {
-  children: ReactNode | Array<ReactNode>;
+  children: ReactElement;
 }
 
 export default function BlogDropdown(props: Props) {

@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactElement, useEffect, useState } from 'react';
 import styles from './ShopDropdown.module.scss';
 import Dropdown from '../Dropdown/Dropdown';
 import LinksList from '../LinksList/Linkslist';
@@ -12,13 +12,14 @@ interface Section {
 }
 
 interface Props {
-  children: ReactNode;
+  children: ReactElement;
   sections: Section[];
 }
 
 export default function ShopDropdown(props: Props) {
   const { children, sections } = props;
-  const [mappedSections, setMappedSections] = useState<ReactNode[]>();
+  const [mappedSections, setMappedSections] =
+    useState<ReactElement[]>();
 
   useEffect(() => {
     const mapSections = async () => {

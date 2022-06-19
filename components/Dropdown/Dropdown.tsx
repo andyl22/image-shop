@@ -1,13 +1,14 @@
 import {
   KeyboardEvent,
   MouseEvent,
+  ReactChild,
   ReactElement,
   useState,
 } from 'react';
 import styles from './Dropdown.module.scss';
 
 interface Props {
-  children: ReactElement;
+  children: ReactChild | ReactChild[];
   dropdownContent: ReactElement;
   clickControlled?: boolean;
 }
