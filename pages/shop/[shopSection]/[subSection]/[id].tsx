@@ -6,9 +6,10 @@ import {
 import styles from '../../../../styles/ShopItem.module.scss';
 import PathNav from '../../../../components/PathNav/PathNav';
 import AddToCart from '../../../../components/AddToCart/AddToCart';
+import { getAllItemPathTest } from '../../../../TestData/Sections';
 
 export const getStaticPaths = async () => {
-  const paths = getAllItemPaths();
+  const paths = await getAllItemPathTest();
   return {
     paths,
     fallback: false,
@@ -19,7 +20,7 @@ interface Params {
   params: {
     shopSection: string;
     subSection: string;
-    id: number;
+    id: string;
   };
 }
 
@@ -49,7 +50,7 @@ const Item = (props: Props) => {
 
   return (
     <main className={styles.main}>
-      <PathNav />
+      {/* <PathNav />
       <div className={styles.itemWrapper}>
         <h1>{details.name}</h1>
         <Image
@@ -68,7 +69,7 @@ const Item = (props: Props) => {
           name={details.name}
           price={parseFloat(details.price)}
         />
-      </div>
+      </div> */}
     </main>
   );
 };

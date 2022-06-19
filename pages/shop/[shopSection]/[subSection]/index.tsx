@@ -4,28 +4,10 @@ import { setSectionItems } from '../../../../TestData/SectionItems';
 import Footer from '../../../../components/Footer/Footer';
 import PathNav from '../../../../components/PathNav/PathNav';
 import ItemsControlMenu from '../../../../components/ItemsControlMenu/ItemsControlMenu';
-import {
-  getShopSectionNames,
-  getSubsectionNames,
-} from '../../../../TestData/Sections';
-import { formatDash } from '../../../../utilities/StringFormat';
+import { getAllSubsectionPaths } from '../../../../TestData/Sections';
 
 export const getStaticPaths = async () => {
-  const sections = await getShopSectionNames();
-  const paths = [];
-  for (let i = 0; i < sections.length; i += 1) {
-    const sectionID = sections[i]._id;
-    // eslint-disable-next-line no-await-in-loop
-    const subsectionNames = await getSubsectionNames(sectionID);
-    for (let j = 0; j < subsectionNames.length; j += 1) {
-      paths.push({
-        params: {
-          shopSection: formatDash(sections[i].name),
-          subSection: subsectionNames[j].name,
-        },
-      });
-    }
-  }
+  const paths = await getAllSubsectionPaths();
   return {
     paths,
     fallback: false,

@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import Section from '../../../models/Section';
+import Subsection from '../../../models/Subsection';
 import dbConnect from '../../../utilities/mongo';
 
 export default async function handler(
@@ -7,6 +7,6 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   await dbConnect();
-  const data = await Section.find();
+  const data = await Subsection.find();
   res.status(200).json({ status: 'Done', data });
 }
