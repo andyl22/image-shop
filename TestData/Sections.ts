@@ -75,7 +75,7 @@ const getAllSubsectionPaths = async () => {
   return paths;
 };
 
-const getAllItemPathTest = async () => {
+const getAllItemPaths = async () => {
   const sections = await getShopSectionNames();
   const subsections = await getAllSubsections();
   const allItems = await getAllItems();
@@ -120,6 +120,7 @@ export {
   getShopSectionNames,
   getSubsectionNames,
   getAllSubsectionPaths,
-  getAllItemPathTest,
+  getAllItemPaths,
   getSectionItems,
+  getAllItems,
 };

@@ -23,7 +23,6 @@ export function postNode(url, body) {
       'Content-Type': 'application/json',
     },
   };
-
   return fetch(`${process.env.API_URI}/api${url}`, options).then(
     (res) => {
       if (res.ok) {

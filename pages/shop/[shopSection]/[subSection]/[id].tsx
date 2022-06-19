@@ -1,15 +1,12 @@
 import Image from 'next/image';
-import {
-  getAllItems,
-  getAllItemPaths,
-} from '../../../../TestData/SectionItems';
 import styles from '../../../../styles/ShopItem.module.scss';
 import PathNav from '../../../../components/PathNav/PathNav';
 import AddToCart from '../../../../components/AddToCart/AddToCart';
-import { getAllItemPathTest } from '../../../../TestData/Sections';
+import { getAllItemPaths } from '../../../../TestData/Sections';
+import { postNode } from '../../../../utilities/fetchAPIs';
 
 export const getStaticPaths = async () => {
-  const paths = await getAllItemPathTest();
+  const paths = await getAllItemPaths();
   return {
     paths,
     fallback: false,
@@ -25,9 +22,11 @@ interface Params {
 }
 
 export const getStaticProps = async ({ params }: Params) => {
-  const item = getAllItems().filter(
-    (item: { id: any }) => item.id == params.id,
-  )[0];
+  const item = await postNode('/items/getItemByID', {
+    _id: params.id,
+  })
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
   return {
     props: {
       details: item,
@@ -37,10 +36,10 @@ export const getStaticProps = async ({ params }: Params) => {
 
 interface Props {
   details: {
-    id: string;
+    _id: string;
     name: string;
     description: string;
-    price: string;
+    price: number;
     image: string;
   };
 }
@@ -50,7 +49,7 @@ const Item = (props: Props) => {
 
   return (
     <main className={styles.main}>
-      {/* <PathNav />
+      <PathNav />
       <div className={styles.itemWrapper}>
         <h1>{details.name}</h1>
         <Image
@@ -63,13 +62,13 @@ const Item = (props: Props) => {
         <p className={styles.itemDescription}>
           {details.description}
         </p>
-        <p>{details.price === '0.00' ? 'FREE' : details.price}</p>
+        <p>{details.price === 0 ? 'FREE' : `$${details.price}`}</p>
         <AddToCart
-          id={details.id}
+          id={details._id}
           name={details.name}
-          price={parseFloat(details.price)}
+          price={details.price}
         />
-      </div> */}
+      </div>
     </main>
   );
 };

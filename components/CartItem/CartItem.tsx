@@ -7,6 +7,7 @@ import {
   ChangeEvent,
   FormEvent,
   SetStateAction,
+  useEffect,
   useState,
 } from 'react';
 import Image from 'next/image';
@@ -18,7 +19,7 @@ import {
   remove,
   set,
 } from '../../redux/slices/cartSlice';
-import { getAllItems } from '../../TestData/SectionItems';
+import { postHTTP } from '../../utilities/fetchAPIs';
 
 interface Props {
   id: string;
@@ -29,9 +30,26 @@ interface Props {
   };
 }
 
+interface Item {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  sourceLink: string;
+  sourceName: string;
+  subsection: string;
+  createDttm: Date;
+  updateDttm: Date;
+  visits: number;
+}
+
 export default function CartItem(props: Props) {
   const { name, price } = props.cartItemDetails;
   const { id } = props;
+  const [fullItemData, setFullItemData] = useState<
+    undefined | Item
+  >();
   const [quantity, setQuantity] = useState(
     props.cartItemDetails.quantity,
   );
@@ -137,23 +155,29 @@ export default function CartItem(props: Props) {
     }
   };
 
-  const fullItemData = getAllItems().filter(
-    // eslint-disable-next-line eqeqeq
-    (item: { id: string }) => item.id == id,
-  )[0];
+  useEffect(() => {
+    const getItem = async () =>
+      postHTTP('/items/getItemByID', { _id: id })
+        .then((res) => res.data)
+        .then((res) => setFullItemData(res))
+        .catch((err) => console.log(err));
+    getItem();
+  }, []);
 
   return (
     <div className={styles.cartItem}>
       <div className={styles.itemHeader}>
         <h2>{name}</h2>
       </div>
-      <Image
-        src={fullItemData.image}
-        alt={name}
-        height="128px"
-        width="128px"
-        quality={30}
-      />
+      {fullItemData ? (
+        <Image
+          src={fullItemData.image}
+          alt={name}
+          height="128px"
+          width="128px"
+          quality={30}
+        />
+      ) : null}
       <div className={styles.manageQuantities}>
         {showInput ? (
           <form
