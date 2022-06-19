@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ItemSlider from '../components/ItemSlider/ItemSlider';
 import ItemCardLink from '../components/ItemCard/ItemCardLink';
 import Sheet from '../components/Sheet/Sheet';
@@ -8,11 +8,13 @@ import SheetLink from '../components/Sheet/SheetLink';
 import Footer from '../components/Footer/Footer';
 import styles from '../styles/Home.module.scss';
 import { getBlogData } from '../TestData/BlogData';
-import { Item, getAllItems } from '../TestData/SectionItems';
+import { Item } from '../TestData/SectionItems';
+import { getAllItems } from '../TestData/Sections';
+import { postHTTP } from '../utilities/fetchAPIs';
 
 const Home: NextPage = () => {
   const blogData = getBlogData();
-  const itemData = getAllItems();
+  const [mappedItem, setMappedItem] = useState<any>();
 
   const mappedBlogSheets = blogData.slice(0, 4).map((item) => (
     <SheetLink
@@ -27,23 +29,6 @@ const Home: NextPage = () => {
     </SheetLink>
   ));
 
-  const mappedItemData = itemData.slice(0, 8).map((item: Item) => {
-    const imgPath = item.image.split('/');
-    const category = imgPath[2];
-    const subCategory = imgPath[3];
-    return (
-      <ItemCardLink
-        imageURL={item.image}
-        link={`shop/${category}/${subCategory}/${item.id}`}
-        name={item.name}
-        key={item.id}
-        id={item.id.toString()}
-        description={item.description}
-        price={item.price}
-      />
-    );
-  });
-
   // effect to add intersection observers to all elements which we want to observe
   // used to animate the page while scrolling for visual feedback
   useEffect(() => {
@@ -56,14 +41,6 @@ const Home: NextPage = () => {
     const callback = (entries: any, observer: any) => {
       entries.forEach((entry: any) => {
         // Each entry describes an intersection change for one observed
-        // target element:
-        //   entry.boundingClientRect
-        //   entry.intersectionRatio
-        //   entry.intersectionRect
-        //   entry.isIntersecting
-        //   entry.rootBounds
-        //   entry.target
-        //   entry.time
         if (entry.isIntersecting) {
           entry.target.classList.add(styles.animate);
           entry.target.classList.remove('toBeObserved');
@@ -78,6 +55,32 @@ const Home: NextPage = () => {
     Array.from(observedElements).forEach((el) => {
       observer.observe(el);
     });
+  }, []);
+
+  useEffect(() => {
+    const getItems = async () => {
+      const items = await postHTTP('/items/getAllItems')
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
+      const mappedItemData = items.slice(0, 8).map((item: Item) => {
+        const imgPath = item.image.split('/');
+        const category = imgPath[2];
+        const subCategory = imgPath[3];
+        return (
+          <ItemCardLink
+            imageURL={item.image}
+            link={`shop/${category}/${subCategory}/${item._id}`}
+            name={item.name}
+            key={item._id}
+            id={item._id}
+            description={item.description}
+            price={item.price}
+          />
+        );
+      });
+      setMappedItem(mappedItemData);
+    };
+    getItems();
   }, []);
 
   return (
@@ -108,7 +111,9 @@ const Home: NextPage = () => {
             className={`${styles.itemSliderContainer} toBeObserved`}
           >
             <h2>New Arrivals</h2>
-            <ItemSlider>{mappedItemData}</ItemSlider>
+            {mappedItem ? (
+              <ItemSlider>{mappedItem}</ItemSlider>
+            ) : null}
           </div>
           <div className={`${styles.sheetsContainer} toBeObserved`}>
             <Sheet background='url("/images/wide.jpg")'>
