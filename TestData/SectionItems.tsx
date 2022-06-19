@@ -47,22 +47,10 @@ export interface Item {
   sourceName: string;
 }
 
-export function getAllItems(jsonTree: any = data, results: any = []) {
-  if (jsonTree.price) return results.push(jsonTree);
-
-  // eslint-disable-next-line no-restricted-syntax
-  for (const key of Object.keys(jsonTree)) {
-    const newTree = jsonTree[key as keyof typeof jsonTree];
-    getAllItems(newTree, results);
-  }
-
-  return results;
-}
-
 export function setSectionItems(props: StaticProps) {
-  const { shopSection, subSection } = props;
+  const { shopSection, subsection } = props;
   const formattedShopSection = formatToCamelCase(shopSection);
-  const formattedSubScetion = formatToCamelCase(subSection);
+  const formattedSubScetion = formatToCamelCase(subsection);
   const subSectionContent =
     data[formattedShopSection as keyof typeof data];
 

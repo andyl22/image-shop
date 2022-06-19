@@ -40,6 +40,19 @@ const getAllItems = () =>
     .then((res) => res.data)
     .catch((err) => console.log(err));
 
+const getItemsBySubsection = async (subsectionName: string) => {
+  const subsection = await postNode('/items/getSubsectionByName', {
+    name: subsectionName,
+  })
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+  return postNode('/items/getItemsBySubsection', {
+    subsection: subsection._id,
+  })
+    .then((res) => res.data)
+    .catch((err) => console.log(err));
+};
+
 const getAllSubsectionPaths = async () => {
   const sections = await getShopSectionNames();
   const subsections = await getAllSubsections();
@@ -54,7 +67,7 @@ const getAllSubsectionPaths = async () => {
       paths.push({
         params: {
           shopSection: formatDash(sections[i].name),
-          subSection: subsectionNames[j].name,
+          subsection: subsectionNames[j].name,
         },
       });
     }
@@ -81,7 +94,7 @@ const getAllItemPathTest = async () => {
         paths.push({
           params: {
             shopSection: formatDash(sections[i].name),
-            subSection: subsectionNames[j].name,
+            subsection: subsectionNames[j].name,
             id: itemsList[k]._id,
           },
         });
@@ -91,9 +104,22 @@ const getAllItemPathTest = async () => {
   return paths;
 };
 
+const getSectionItems = async (params: {
+  shopSection: string;
+  subsection: string;
+}) => {
+  const subsectionName = params.subsection;
+  const items = await getItemsBySubsection(subsectionName);
+  return {
+    subsectionName,
+    subsectionContent: items,
+  };
+};
+
 export {
   getShopSectionNames,
   getSubsectionNames,
   getAllSubsectionPaths,
   getAllItemPathTest,
+  getSectionItems,
 };

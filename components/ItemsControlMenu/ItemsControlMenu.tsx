@@ -6,7 +6,7 @@ import ItemCardLink from '../ItemCard/ItemCardLink';
 import { formatTitle } from '../../utilities/StringFormat';
 
 interface Item {
-  id: string;
+  _id: string;
   name: string;
   description: string;
   price: string;
@@ -92,15 +92,15 @@ export default function SortMenu(props: Props) {
     }
 
     const mappedSectionData = itemData.map((item: Item) => {
-      const { name, image, id, description, price } = item;
+      const { name, image, _id, description, price } = item;
       return (
         <ItemCardLink
           imageURL={image}
           name={name}
-          id={id}
+          id={_id}
           description={description}
           price={price}
-          key={id}
+          key={_id}
           enableCheckout
         />
       );

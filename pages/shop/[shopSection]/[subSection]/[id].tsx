@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
 interface Params {
   params: {
     shopSection: string;
-    subSection: string;
+    subsection: string;
     id: string;
   };
 }

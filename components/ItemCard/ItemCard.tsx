@@ -8,7 +8,7 @@ interface Props {
   name: string;
   description: string;
   imageURL: string;
-  price?: string;
+  price: number;
   enableCheckout?: boolean;
 }
 
@@ -36,11 +36,7 @@ export default function ItemCard(props: Props) {
       <div className={styles.itemContent}>
         {
           // eslint-disable-next-line no-nested-ternary
-          price === '0.00' ? (
-            <p>FREE</p>
-          ) : price ? (
-            <p>${price}</p>
-          ) : null
+          price === 0 ? <p>FREE</p> : price ? <p>${price}</p> : null
         }
         <OverflowToolTip tooltipContent={description}>
           <p className={styles.description}>{description}</p>

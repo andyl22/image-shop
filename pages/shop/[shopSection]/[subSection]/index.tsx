@@ -4,7 +4,10 @@ import { setSectionItems } from '../../../../TestData/SectionItems';
 import Footer from '../../../../components/Footer/Footer';
 import PathNav from '../../../../components/PathNav/PathNav';
 import ItemsControlMenu from '../../../../components/ItemsControlMenu/ItemsControlMenu';
-import { getAllSubsectionPaths } from '../../../../TestData/Sections';
+import {
+  getAllSubsectionPaths,
+  getSectionItems,
+} from '../../../../TestData/Sections';
 
 export const getStaticPaths = async () => {
   const paths = await getAllSubsectionPaths();
@@ -17,12 +20,12 @@ export const getStaticPaths = async () => {
 interface Params {
   params: {
     shopSection: string;
-    subSection: string;
+    subsection: string;
   };
 }
 
 export const getStaticProps = async ({ params }: Params) => {
-  const sectionData = setSectionItems(params);
+  const sectionData = await getSectionItems(params);
   return {
     props: {
       sectionData,
@@ -42,8 +45,8 @@ interface SubSectionContent {
 }
 
 interface SectionData {
-  subSectionName: string;
-  subSectionContent: SubSectionContent[];
+  subsectionName: string;
+  subsectionContent: SubSectionContent[];
 }
 
 interface Props {
@@ -52,8 +55,7 @@ interface Props {
 
 const SubSection = (props: Props) => {
   const { sectionData } = props;
-
-  const formattedName = sectionData.subSectionName
+  const formattedName = sectionData.subsectionName
     .split(/(?=[A-Z])/g)
     .join(' ')
     .toUpperCase();
@@ -69,7 +71,7 @@ const SubSection = (props: Props) => {
       <main className={styles.main}>
         <PathNav />
         <ItemsControlMenu
-          itemData={sectionData.subSectionContent}
+          itemData={sectionData.subsectionContent}
           title={formattedName}
         />
       </main>
