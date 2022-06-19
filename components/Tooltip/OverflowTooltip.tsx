@@ -21,6 +21,7 @@ export default function OverflowToolTip(props: Props) {
         ref: containerRef,
       });
     }
+    return null;
   });
 
   useEffect(() => {
