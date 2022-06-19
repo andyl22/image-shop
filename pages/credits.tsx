@@ -1,11 +1,11 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import styles from "../styles/Credits.module.scss";
-import AccreditationItem from "../components/AccreditationItem/AccreditationItem";
-import { getAllItems, Item } from "../TestData/SectionItems";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import styles from '../styles/Credits.module.scss';
+import AccreditationItem from '../components/AccreditationItem/AccreditationItem';
+import { getAllItems } from '../TestData/Sections';
 
 export const getStaticProps = async () => {
-  const item = getAllItems();
+  const item = await getAllItems();
   return {
     props: {
       items: item,
@@ -13,23 +13,18 @@ export const getStaticProps = async () => {
   };
 };
 
-interface Props {
-  items: Item[];
-}
-
-const Privacy: NextPage<Props> = ({ items }) => {
-  
-  const mappedItems = items.map((item) => {
-    return (
-      <AccreditationItem
-        imgURL={item.image}
-        itemSource={item.sourceName}
-        itemDescription={item.description}
-        sourceLink={item.sourceLink}
-        key={item.id}
-      />
-    );
-  });
+// eslint-disable-next-line react/prop-types
+const Privacy: NextPage = ({ items }) => {
+  // eslint-disable-next-line react/prop-types
+  const mappedItems = items.map((item) => (
+    <AccreditationItem
+      imgURL={item.image}
+      itemSource={item.sourceName}
+      itemDescription={item.description}
+      sourceLink={item.sourceLink}
+      key={item.id}
+    />
+  ));
 
   return (
     <>

@@ -2,6 +2,7 @@ import { postNode } from '../utilities/fetchAPIs';
 import { formatDash } from '../utilities/StringFormat';
 
 interface Item {
+  _id: string;
   name: string;
   description: string;
   price: number;
@@ -124,3 +125,5 @@ export {
   getSectionItems,
   getAllItems,
 };
+
+export type { Item };

@@ -6,7 +6,7 @@ import {
 } from '../../utilities/StringFormat';
 
 interface Props {
-  linkGroupLinks: { name: string; section: string }[];
+  linkGroupLinks: { _id: string; name: string; section: string }[];
   sectionName: string;
 }
 

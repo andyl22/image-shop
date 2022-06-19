@@ -4,17 +4,7 @@ import CollapsibleItem from '../CollapsibleItem/CollapsibleItem';
 import styles from './ItemsControlMenu.module.scss';
 import ItemCardLink from '../ItemCard/ItemCardLink';
 import { formatTitle } from '../../utilities/StringFormat';
-
-interface Item {
-  _id: string;
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-  visits: number;
-  createDttm: number;
-  updateDttm: number;
-}
+import { Item } from '../../TestData/Sections';
 
 interface Props {
   itemData: Item[];
@@ -75,17 +65,19 @@ export default function SortMenu(props: Props) {
         itemData.sort((a, b) => a.visits - b.visits);
         break;
       case 'recent':
-        itemData.sort((a, b) => b.createDttm - a.createDttm);
+        itemData.sort((a, b) => {
+          const toTimestamp = (strDate: Date) =>
+            new Date(strDate).getTime();
+          return (
+            toTimestamp(b.createDttm) - toTimestamp(a.createDttm)
+          );
+        });
         break;
       case 'highestPrice':
-        itemData.sort(
-          (a, b) => parseFloat(b.price) - parseFloat(a.price),
-        );
+        itemData.sort((a, b) => b.price - a.price);
         break;
       case 'lowestPrice':
-        itemData.sort(
-          (a, b) => parseFloat(a.price) - parseFloat(b.price),
-        );
+        itemData.sort((a, b) => a.price - b.price);
         break;
       default:
         break;

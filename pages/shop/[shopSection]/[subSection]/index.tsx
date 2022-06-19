@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import styles from '../../../../styles/SubSection.module.scss';
-import { setSectionItems } from '../../../../TestData/SectionItems';
 import Footer from '../../../../components/Footer/Footer';
 import PathNav from '../../../../components/PathNav/PathNav';
 import ItemsControlMenu from '../../../../components/ItemsControlMenu/ItemsControlMenu';
 import {
   getAllSubsectionPaths,
   getSectionItems,
+  Item,
 } from '../../../../TestData/Sections';
 
 export const getStaticPaths = async () => {
@@ -33,20 +33,9 @@ export const getStaticProps = async ({ params }: Params) => {
   };
 };
 
-interface SubSectionContent {
-  id: string;
-  name: string;
-  description: string;
-  price: string;
-  image: string;
-  visits: number;
-  createDttm: number;
-  updateDttm: number;
-}
-
 interface SectionData {
   subsectionName: string;
-  subsectionContent: SubSectionContent[];
+  subsectionContent: Item[];
 }
 
 interface Props {

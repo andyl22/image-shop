@@ -1,38 +1,58 @@
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import Link from 'next/link';
-import { MouseEvent } from 'react';
+import { MouseEvent, useEffect, useState, ReactElement } from 'react';
 import styles from './LeftNavMenu.module.scss';
 import Modal from '../Modal/Modal';
 import CollapsibleItem from '../CollapsibleItem/CollapsibleItem';
-import data from '../../TestData/Sections.json';
 import LinksList from '../LinksList/Linkslist';
+import { getHTTP } from '../../utilities/fetchAPIs';
 
 interface Props {
   toggleModal: any;
 }
 
+interface Subsection {
+  _id: string;
+  name: string;
+  section: string;
+}
+
+interface Section {
+  _id: string;
+  name: string;
+}
+
 export default function LeftNavMenu(props: Props) {
   const { toggleModal } = props;
+  const [mappedLinks, setMappedLinks] = useState<ReactElement[]>([]);
 
-  const handleClick = (e: MouseEvent<HTMLDivElement>) => {
-    const el = e.target as HTMLElement;
-    const { tagName } = el;
-    if (tagName === 'H1' || tagName === 'A') toggleModal();
-  };
-
-  const mappedLinks = Object.keys(data).map((linkGroupName) => {
-    const formattedLink = linkGroupName
-      .split(/(?=[A-Z])/g)
-      .join(' ')
-      .toUpperCase();
-    return (
-      <LinksList
-        linkGroupName={formattedLink}
-        key={linkGroupName}
-        linkGroupLinks={data[linkGroupName as keyof typeof data]}
-      />
-    );
-  });
+  useEffect(() => {
+    const mappedSections: ReactElement[] = [];
+    const setSubsectionPaths = async () => {
+      const sections = await getHTTP('/items/getAllSections')
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
+      const allSubsections = await getHTTP('/items/getAllSubsections')
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
+      sections.forEach((section: Section) => {
+        const subsections = allSubsections.filter(
+          (subsection: Subsection) =>
+            subsection.section === section._id,
+        );
+        const mappedSection = (
+          <LinksList
+            sectionName={section.name}
+            key={section._id}
+            linkGroupLinks={subsections}
+          />
+        );
+        mappedSections.push(mappedSection);
+      });
+      setMappedLinks(mappedSections);
+    };
+    setSubsectionPaths();
+  }, []);
 
   return (
     <Modal toggleModal={toggleModal}>
@@ -54,7 +74,9 @@ export default function LeftNavMenu(props: Props) {
           parentNode={<p>Shop</p>}
           showCollapsedOnLoad={false}
         >
-          <div className={styles.collapseContent}>{mappedLinks}</div>
+          <div className={styles.collapseContent}>
+            {mappedLinks || null}
+          </div>
         </CollapsibleItem>
         <Link href="/blog">
           <a>Blogs</a>
