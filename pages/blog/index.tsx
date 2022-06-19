@@ -10,8 +10,6 @@ const Blog: NextPage = () => {
     <BlogCard
       id={item.id}
       title={item.title}
-      subtitle={item.subtitle}
-      author={item.author}
       content={item.previewText}
       image={item.image}
       key={item.id}

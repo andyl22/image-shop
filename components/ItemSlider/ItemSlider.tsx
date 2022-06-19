@@ -55,7 +55,7 @@ export default function ItemSlider(props: Props) {
     return children.slice(pointer, pointer + itemsToRender);
   })();
 
-  const handleResize = (e: UIEvent) => {
+  const handleResize = () => {
     setItemsToRender(
       Math.max(1, Math.floor(window.innerWidth / 380)),
     );

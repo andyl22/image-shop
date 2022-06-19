@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Credits.module.scss';
 import AccreditationItem from '../components/AccreditationItem/AccreditationItem';
-import { getAllItems } from '../TestData/Sections';
+import { getAllItems, Item } from '../TestData/Sections';
 
 export const getStaticProps = async () => {
   const item = await getAllItems();
@@ -13,16 +13,15 @@ export const getStaticProps = async () => {
   };
 };
 
-// eslint-disable-next-line react/prop-types
-const Privacy: NextPage = ({ items }) => {
-  // eslint-disable-next-line react/prop-types
-  const mappedItems = items.map((item) => (
+const Privacy: NextPage = (props: any) => {
+  const { items } = props;
+  const mappedItems = items.map((item: Item) => (
     <AccreditationItem
       imgURL={item.image}
       itemSource={item.sourceName}
       itemDescription={item.description}
       sourceLink={item.sourceLink}
-      key={item.id}
+      key={item._id}
     />
   ));
 

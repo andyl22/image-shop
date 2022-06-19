@@ -50,7 +50,7 @@ const getItemsBySubsection = async (subsectionName: string) => {
   })
     .then((res) => res.data)
     .catch((err) => console.log(err));
-  if (subsection > 0) {
+  if (subsection) {
     return postNode('/items/getItemsBySubsection', {
       subsection: subsection._id,
     })

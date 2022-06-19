@@ -42,7 +42,7 @@ export default function ItemCard(props: Props) {
           <p className={styles.description}>{description}</p>
         </OverflowToolTip>
         {price && enableCheckout ? (
-          <AddToCart id={id} name={name} price={parseFloat(price)} />
+          <AddToCart id={id} name={name} price={price} />
         ) : null}
       </div>
     </div>

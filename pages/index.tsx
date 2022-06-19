@@ -8,9 +8,8 @@ import SheetLink from '../components/Sheet/SheetLink';
 import Footer from '../components/Footer/Footer';
 import styles from '../styles/Home.module.scss';
 import { getBlogData } from '../TestData/BlogData';
-import { Item } from '../TestData/SectionItems';
-import { getAllItems } from '../TestData/Sections';
 import { postHTTP } from '../utilities/fetchAPIs';
+import { Item } from '../TestData/Sections';
 
 const Home: NextPage = () => {
   const blogData = getBlogData();

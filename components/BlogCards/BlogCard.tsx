@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import { ReactElement, useState } from 'react';
 import Link from 'next/link';
-import BlogModal from '../BlogModal/BlogModal';
 import styles from './BlogCard.module.scss';
 
 interface Prop {
