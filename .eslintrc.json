@@ -19,7 +19,8 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "eslint-plugin-prettier"
+    "eslint-plugin-prettier",
+    "plugin:@next/next/recommended"
   ],
   "rules": {
     "linebreak-style": 0,
