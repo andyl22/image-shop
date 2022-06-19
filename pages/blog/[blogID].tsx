@@ -12,7 +12,7 @@ interface Props {
 export default function Item(props: Props) {
   const { blogID } = props;
   const blogInfo = BlogData.filter(
-    (item) => item.id === parseInt(blogID),
+    (item) => item.id === parseInt(blogID, 10),
   )[0];
   const { title, subtitle, author, image, previewText } = blogInfo;
   const router = useRouter();
@@ -43,13 +43,11 @@ export default function Item(props: Props) {
   );
 }
 
-interface getStaticProps {
+interface staticProps {
   params: { blogID: string };
 }
 
-export function getStaticProps({
-  params: { blogID },
-}: getStaticProps) {
+export function getStaticProps({ params: { blogID } }: staticProps) {
   return { props: { blogID } };
 }
 

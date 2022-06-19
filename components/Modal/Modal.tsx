@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { MouseEvent, useState, useEffect } from 'react';
+import { MouseEvent, useState, useEffect, ReactElement } from 'react';
 import styles from './Modal.module.scss';
 
 interface Prop {
-  children: React.ReactNode;
+  children: ReactElement;
   toggleModal: Function;
   absolute?: boolean;
   allowOverlay?: boolean;

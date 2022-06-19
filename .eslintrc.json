@@ -45,7 +45,9 @@
     "react/require-default-props": "off",
     "react/button-has-type": "off",
     "react/function-component-definition": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-console": "off"
   },
   "settings": {
     "import/resolver": {

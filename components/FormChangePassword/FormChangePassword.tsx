@@ -31,7 +31,7 @@ export default function FormChangePassword(props: Props) {
     } else if (postSubmitAction) postSubmitAction();
   };
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+  const handleChange = (e: FormEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     setFormState({ ...formState, [target.id]: target.value });
   };

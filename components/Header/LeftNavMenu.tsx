@@ -1,6 +1,6 @@
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import Link from 'next/link';
-import { MouseEvent, useEffect, useState, ReactElement } from 'react';
+import { useEffect, useState, ReactElement } from 'react';
 import styles from './LeftNavMenu.module.scss';
 import Modal from '../Modal/Modal';
 import CollapsibleItem from '../CollapsibleItem/CollapsibleItem';

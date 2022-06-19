@@ -1,13 +1,18 @@
-import { KeyboardEvent, MouseEvent, useState } from 'react';
+import {
+  KeyboardEvent,
+  MouseEvent,
+  ReactElement,
+  useState,
+} from 'react';
 import styles from './Dropdown.module.scss';
 
-interface Dropdown {
-  children: React.ReactNode;
-  dropdownContent: React.ReactNode;
+interface Props {
+  children: ReactElement;
+  dropdownContent: ReactElement;
   clickControlled?: boolean;
 }
 
-export default function Dropdown(props: Dropdown) {
+export default function Dropdown(props: Props) {
   const { dropdownContent, clickControlled, children } = props;
   const [showDropdown, setShowDropdown] = useState(false);
 

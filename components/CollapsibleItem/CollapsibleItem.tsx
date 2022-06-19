@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, Children, Key } from 'react';
+import React, { ReactNode, useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import styles from './CollapsibleItem.module.scss';
 

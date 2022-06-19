@@ -1,14 +1,15 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import styles from "../../styles/Account.module.scss";
-import { selectUser } from "../../redux/slices/userSlice";
-import { useAppSelector } from "../../redux/hooks";
-import { useState } from "react";
-import ActionDialog from "../../components/ActionDialog/ActionDialog";
-import FormChangePassword from "../../components/FormChangePassword/FormChangePassword";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import { useState } from 'react';
+import styles from '../../styles/Account.module.scss';
+import { selectUser } from '../../redux/slices/userSlice';
+import { useAppSelector } from '../../redux/hooks';
+import ActionDialog from '../../components/ActionDialog/ActionDialog';
+import FormChangePassword from '../../components/FormChangePassword/FormChangePassword';
 
 const Account: NextPage = () => {
-  const [showChangePasswordForm, setShowChangePasswordForm] = useState(false);
+  const [showChangePasswordForm, setShowChangePasswordForm] =
+    useState(false);
   const [showDeactive, setShowDeactive] = useState(false);
   const user = useAppSelector(selectUser);
 
@@ -17,7 +18,7 @@ const Account: NextPage = () => {
   };
 
   const deactiveAccount = () => {
-    console.log("Placeholder to inactive account. :D");
+    console.log('Placeholder to inactive account. :D');
     toggleDeactiveConfirmation();
   };
 
@@ -44,8 +45,14 @@ const Account: NextPage = () => {
       </Head>
       <main className={styles.main}>
         <h1>Welcome, {user.username}</h1>
-        <button onClick={toggleChangePasswordForm}>Change Password</button>
-        {showChangePasswordForm ? <FormChangePassword postSubmitAction={toggleChangePasswordForm}/> : null}
+        <button onClick={toggleChangePasswordForm}>
+          Change Password
+        </button>
+        {showChangePasswordForm ? (
+          <FormChangePassword
+            postSubmitAction={toggleChangePasswordForm}
+          />
+        ) : null}
         <button onClick={toggleDeactiveConfirmation}>
           Deactive My Account
         </button>

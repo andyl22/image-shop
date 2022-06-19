@@ -15,12 +15,11 @@ export default function OverflowToolTip(props: Props) {
 
   const mappedChildren = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      const props = {
+      return React.cloneElement(child, {
         ...child.props,
         className: styles.overFlowContainer,
         ref: containerRef,
-      };
-      return React.cloneElement(child, props);
+      });
     }
   });
 

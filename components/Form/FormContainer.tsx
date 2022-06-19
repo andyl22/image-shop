@@ -1,5 +1,4 @@
 import { FormEventHandler, ReactNode } from 'react';
-import CloseIcon from '@mui/icons-material/Close';
 import styles from './FormContainer.module.scss';
 
 interface Prop {

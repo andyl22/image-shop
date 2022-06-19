@@ -1,14 +1,15 @@
-import { ReactNode } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 import Modal from '../Modal/Modal';
 import styles from './ActionDialog.module.scss';
 
 interface Props {
   dialogTitle: string;
-  confirmAction: Function;
+  confirmAction: MouseEventHandler<HTMLButtonElement>;
   children: ReactNode | ReactNode[];
+  toggleModal: MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function ActionDialog(props: any) {
+export default function ActionDialog(props: Props) {
   const { dialogTitle, confirmAction, toggleModal, children } = props;
 
   return (

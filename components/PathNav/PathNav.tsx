@@ -4,8 +4,8 @@ import styles from './PathNav.module.scss';
 
 export default function PathNav() {
   const router = useRouter();
-  const path = router.asPath;
-  const splitPaths = path.replace('/', '').split('/');
+  const urlPath = router.asPath;
+  const splitPaths = urlPath.replace('/', '').split('/');
   let buildPath = '';
   const mappedPaths = splitPaths.map((path) => {
     buildPath += `/${path}`;

@@ -37,6 +37,7 @@ export default function ItemSlider(props: Props) {
   };
 
   // Determine how many children items we can display at once, based on the browser width
+  // eslint-disable-next-line func-names
   const childrenToRender = (function () {
     // Exit and return the full list if the the available number of slots to render is greater than the list of children items
     if (itemsToRender >= childrenLength) return children;
