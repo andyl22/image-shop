@@ -41,7 +41,7 @@ export async function getStaticProps({ params }: Params) {
   })
     .then((res) => res.data)
     .then((res) => res._id);
-  const itemList = await postNode(
+  const subsectionList = await postNode(
     `/items/getSubsectionsBySectionID`,
     {
       section,
@@ -51,7 +51,7 @@ export async function getStaticProps({ params }: Params) {
     props: {
       sectionData: {
         sectionName: shopSection,
-        itemList,
+        subsectionList,
       },
     },
   };
@@ -59,21 +59,24 @@ export async function getStaticProps({ params }: Params) {
 
 interface Props {
   sectionData: {
-    itemList: [{ name: string; _id: string; section: string }];
+    subsectionList: [{ name: string; _id: string; section: string }];
     sectionName: string;
   };
 }
 
 function Section(props: Props) {
   const { sectionData } = props;
-  const { itemList, sectionName } = sectionData;
+  const { subsectionList, sectionName } = sectionData;
   const sectionNameTitle = formatTitle(
     formatToCamelCase(sectionName),
   );
 
-  const mappedItems = itemList.map((item) => (
-    <Link href={`/shop/${sectionName}/${item.name}`} key={item.name}>
-      <a>{formatTitle(item.name)}</a>
+  const mappedItems = subsectionList.map((subsection) => (
+    <Link
+      href={`/shop/${sectionName}/${formatDash(subsection.name)}`}
+      key={subsection._id}
+    >
+      <a>{formatTitle(subsection.name)}</a>
     </Link>
   ));
 

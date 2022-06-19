@@ -1,5 +1,8 @@
 import { postNode } from '../utilities/fetchAPIs';
-import { formatDash } from '../utilities/StringFormat';
+import {
+  formatDash,
+  formatToCamelCase,
+} from '../utilities/StringFormat';
 
 interface Item {
   _id: string;
@@ -43,15 +46,18 @@ const getAllItems = () =>
 
 const getItemsBySubsection = async (subsectionName: string) => {
   const subsection = await postNode('/items/getSubsectionByName', {
-    name: subsectionName,
+    name: formatToCamelCase(subsectionName),
   })
     .then((res) => res.data)
     .catch((err) => console.log(err));
-  return postNode('/items/getItemsBySubsection', {
-    subsection: subsection._id,
-  })
-    .then((res) => res.data)
-    .catch((err) => console.log(err));
+  if (subsection > 0) {
+    return postNode('/items/getItemsBySubsection', {
+      subsection: subsection._id,
+    })
+      .then((res) => res.data)
+      .catch((err) => console.log(err));
+  }
+  return null;
 };
 
 const getAllSubsectionPaths = async () => {
@@ -68,7 +74,7 @@ const getAllSubsectionPaths = async () => {
       paths.push({
         params: {
           shopSection: formatDash(sections[i].name),
-          subsection: subsectionNames[j].name,
+          subsection: formatDash(subsectionNames[j].name),
         },
       });
     }
@@ -95,7 +101,7 @@ const getAllItemPaths = async () => {
         paths.push({
           params: {
             shopSection: formatDash(sections[i].name),
-            subsection: subsectionNames[j].name,
+            subsection: formatDash(subsectionNames[j].name),
             id: itemsList[k]._id,
           },
         });

@@ -8,6 +8,7 @@ import {
   getSectionItems,
   Item,
 } from '../../../../TestData/Sections';
+import { formatTitle } from '../../../../utilities/StringFormat';
 
 export const getStaticPaths = async () => {
   const paths = await getAllSubsectionPaths();
@@ -44,10 +45,7 @@ interface Props {
 
 const SubSection = (props: Props) => {
   const { sectionData } = props;
-  const formattedName = sectionData.subsectionName
-    .split(/(?=[A-Z])/g)
-    .join(' ')
-    .toUpperCase();
+  const formattedName = formatTitle(sectionData.subsectionName);
 
   return (
     <>
@@ -59,10 +57,14 @@ const SubSection = (props: Props) => {
 
       <main className={styles.main}>
         <PathNav />
-        <ItemsControlMenu
-          itemData={sectionData.subsectionContent}
-          title={formattedName}
-        />
+        {sectionData.subsectionContent ? (
+          <ItemsControlMenu
+            itemData={sectionData.subsectionContent}
+            title={formattedName}
+          />
+        ) : (
+          <p>No items found for this category.</p>
+        )}
       </main>
       <Footer />
     </>
