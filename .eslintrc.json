@@ -6,7 +6,8 @@
   "extends": [
     "plugin:react/recommended",
     "airbnb",
-    "eslint-config-prettier"
+    "eslint-config-prettier",
+    "plugin:@next/next/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -19,8 +20,7 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    "eslint-plugin-prettier",
-    "plugin:@next/next/recommended"
+    "eslint-plugin-prettier"
   ],
   "rules": {
     "linebreak-style": 0,
