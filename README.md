@@ -24,7 +24,7 @@ Next.JS practice project for an ecommerce website.
 -- IN PROGRESS
     - Cart system for user or localstorage (localstorage done)
     - Checkout menu and forms (Half Done)
-    - Migrate data sources of pages and components to MongoDB (Finished shop dropdown)
+    - Migrate data sources of pages and components to MongoDB (Finished all shop links, home page, and cart. Need to migrate accreditation)
     - Add content management (add shop sections => respective subsection => respective items). Locked under user auth (Backend done. Need UI and auth guard)
 
 -- TODO (DONE)
