@@ -1,29 +1,32 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Credits.module.scss';
 import AccreditationItem from '../components/AccreditationItem/AccreditationItem';
-import { getAllItems, Item } from '../TestData/Sections';
+import { ItemType } from '../TestData/Sections';
+import { getHTTP } from '../utilities/fetchAPIs';
 
-export const getStaticProps = async () => {
-  const item = await getAllItems();
-  return {
-    props: {
-      items: item,
-    },
-  };
-};
-
-const Privacy: NextPage = (props: any) => {
-  const { items } = props;
-  const mappedItems = items.map((item: Item) => (
-    <AccreditationItem
-      imgURL={item.image}
-      itemSource={item.sourceName}
-      itemDescription={item.description}
-      sourceLink={item.sourceLink}
-      key={item._id}
-    />
-  ));
+const Privacy: NextPage = () => {
+  const [mappedItems, setMappedItems] = useState();
+  useEffect(() => {
+    const setItems = async () => {
+      const items = await getHTTP('/items/getAllItems').then(
+        (res) => res.data,
+      );
+      setMappedItems(
+        items.map((item: ItemType) => (
+          <AccreditationItem
+            imgURL={item.image}
+            itemSource={item.sourceName}
+            itemDescription={item.description}
+            sourceLink={item.sourceLink}
+            key={item._id}
+          />
+        )),
+      );
+    };
+    setItems();
+  }, []);
 
   return (
     <>

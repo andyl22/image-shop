@@ -1,101 +1,78 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { ReactElement, useEffect, useState } from 'react';
 import Link from 'next/link';
-import styles from '../../../styles/ShopSection.module.scss';
-import Footer from '../../../components/Footer/Footer';
-import { getShopSectionNames } from '../../../TestData/Sections';
-import {
-  formatDash,
-  formatTitle,
-  formatToCamelCase,
-} from '../../../utilities/StringFormat';
 import PathNav from '../../../components/PathNav/PathNav';
-import { postNode } from '../../../utilities/fetchAPIs';
+import styles from '../../../styles/ShopSection.module.scss';
+import { postHTTP } from '../../../utilities/fetchAPIs';
+import {
+  formatToCamelCase,
+  formatTitle,
+  formatDash,
+} from '../../../utilities/StringFormat';
+import Footer from '../../../components/Footer/Footer';
 
-export async function getStaticPaths() {
-  const data = await getShopSectionNames();
-  const paths = data.map((item: { name: string; _id: string }) => {
-    const { name } = item;
-    return {
-      params: {
-        shopSection: formatDash(name),
-      },
+function ShopSection() {
+  const router = useRouter();
+  const [mappedSubsections, setMappedSubsections] = useState<
+    ReactElement | ReactElement[]
+  >();
+  const curSection = formatToCamelCase(router.asPath.split('/')[2]);
+
+  useEffect(() => {
+    if (curSection === '[shopSection]') return;
+    const createMappedSubsections = async () => {
+      const sectionDetails = await postHTTP(
+        '/items/getSectionByName',
+        {
+          name: curSection,
+        },
+      ).then((res) => res.data);
+      if (!sectionDetails) {
+        setMappedSubsections(<h2>This section does not exist!</h2>);
+        return;
+      }
+      await postHTTP('/items/getSubsectionsBySectionID', {
+        section: sectionDetails._id,
+      })
+        .then((res) => res.data)
+        .then((res) => {
+          if (res.length === 0) {
+            setMappedSubsections(<h2>Please create subsections</h2>);
+            return;
+          }
+          setMappedSubsections(
+            res.map((subsection: { name: string; _id: string }) => (
+              <Link
+                href={`${router.asPath}/${formatDash(
+                  subsection.name,
+                )}`}
+                key={subsection._id}
+              >
+                <a>{formatTitle(subsection.name)}</a>
+              </Link>
+            )),
+          );
+        });
     };
+    createMappedSubsections();
   });
-  return {
-    paths,
-    fallback: false,
-  };
-}
-
-interface Params {
-  params: {
-    shopSection: string;
-  };
-}
-
-export async function getStaticProps({ params }: Params) {
-  const { shopSection } = params;
-  const sectionNameCamel = formatToCamelCase(shopSection);
-  const section = await postNode(`/items/getSectionByName`, {
-    name: sectionNameCamel,
-  })
-    .then((res) => res.data)
-    .then((res) => res._id);
-  const subsectionList = await postNode(
-    `/items/getSubsectionsBySectionID`,
-    {
-      section,
-    },
-  ).then((res) => res.data);
-  return {
-    props: {
-      sectionData: {
-        sectionName: shopSection,
-        subsectionList,
-      },
-    },
-  };
-}
-
-interface Props {
-  sectionData: {
-    subsectionList: [{ name: string; _id: string; section: string }];
-    sectionName: string;
-  };
-}
-
-function Section(props: Props) {
-  const { sectionData } = props;
-  const { subsectionList, sectionName } = sectionData;
-  const sectionNameTitle = formatTitle(
-    formatToCamelCase(sectionName),
-  );
-
-  const mappedItems = subsectionList.map((subsection) => (
-    <Link
-      href={`/shop/${sectionName}/${formatDash(subsection.name)}`}
-      key={subsection._id}
-    >
-      <a>{formatTitle(subsection.name)}</a>
-    </Link>
-  ));
 
   return (
     <>
       <Head>
-        <title>{sectionNameTitle}</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <PathNav />
-        <h1>{sectionNameTitle}</h1>
-        {mappedItems}
+        <h1>{formatTitle(curSection)}</h1>
+        {mappedSubsections}
       </main>
       <Footer />
     </>
   );
 }
 
-export default Section;
+export default ShopSection;

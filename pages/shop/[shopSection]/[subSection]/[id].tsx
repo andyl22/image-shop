@@ -3,7 +3,8 @@ import styles from '../../../../styles/ShopItem.module.scss';
 import PathNav from '../../../../components/PathNav/PathNav';
 import AddToCart from '../../../../components/AddToCart/AddToCart';
 import { getAllItemPaths } from '../../../../TestData/Sections';
-import { postNode } from '../../../../utilities/fetchAPIs';
+import Item from '../../../../models/Item';
+import dbConnect from '../../../../utilities/mongo';
 
 export const getStaticPaths = async () => {
   const paths = await getAllItemPaths();
@@ -22,21 +23,22 @@ interface Params {
 }
 
 export const getStaticProps = async ({ params }: Params) => {
-  const item = await postNode('/items/getItemByID', {
-    _id: params.id,
-  })
-    .then((res) => res.data)
-    .catch((err) => console.log(err));
+  await dbConnect();
+  const data = await Item.findOne({ _id: params.id }).lean();
+  data.id = JSON.stringify(data._id);
+  data.subsection = JSON.stringify(data.subsection);
+  delete data._id;
+  delete data.__v;
   return {
     props: {
-      details: item,
+      details: data,
     },
   };
 };
 
 interface Props {
   details: {
-    _id: string;
+    id: string;
     name: string;
     description: string;
     price: number;
@@ -44,7 +46,7 @@ interface Props {
   };
 }
 
-const Item = (props: Props) => {
+const ItemPage = (props: Props) => {
   const { details } = props;
 
   return (
@@ -64,7 +66,7 @@ const Item = (props: Props) => {
         </p>
         <p>{details.price === 0 ? 'FREE' : `$${details.price}`}</p>
         <AddToCart
-          id={details._id}
+          id={JSON.parse(details.id)}
           name={details.name}
           price={details.price}
         />
@@ -73,4 +75,4 @@ const Item = (props: Props) => {
   );
 };
 
-export default Item;
+export default ItemPage;

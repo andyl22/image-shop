@@ -9,7 +9,9 @@ import {
 import { getShopSectionNames } from '../../TestData/Sections';
 
 export const getServerSideProps = async () => {
-  const data = await getShopSectionNames();
+  const data = JSON.parse(
+    JSON.stringify(await getShopSectionNames()),
+  );
   return {
     props: {
       data,

@@ -9,7 +9,7 @@ import Footer from '../components/Footer/Footer';
 import styles from '../styles/Home.module.scss';
 import { getBlogData } from '../TestData/BlogData';
 import { postHTTP } from '../utilities/fetchAPIs';
-import { Item } from '../TestData/Sections';
+import { ItemType } from '../TestData/Sections';
 
 const Home: NextPage = () => {
   const blogData = getBlogData();
@@ -61,22 +61,24 @@ const Home: NextPage = () => {
       const items = await postHTTP('/items/getAllItems')
         .then((res) => res.data)
         .catch((err) => console.log(err));
-      const mappedItemData = items.slice(0, 8).map((item: Item) => {
-        const imgPath = item.image.split('/');
-        const category = imgPath[2];
-        const subCategory = imgPath[3];
-        return (
-          <ItemCardLink
-            imageURL={item.image}
-            link={`shop/${category}/${subCategory}/${item._id}`}
-            name={item.name}
-            key={item._id}
-            id={item._id}
-            description={item.description}
-            price={item.price}
-          />
-        );
-      });
+      const mappedItemData = items
+        .slice(0, 8)
+        .map((item: ItemType) => {
+          const imgPath = item.image.split('/');
+          const category = imgPath[2];
+          const subCategory = imgPath[3];
+          return (
+            <ItemCardLink
+              imageURL={item.image}
+              link={`shop/${category}/${subCategory}/${item._id}`}
+              name={item.name}
+              key={item._id}
+              id={item._id}
+              description={item.description}
+              price={item.price}
+            />
+          );
+        });
       setMappedItem(mappedItemData);
     };
     getItems();

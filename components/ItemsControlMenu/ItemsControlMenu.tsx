@@ -4,10 +4,10 @@ import CollapsibleItem from '../CollapsibleItem/CollapsibleItem';
 import styles from './ItemsControlMenu.module.scss';
 import ItemCardLink from '../ItemCard/ItemCardLink';
 import { formatTitle } from '../../utilities/StringFormat';
-import { Item } from '../../TestData/Sections';
+import { ItemType } from '../../TestData/Sections';
 
 interface Props {
-  itemData: Item[];
+  itemData: ItemType[];
   title: string;
 }
 
@@ -83,7 +83,7 @@ export default function SortMenu(props: Props) {
         break;
     }
 
-    const mappedSectionData = itemData.map((item: Item) => {
+    const mappedSectionData = itemData.map((item: ItemType) => {
       const { name, image, _id, description, price } = item;
       return (
         <ItemCardLink

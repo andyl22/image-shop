@@ -1,67 +1,61 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import styles from '../../../../styles/SubSection.module.scss';
 import Footer from '../../../../components/Footer/Footer';
 import PathNav from '../../../../components/PathNav/PathNav';
 import ItemsControlMenu from '../../../../components/ItemsControlMenu/ItemsControlMenu';
 import {
-  getAllSubsectionPaths,
-  getSectionItems,
-  Item,
-} from '../../../../TestData/Sections';
-import { formatTitle } from '../../../../utilities/StringFormat';
+  formatTitle,
+  formatToCamelCase,
+} from '../../../../utilities/StringFormat';
+import { postHTTP } from '../../../../utilities/fetchAPIs';
 
-export const getStaticPaths = async () => {
-  const paths = await getAllSubsectionPaths();
-  return {
-    paths,
-    fallback: false,
-  };
-};
+const SubSection = () => {
+  const router = useRouter();
+  const [items, setItems] = useState();
+  const subsectionName = formatToCamelCase(
+    router.asPath.split('/')[3],
+  );
 
-interface Params {
-  params: {
-    shopSection: string;
-    subsection: string;
-  };
-}
+  useEffect(() => {
+    const getItems = async () => {
+      if (subsectionName) {
+        const subsection = await postHTTP(
+          '/items/getSubsectionByName',
+          {
+            name: subsectionName,
+          },
+        )
+          .then((res) => res.data)
+          .catch((err) => console.log(err));
+        const fetchedItems = await postHTTP(
+          '/items/getItemsBySubsection',
+          {
+            subsection,
+          },
+        )
+          .then((res) => res.data)
+          .catch((err) => console.log(err));
+        setItems(fetchedItems);
+      }
+    };
+    getItems();
+  }, [subsectionName]);
 
-export const getStaticProps = async ({ params }: Params) => {
-  const sectionData = await getSectionItems(params);
-  return {
-    props: {
-      sectionData,
-    },
-  };
-};
-
-interface SectionData {
-  subsectionName: string;
-  subsectionContent: Item[];
-}
-
-interface Props {
-  sectionData: SectionData;
-}
-
-const SubSection = (props: Props) => {
-  const { sectionData } = props;
-  const formattedName = formatTitle(sectionData.subsectionName);
-
+  const titleName = formatTitle(formatToCamelCase(subsectionName));
   return (
     <>
       <Head>
-        <title>{formattedName}</title>
+        <title>{titleName}</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <PathNav />
-        {sectionData.subsectionContent ? (
-          <ItemsControlMenu
-            itemData={sectionData.subsectionContent}
-            title={formattedName}
-          />
+        {items ? (
+          <ItemsControlMenu itemData={items} title={titleName} />
         ) : (
           <p>No items found for this category.</p>
         )}
