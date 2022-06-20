@@ -6,8 +6,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const { _id } = req.body;
+  const { id } = req.body;
   await dbConnect();
-  const data = await Item.findOne({ _id });
+  const data = await Item.findOne({ id });
   res.status(200).json({ status: 'Done', data });
 }

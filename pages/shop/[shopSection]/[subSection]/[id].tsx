@@ -1,76 +1,61 @@
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import styles from '../../../../styles/ShopItem.module.scss';
 import PathNav from '../../../../components/PathNav/PathNav';
 import AddToCart from '../../../../components/AddToCart/AddToCart';
-import { getAllItemPaths } from '../../../../TestData/Sections';
-import Item from '../../../../models/Item';
-import dbConnect from '../../../../utilities/mongo';
+import { postHTTP } from '../../../../utilities/fetchAPIs';
+import { ItemType } from '../../../../TestData/Sections';
 
-export const getStaticPaths = async () => {
-  const paths = await getAllItemPaths();
-  return {
-    paths,
-    fallback: false,
-  };
-};
+const ItemPage = () => {
+  const router = useRouter();
+  const itemID = router.asPath.split('/')[4];
+  const [itemDetails, setItemDetails] = useState<
+    ItemType | undefined
+  >();
 
-interface Params {
-  params: {
-    shopSection: string;
-    subsection: string;
-    id: string;
-  };
-}
-
-export const getStaticProps = async ({ params }: Params) => {
-  await dbConnect();
-  const data = await Item.findOne({ _id: params.id }).lean();
-  data.id = JSON.stringify(data._id);
-  data.subsection = JSON.stringify(data.subsection);
-  delete data._id;
-  delete data.__v;
-  return {
-    props: {
-      details: data,
-    },
-  };
-};
-
-interface Props {
-  details: {
-    id: string;
-    name: string;
-    description: string;
-    price: number;
-    image: string;
-  };
-}
-
-const ItemPage = (props: Props) => {
-  const { details } = props;
+  useEffect(() => {
+    const getItemDetails = async () => {
+      const item = await postHTTP('/items/getItemByID', {
+        id: itemID,
+      })
+        .then((res) => res.data)
+        .catch((err) => console.log(err));
+      setItemDetails(item);
+    };
+    getItemDetails();
+  }, [itemID]);
 
   return (
     <main className={styles.main}>
       <PathNav />
-      <div className={styles.itemWrapper}>
-        <h1>{details.name}</h1>
-        <Image
-          src={details.image}
-          alt={details.name}
-          width="1000px"
-          height="800px"
-          quality={100}
-        />
-        <p className={styles.itemDescription}>
-          {details.description}
-        </p>
-        <p>{details.price === 0 ? 'FREE' : `$${details.price}`}</p>
-        <AddToCart
-          id={JSON.parse(details.id)}
-          name={details.name}
-          price={details.price}
-        />
-      </div>
+      {itemDetails ? (
+        <div className={styles.itemWrapper}>
+          <h1>{itemDetails.name}</h1>
+          <Image
+            src={itemDetails.image}
+            alt={itemDetails.name}
+            width="1000px"
+            height="800px"
+            quality={100}
+          />
+          <p className={styles.itemDescription}>
+            {itemDetails.description}
+          </p>
+          <p>
+            {itemDetails.price === 0
+              ? 'FREE'
+              : `$${itemDetails.price}`}
+          </p>
+          <AddToCart
+            id={itemDetails._id}
+            name={itemDetails.name}
+            price={itemDetails.price}
+          />
+        </div>
+      ) : (
+        <h1>Could not find item</h1>
+      )}
     </main>
   );
 };
