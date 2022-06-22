@@ -14,13 +14,15 @@ import Footer from '../../../components/Footer/Footer';
 
 function ShopSection() {
   const router = useRouter();
-  const [mappedSubsections, setMappedSubsections] = useState<
+  const [content, setContent] = useState<
     ReactElement | ReactElement[]
-  >();
-  const curSection = formatToCamelCase(router.asPath.split('/')[2]);
+  >(<h2>Loading...</h2>);
+  const [title, setTitle] = useState('Loading...');
 
   useEffect(() => {
+    const curSection = formatToCamelCase(router.asPath.split('/')[2]);
     if (curSection === '[shopSection]') return;
+    setTitle(curSection);
     const createMappedSubsections = async () => {
       const sectionDetails = await postHTTP(
         '/items/getSectionByName',
@@ -29,7 +31,7 @@ function ShopSection() {
         },
       ).then((res) => res.data);
       if (!sectionDetails) {
-        setMappedSubsections(<h2>This section does not exist!</h2>);
+        setContent(<h2>This section does not exist!</h2>);
         return;
       }
       await postHTTP('/items/getSubsectionsBySectionID', {
@@ -38,10 +40,10 @@ function ShopSection() {
         .then((res) => res.data)
         .then((res) => {
           if (res.length === 0) {
-            setMappedSubsections(<h2>Please create subsections</h2>);
+            setContent(<h2>Please create subsections</h2>);
             return;
           }
-          setMappedSubsections(
+          setContent(
             res.map((subsection: { name: string; _id: string }) => (
               <Link
                 href={`${router.asPath}/${formatDash(
@@ -56,19 +58,20 @@ function ShopSection() {
         });
     };
     createMappedSubsections();
-  });
+  }, [router]);
 
   return (
     <>
       <Head>
+        <title>{formatTitle(title)}</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <PathNav />
-        <h1>{formatTitle(curSection)}</h1>
-        {mappedSubsections}
+        <h1>{formatTitle(title)}</h1>
+        {content}
       </main>
       <Footer />
     </>
