@@ -157,7 +157,7 @@ export default function CartItem(props: Props) {
 
   useEffect(() => {
     const getItem = async () =>
-      postHTTP('/items/getItemByID', { _id: id })
+      postHTTP('/items/getItemByID', { id })
         .then((res) => res.data)
         .then((res) => setFullItemData(res))
         .catch((err) => console.log(err));

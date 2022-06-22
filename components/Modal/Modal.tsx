@@ -23,10 +23,18 @@ export default function Modal(props: Prop) {
   };
 
   useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') toggleModal();
+    };
+
     document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyPress, {
+      once: true,
+    });
 
     return () => {
       document.body.style.overflow = 'auto';
+      document.removeEventListener('keydown', handleKeyPress);
     };
   });
 
