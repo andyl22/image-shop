@@ -17,17 +17,14 @@ const SubSection = () => {
   const [subsectionName, setSubsectionName] = useState('Loading...');
 
   useEffect(() => {
+    if (!router.isReady) return;
     const pathName = formatToCamelCase(router.asPath.split('/')[3]);
-    if (pathName === '[subSection]') return;
     setSubsectionName(pathName);
-  }, [router]);
-
-  useEffect(() => {
     const getItems = async () => {
       const subsection = await postHTTP(
         '/items/getSubsectionByName',
         {
-          name: subsectionName,
+          name: pathName,
         },
       )
         .then((res) => res.data)
@@ -35,29 +32,27 @@ const SubSection = () => {
       await postHTTP('/items/getItemsBySubsection', {
         subsection,
       })
-        .then((res) =>
+        .then((res) => res.data)
+        .then((res) => {
           setContent(
             <ItemsControlMenu
-              itemData={res.data}
-              title={formatTitle(subsectionName)}
+              itemData={res}
+              title={formatTitle(pathName)}
             />,
-          ),
-        )
+          );
+        })
         .catch((err) => {
           console.log(err);
           setContent(<h2>Could not retrieve any items.</h2>);
         });
     };
-
-    if (subsectionName) {
-      getItems();
-    }
-  }, [subsectionName]);
+    getItems();
+  }, [router.isReady]);
 
   return (
     <>
       <Head>
-        <title>{formatTitle(subsectionName)}</title>
+        <title>{subsectionName}</title>
         <meta name="description" content="The Image Shop" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

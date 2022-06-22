@@ -8,6 +8,6 @@ export default async function handler(
 ) {
   const { id } = req.body;
   await dbConnect();
-  const data = await Item.findOne({ id });
+  const data = await Item.findOne({ _id: id });
   res.status(200).json({ status: 'Done', data });
 }
