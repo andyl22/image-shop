@@ -50,7 +50,7 @@ export default function Dropdown(props: Props) {
     if (showDropdown) {
       const initiateHideDropdown = setTimeout(() => {
         toggleDropdown();
-      }, 500);
+      }, 200);
 
       const cancelHideDropdown = () => {
         clearTimeout(initiateHideDropdown);

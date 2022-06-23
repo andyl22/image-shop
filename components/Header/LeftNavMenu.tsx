@@ -70,6 +70,7 @@ export default function LeftNavMenu(props: Props) {
             <h1>Parks</h1>
           </a>
         </Link>
+        <span className={styles.line} />
         <CollapsibleItem
           parentNode={<p>Shop</p>}
           showCollapsedOnLoad={false}

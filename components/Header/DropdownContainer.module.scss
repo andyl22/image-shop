@@ -1,4 +1,4 @@
-@use "../../styles/variables" as s;
+@use '../../styles/variables' as s;
 
 .dropdownContainer {
   width: 100%;
@@ -10,7 +10,19 @@
   background: s.$secondary-background-color;
   border: 1px solid s.$border-color;
   box-shadow: -1px 8px 12px -4px s.$box-shadow;
+  animation: showDropdown 0.2s ease-out;
   @include s.mobile-view {
     color: black !important;
+  }
+}
+
+@keyframes showDropdown {
+  0% {
+    transform: scaleY(0%);
+    transform-origin: top;
+  }
+  100% {
+    transform: scaleY(100%);
+    transform-origin: top;
   }
 }

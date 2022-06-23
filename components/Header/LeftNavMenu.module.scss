@@ -10,10 +10,7 @@
   background: white;
   position: absolute;
   left: 0;
-  @media (max-width: 300px) {
-    width: 100%;
-    min-width: 0;
-  }
+  animation: expand 0.3s ease-out;
   a,
   button {
     width: fit-content;
@@ -31,6 +28,10 @@
       transform: scale(1.2);
     }
   }
+  .line {
+    width: 100%;
+    border-top: 2px solid black;
+  }
   .collapseContent {
     position: relative;
     left: 1rem;
@@ -47,5 +48,20 @@
         font-weight: 500;
       }
     }
+  }
+  @media (max-width: 300px) {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@keyframes expand {
+  0% {
+    transform: scaleX(50%);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(100%);
+    transform-origin: left;
   }
 }
