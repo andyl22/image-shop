@@ -1,4 +1,4 @@
-@use "../../styles/variables" as s;
+@use '../../styles/variables' as s;
 $contentMargin: 1rem;
 
 .headerLinkContainer {
@@ -6,12 +6,9 @@ $contentMargin: 1rem;
   display: flex;
   align-items: center;
   gap: 2rem;
-  @include s.mobile-view {
-    gap: 1rem;
-  }
   h1 {
     align-self: flex-start;
-    font-family: "Caveat", cursive;
+    font-family: 'Caveat', cursive;
     font-size: 2rem;
     position: relative;
     bottom: 0.15rem;
@@ -30,7 +27,7 @@ $contentMargin: 1rem;
         right: -$contentMargin;
         height: 150%;
         text-align: center;
-        content: "";
+        content: '';
         width: 100%;
         padding: 1rem $contentMargin;
       }
@@ -47,5 +44,8 @@ $contentMargin: 1rem;
     color: #01a232;
     font-weight: 600;
     font-size: 1.1rem;
+  }
+  @include s.mobile-view {
+    gap: 1rem;
   }
 }

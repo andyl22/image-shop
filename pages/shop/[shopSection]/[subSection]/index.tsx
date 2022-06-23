@@ -35,10 +35,12 @@ const SubSection = () => {
         .then((res) => res.data)
         .then((res) => {
           setContent(
-            <ItemsControlMenu
-              itemData={res}
-              title={formatTitle(pathName)}
-            />,
+            <div className={styles.itemsContainer}>
+              <ItemsControlMenu
+                itemData={res}
+                title={formatTitle(pathName)}
+              />
+            </div>,
           );
         })
         .catch((err) => {
@@ -47,7 +49,7 @@ const SubSection = () => {
         });
     };
     getItems();
-  }, [router.isReady]);
+  }, [router]);
 
   return (
     <>

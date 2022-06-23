@@ -1,4 +1,4 @@
-@use "../../styles/variables.scss" as s;
+@use '../../styles/variables.scss' as s;
 
 @keyframes fadeIn {
   0% {
@@ -43,6 +43,9 @@
     &:hover {
       color: #01a232;
     }
+  }
+  @include s.mobile-view {
+    padding: 0.3rem 0rem;
   }
 }
 

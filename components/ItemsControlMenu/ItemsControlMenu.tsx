@@ -104,7 +104,7 @@ export default function SortMenu(props: Props) {
   return (
     <div className={styles.itemsControlContainer}>
       <div
-        className={`${styles.filtersContainer} ${
+        className={`${styles.filtersMenuContainer} ${
           showFilters ? styles.hideFilters : null
         }`}
       >
@@ -119,17 +119,17 @@ export default function SortMenu(props: Props) {
           </form>
         </CollapsibleItem>
       </div>
+      <button
+        className={`${styles.collapseFilters} ${
+          showFilters ? styles.rotateButton : null
+        }`}
+        aria-label="Close Filter Menu"
+        onClick={toggleShowFilters}
+        type="button"
+      >
+        <ArrowLeftIcon />
+      </button>
       <div className={styles.contentContainer}>
-        <button
-          className={`${styles.collapseFilters} ${
-            showFilters ? styles.rotateButton : null
-          }`}
-          aria-label="Close Filter Menu"
-          onClick={toggleShowFilters}
-          type="button"
-        >
-          <ArrowLeftIcon />
-        </button>
         <h1>{title}</h1>
         <div className={styles.itemsContent}>{mappedItems}</div>
       </div>
