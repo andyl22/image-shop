@@ -4,32 +4,4 @@
   align-items: center;
   padding: 2rem;
   height: 100%;
-  .gridWrapper {
-    padding: 1rem;
-    button {
-      margin: 0.5rem 0.1rem;
-    }
-    .table {
-      text-align: left;
-    }
-    .header {
-      input {
-        padding: 0.3rem;
-        border-radius: 0.3rem;
-        border: 2px solid rgb(219, 216, 216);
-        margin: 0.5rem 0;
-      }
-    }
-    .td {
-      border: 1px solid rgb(219, 216, 216);
-      padding: 0rem 0.5rem;
-      border-radius: 0.4rem;
-    }
-    .th {
-      padding: 0.5rem 0;
-    }
-    .footer {
-      margin: 0.8rem 0;
-    }
-  }
 }
