@@ -30,7 +30,7 @@ export default function UserDropdown(props: Props) {
             User Settings
           </a>
         </Link>
-        <Link href="/user/content">
+        <Link href="/content">
           <a className={styles.menuItem}>
             <ManageSearchIcon fontSize="small" />
             Manage Content
