@@ -116,7 +116,7 @@ const Home: NextPage = () => {
               <ItemSlider>{mappedItem}</ItemSlider>
             ) : null}
           </div>
-          <div className={`${styles.sheetsContainer} toBeObserved`}>
+          <div className={`${styles.sheetsContainer}`}>
             <Sheet background='url("/images/wide.jpg")'>
               <h2 className={styles.sheetText}>Welcome</h2>
             </Sheet>
