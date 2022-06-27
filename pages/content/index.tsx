@@ -23,9 +23,8 @@ const Content: NextPage = () => (
           ]}
           columns={[
             {
-              name: 'Name',
+              name: 'Section Name',
             },
-            'Email',
             {
               name: 'Edit',
               formatter: (cell, row) =>
@@ -35,9 +34,7 @@ const Content: NextPage = () => (
                     className:
                       'py-2 mb-4 px-4 border rounded-md text-white bg-blue-600',
                     onClick: () =>
-                      console.log(
-                        `Editing "${row.cells[0].data}" "${row.cells[1].data}"`,
-                      ),
+                      console.log(`Editing "${row.cells[0].data}"`),
                   },
                   'Edit',
                 ),
@@ -45,6 +42,13 @@ const Content: NextPage = () => (
           ]}
           search
           pagination={{ enabled: true, limit: 100 }}
+          className={{
+            header: styles.header,
+            td: styles.td,
+            th: styles.th,
+            table: styles.table,
+            footer: styles.footer,
+          }}
         />
       </div>
     </main>
