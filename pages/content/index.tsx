@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Link from 'next/link';
+import AppGrid from '../../components/AppGrid/AppGrid';
 import styles from '../../styles/ManageContent.module.scss';
 
-const Content: NextPage = () => (
+const SectionContent: NextPage = () => (
   <>
     <Head>
       <title>Manage Content</title>
@@ -12,17 +12,11 @@ const Content: NextPage = () => (
     </Head>
     <main className={styles.main}>
       <h1>Manage Content</h1>
-      <Link href="/content/sections">
-        <a>Sections</a>
-      </Link>
-      <Link href="content/subsections">
-        <a>Subsections</a>
-      </Link>
-      <Link href="content/items">
-        <a>Items</a>
-      </Link>
+      <p>Create, update, and delete items on the shop.</p>
+      <AppGrid />
+      <button>Add Record</button>
     </main>
   </>
 );
 
-export default Content;
+export default SectionContent;
