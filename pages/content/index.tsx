@@ -13,8 +13,10 @@ const SectionContent: NextPage = () => (
     <main className={styles.main}>
       <h1>Manage Content</h1>
       <p>Create, update, and delete items on the shop.</p>
-      <AppGrid />
-      <button>Add Record</button>
+      <div className={styles.gridWrapper}>
+        <AppGrid />
+        <button>Add Record</button>
+      </div>
     </main>
   </>
 );

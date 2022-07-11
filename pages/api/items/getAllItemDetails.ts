@@ -20,5 +20,5 @@ export default async function handler(
     jsonData.section = matchingSection;
     return jsonData;
   });
-  res.status(200).json({ status: 'Done', data });
+  res.status(200).json({ status: 'Done', data, tempData });
 }
