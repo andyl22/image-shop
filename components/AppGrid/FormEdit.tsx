@@ -1,18 +1,20 @@
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { postHTTP } from '../../utilities/fetchAPIs';
 import FormContainer from '../Form/FormContainer';
 import styles from './FormEdit.module.scss';
 
 export interface Section {
-  id: string;
+  _id: string;
   name: string;
 }
 
 export interface Subsection {
-  id: string;
+  _id: string;
   name: string;
 }
 
 export interface Item {
+  _id: string;
   name: string;
   description: string;
   price: string;
@@ -32,6 +34,7 @@ export default function FormChangePassword(props: Props) {
   const [formSubsection, setFormSubsection] = useState(subsection);
   const [formItem, setFormItem] = useState(item);
   const [error, setError] = useState('');
+  console.log(formSection);
 
   const handleChange = (e: ChangeEvent) => {
     const { value, id } = e.target as HTMLInputElement;
@@ -55,11 +58,37 @@ export default function FormChangePassword(props: Props) {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    console.log(formSection === section);
-    console.log(formSubsection === subsection);
-    console.log(formItem === item);
+  const handleSubmit = () => {
+    if (formSection !== section) {
+      postHTTP('/contentManagement/updateSection', {
+        id: formSection._id,
+        updateBody: { name: formSection.name },
+      })
+        .then((res) => console.log('Success', res))
+        .catch((err) => console.log(err));
+    }
+    if (formSubsection !== subsection) {
+      postHTTP('/contentManagement/updateSubsection', {
+        id: formSubsection._id,
+        updateBody: { name: formSubsection.name },
+      })
+        .then((res) => console.log('Success', res))
+        .catch((err) => console.log(err));
+    }
+    if (formItem !== item) {
+      postHTTP('/contentManagement/updateSectionItem', {
+        id: formItem._id,
+        updateBody: {
+          name: formItem.name,
+          description: formItem.description,
+          price: formItem.price,
+          image: formItem.image,
+          sourceLink: formItem.sourceLink,
+        },
+      })
+        .then((res) => console.log('Success', res))
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
