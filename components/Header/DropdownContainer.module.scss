@@ -18,7 +18,8 @@
 
 @keyframes showDropdown {
   0% {
-    transform: scaleY(0%);
+    opacity: 0.3;
+    transform: scaleY(70%);
     transform-origin: top;
   }
   100% {

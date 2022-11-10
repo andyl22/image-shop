@@ -3,6 +3,15 @@ import { refreshAuth } from './auth';
 
 const jwt = require('jsonwebtoken');
 
+function verifyRefreshToken(refreshToken: any) {
+  try {
+    jwt.verify(refreshToken, process.env.SECRET);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 export default function middleware(
   fn: any,
   req: NextApiRequest,
@@ -10,11 +19,7 @@ export default function middleware(
 ) {
   // refresh if no auth token found
   if (req.cookies.refreshToken && !req.cookies.authToken) {
-    const isValid = verifyRefreshToken(
-      req.cookies.refreshToken,
-      req,
-      res,
-    );
+    const isValid = verifyRefreshToken(req.cookies.refreshToken);
     if (isValid) refreshAuth(req, res);
   } else if (req.cookies.authToken) {
     jwt.verify(
@@ -38,18 +43,5 @@ export default function middleware(
       success: false,
       data: 'No auth/refresh token found. Try relogging.',
     });
-  }
-}
-
-function verifyRefreshToken(
-  refreshToken: any,
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-  try {
-    jwt.verify(refreshToken, process.env.SECRET);
-    return true;
-  } catch (e) {
-    return false;
   }
 }
