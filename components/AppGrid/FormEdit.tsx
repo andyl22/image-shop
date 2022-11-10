@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { postHTTP } from '../../utilities/fetchAPIs';
 import FormContainer from '../Form/FormContainer';
 import styles from './FormEdit.module.scss';
@@ -33,7 +33,6 @@ export default function FormChangePassword(props: Props) {
   const [formSection, setFormSection] = useState(section);
   const [formSubsection, setFormSubsection] = useState(subsection);
   const [formItem, setFormItem] = useState(item);
-  const [error, setError] = useState('');
   console.log(formSection);
 
   const handleChange = (e: ChangeEvent) => {
@@ -97,7 +96,6 @@ export default function FormChangePassword(props: Props) {
       handleSubmit={handleSubmit}
     >
       <div className={styles.editContentForm}>
-        {error ? <p className={styles.error}>{error}</p> : null}
         <h2>Section</h2>
         <input
           type="text"
