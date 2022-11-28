@@ -21,6 +21,7 @@ export default async function handler(
     case 'POST':
       try {
         const { username, password } = req.body;
+        console.log(req.body);
         const hashedPassword = bcrypt.hashSync(password, 10);
         const updatedUser = await User.findOneAndUpdate(
           { username },
@@ -33,7 +34,7 @@ export default async function handler(
           });
         } else {
           res.status(200).json({
-            success: false,
+            success: true,
             data: 'Updated password!',
           });
         }

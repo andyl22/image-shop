@@ -5,10 +5,11 @@ import styles from './FormChangePassword.module.scss';
 
 interface Props {
   postSubmitAction: any;
+  username: string;
 }
 
 export default function FormChangePassword(props: Props) {
-  const { postSubmitAction } = props;
+  const { postSubmitAction, username } = props;
 
   const initialFormState = {
     newPassword: '',
@@ -31,12 +32,9 @@ export default function FormChangePassword(props: Props) {
     } else if (newPassword !== confirmPassword) {
       setError('Passwords do not match.');
     } else {
-      const body = { username: 'nonexistent', password: newPassword };
-      console.log(
-        newPassword,
-        await postHTTP('/user/changePassword', body).catch((err) =>
-          console.log(err),
-        ),
+      const body = { username, password: newPassword };
+      await postHTTP('/user/changePassword', body).catch((err) =>
+        console.log(err),
       );
       postSubmitAction();
     }

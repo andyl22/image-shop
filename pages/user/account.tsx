@@ -1,24 +1,39 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
+import Router from 'next/router';
 import styles from '../../styles/Account.module.scss';
-import { selectUser } from '../../redux/slices/userSlice';
-import { useAppSelector } from '../../redux/hooks';
+import { logout, selectUser } from '../../redux/slices/userSlice';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import ActionDialog from '../../components/ActionDialog/ActionDialog';
 import FormChangePassword from '../../components/FormChangePassword/FormChangePassword';
+import { postHTTP } from '../../utilities/fetchAPIs';
 
 const Account: NextPage = () => {
   const [showChangePasswordForm, setShowChangePasswordForm] =
     useState(false);
   const [showDeactive, setShowDeactive] = useState(false);
+  const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
+
+  const userLogout = () => {
+    dispatch(logout());
+    Router.push('/');
+  };
 
   const toggleDeactiveConfirmation = () => {
     setShowDeactive(!showDeactive);
   };
 
-  const deactiveAccount = () => {
-    console.log('Placeholder to inactive account. :D');
+  const deactiveAccount = async () => {
+    const deleteResponse = await postHTTP('/user/deleteAccount', {
+      username: user.username,
+    }).catch((err) => console.log(err));
+    if (deleteResponse.success) {
+      userLogout();
+    } else {
+      console.log(deleteResponse.data);
+    }
     toggleDeactiveConfirmation();
   };
 
@@ -50,6 +65,7 @@ const Account: NextPage = () => {
         </button>
         {showChangePasswordForm ? (
           <FormChangePassword
+            username={user.username}
             postSubmitAction={toggleChangePasswordForm}
           />
         ) : null}

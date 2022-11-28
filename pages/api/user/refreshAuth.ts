@@ -7,13 +7,7 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   try {
-    authMiddleware(
-      () => {
-        console.log('test');
-      },
-      req,
-      res,
-    );
+    authMiddleware(() => {}, req, res);
     res.status(200).json({ success: true });
   } catch (e: any) {
     res.status(200).json({ success: false, data: e });
