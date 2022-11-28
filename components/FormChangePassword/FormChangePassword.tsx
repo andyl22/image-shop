@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react';
+import { postHTTP } from '../../utilities/fetchAPIs';
 import FormContainer from '../Form/FormContainer';
 import styles from './FormChangePassword.module.scss';
 
@@ -15,7 +16,8 @@ export default function FormChangePassword(props: Props) {
   };
   const [error, setError] = useState('');
   const [formState, setFormState] = useState(initialFormState);
-  const handleSubmit = (e: FormEvent) => {
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const { newPassword, confirmPassword } = formState;
     if (
@@ -28,7 +30,16 @@ export default function FormChangePassword(props: Props) {
       );
     } else if (newPassword !== confirmPassword) {
       setError('Passwords do not match.');
-    } else if (postSubmitAction) postSubmitAction();
+    } else {
+      const body = { username: 'nonexistent', password: newPassword };
+      console.log(
+        newPassword,
+        await postHTTP('/user/changePassword', body).catch((err) =>
+          console.log(err),
+        ),
+      );
+      postSubmitAction();
+    }
   };
 
   const handleChange = (e: FormEvent<HTMLInputElement>) => {
