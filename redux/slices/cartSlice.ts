@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { loadState } from "../../utilities/localStorage";
-import type { RootState } from "../store";
+import { createSlice } from '@reduxjs/toolkit';
+import { loadState } from '../../utilities/localStorage';
+import type { RootState } from '../store';
 
 interface Item {
   name: string;
@@ -17,12 +17,12 @@ interface CartState {
 
 const lStorageCart = loadState();
 
-const initialState: CartState = lStorageCart
-  ? lStorageCart
-  : { cart: { items: {}, total: 0 } };
+const initialState: CartState = lStorageCart || {
+  cart: { items: {}, total: 0 },
+};
 
 export const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
   reducers: {
     add: (state, payload) => {
@@ -31,7 +31,11 @@ export const cartSlice = createSlice({
         const itemsList = state.cart.items;
         itemsList[id].quantity += quantity;
       } else {
-        state.cart.items[id] = { name: name, quantity: quantity, price: price };
+        state.cart.items[id] = {
+          name,
+          quantity,
+          price,
+        };
       }
       state.cart.total += quantity * price;
     },
@@ -49,8 +53,13 @@ export const cartSlice = createSlice({
     set: (state, payload) => {
       let prevQuantity = 0;
       const { id, name, quantity, price } = payload.payload;
-      if (state.cart.items[id]) prevQuantity = state.cart.items[id].quantity;
-      state.cart.items[id] = { name: name, quantity: quantity, price: price };
+      if (state.cart.items[id])
+        prevQuantity = state.cart.items[id].quantity;
+      state.cart.items[id] = {
+        name,
+        quantity,
+        price,
+      };
       state.cart.total += (quantity - prevQuantity) * price;
     },
   },

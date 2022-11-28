@@ -1,10 +1,10 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
-import Cookie from "js-cookie";
-import { postHTTP } from "../../utilities/fetchAPIs";
+import { createSlice } from '@reduxjs/toolkit';
+import Cookie from 'js-cookie';
+import type { RootState } from '../store';
+import { postHTTP } from '../../utilities/fetchAPIs';
 
 const checkForUser = () => {
-  const user = Cookie.get("user");
+  const user = Cookie.get('user');
   if (user) {
     const parsedUser = JSON.parse(user);
     return {
@@ -18,17 +18,20 @@ const checkForUser = () => {
 const initialState = { user: checkForUser() };
 
 export const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     logout: (state) => {
-      Cookie.remove("user");
-      postHTTP("/user/logout");
+      Cookie.remove('user');
+      postHTTP('/user/logout');
       return { ...state, user: { username: null, id: null } };
     },
     login: (state) => {
       const user = checkForUser();
-      return { ...state, user: { username: user.username, id: user.id } };
+      return {
+        ...state,
+        user: { username: user.username, id: user.id },
+      };
     },
   },
 });

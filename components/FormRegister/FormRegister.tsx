@@ -4,6 +4,8 @@ import styles from './FormRegister.module.scss';
 import FormContainer from '../Form/FormContainer';
 import debounce from '../../utilities/debounce';
 import { postHTTP } from '../../utilities/fetchAPIs';
+import { useAppDispatch } from '../../redux/hooks';
+import { login } from '../../redux/slices/userSlice';
 
 export default function FormRegister() {
   const formRef = useRef<HTMLInputElement>(null);
@@ -18,11 +20,13 @@ export default function FormRegister() {
     useState('');
   const [errMessage, setErrorMessage] = useState<String | null>();
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (formRef.current) formRef.current.focus();
   }, []);
 
+  // Handle user registration
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (formState.password !== formState.confirmPassword) {
@@ -33,12 +37,22 @@ export default function FormRegister() {
       username: formState.username,
       password: formState.password,
     };
-    const response = await postHTTP('/user/register', body).catch(
-      (err) => console.log(err),
-    );
-    if (response.success === true) {
-      router.push('/shop');
-    } else if (response.data) setinvalidUsername(response.data);
+    const registerResponse = await postHTTP(
+      '/user/register',
+      body,
+    ).catch((err) => console.log(err));
+
+    // If register is successful, then also log the user in with the registered credentials
+    if (registerResponse.success === true) {
+      const loginResponse = await postHTTP('/user/login', body).catch(
+        () => setErrorMessage('Server Error'),
+      );
+      if (loginResponse.success === true) {
+        router.push('/shop');
+        dispatch(login());
+      }
+    } else if (registerResponse.data)
+      setinvalidUsername(registerResponse.data);
   };
 
   const validations = (value: String, inputType: String) => {
