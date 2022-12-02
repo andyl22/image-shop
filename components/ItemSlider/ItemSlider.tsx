@@ -76,6 +76,14 @@ export default function ItemSlider(props: Props) {
     );
   }, []);
 
+  useEffect(() => {
+    const cycle = setTimeout(() => {
+      incrementPointer();
+    }, 10000);
+
+    return () => clearTimeout(cycle);
+  });
+
   const childrenWithArrowNav = (
     <div className={styles.sliderContainer}>
       <button
@@ -86,7 +94,7 @@ export default function ItemSlider(props: Props) {
       >
         <ArrowBackIosNewIcon fontSize="large" />
       </button>
-      {childrenToRender}
+      <div className={styles.sliderContent}>{childrenToRender}</div>
       <button
         aria-label="next image"
         onClick={incrementPointer}

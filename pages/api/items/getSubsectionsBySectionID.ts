@@ -7,6 +7,7 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const { section } = req.body;
+  console.log(section);
   await dbConnect();
   const data = await Subsection.find({ section });
   res.status(200).json({ status: 'Done', data });

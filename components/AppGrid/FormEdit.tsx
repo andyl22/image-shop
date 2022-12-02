@@ -28,12 +28,11 @@ interface Props {
   item: Item;
 }
 
-export default function FormChangePassword(props: Props) {
+export default function FormEdit(props: Props) {
   const { section, subsection, item } = props;
   const [formSection, setFormSection] = useState(section);
   const [formSubsection, setFormSubsection] = useState(subsection);
   const [formItem, setFormItem] = useState(item);
-  console.log(formSection);
 
   const handleChange = (e: ChangeEvent) => {
     const { value, id } = e.target as HTMLInputElement;
@@ -41,7 +40,6 @@ export default function FormChangePassword(props: Props) {
     const targetSection = splitID[0];
     const property =
       splitID[1].charAt(0).toLowerCase() + splitID[1].slice(1);
-    console.log(property, value, targetSection);
     switch (targetSection) {
       case 'section':
         setFormSection({ ...formSection, [property]: value });
@@ -91,64 +89,85 @@ export default function FormChangePassword(props: Props) {
   };
 
   return (
-    <FormContainer
-      title="Change Password"
-      handleSubmit={handleSubmit}
-    >
+    <FormContainer title="Edit Item" handleSubmit={handleSubmit}>
       <div className={styles.editContentForm}>
         <h2>Section</h2>
-        <input
-          type="text"
-          id="sectionName"
-          placeholder="Section Name"
-          value={formSection.name}
-          onChange={handleChange}
-        />
+        <div className={styles.inputContainer}>
+          <label htmlFor="sectionName">Section Name</label>
+          <input
+            type="text"
+            id="sectionName"
+            placeholder="Section Name"
+            value={formSection.name}
+            onChange={handleChange}
+          />
+        </div>
         <h2>Subsection</h2>
-        <input
-          type="text"
-          id="subsectionName"
-          placeholder="Subsection Name"
-          value={formSubsection.name}
-          onChange={handleChange}
-        />
+        <div className={styles.inputContainer}>
+          <label htmlFor="subsectionName">Subsection Name</label>
+          <input
+            type="text"
+            id="subsectionName"
+            placeholder="Subsection Name"
+            value={formSubsection.name}
+            onChange={handleChange}
+          />
+        </div>
+
         <h2>Item</h2>
-        <input
-          type="text"
-          id="itemName"
-          placeholder="Item Name"
-          value={formItem.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          id="itemDescription"
-          placeholder="Description"
-          value={formItem.description}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          id="itemPrice"
-          placeholder="Price"
-          value={formItem.price}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          id="itemImage"
-          placeholder="Image"
-          value={formItem.image}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          id="itemSourceLink"
-          placeholder="Image Source"
-          value={formItem.sourceLink}
-          onChange={handleChange}
-        />
-        <input type="submit" value="Save Changes" />
+        <div className={styles.inputContainer}>
+          <label htmlFor="itemName">Item Name</label>
+          <input
+            type="text"
+            id="itemName"
+            placeholder="Item Name"
+            value={formItem.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <label htmlFor="itemDescription">Description</label>
+          <input
+            type="text"
+            id="itemDescription"
+            placeholder="Description"
+            value={formItem.description}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <label htmlFor="itemPrice">Price</label>
+          <input
+            type="text"
+            id="itemPrice"
+            placeholder="Price"
+            value={formItem.price}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <label htmlFor="itemImage">Image Path</label>
+          <input
+            type="text"
+            id="itemImage"
+            placeholder="Image"
+            value={formItem.image}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <label htmlFor="itemSourceLink">Image Source</label>
+          <input
+            type="text"
+            id="itemSourceLink"
+            placeholder="Image Source"
+            value={formItem.sourceLink}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <input type="submit" value="Save Changes" />
+        </div>
       </div>
     </FormContainer>
   );

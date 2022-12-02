@@ -1,9 +1,12 @@
 .sliderContainer {
   display: flex;
-  gap: 2rem;
   padding: 0 1rem;
   justify-content: center;
   align-items: center;
+  .sliderContent {
+    display: flex;
+    gap: 2rem;
+  }
   .flipIcon {
     transform: rotate(180deg);
   }
