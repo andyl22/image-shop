@@ -22,13 +22,16 @@ export default function FormAdd() {
     description: '',
     price: '',
     image: '',
+    sourceName: '',
     sourceLink: '',
-    subsectionId: '',
+    subsection: '',
   });
 
   const handleChange = (e: ChangeEvent) => {
     const { value, id } = e.target as HTMLInputElement;
     setFormItem({ ...formItem, [id]: value });
+
+    console.log(formItem);
   };
 
   const handleSectionChange = (e: ChangeEvent) => {
@@ -38,16 +41,24 @@ export default function FormAdd() {
     );
   };
 
-  const handleSubsectionChange = () => {};
+  const handleSubsectionChange = (e: ChangeEvent) => {
+    const { value } = e.target as HTMLInputElement;
+    setFormItem({
+      ...formItem,
+      subsection: value,
+    });
+  };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     postHTTP('/contentManagement/createSectionItem', {
       name: formItem.name,
       description: formItem.description,
       price: formItem.price,
       image: formItem.image,
+      sourceName: formItem.sourceName,
       sourceLink: formItem.sourceLink,
-      subsection: formItem.subsectionId,
+      subsection: formItem.subsection,
     })
       .then((res) => console.log('Success', res))
       .catch((err) => console.log(err));
@@ -88,6 +99,10 @@ export default function FormAdd() {
     const setSubsectionData = async () => {
       const subsectionData = await getSubsections(selectedSection);
       setSubsections(subsectionData.data);
+      setFormItem({
+        ...formItem,
+        subsection: subsectionData.data[0].name,
+      });
     };
     setSubsectionData();
   }, [selectedSection]);
@@ -159,11 +174,21 @@ export default function FormAdd() {
           />
         </div>
         <div className={styles.inputContainer}>
-          <label htmlFor="sourceLink">Image Source</label>
+          <label htmlFor="sourceName">Image Source Name</label>
+          <input
+            type="text"
+            id="sourceName"
+            placeholder="Image Source Name"
+            value={formItem.sourceName}
+            onChange={handleChange}
+          />
+        </div>
+        <div className={styles.inputContainer}>
+          <label htmlFor="sourceLink">Image Reference</label>
           <input
             type="text"
             id="sourceLink"
-            placeholder="Image Source"
+            placeholder="Image Reference"
             value={formItem.sourceLink}
             onChange={handleChange}
           />
