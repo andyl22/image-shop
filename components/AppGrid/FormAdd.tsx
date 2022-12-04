@@ -1,7 +1,7 @@
-import { ChangeEvent, useState, useEffect } from 'react';
+import { ChangeEvent, useState, useEffect, FormEvent } from 'react';
 import { postHTTP } from '../../utilities/fetchAPIs';
 import FormContainer from '../Form/FormContainer';
-import styles from './FormEdit.module.scss';
+import styles from './FormAdd.module.scss';
 
 export interface Section {
   _id: any;
@@ -13,7 +13,9 @@ export interface Subsection {
   name: string;
 }
 
-export default function FormAdd() {
+export default function FormAdd(props: any) {
+  const { toggleForm } = props;
+  const [errorMessage, setErrorMessage] = useState();
   const [sections, setSections] = useState<Section[]>([]);
   const [subsections, setSubsections] = useState<Subsection[]>([]);
   const [selectedSection, setSelectedSection] = useState<any>();
@@ -30,8 +32,6 @@ export default function FormAdd() {
   const handleChange = (e: ChangeEvent) => {
     const { value, id } = e.target as HTMLInputElement;
     setFormItem({ ...formItem, [id]: value });
-
-    console.log(formItem);
   };
 
   const handleSectionChange = (e: ChangeEvent) => {
@@ -49,7 +49,7 @@ export default function FormAdd() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     postHTTP('/contentManagement/createSectionItem', {
       name: formItem.name,
@@ -60,7 +60,13 @@ export default function FormAdd() {
       sourceLink: formItem.sourceLink,
       subsection: formItem.subsection,
     })
-      .then((res) => console.log('Success', res))
+      .then((res) => {
+        if (res.errors) {
+          setErrorMessage(res.message);
+        } else {
+          toggleForm();
+        }
+      })
       .catch((err) => console.log(err));
   };
 
@@ -118,21 +124,23 @@ export default function FormAdd() {
 
   return (
     <FormContainer title="Add Item" handleSubmit={handleSubmit}>
-      <div className={styles.editContentForm}>
+      <div className={styles.addContentForm}>
         <h2>Section</h2>
-        <div className={styles.inputContainer}>
+        <div className={styles.selectContainer}>
           <select onChange={handleSectionChange}>
             {mappedSectionOptions}
           </select>
         </div>
         <h2>Subsection</h2>
-        <div className={styles.inputContainer}>
+        <div className={styles.selectContainer}>
           <select onChange={handleSubsectionChange}>
             {mappedSubsectionOptions}
           </select>
         </div>
-
         <h2>Item</h2>
+        {errorMessage ? (
+          <p className={styles.error}>{errorMessage}</p>
+        ) : null}
         <div className={styles.inputContainer}>
           <label htmlFor="name">Item Name</label>
           <input

@@ -30,7 +30,7 @@ const SectionContent: NextPage = () => {
       </main>
       {showAddModal ? (
         <Modal toggleModal={toggleAddModal}>
-          <FormAdd />
+          <FormAdd toggleForm={toggleAddModal} />
         </Modal>
       ) : null}
     </>

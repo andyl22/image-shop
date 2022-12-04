@@ -10,7 +10,6 @@ export default async function handler(
 
   await dbConnect();
 
-  console.log(id, updateBody);
   try {
     await Item.findByIdAndUpdate(id, updateBody);
     res.status(201).json({ message: 'Updated Item' });
