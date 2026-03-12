@@ -29,7 +29,7 @@ export default function RightHeader() {
         </UserDropdown>
       ) : (
         <Link href="/user/login">
-          <a>Sign In</a>
+          Sign In
         </Link>
       ),
     );

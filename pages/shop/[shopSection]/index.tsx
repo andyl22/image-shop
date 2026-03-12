@@ -51,7 +51,7 @@ function ShopSection() {
                 )}`}
                 key={subsection._id}
               >
-                <a>{formatTitle(subsection.name)}</a>
+                {formatTitle(subsection.name)}
               </Link>
             )),
           );

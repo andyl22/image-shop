@@ -2,15 +2,21 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
 import AppGrid from '../../components/AppGrid/AppGrid';
-import FormAdd from '../../components/AppGrid/FormAdd';
+import FormAdd from '../../components/AppGrid/FormAddItem';
+import FormAddSection from '../../components/AppGrid/FormAddSection';
 import Modal from '../../components/Modal/Modal';
 import styles from '../../styles/ManageContent.module.scss';
 
 const SectionContent: NextPage = () => {
-  const [showAddModal, setShowAddModal] = useState(false);
+  const [showAddItemModal, setShowAddItemModal] = useState(false);
+  const [showAddSectionModal, setShowAddSectionModal] = useState(false);
 
   const toggleAddModal = () => {
-    setShowAddModal(!showAddModal);
+    setShowAddItemModal(!showAddItemModal);
+  };
+
+  const toggleAddSectionModal = () => {
+    setShowAddSectionModal(!showAddSectionModal);
   };
 
   return (
@@ -25,12 +31,18 @@ const SectionContent: NextPage = () => {
         <p>Create, update, and delete items on the shop.</p>
         <div className={styles.gridWrapper}>
           <AppGrid />
-          <button onClick={toggleAddModal}>Add Record</button>
+          <button onClick={toggleAddModal}>Add Item</button>
+          <button onClick={toggleAddSectionModal}>Add Section</button>
         </div>
       </main>
-      {showAddModal ? (
+      {showAddItemModal ? (
         <Modal toggleModal={toggleAddModal}>
           <FormAdd toggleForm={toggleAddModal} />
+        </Modal>
+      ) : null}
+      {showAddSectionModal ? (
+        <Modal toggleModal={toggleAddSectionModal}>
+          <FormAddSection toggleForm={toggleAddSectionModal} />
         </Modal>
       ) : null}
     </>

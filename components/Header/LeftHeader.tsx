@@ -62,23 +62,23 @@ export default function LeftHeader() {
 
   const fullLeftNav = (
     <>
-      <Link href="/">
-        <a aria-label="navigate to home page logo">
-          <h1>Parks</h1>
-        </a>
+      <Link href="/" aria-label="navigate to home page logo">
+
+        <h1>Parks</h1>
+
       </Link>
       <ShopDropdown sections={sections}>
-        <Link href="/shop">
-          <a className={styles.dropdownLink}>Shop</a>
+        <Link href="/shop" className={styles.dropdownLink}>
+          Shop
         </Link>
       </ShopDropdown>
       <BlogDropdown>
-        <Link href="/blog">
-          <a className={styles.dropdownLink}>Blog</a>
+        <Link href="/blog" className={styles.dropdownLink}>
+          Blog
         </Link>
       </BlogDropdown>
       <Link href="/about">
-        <a>About</a>
+        About
       </Link>
     </>
   );
@@ -93,10 +93,10 @@ export default function LeftHeader() {
       >
         <MenuIcon />
       </button>
-      <Link href="/">
-        <a className={styles.visualHighlight}>
-          <h1>Parks</h1>
-        </a>
+      <Link href="/" className={styles.visualHighlight}>
+
+        <h1>Parks</h1>
+
       </Link>
     </>
   );

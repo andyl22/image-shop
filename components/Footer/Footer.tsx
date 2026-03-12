@@ -6,16 +6,16 @@ export default function Footer() {
     <footer className={styles.footer}>
       <p>© 2022 Parks</p>
       <Link href="/contact">
-        <a>Contact Us</a>
+        Contact Us
       </Link>
       <Link href="/privacy">
-        <a>Privacy Info</a>
+        Privacy Info
       </Link>
       <Link href="/track">
-        <a>Track</a>
+        Track
       </Link>
       <Link href="/credits">
-        <a>Accreditation</a>
+        Accreditation
       </Link>
     </footer>
   );

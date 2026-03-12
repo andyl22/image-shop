@@ -41,8 +41,9 @@ export default function BlogModal(props: Props) {
               src={headerImage}
               placeholder="blur"
               blurDataURL={headerImage}
-              height="70%"
-              width="100%"
+              width={100}
+              height={100}
+              style={{ width: '100%', height: 'auto' }}
               alt={`blog-${title}`}
               quality="50"
               priority

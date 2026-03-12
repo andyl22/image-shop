@@ -27,8 +27,8 @@ const ItemPage = () => {
               <Image
                 src={res.image}
                 alt={res.name}
-                width="1000px"
-                height="800px"
+                width={1000}
+                height={800}
                 quality={100}
               />
               <p className={styles.itemDescription}>

@@ -23,8 +23,8 @@ export default function SheetLink(props: Props) {
       height={height}
       width={width}
     >
-      <Link href={href}>
-        <a className={styles.fillSheet}>{children}</a>
+      <Link href={href} className={styles.fillSheet}>
+        {children}
       </Link>
     </Sheet>
   );

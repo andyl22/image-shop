@@ -77,7 +77,7 @@ export default function CartItem(props: Props) {
     </option>
   ));
 
-  const updateQuantity = (quantity: SetStateAction<number>) => {
+  const updateQuantity = (quantity: number) => {
     quantity > 9 ? setShowInput(true) : setShowInput(false);
     setQuantity(quantity);
   };
@@ -98,13 +98,13 @@ export default function CartItem(props: Props) {
     quantity <= 1
       ? deleteItem()
       : dispatch(
-          decrease({
-            id,
-            name,
-            quantity: 1,
-            price,
-          }),
-        );
+        decrease({
+          id,
+          name,
+          quantity: 1,
+          price,
+        }),
+      );
     updateQuantity(quantity - 1);
   };
 
@@ -173,8 +173,8 @@ export default function CartItem(props: Props) {
         <Image
           src={fullItemData.image}
           alt={name}
-          height="128px"
-          width="128px"
+          height={128}
+          width={128}
           quality={30}
         />
       ) : null}

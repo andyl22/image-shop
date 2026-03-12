@@ -21,7 +21,7 @@ export default function LinksList(props: Props) {
     return (
       <li key={link.name}>
         <Link href={formattedPath}>
-          <a>{formatTitle(link.name)}</a>
+          {formatTitle(link.name)}
         </Link>
       </li>
     );

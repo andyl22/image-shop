@@ -39,15 +39,15 @@ export default function CartModal(props: Props) {
         <div className={styles.cartSummary}>
           <p>Total: ${cart.total}</p>
           <Link href="/shop/checkout">
-            <a>
-              <button
-                className={styles.checkoutButton}
-                onClick={toggleModal}
-                type="button"
-              >
-                Checkout
-              </button>
-            </a>
+
+            <button
+              className={styles.checkoutButton}
+              onClick={toggleModal}
+              type="button"
+            >
+              Checkout
+            </button>
+
           </Link>
         </div>
       </div>

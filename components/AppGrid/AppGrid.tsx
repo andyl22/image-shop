@@ -49,11 +49,11 @@ export default function AppGrid() {
                 section: { _id: string; name: string };
                 subsection: { _id: string; name: string };
               }) => [
-                item.section ? formatTitle(item.section.name) : '',
-                formatTitle(item.subsection.name),
-                formatTitle(item.name),
-                item,
-              ],
+                  item.section ? formatTitle(item.section.name) : '',
+                  formatTitle(item.subsection.name),
+                  formatTitle(item.name),
+                  item,
+                ],
             ),
           )
           .catch((err) => console.log(err)),
@@ -111,7 +111,7 @@ export default function AppGrid() {
           },
         ]}
         search
-        pagination={{ enabled: true, limit: 10 }}
+        pagination={{ limit: 10 }}
         className={{
           header: styles.header,
           td: styles.td,

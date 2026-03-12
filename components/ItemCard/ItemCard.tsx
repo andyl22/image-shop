@@ -16,6 +16,8 @@ export default function ItemCard(props: Props) {
   const { id, name, description, imageURL, price, enableCheckout } =
     props;
 
+  console.log(imageURL)
+
   return (
     <div className={styles.itemCardContainer}>
       <OverflowToolTip tooltipContent={name}>
@@ -25,12 +27,11 @@ export default function ItemCard(props: Props) {
         <Image
           src={imageURL}
           alt={name}
-          height="100%"
-          width="100%"
-          layout="responsive"
+          height={100}
+          width={100}
           placeholder="blur"
           blurDataURL={imageURL}
-          quality="25"
+          quality={25}
         />
       </div>
       <div className={styles.itemContent}>

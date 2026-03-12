@@ -4,6 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: ['yosemite.org', 'localhost'],
+    qualities: [25, 75],
   },
 };
 

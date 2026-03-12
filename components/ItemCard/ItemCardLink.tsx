@@ -30,16 +30,16 @@ export default function ShopItemCard(props: Props) {
 
   return (
     <div className={styles.itemCardWrapper}>
-      <Link href={link || `${pathName}/${id}`}>
-        <a className={styles.linkWrapper}>
-          <ItemCard
-            id={id}
-            name={name}
-            description={description}
-            price={price}
-            imageURL={imageURL}
-          />
-        </a>
+      <Link href={link || `${pathName}/${id}`} className={styles.linkWrapper}>
+
+        <ItemCard
+          id={id}
+          name={name}
+          description={description}
+          price={price}
+          imageURL={imageURL}
+        />
+
       </Link>
       {enableCheckout ? (
         <AddToCart id={id} name={name} price={price} />

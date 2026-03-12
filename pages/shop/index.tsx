@@ -30,7 +30,7 @@ function Shop(props: any) {
     const { _id, name } = item;
     return (
       <Link key={_id} href={`/shop/${formatToKebabCase(name)}`}>
-        <a>{formatTitle(name)}</a>
+        {formatTitle(name)}
       </Link>
     );
   });

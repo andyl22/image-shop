@@ -81,7 +81,7 @@ export default function LoginForm() {
           <input type="submit" value="Login" id="login" />
         </div>
         <Link href="/user/register">
-          <a>Don&apos;t have an account? Register now.</a>
+          Don&apos;t have an account? Register now.
         </Link>
       </div>
     </FormContainer>

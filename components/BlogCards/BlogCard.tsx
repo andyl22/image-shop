@@ -14,27 +14,21 @@ export default function BlogCard(props: Prop) {
 
   return (
     <Link href="/blog/[blogID]" as={`/blog/${id}`}>
-      <a>
-        <div className={styles.blogCardContainer}>
-          <div className={styles.blogCardImage}>
-            <Image
-              src={image}
-              layout="responsive"
-              placeholder="blur"
-              blurDataURL={image}
-              height="100%"
-              width="100%"
-              alt={`blog-${title}`}
-              quality="1"
-              priority
-            />
-          </div>
-          <h1>{title}</h1>
-          <div className={styles.content}>
-            <p>{content}</p>
-          </div>
-        </div>
-      </a>
+
+      <div className={styles.blogCardImage}>
+        <Image
+          src={image}
+          width={100}
+          height={100}
+          style={{ width: '100%', height: 'auto' }}
+          placeholder="blur"
+          blurDataURL={image}
+          alt={`blog-${title}`}
+          quality={1}
+          priority
+        />
+      </div>
+
     </Link>
   );
 }

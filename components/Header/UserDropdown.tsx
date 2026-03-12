@@ -18,35 +18,32 @@ export default function UserDropdown(props: Props) {
     <div className={styles.dropdownContent}>
       <h3>User Settings</h3>
       <nav>
-        <Link href="/user/account">
-          <a className={styles.menuItem}>
-            <AdminPanelSettingsIcon fontSize="small" />
-            Manage
-          </a>
+        <Link href="/user/account" className={styles.menuItem}>
+
+          <AdminPanelSettingsIcon fontSize="small" />Manage
+                    
         </Link>
-        <Link href="/user/preferences">
-          <a className={styles.menuItem}>
-            <SettingsIcon fontSize="small" />
-            User Settings
-          </a>
+        <Link href="/user/preferences" className={styles.menuItem}>
+
+          <SettingsIcon fontSize="small" />User Settings
+                    
         </Link>
-        <Link href="/content">
-          <a className={styles.menuItem}>
-            <ManageSearchIcon fontSize="small" />
-            Manage Content
-          </a>
+        <Link href="/content" className={styles.menuItem}>
+
+          <ManageSearchIcon fontSize="small" />Manage Content
+                    
         </Link>
       </nav>
       <h3>Help</h3>
       <nav>
-        <Link href="/about">
-          <a className={styles.menuItem}>Our Mission</a>
+        <Link href="/about" className={styles.menuItem}>
+          Our Mission
         </Link>
-        <Link href="/contact">
-          <a className={styles.menuItem}>Contact Us</a>
+        <Link href="/contact" className={styles.menuItem}>
+          Contact Us
         </Link>
-        <Link href="/privacy">
-          <a className={styles.menuItem}>Privacy</a>
+        <Link href="/privacy" className={styles.menuItem}>
+          Privacy
         </Link>
       </nav>
       <button

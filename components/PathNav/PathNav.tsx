@@ -13,7 +13,7 @@ export default function PathNav() {
       <div className={styles.pathItem} key={path}>
         <p>/</p>
         <Link href={buildPath}>
-          <a>{path}</a>
+          {path}
         </Link>
       </div>
     );
@@ -22,7 +22,7 @@ export default function PathNav() {
   return (
     <div className={styles.paths}>
       <Link href="/">
-        <a>home</a>
+        home
       </Link>
       {mappedPaths}
     </div>

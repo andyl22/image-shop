@@ -66,9 +66,9 @@ export default function LeftNavMenu(props: Props) {
           <KeyboardDoubleArrowLeftIcon fontSize="medium" />
         </button>
         <Link href="/">
-          <a>
-            <h1>Parks</h1>
-          </a>
+
+          <h1>Parks</h1>
+
         </Link>
         <span className={styles.line} />
         <CollapsibleItem
@@ -80,10 +80,10 @@ export default function LeftNavMenu(props: Props) {
           </div>
         </CollapsibleItem>
         <Link href="/blog">
-          <a>Blogs</a>
+          Blogs
         </Link>
         <Link href="/about">
-          <a>About</a>
+          About
         </Link>
       </div>
     </Modal>
