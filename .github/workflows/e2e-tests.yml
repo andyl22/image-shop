@@ -1,0 +1,45 @@
+name: E2E Tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+
+    # Next.js dev server with env vars (used by Playwright webServer)
+    env:
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+      SECRET: ${{ secrets.SECRET }}
+      NEXT_PUBLIC_STRIPE_API: ${{ secrets.NEXT_PUBLIC_STRIPE_API }}
+      NEXT_PUBLIC_STRIPE_SECRET: ${{ secrets.NEXT_PUBLIC_STRIPE_SECRET }}
+      API_URI: "http://localhost:3000"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Add @playwright/test as temp devDependency for CI
+        run: cd ${{ github.workspace }} && npm install --save-dev @playwright/test@^1.49.0 --legacy-peer-deps
+
+      - name: Install Playwright browsers with dependencies
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Run E2E tests
+        run: npx playwright test --config=e2e/playwright.config.ts
+
+    timeout-minutes: 20

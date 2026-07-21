@@ -15,7 +15,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "incremental": true
+    "incremental": true,
+    "target": "ES2017",
+    "moduleResolution": "node"
   },
   "include": [
     "next-env.d.ts",
