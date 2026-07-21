@@ -1,4 +1,5 @@
 import path from 'path';
+
 import { defineConfig, devices } from '@playwright/test';
 
 /**
@@ -104,12 +105,10 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests. */
   webServer: {
-    command: 'npm run dev',
+    reuseExistingServer: true,
+    command: process.env.CI ? 'npm run build && npm run start' : 'next dev --webpack',
     url: 'http://localhost:3000',
     cwd: path.resolve(__dirname, '..'),
-    stdout: 'pipe',
-    stderr: 'pipe',
     timeout: 120 * 1000,
-    reuseExistingServer: true,
   },
 });
