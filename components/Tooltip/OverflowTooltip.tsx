@@ -11,15 +11,19 @@ export default function OverflowToolTip(props: Props) {
   const { children, tooltipContent } = props;
   const [isOverflowed, setOverflowed] = useState(false);
 
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const mappedChildren = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, {
-        ...child.props,
-        className: styles.overFlowContainer,
-        ref: containerRef,
-      });
+      const childProps = child.props as Record<string, unknown>;
+      return React.cloneElement(
+        child as React.ReactElement<any>,
+        {
+          ...childProps,
+          className: styles.overFlowContainer,
+          ref: containerRef,
+        } as Partial<any>
+      );
     }
     return null;
   });
