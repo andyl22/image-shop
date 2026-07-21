@@ -102,11 +102,11 @@ export default function SortMenu(props: Props) {
   }, [itemData, singleSelected]);
 
   return (
-    <div className={styles.itemsControlContainer}>
+    <div className={styles.itemsControlContainer} data-testid="items-control-menu">
       <div
-        className={`${styles.filtersMenuContainer} ${
-          showFilters ? styles.hideFilters : null
-        }`}
+        className={`${styles.filtersMenuContainer} ${showFilters ? styles.hideFilters : null
+          }`}
+        data-testid="items-control-filters"
       >
         <CollapsibleItem
           parentNode={
@@ -114,16 +114,16 @@ export default function SortMenu(props: Props) {
           }
           showCollapsedOnLoad
         >
-          <form className={styles.singleSelect}>
+          <form className={styles.singleSelect} data-testid="items-control-sort-form">
             {mappedSortOptions}
           </form>
         </CollapsibleItem>
       </div>
       <button
-        className={`${styles.collapseFilters} ${
-          showFilters ? styles.rotateButton : null
-        }`}
+        className={`${styles.collapseFilters} ${showFilters ? styles.rotateButton : null
+          }`}
         aria-label="Close Filter Menu"
+        data-testid="items-control-collapse-button"
         onClick={toggleShowFilters}
         type="button"
       >

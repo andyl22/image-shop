@@ -1,0 +1,18 @@
+# Local reports
+reports/
+
+# Browser data
+**/storageState.json
+
+# Debug videos
+**/video/*.webm
+
+# Traces
+**/trace/*.zip
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

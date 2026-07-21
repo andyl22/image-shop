@@ -3,7 +3,7 @@ import styles from './Footer.module.scss';
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} data-testid="footer">
       <p>© 2022 Parks</p>
       <Link href="/contact">
         Contact Us
@@ -15,7 +15,7 @@ export default function Footer() {
         Track
       </Link>
       <Link href="/credits">
-        Accreditation
+        Credits
       </Link>
     </footer>
   );

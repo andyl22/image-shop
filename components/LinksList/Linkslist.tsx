@@ -28,7 +28,7 @@ export default function LinksList(props: Props) {
   });
 
   return (
-    <figure className={styles.listFigure}>
+    <figure className={styles.listFigure} data-testid="links-list">
       <figcaption>{formatTitle(sectionName)}</figcaption>
       <ul>{mappedLinks}</ul>
     </figure>

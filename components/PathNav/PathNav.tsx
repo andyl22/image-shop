@@ -20,8 +20,8 @@ export default function PathNav() {
   });
 
   return (
-    <div className={styles.paths}>
-      <Link href="/">
+    <div className={styles.paths} data-testid="path-nav">
+      <Link href="/" data-testid="path-nav-home-link">
         home
       </Link>
       {mappedPaths}

@@ -28,7 +28,7 @@ export default function RightHeader() {
           </button>
         </UserDropdown>
       ) : (
-        <Link href="/user/login">
+        <Link href="/user/login" data-testid="nav-sign-in-link">
           Sign In
         </Link>
       ),

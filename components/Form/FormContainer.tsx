@@ -10,7 +10,7 @@ interface Prop {
 export default function FormContainer(props: Prop) {
   const { children, title, handleSubmit } = props;
   return (
-    <form className={styles.formStyle} onSubmit={handleSubmit}>
+    <form className={styles.formStyle} data-testid="form-container" onSubmit={handleSubmit}>
       <div className={styles.formHeader}>
         {title ? <h1>{title}</h1> : null}
       </div>

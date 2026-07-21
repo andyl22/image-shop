@@ -62,22 +62,22 @@ export default function LeftHeader() {
 
   const fullLeftNav = (
     <>
-      <Link href="/" aria-label="navigate to home page logo">
+      <Link href="/" aria-label="navigate to home page logo" data-testid="nav-home">
 
         <h1>Parks</h1>
 
       </Link>
       <ShopDropdown sections={sections}>
-        <Link href="/shop" className={styles.dropdownLink}>
+        <Link href="/shop" className={styles.dropdownLink} data-testid="nav-shop">
           Shop
         </Link>
       </ShopDropdown>
       <BlogDropdown>
-        <Link href="/blog" className={styles.dropdownLink}>
+        <Link href="/blog" data-testid="nav-blog" className={styles.dropdownLink}>
           Blog
         </Link>
       </BlogDropdown>
-      <Link href="/about">
+      <Link href="/about" data-testid="nav-about">
         About
       </Link>
     </>
@@ -88,6 +88,7 @@ export default function LeftHeader() {
       {showModal ? <LeftNavMenu toggleModal={toggleModal} /> : null}
       <button
         onClick={toggleModal}
+        data-testid="hamburger-menu-button"
         className={styles.hamburger}
         type="button"
       >

@@ -135,6 +135,7 @@ export default function FormRegister() {
             <input
               type="password"
               id="password"
+              data-testid="register-password-input"
               onChange={handleChange}
               value={formState.password}
               required
@@ -152,6 +153,7 @@ export default function FormRegister() {
             <input
               type="password"
               id="confirmPassword"
+              data-testid="register-confirm-password-input"
               onChange={handleChange}
               value={formState.confirmPassword}
               required
@@ -164,7 +166,7 @@ export default function FormRegister() {
               {invalidConfirmPassword}
             </span>
           ) : null}
-          <input type="submit" value="Register" id="Register" />
+          <input type="submit" value="Register" id="Register" data-testid="register-submit-button" />
         </div>
       </div>
     </FormContainer>

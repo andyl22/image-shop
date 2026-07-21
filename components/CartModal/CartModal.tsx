@@ -32,7 +32,7 @@ export default function CartModal(props: Props) {
       isOpen={isOpen}
       headerName="Cart"
     >
-      <div className={styles.cartContentContainer}>
+      <div className={styles.cartContentContainer} data-testid="cart-modal-content">
         <div className={styles.cartMain}>
           <ul>{mappedCartItems}</ul>
         </div>
@@ -42,6 +42,7 @@ export default function CartModal(props: Props) {
 
             <button
               className={styles.checkoutButton}
+              data-testid="cart-checkout-button"
               onClick={toggleModal}
               type="button"
             >

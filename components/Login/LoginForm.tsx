@@ -71,6 +71,7 @@ export default function LoginForm() {
             <input
               type="password"
               id="password"
+              data-testid="login-password-input"
               onChange={handleChange}
               value={formState.password}
               required
@@ -78,7 +79,7 @@ export default function LoginForm() {
               aria-describedby="password-error"
             />
           </div>
-          <input type="submit" value="Login" id="login" />
+          <input type="submit" value="Login" id="login" data-testid="login-submit-button" />
         </div>
         <Link href="/user/register">
           Don&apos;t have an account? Register now.
