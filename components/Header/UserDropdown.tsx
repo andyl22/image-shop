@@ -1,5 +1,5 @@
+import type { ReactNode } from 'react';
 import Link from 'next/link';
-import { ReactChild } from 'react';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ManageSearchIcon from '@mui/icons-material/ManageSearch';
@@ -7,7 +7,7 @@ import styles from './UserDropdown.module.scss';
 import Dropdown from '../Dropdown/Dropdown';
 
 interface Props {
-  children: ReactChild | ReactChild[];
+  children: ReactNode;
   logout: () => void;
 }
 
@@ -21,17 +21,17 @@ export default function UserDropdown(props: Props) {
         <Link href="/user/account" className={styles.menuItem}>
 
           <AdminPanelSettingsIcon fontSize="small" />Manage
-                    
+
         </Link>
         <Link href="/user/preferences" className={styles.menuItem}>
 
           <SettingsIcon fontSize="small" />User Settings
-                    
+
         </Link>
         <Link href="/content" className={styles.menuItem}>
 
           <ManageSearchIcon fontSize="small" />Manage Content
-                    
+
         </Link>
       </nav>
       <h3>Help</h3>

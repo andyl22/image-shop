@@ -1,15 +1,15 @@
 import {
   KeyboardEvent,
   MouseEvent,
-  ReactChild,
   ReactElement,
+  ReactNode,
   useRef,
   useState,
 } from 'react';
 import styles from './Dropdown.module.scss';
 
 interface Props {
-  children: ReactChild | ReactChild[];
+  children: ReactNode;
   dropdownContent: ReactElement | ReactElement[];
   clickControlled?: boolean;
 }
@@ -17,7 +17,7 @@ interface Props {
 export default function Dropdown(props: Props) {
   const { dropdownContent, clickControlled, children } = props;
   const [showDropdown, setShowDropdown] = useState(false);
-  const dropdown = useRef<any>();
+  const dropdown = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
