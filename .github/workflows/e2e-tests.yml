@@ -31,10 +31,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm ci --legacy-peer-deps
-
-      - name: Add @playwright/test as temp devDependency for CI
-        run: cd ${{ github.workspace }} && npm install --save-dev @playwright/test@^1.49.0 --legacy-peer-deps
+        run: npm ci
 
       - name: Install Playwright browsers with dependencies
         run: npx playwright install --with-deps chromium firefox webkit
