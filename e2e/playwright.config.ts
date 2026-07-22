@@ -3,11 +3,12 @@ import path from 'path';
 import { defineConfig, devices } from '@playwright/test';
 
 /**
- * Read environment variables from file.
+ * Read environment variables from file (optional - for local dev).
  * https://github.com/motdotla/dotenv
  */
+// Uncomment below to load .env.local for local development
 // import dotenv from 'dotenv';
-// dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+// dotenv.config({ path: path.resolve(__dirname, '../.env.local') });
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -105,10 +106,18 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests. */
   webServer: {
-    reuseExistingServer: true,
+    reuseExistingServer: false,
     command: process.env.CI ? 'npm run build && npm run start' : 'next dev --webpack',
     url: 'http://localhost:3000',
     cwd: path.resolve(__dirname, '..'),
     timeout: 120 * 1000,
+    /* Pass environment variables to the Next.js server process */
+    env: {
+      MONGO_URI: process.env.MONGO_URI || '',
+      SECRET: process.env.SECRET || '',
+      NEXT_PUBLIC_STRIPE_API: process.env.NEXT_PUBLIC_STRIPE_API || '',
+      NEXT_PUBLIC_STRIPE_SECRET: process.env.NEXT_PUBLIC_STRIPE_SECRET || '',
+      API_URI: process.env.API_URI || 'http://localhost:3000',
+    },
   },
 });

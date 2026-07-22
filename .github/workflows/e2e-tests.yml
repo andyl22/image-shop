@@ -12,8 +12,9 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
+    environment: CI
 
-    # Next.js dev server with env vars (used by Playwright webServer)
+    # Environment variables available to all steps and webServer
     env:
       MONGO_URI: ${{ secrets.MONGO_URI }}
       SECRET: ${{ secrets.SECRET }}
@@ -22,6 +23,15 @@ jobs:
       API_URI: "http://localhost:3000"
 
     steps:
+      - name: Debug Environment Variables
+        run: |
+          if [ -z "$MONGO_URI" ]; then
+            echo "ERROR: MONGO_URI is not set!"
+            exit 1
+          fi
+          echo "MONGO_URI is set (length: ${#MONGO_URI})"
+        continue-on-error: false
+
       - name: Checkout
         uses: actions/checkout@v4
 
